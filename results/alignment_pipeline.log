@@ -1,0 +1,1489 @@
+2025-01-03 03:09:00 [INFO] Pipeline inicializado - Avaliação de alinhamentos múltiplos
+2025-01-03 03:09:00 [INFO] Implementa SP bruto/normalizado e WSP (Gotoh 1994) bruto/normalizado
+2025-01-03 03:09:00 [INFO] Dir entradas: /dados/home/tesla-dados/multione/BAliBASE/RV30
+2025-01-03 03:09:00 [INFO] Dir referências: /dados/home/tesla-dados/multione/BAliBASE/RV30
+2025-01-03 03:09:00 [INFO] Dir resultados: /dados/home/tesla-dados/multione/results
+2025-01-03 03:09:00 [INFO] 
+Iniciando processamento de 60 arquivos FASTA
+2025-01-03 03:09:00 [INFO] 
+Processando 1/60: BBS30026.tfa
+2025-01-03 03:09:00 [INFO] [CLUSTALW] Gerando alinhamento: BBS30026.tfa -> BBS30026_clustalw.aln
+2025-01-03 03:09:03 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30026_clustalw.aln
+2025-01-03 03:09:03 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30026.tfa
+2025-01-03 03:09:14 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30026_muscle.aln
+2025-01-03 03:09:14 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:09:14 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30026_muscle.aln
+2025-01-03 03:09:14 [INFO] [BAliBASE] Referência já convertida: BBS30026.msf
+2025-01-03 03:09:14 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30026_clustalw.aln
+2025-01-03 03:09:24 [INFO] Scores calculados:
+2025-01-03 03:09:24 [INFO]   SP  - Bruto: 240606.0000, Normalizado [0,1]: 0.1727
+2025-01-03 03:09:24 [INFO]   WSP - Bruto: 284.2309, Normalizado [0,1]: 0.7146
+2025-01-03 03:09:24 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30026_muscle.aln
+2025-01-03 03:09:37 [INFO] Scores calculados:
+2025-01-03 03:09:37 [INFO]   SP  - Bruto: 263953.0000, Normalizado [0,1]: 0.1473
+2025-01-03 03:09:37 [INFO]   WSP - Bruto: 364.9818, Normalizado [0,1]: 0.8091
+2025-01-03 03:09:37 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30026.aln
+2025-01-03 03:09:47 [INFO] Scores calculados:
+2025-01-03 03:09:47 [INFO]   SP  - Bruto: 257712.0000, Normalizado [0,1]: 0.1752
+2025-01-03 03:09:47 [INFO]   WSP - Bruto: 275.0081, Normalizado [0,1]: 0.7274
+2025-01-03 03:09:47 [INFO] 
+Processando 2/60: BB30002.tfa
+2025-01-03 03:09:47 [INFO] [CLUSTALW] Gerando alinhamento: BB30002.tfa -> BB30002_clustalw.aln
+2025-01-03 03:09:49 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30002_clustalw.aln
+2025-01-03 03:09:49 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30002.tfa
+2025-01-03 03:09:52 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30002_muscle.aln
+2025-01-03 03:09:52 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:09:52 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30002_muscle.aln
+2025-01-03 03:09:52 [INFO] [BAliBASE] Referência já convertida: BB30002.msf
+2025-01-03 03:09:52 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30002_clustalw.aln
+2025-01-03 03:09:56 [INFO] Scores calculados:
+2025-01-03 03:09:56 [INFO]   SP  - Bruto: 54698.0000, Normalizado [0,1]: 0.1343
+2025-01-03 03:09:56 [INFO]   WSP - Bruto: 327.7367, Normalizado [0,1]: 0.8323
+2025-01-03 03:09:56 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30002_muscle.aln
+2025-01-03 03:10:02 [INFO] Scores calculados:
+2025-01-03 03:10:02 [INFO]   SP  - Bruto: 62344.0000, Normalizado [0,1]: 0.1114
+2025-01-03 03:10:02 [INFO]   WSP - Bruto: 508.5811, Normalizado [0,1]: 0.9091
+2025-01-03 03:10:02 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30002.aln
+2025-01-03 03:10:08 [INFO] Scores calculados:
+2025-01-03 03:10:08 [INFO]   SP  - Bruto: 58490.0000, Normalizado [0,1]: 0.1234
+2025-01-03 03:10:08 [INFO]   WSP - Bruto: 441.9950, Normalizado [0,1]: 0.8320
+2025-01-03 03:10:08 [INFO] 
+Processando 3/60: BB30019.tfa
+2025-01-03 03:10:08 [INFO] [CLUSTALW] Gerando alinhamento: BB30019.tfa -> BB30019_clustalw.aln
+2025-01-03 03:10:08 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30019_clustalw.aln
+2025-01-03 03:10:08 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30019.tfa
+2025-01-03 03:10:11 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30019_muscle.aln
+2025-01-03 03:10:11 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:10:11 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30019_muscle.aln
+2025-01-03 03:10:11 [INFO] [BAliBASE] Referência já convertida: BB30019.msf
+2025-01-03 03:10:11 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30019_clustalw.aln
+2025-01-03 03:10:16 [INFO] Scores calculados:
+2025-01-03 03:10:16 [INFO]   SP  - Bruto: 38129.0000, Normalizado [0,1]: 0.0735
+2025-01-03 03:10:16 [INFO]   WSP - Bruto: 559.5342, Normalizado [0,1]: 0.8261
+2025-01-03 03:10:16 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30019_muscle.aln
+2025-01-03 03:10:24 [INFO] Scores calculados:
+2025-01-03 03:10:24 [INFO]   SP  - Bruto: 42190.0000, Normalizado [0,1]: 0.0558
+2025-01-03 03:10:24 [INFO]   WSP - Bruto: 916.9011, Normalizado [0,1]: 0.9249
+2025-01-03 03:10:24 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30019.aln
+2025-01-03 03:10:29 [INFO] Scores calculados:
+2025-01-03 03:10:29 [INFO]   SP  - Bruto: 39368.0000, Normalizado [0,1]: 0.0750
+2025-01-03 03:10:29 [INFO]   WSP - Bruto: 493.4225, Normalizado [0,1]: 0.8831
+2025-01-03 03:10:29 [INFO] 
+Processando 4/60: BB30011.tfa
+2025-01-03 03:10:29 [INFO] [CLUSTALW] Gerando alinhamento: BB30011.tfa -> BB30011_clustalw.aln
+2025-01-03 03:10:31 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30011_clustalw.aln
+2025-01-03 03:10:31 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30011.tfa
+2025-01-03 03:10:36 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30011_muscle.aln
+2025-01-03 03:10:36 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:10:36 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30011_muscle.aln
+2025-01-03 03:10:36 [INFO] [BAliBASE] Referência já convertida: BB30011.msf
+2025-01-03 03:10:36 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30011_clustalw.aln
+2025-01-03 03:10:43 [INFO] Scores calculados:
+2025-01-03 03:10:43 [INFO]   SP  - Bruto: 214233.0000, Normalizado [0,1]: 0.2124
+2025-01-03 03:10:43 [INFO]   WSP - Bruto: 284.5820, Normalizado [0,1]: 0.8155
+2025-01-03 03:10:43 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30011_muscle.aln
+2025-01-03 03:10:53 [INFO] Scores calculados:
+2025-01-03 03:10:53 [INFO]   SP  - Bruto: 218788.0000, Normalizado [0,1]: 0.1786
+2025-01-03 03:10:53 [INFO]   WSP - Bruto: 321.3353, Normalizado [0,1]: 0.8741
+2025-01-03 03:10:53 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30011.aln
+2025-01-03 03:11:00 [INFO] Scores calculados:
+2025-01-03 03:11:00 [INFO]   SP  - Bruto: 216530.0000, Normalizado [0,1]: 0.2116
+2025-01-03 03:11:00 [INFO]   WSP - Bruto: 242.9114, Normalizado [0,1]: 0.8371
+2025-01-03 03:11:00 [INFO] 
+Processando 5/60: BBS30030.tfa
+2025-01-03 03:11:00 [INFO] [CLUSTALW] Gerando alinhamento: BBS30030.tfa -> BBS30030_clustalw.aln
+2025-01-03 03:11:02 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30030_clustalw.aln
+2025-01-03 03:11:02 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30030.tfa
+2025-01-03 03:11:05 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30030_muscle.aln
+2025-01-03 03:11:05 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:11:05 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30030_muscle.aln
+2025-01-03 03:11:05 [INFO] [BAliBASE] Referência já convertida: BBS30030.msf
+2025-01-03 03:11:05 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30030_clustalw.aln
+2025-01-03 03:11:11 [INFO] Scores calculados:
+2025-01-03 03:11:11 [INFO]   SP  - Bruto: 148808.0000, Normalizado [0,1]: 0.2093
+2025-01-03 03:11:11 [INFO]   WSP - Bruto: 112.8777, Normalizado [0,1]: 0.7940
+2025-01-03 03:11:11 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30030_muscle.aln
+2025-01-03 03:11:17 [INFO] Scores calculados:
+2025-01-03 03:11:17 [INFO]   SP  - Bruto: 151405.0000, Normalizado [0,1]: 0.1824
+2025-01-03 03:11:17 [INFO]   WSP - Bruto: 166.8455, Normalizado [0,1]: 0.7727
+2025-01-03 03:11:17 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30030.aln
+2025-01-03 03:11:23 [INFO] Scores calculados:
+2025-01-03 03:11:23 [INFO]   SP  - Bruto: 149023.0000, Normalizado [0,1]: 0.1951
+2025-01-03 03:11:23 [INFO]   WSP - Bruto: 148.3633, Normalizado [0,1]: 0.7218
+2025-01-03 03:11:23 [INFO] 
+Processando 6/60: BBS30008.tfa
+2025-01-03 03:11:23 [INFO] [CLUSTALW] Gerando alinhamento: BBS30008.tfa -> BBS30008_clustalw.aln
+2025-01-03 03:11:24 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30008_clustalw.aln
+2025-01-03 03:11:24 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30008.tfa
+2025-01-03 03:11:27 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30008_muscle.aln
+2025-01-03 03:11:27 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:11:27 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30008_muscle.aln
+2025-01-03 03:11:27 [INFO] [BAliBASE] Referência já convertida: BBS30008.msf
+2025-01-03 03:11:27 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30008_clustalw.aln
+2025-01-03 03:11:30 [INFO] Scores calculados:
+2025-01-03 03:11:30 [INFO]   SP  - Bruto: 81757.0000, Normalizado [0,1]: 0.2732
+2025-01-03 03:11:30 [INFO]   WSP - Bruto: 60.1876, Normalizado [0,1]: 0.8682
+2025-01-03 03:11:30 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30008_muscle.aln
+2025-01-03 03:11:33 [INFO] Scores calculados:
+2025-01-03 03:11:33 [INFO]   SP  - Bruto: 86642.0000, Normalizado [0,1]: 0.2229
+2025-01-03 03:11:33 [INFO]   WSP - Bruto: 132.5380, Normalizado [0,1]: 0.8986
+2025-01-03 03:11:33 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30008.aln
+2025-01-03 03:11:37 [INFO] Scores calculados:
+2025-01-03 03:11:37 [INFO]   SP  - Bruto: 79744.0000, Normalizado [0,1]: 0.2340
+2025-01-03 03:11:37 [INFO]   WSP - Bruto: 98.3586, Normalizado [0,1]: 0.8683
+2025-01-03 03:11:37 [INFO] 
+Processando 7/60: BBS30002.tfa
+2025-01-03 03:11:37 [INFO] [CLUSTALW] Gerando alinhamento: BBS30002.tfa -> BBS30002_clustalw.aln
+2025-01-03 03:11:38 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30002_clustalw.aln
+2025-01-03 03:11:38 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30002.tfa
+2025-01-03 03:11:40 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30002_muscle.aln
+2025-01-03 03:11:40 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:11:40 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30002_muscle.aln
+2025-01-03 03:11:40 [INFO] [BAliBASE] Referência já convertida: BBS30002.msf
+2025-01-03 03:11:40 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30002_clustalw.aln
+2025-01-03 03:11:44 [INFO] Scores calculados:
+2025-01-03 03:11:44 [INFO]   SP  - Bruto: 56946.0000, Normalizado [0,1]: 0.1749
+2025-01-03 03:11:44 [INFO]   WSP - Bruto: 246.8300, Normalizado [0,1]: 0.8089
+2025-01-03 03:11:44 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30002_muscle.aln
+2025-01-03 03:11:48 [INFO] Scores calculados:
+2025-01-03 03:11:48 [INFO]   SP  - Bruto: 60170.0000, Normalizado [0,1]: 0.1696
+2025-01-03 03:11:48 [INFO]   WSP - Bruto: 279.5776, Normalizado [0,1]: 0.8499
+2025-01-03 03:11:48 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30002.aln
+2025-01-03 03:11:51 [INFO] Scores calculados:
+2025-01-03 03:11:51 [INFO]   SP  - Bruto: 57202.0000, Normalizado [0,1]: 0.1775
+2025-01-03 03:11:51 [INFO]   WSP - Bruto: 284.7367, Normalizado [0,1]: 0.8040
+2025-01-03 03:11:51 [INFO] 
+Processando 8/60: BBS30018.tfa
+2025-01-03 03:11:51 [INFO] [CLUSTALW] Gerando alinhamento: BBS30018.tfa -> BBS30018_clustalw.aln
+2025-01-03 03:11:53 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30018_clustalw.aln
+2025-01-03 03:11:53 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30018.tfa
+2025-01-03 03:11:59 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30018_muscle.aln
+2025-01-03 03:11:59 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:11:59 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30018_muscle.aln
+2025-01-03 03:11:59 [INFO] [BAliBASE] Referência já convertida: BBS30018.msf
+2025-01-03 03:11:59 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30018_clustalw.aln
+2025-01-03 03:12:06 [INFO] Scores calculados:
+2025-01-03 03:12:06 [INFO]   SP  - Bruto: 361085.0000, Normalizado [0,1]: 0.3506
+2025-01-03 03:12:06 [INFO]   WSP - Bruto: 124.3635, Normalizado [0,1]: 0.8304
+2025-01-03 03:12:06 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30018_muscle.aln
+2025-01-03 03:12:14 [INFO] Scores calculados:
+2025-01-03 03:12:14 [INFO]   SP  - Bruto: 366909.0000, Normalizado [0,1]: 0.3258
+2025-01-03 03:12:14 [INFO]   WSP - Bruto: 141.7268, Normalizado [0,1]: 0.8557
+2025-01-03 03:12:14 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30018.aln
+2025-01-03 03:12:22 [INFO] Scores calculados:
+2025-01-03 03:12:22 [INFO]   SP  - Bruto: 364587.0000, Normalizado [0,1]: 0.3430
+2025-01-03 03:12:22 [INFO]   WSP - Bruto: 131.3857, Normalizado [0,1]: 0.8363
+2025-01-03 03:12:22 [INFO] 
+Processando 9/60: BB30021.tfa
+2025-01-03 03:12:22 [INFO] [CLUSTALW] Gerando alinhamento: BB30021.tfa -> BB30021_clustalw.aln
+2025-01-03 03:12:25 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30021_clustalw.aln
+2025-01-03 03:12:25 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30021.tfa
+2025-01-03 03:13:26 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30021_muscle.aln
+2025-01-03 03:13:26 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:13:26 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30021_muscle.aln
+2025-01-03 03:13:26 [INFO] [BAliBASE] Referência já convertida: BB30021.msf
+2025-01-03 03:13:26 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30021_clustalw.aln
+2025-01-03 03:14:02 [INFO] Scores calculados:
+2025-01-03 03:14:02 [INFO]   SP  - Bruto: 395099.0000, Normalizado [0,1]: 0.0686
+2025-01-03 03:14:02 [INFO]   WSP - Bruto: 867.9178, Normalizado [0,1]: 0.9622
+2025-01-03 03:14:02 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30021_muscle.aln
+2025-01-03 03:14:48 [INFO] Scores calculados:
+2025-01-03 03:14:48 [INFO]   SP  - Bruto: 433101.0000, Normalizado [0,1]: 0.0574
+2025-01-03 03:14:48 [INFO]   WSP - Bruto: 1131.7221, Normalizado [0,1]: 1.0062
+2025-01-03 03:14:48 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30021.aln
+2025-01-03 03:15:26 [INFO] Scores calculados:
+2025-01-03 03:15:26 [INFO]   SP  - Bruto: 403997.0000, Normalizado [0,1]: 0.0658
+2025-01-03 03:15:26 [INFO]   WSP - Bruto: 1026.8345, Normalizado [0,1]: 0.9691
+2025-01-03 03:15:26 [INFO] 
+Processando 10/60: BBS30004.tfa
+2025-01-03 03:15:26 [INFO] [CLUSTALW] Gerando alinhamento: BBS30004.tfa -> BBS30004_clustalw.aln
+2025-01-03 03:15:28 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30004_clustalw.aln
+2025-01-03 03:15:28 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30004.tfa
+2025-01-03 03:15:31 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30004_muscle.aln
+2025-01-03 03:15:31 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:15:31 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30004_muscle.aln
+2025-01-03 03:15:31 [INFO] [BAliBASE] Referência já convertida: BBS30004.msf
+2025-01-03 03:15:31 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30004_clustalw.aln
+2025-01-03 03:15:37 [INFO] Scores calculados:
+2025-01-03 03:15:37 [INFO]   SP  - Bruto: 148741.0000, Normalizado [0,1]: 0.2381
+2025-01-03 03:15:37 [INFO]   WSP - Bruto: 48.5065, Normalizado [0,1]: 0.6221
+2025-01-03 03:15:37 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30004_muscle.aln
+2025-01-03 03:15:42 [INFO] Scores calculados:
+2025-01-03 03:15:42 [INFO]   SP  - Bruto: 151567.0000, Normalizado [0,1]: 0.2213
+2025-01-03 03:15:42 [INFO]   WSP - Bruto: 56.8621, Normalizado [0,1]: 0.6566
+2025-01-03 03:15:42 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30004.aln
+2025-01-03 03:15:48 [INFO] Scores calculados:
+2025-01-03 03:15:48 [INFO]   SP  - Bruto: 150084.0000, Normalizado [0,1]: 0.2407
+2025-01-03 03:15:48 [INFO]   WSP - Bruto: 48.8718, Normalizado [0,1]: 0.6162
+2025-01-03 03:15:48 [INFO] 
+Processando 11/60: BB30028.tfa
+2025-01-03 03:15:48 [INFO] [CLUSTALW] Gerando alinhamento: BB30028.tfa -> BB30028_clustalw.aln
+2025-01-03 03:15:54 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30028_clustalw.aln
+2025-01-03 03:15:54 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30028.tfa
+2025-01-03 03:16:11 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30028_muscle.aln
+2025-01-03 03:16:11 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:16:11 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30028_muscle.aln
+2025-01-03 03:16:11 [INFO] [BAliBASE] Referência já convertida: BB30028.msf
+2025-01-03 03:16:11 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30028_clustalw.aln
+2025-01-03 03:16:26 [INFO] Scores calculados:
+2025-01-03 03:16:26 [INFO]   SP  - Bruto: 743517.0000, Normalizado [0,1]: 0.3503
+2025-01-03 03:16:26 [INFO]   WSP - Bruto: 303.9756, Normalizado [0,1]: 0.8433
+2025-01-03 03:16:26 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30028_muscle.aln
+2025-01-03 03:16:44 [INFO] Scores calculados:
+2025-01-03 03:16:44 [INFO]   SP  - Bruto: 761275.0000, Normalizado [0,1]: 0.2842
+2025-01-03 03:16:44 [INFO]   WSP - Bruto: 432.4598, Normalizado [0,1]: 0.9043
+2025-01-03 03:16:44 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30028.aln
+2025-01-03 03:17:00 [INFO] Scores calculados:
+2025-01-03 03:17:00 [INFO]   SP  - Bruto: 751199.0000, Normalizado [0,1]: 0.3354
+2025-01-03 03:17:00 [INFO]   WSP - Bruto: 327.9178, Normalizado [0,1]: 0.8563
+2025-01-03 03:17:00 [INFO] 
+Processando 12/60: BBS30022.tfa
+2025-01-03 03:17:00 [INFO] [CLUSTALW] Gerando alinhamento: BBS30022.tfa -> BBS30022_clustalw.aln
+2025-01-03 03:17:00 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30022_clustalw.aln
+2025-01-03 03:17:00 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30022.tfa
+2025-01-03 03:17:01 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30022_muscle.aln
+2025-01-03 03:17:01 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:17:01 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30022_muscle.aln
+2025-01-03 03:17:01 [INFO] [BAliBASE] Referência já convertida: BBS30022.msf
+2025-01-03 03:17:01 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30022_clustalw.aln
+2025-01-03 03:17:03 [INFO] Scores calculados:
+2025-01-03 03:17:03 [INFO]   SP  - Bruto: 75709.0000, Normalizado [0,1]: 0.2779
+2025-01-03 03:17:03 [INFO]   WSP - Bruto: 55.0823, Normalizado [0,1]: 0.7913
+2025-01-03 03:17:03 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30022_muscle.aln
+2025-01-03 03:17:05 [INFO] Scores calculados:
+2025-01-03 03:17:05 [INFO]   SP  - Bruto: 78447.0000, Normalizado [0,1]: 0.2612
+2025-01-03 03:17:05 [INFO]   WSP - Bruto: 61.2018, Normalizado [0,1]: 0.8253
+2025-01-03 03:17:05 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30022.aln
+2025-01-03 03:17:07 [INFO] Scores calculados:
+2025-01-03 03:17:07 [INFO]   SP  - Bruto: 77247.0000, Normalizado [0,1]: 0.2749
+2025-01-03 03:17:07 [INFO]   WSP - Bruto: 55.5421, Normalizado [0,1]: 0.8055
+2025-01-03 03:17:07 [INFO] 
+Processando 13/60: BBS30016.tfa
+2025-01-03 03:17:07 [INFO] [CLUSTALW] Gerando alinhamento: BBS30016.tfa -> BBS30016_clustalw.aln
+2025-01-03 03:17:07 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30016_clustalw.aln
+2025-01-03 03:17:07 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30016.tfa
+2025-01-03 03:17:08 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30016_muscle.aln
+2025-01-03 03:17:08 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:17:08 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30016_muscle.aln
+2025-01-03 03:17:08 [INFO] [BAliBASE] Referência já convertida: BBS30016.msf
+2025-01-03 03:17:08 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30016_clustalw.aln
+2025-01-03 03:17:08 [INFO] Scores calculados:
+2025-01-03 03:17:08 [INFO]   SP  - Bruto: 14379.0000, Normalizado [0,1]: 0.3084
+2025-01-03 03:17:08 [INFO]   WSP - Bruto: 12.9960, Normalizado [0,1]: 0.7070
+2025-01-03 03:17:08 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30016_muscle.aln
+2025-01-03 03:17:09 [INFO] Scores calculados:
+2025-01-03 03:17:09 [INFO]   SP  - Bruto: 14770.0000, Normalizado [0,1]: 0.3214
+2025-01-03 03:17:09 [INFO]   WSP - Bruto: 12.7207, Normalizado [0,1]: 0.7004
+2025-01-03 03:17:09 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30016.aln
+2025-01-03 03:17:09 [INFO] Scores calculados:
+2025-01-03 03:17:09 [INFO]   SP  - Bruto: 14620.0000, Normalizado [0,1]: 0.3181
+2025-01-03 03:17:09 [INFO]   WSP - Bruto: 12.6965, Normalizado [0,1]: 0.7004
+2025-01-03 03:17:09 [INFO] 
+Processando 14/60: BBS30013.tfa
+2025-01-03 03:17:09 [INFO] [CLUSTALW] Gerando alinhamento: BBS30013.tfa -> BBS30013_clustalw.aln
+2025-01-03 03:17:14 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30013_clustalw.aln
+2025-01-03 03:17:14 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30013.tfa
+2025-01-03 03:17:38 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30013_muscle.aln
+2025-01-03 03:17:38 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:17:38 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30013_muscle.aln
+2025-01-03 03:17:38 [INFO] [BAliBASE] Referência já convertida: BBS30013.msf
+2025-01-03 03:17:38 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30013_clustalw.aln
+2025-01-03 03:17:52 [INFO] Scores calculados:
+2025-01-03 03:17:52 [INFO]   SP  - Bruto: 416289.0000, Normalizado [0,1]: 0.1998
+2025-01-03 03:17:52 [INFO]   WSP - Bruto: 267.4207, Normalizado [0,1]: 0.8097
+2025-01-03 03:17:52 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30013_muscle.aln
+2025-01-03 03:18:10 [INFO] Scores calculados:
+2025-01-03 03:18:10 [INFO]   SP  - Bruto: 432443.0000, Normalizado [0,1]: 0.1657
+2025-01-03 03:18:10 [INFO]   WSP - Bruto: 369.5882, Normalizado [0,1]: 0.8686
+2025-01-03 03:18:10 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30013.aln
+2025-01-03 03:18:25 [INFO] Scores calculados:
+2025-01-03 03:18:25 [INFO]   SP  - Bruto: 420472.0000, Normalizado [0,1]: 0.1933
+2025-01-03 03:18:25 [INFO]   WSP - Bruto: 235.1743, Normalizado [0,1]: 0.8404
+2025-01-03 03:18:25 [INFO] 
+Processando 15/60: BBS30005.tfa
+2025-01-03 03:18:25 [INFO] [CLUSTALW] Gerando alinhamento: BBS30005.tfa -> BBS30005_clustalw.aln
+2025-01-03 03:18:28 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30005_clustalw.aln
+2025-01-03 03:18:28 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30005.tfa
+2025-01-03 03:18:37 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30005_muscle.aln
+2025-01-03 03:18:37 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:18:37 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30005_muscle.aln
+2025-01-03 03:18:37 [INFO] [BAliBASE] Referência já convertida: BBS30005.msf
+2025-01-03 03:18:37 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30005_clustalw.aln
+2025-01-03 03:18:51 [INFO] Scores calculados:
+2025-01-03 03:18:51 [INFO]   SP  - Bruto: 455321.0000, Normalizado [0,1]: 0.2344
+2025-01-03 03:18:51 [INFO]   WSP - Bruto: 241.1966, Normalizado [0,1]: 0.7303
+2025-01-03 03:18:51 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30005_muscle.aln
+2025-01-03 03:19:05 [INFO] Scores calculados:
+2025-01-03 03:19:05 [INFO]   SP  - Bruto: 463774.0000, Normalizado [0,1]: 0.2156
+2025-01-03 03:19:05 [INFO]   WSP - Bruto: 272.1987, Normalizado [0,1]: 0.7862
+2025-01-03 03:19:05 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30005.aln
+2025-01-03 03:19:18 [INFO] Scores calculados:
+2025-01-03 03:19:18 [INFO]   SP  - Bruto: 460919.0000, Normalizado [0,1]: 0.2305
+2025-01-03 03:19:18 [INFO]   WSP - Bruto: 256.3058, Normalizado [0,1]: 0.7433
+2025-01-03 03:19:18 [INFO] 
+Processando 16/60: BBS30003.tfa
+2025-01-03 03:19:18 [INFO] [CLUSTALW] Gerando alinhamento: BBS30003.tfa -> BBS30003_clustalw.aln
+2025-01-03 03:19:25 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30003_clustalw.aln
+2025-01-03 03:19:25 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30003.tfa
+2025-01-03 03:21:22 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30003_muscle.aln
+2025-01-03 03:21:22 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:21:22 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30003_muscle.aln
+2025-01-03 03:21:22 [INFO] [BAliBASE] Referência já convertida: BBS30003.msf
+2025-01-03 03:21:22 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30003_clustalw.aln
+2025-01-03 03:21:51 [INFO] Scores calculados:
+2025-01-03 03:21:51 [INFO]   SP  - Bruto: 584732.0000, Normalizado [0,1]: 0.1237
+2025-01-03 03:21:51 [INFO]   WSP - Bruto: 691.4123, Normalizado [0,1]: 0.7505
+2025-01-03 03:21:51 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30003_muscle.aln
+2025-01-03 03:22:39 [INFO] Scores calculados:
+2025-01-03 03:22:39 [INFO]   SP  - Bruto: 653370.0000, Normalizado [0,1]: 0.0838
+2025-01-03 03:22:39 [INFO]   WSP - Bruto: 1142.6933, Normalizado [0,1]: 0.9245
+2025-01-03 03:22:39 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30003.aln
+2025-01-03 03:23:11 [INFO] Scores calculados:
+2025-01-03 03:23:11 [INFO]   SP  - Bruto: 617664.0000, Normalizado [0,1]: 0.1200
+2025-01-03 03:23:11 [INFO]   WSP - Bruto: 794.0715, Normalizado [0,1]: 0.7722
+2025-01-03 03:23:11 [INFO] 
+Processando 17/60: BB30027.tfa
+2025-01-03 03:23:11 [INFO] [CLUSTALW] Gerando alinhamento: BB30027.tfa -> BB30027_clustalw.aln
+2025-01-03 03:23:12 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30027_clustalw.aln
+2025-01-03 03:23:12 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30027.tfa
+2025-01-03 03:23:12 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30027_muscle.aln
+2025-01-03 03:23:12 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:23:12 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30027_muscle.aln
+2025-01-03 03:23:12 [INFO] [BAliBASE] Referência já convertida: BB30027.msf
+2025-01-03 03:23:12 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30027_clustalw.aln
+2025-01-03 03:23:12 [INFO] Scores calculados:
+2025-01-03 03:23:12 [INFO]   SP  - Bruto: 4779.0000, Normalizado [0,1]: 0.1066
+2025-01-03 03:23:12 [INFO]   WSP - Bruto: 42.5614, Normalizado [0,1]: 0.9399
+2025-01-03 03:23:12 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30027_muscle.aln
+2025-01-03 03:23:13 [INFO] Scores calculados:
+2025-01-03 03:23:13 [INFO]   SP  - Bruto: 4910.0000, Normalizado [0,1]: 0.0910
+2025-01-03 03:23:13 [INFO]   WSP - Bruto: 54.9227, Normalizado [0,1]: 0.9664
+2025-01-03 03:23:13 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30027.aln
+2025-01-03 03:23:14 [INFO] Scores calculados:
+2025-01-03 03:23:14 [INFO]   SP  - Bruto: 4729.0000, Normalizado [0,1]: 0.1041
+2025-01-03 03:23:14 [INFO]   WSP - Bruto: 37.9311, Normalizado [0,1]: 0.9018
+2025-01-03 03:23:14 [INFO] 
+Processando 18/60: BB30018.tfa
+2025-01-03 03:23:14 [INFO] [CLUSTALW] Gerando alinhamento: BB30018.tfa -> BB30018_clustalw.aln
+2025-01-03 03:23:18 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30018_clustalw.aln
+2025-01-03 03:23:18 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30018.tfa
+2025-01-03 03:23:36 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30018_muscle.aln
+2025-01-03 03:23:36 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:23:36 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30018_muscle.aln
+2025-01-03 03:23:36 [INFO] [BAliBASE] Referência já convertida: BB30018.msf
+2025-01-03 03:23:36 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30018_clustalw.aln
+2025-01-03 03:23:52 [INFO] Scores calculados:
+2025-01-03 03:23:52 [INFO]   SP  - Bruto: 449024.0000, Normalizado [0,1]: 0.1898
+2025-01-03 03:23:52 [INFO]   WSP - Bruto: 462.5769, Normalizado [0,1]: 0.9002
+2025-01-03 03:23:52 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30018_muscle.aln
+2025-01-03 03:24:15 [INFO] Scores calculados:
+2025-01-03 03:24:15 [INFO]   SP  - Bruto: 464400.0000, Normalizado [0,1]: 0.1444
+2025-01-03 03:24:15 [INFO]   WSP - Bruto: 619.7538, Normalizado [0,1]: 0.9642
+2025-01-03 03:24:15 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30018.aln
+2025-01-03 03:24:33 [INFO] Scores calculados:
+2025-01-03 03:24:33 [INFO]   SP  - Bruto: 456890.0000, Normalizado [0,1]: 0.1835
+2025-01-03 03:24:33 [INFO]   WSP - Bruto: 485.7296, Normalizado [0,1]: 0.9075
+2025-01-03 03:24:33 [INFO] 
+Processando 19/60: BB30024.tfa
+2025-01-03 03:24:33 [INFO] [CLUSTALW] Gerando alinhamento: BB30024.tfa -> BB30024_clustalw.aln
+2025-01-03 03:24:37 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30024_clustalw.aln
+2025-01-03 03:24:37 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30024.tfa
+2025-01-03 03:25:03 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30024_muscle.aln
+2025-01-03 03:25:03 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:25:03 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30024_muscle.aln
+2025-01-03 03:25:03 [INFO] [BAliBASE] Referência já convertida: BB30024.msf
+2025-01-03 03:25:03 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30024_clustalw.aln
+2025-01-03 03:25:25 [INFO] Scores calculados:
+2025-01-03 03:25:25 [INFO]   SP  - Bruto: 201467.0000, Normalizado [0,1]: 0.0707
+2025-01-03 03:25:25 [INFO]   WSP - Bruto: 1104.8431, Normalizado [0,1]: 0.9412
+2025-01-03 03:25:25 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30024_muscle.aln
+2025-01-03 03:25:50 [INFO] Scores calculados:
+2025-01-03 03:25:50 [INFO]   SP  - Bruto: 219859.0000, Normalizado [0,1]: 0.0646
+2025-01-03 03:25:50 [INFO]   WSP - Bruto: 1347.7373, Normalizado [0,1]: 0.9794
+2025-01-03 03:25:50 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30024.aln
+2025-01-03 03:26:11 [INFO] Scores calculados:
+2025-01-03 03:26:11 [INFO]   SP  - Bruto: 204459.0000, Normalizado [0,1]: 0.0717
+2025-01-03 03:26:11 [INFO]   WSP - Bruto: 1037.8498, Normalizado [0,1]: 0.9331
+2025-01-03 03:26:11 [INFO] 
+Processando 20/60: BBS30009.tfa
+2025-01-03 03:26:11 [INFO] [CLUSTALW] Gerando alinhamento: BBS30009.tfa -> BBS30009_clustalw.aln
+2025-01-03 03:26:11 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30009_clustalw.aln
+2025-01-03 03:26:11 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30009.tfa
+2025-01-03 03:26:11 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30009_muscle.aln
+2025-01-03 03:26:11 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:26:11 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30009_muscle.aln
+2025-01-03 03:26:11 [INFO] [BAliBASE] Referência já convertida: BBS30009.msf
+2025-01-03 03:26:11 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30009_clustalw.aln
+2025-01-03 03:26:12 [INFO] Scores calculados:
+2025-01-03 03:26:12 [INFO]   SP  - Bruto: 14293.0000, Normalizado [0,1]: 0.2711
+2025-01-03 03:26:12 [INFO]   WSP - Bruto: 12.6240, Normalizado [0,1]: 0.8632
+2025-01-03 03:26:12 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30009_muscle.aln
+2025-01-03 03:26:12 [INFO] Scores calculados:
+2025-01-03 03:26:12 [INFO]   SP  - Bruto: 14310.0000, Normalizado [0,1]: 0.2262
+2025-01-03 03:26:12 [INFO]   WSP - Bruto: 14.6969, Normalizado [0,1]: 0.9054
+2025-01-03 03:26:12 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30009.aln
+2025-01-03 03:26:13 [INFO] Scores calculados:
+2025-01-03 03:26:13 [INFO]   SP  - Bruto: 14049.0000, Normalizado [0,1]: 0.2701
+2025-01-03 03:26:13 [INFO]   WSP - Bruto: 12.1549, Normalizado [0,1]: 0.8576
+2025-01-03 03:26:13 [INFO] 
+Processando 21/60: BB30020.tfa
+2025-01-03 03:26:13 [INFO] [CLUSTALW] Gerando alinhamento: BB30020.tfa -> BB30020_clustalw.aln
+2025-01-03 03:26:13 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30020_clustalw.aln
+2025-01-03 03:26:13 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30020.tfa
+2025-01-03 03:26:15 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30020_muscle.aln
+2025-01-03 03:26:15 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:26:15 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30020_muscle.aln
+2025-01-03 03:26:15 [INFO] [BAliBASE] Referência já convertida: BB30020.msf
+2025-01-03 03:26:15 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30020_clustalw.aln
+2025-01-03 03:26:26 [INFO] Scores calculados:
+2025-01-03 03:26:26 [INFO]   SP  - Bruto: 35167.0000, Normalizado [0,1]: 0.0264
+2025-01-03 03:26:26 [INFO]   WSP - Bruto: 440.5625, Normalizado [0,1]: 1.0328
+2025-01-03 03:26:26 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30020_muscle.aln
+2025-01-03 03:26:47 [INFO] Scores calculados:
+2025-01-03 03:26:47 [INFO]   SP  - Bruto: 37516.0000, Normalizado [0,1]: 0.0140
+2025-01-03 03:26:47 [INFO]   WSP - Bruto: 965.8504, Normalizado [0,1]: 1.0863
+2025-01-03 03:26:47 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30020.aln
+2025-01-03 03:26:59 [INFO] Scores calculados:
+2025-01-03 03:26:59 [INFO]   SP  - Bruto: 35133.0000, Normalizado [0,1]: 0.0231
+2025-01-03 03:26:59 [INFO]   WSP - Bruto: 610.7381, Normalizado [0,1]: 0.9432
+2025-01-03 03:26:59 [INFO] 
+Processando 22/60: BB30006.tfa
+2025-01-03 03:26:59 [INFO] [CLUSTALW] Gerando alinhamento: BB30006.tfa -> BB30006_clustalw.aln
+2025-01-03 03:27:00 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30006_clustalw.aln
+2025-01-03 03:27:00 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30006.tfa
+2025-01-03 03:27:00 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30006_muscle.aln
+2025-01-03 03:27:00 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:27:00 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30006_muscle.aln
+2025-01-03 03:27:00 [INFO] [BAliBASE] Referência já convertida: BB30006.msf
+2025-01-03 03:27:00 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30006_clustalw.aln
+2025-01-03 03:27:03 [INFO] Scores calculados:
+2025-01-03 03:27:03 [INFO]   SP  - Bruto: 6279.0000, Normalizado [0,1]: 0.0430
+2025-01-03 03:27:03 [INFO]   WSP - Bruto: 507.6980, Normalizado [0,1]: 0.9665
+2025-01-03 03:27:03 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30006_muscle.aln
+2025-01-03 03:27:05 [INFO] Scores calculados:
+2025-01-03 03:27:05 [INFO]   SP  - Bruto: 6729.0000, Normalizado [0,1]: 0.0413
+2025-01-03 03:27:05 [INFO]   WSP - Bruto: 554.3180, Normalizado [0,1]: 0.9814
+2025-01-03 03:27:05 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30006.aln
+2025-01-03 03:27:07 [INFO] Scores calculados:
+2025-01-03 03:27:07 [INFO]   SP  - Bruto: 6383.0000, Normalizado [0,1]: 0.0433
+2025-01-03 03:27:07 [INFO]   WSP - Bruto: 495.3523, Normalizado [0,1]: 0.9613
+2025-01-03 03:27:07 [INFO] 
+Processando 23/60: BBS30024.tfa
+2025-01-03 03:27:07 [INFO] [CLUSTALW] Gerando alinhamento: BBS30024.tfa -> BBS30024_clustalw.aln
+2025-01-03 03:27:08 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30024_clustalw.aln
+2025-01-03 03:27:08 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30024.tfa
+2025-01-03 03:27:12 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30024_muscle.aln
+2025-01-03 03:27:12 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:27:12 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30024_muscle.aln
+2025-01-03 03:27:12 [INFO] [BAliBASE] Referência já convertida: BBS30024.msf
+2025-01-03 03:27:12 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30024_clustalw.aln
+2025-01-03 03:27:17 [INFO] Scores calculados:
+2025-01-03 03:27:17 [INFO]   SP  - Bruto: 104605.0000, Normalizado [0,1]: 0.1506
+2025-01-03 03:27:17 [INFO]   WSP - Bruto: 204.6429, Normalizado [0,1]: 0.7383
+2025-01-03 03:27:17 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30024_muscle.aln
+2025-01-03 03:27:23 [INFO] Scores calculados:
+2025-01-03 03:27:23 [INFO]   SP  - Bruto: 115074.0000, Normalizado [0,1]: 0.1351
+2025-01-03 03:27:23 [INFO]   WSP - Bruto: 274.2877, Normalizado [0,1]: 0.8204
+2025-01-03 03:27:23 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30024.aln
+2025-01-03 03:27:29 [INFO] Scores calculados:
+2025-01-03 03:27:29 [INFO]   SP  - Bruto: 109784.0000, Normalizado [0,1]: 0.1576
+2025-01-03 03:27:29 [INFO]   WSP - Bruto: 207.6183, Normalizado [0,1]: 0.7126
+2025-01-03 03:27:29 [INFO] 
+Processando 24/60: BBS30011.tfa
+2025-01-03 03:27:29 [INFO] [CLUSTALW] Gerando alinhamento: BBS30011.tfa -> BBS30011_clustalw.aln
+2025-01-03 03:27:30 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30011_clustalw.aln
+2025-01-03 03:27:30 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30011.tfa
+2025-01-03 03:27:34 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30011_muscle.aln
+2025-01-03 03:27:34 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:27:34 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30011_muscle.aln
+2025-01-03 03:27:34 [INFO] [BAliBASE] Referência já convertida: BBS30011.msf
+2025-01-03 03:27:34 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30011_clustalw.aln
+2025-01-03 03:27:40 [INFO] Scores calculados:
+2025-01-03 03:27:40 [INFO]   SP  - Bruto: 210773.0000, Normalizado [0,1]: 0.2920
+2025-01-03 03:27:40 [INFO]   WSP - Bruto: 154.6156, Normalizado [0,1]: 0.7046
+2025-01-03 03:27:40 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30011_muscle.aln
+2025-01-03 03:27:46 [INFO] Scores calculados:
+2025-01-03 03:27:46 [INFO]   SP  - Bruto: 216042.0000, Normalizado [0,1]: 0.2741
+2025-01-03 03:27:46 [INFO]   WSP - Bruto: 163.2849, Normalizado [0,1]: 0.7469
+2025-01-03 03:27:46 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30011.aln
+2025-01-03 03:27:51 [INFO] Scores calculados:
+2025-01-03 03:27:51 [INFO]   SP  - Bruto: 214777.0000, Normalizado [0,1]: 0.2884
+2025-01-03 03:27:51 [INFO]   WSP - Bruto: 151.6651, Normalizado [0,1]: 0.7158
+2025-01-03 03:27:51 [INFO] 
+Processando 25/60: BB30004.tfa
+2025-01-03 03:27:51 [INFO] [CLUSTALW] Gerando alinhamento: BB30004.tfa -> BB30004_clustalw.aln
+2025-01-03 03:27:54 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30004_clustalw.aln
+2025-01-03 03:27:54 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30004.tfa
+2025-01-03 03:28:01 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30004_muscle.aln
+2025-01-03 03:28:01 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:28:01 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30004_muscle.aln
+2025-01-03 03:28:01 [INFO] [BAliBASE] Referência já convertida: BB30004.msf
+2025-01-03 03:28:01 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30004_clustalw.aln
+2025-01-03 03:28:10 [INFO] Scores calculados:
+2025-01-03 03:28:10 [INFO]   SP  - Bruto: 157665.0000, Normalizado [0,1]: 0.1536
+2025-01-03 03:28:10 [INFO]   WSP - Bruto: 113.5006, Normalizado [0,1]: 0.8089
+2025-01-03 03:28:10 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30004_muscle.aln
+2025-01-03 03:28:21 [INFO] Scores calculados:
+2025-01-03 03:28:21 [INFO]   SP  - Bruto: 162608.0000, Normalizado [0,1]: 0.1252
+2025-01-03 03:28:21 [INFO]   WSP - Bruto: 157.6088, Normalizado [0,1]: 0.8751
+2025-01-03 03:28:21 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30004.aln
+2025-01-03 03:28:29 [INFO] Scores calculados:
+2025-01-03 03:28:29 [INFO]   SP  - Bruto: 158850.0000, Normalizado [0,1]: 0.1490
+2025-01-03 03:28:29 [INFO]   WSP - Bruto: 121.3610, Normalizado [0,1]: 0.8192
+2025-01-03 03:28:29 [INFO] 
+Processando 26/60: BB30022.tfa
+2025-01-03 03:28:29 [INFO] [CLUSTALW] Gerando alinhamento: BB30022.tfa -> BB30022_clustalw.aln
+2025-01-03 03:28:30 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30022_clustalw.aln
+2025-01-03 03:28:30 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30022.tfa
+2025-01-03 03:28:31 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30022_muscle.aln
+2025-01-03 03:28:31 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:28:31 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30022_muscle.aln
+2025-01-03 03:28:31 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30022.msf
+2025-01-03 03:28:31 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30022.aln
+2025-01-03 03:28:31 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30022_clustalw.aln
+2025-01-03 03:28:35 [INFO] Scores calculados:
+2025-01-03 03:28:35 [INFO]   SP  - Bruto: 78119.0000, Normalizado [0,1]: 0.1499
+2025-01-03 03:28:35 [INFO]   WSP - Bruto: 123.3843, Normalizado [0,1]: 0.8757
+2025-01-03 03:28:35 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30022_muscle.aln
+2025-01-03 03:28:40 [INFO] Scores calculados:
+2025-01-03 03:28:40 [INFO]   SP  - Bruto: 81839.0000, Normalizado [0,1]: 0.1280
+2025-01-03 03:28:40 [INFO]   WSP - Bruto: 145.5956, Normalizado [0,1]: 0.9123
+2025-01-03 03:28:40 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30022.aln
+2025-01-03 03:28:44 [INFO] Scores calculados:
+2025-01-03 03:28:44 [INFO]   SP  - Bruto: 80523.0000, Normalizado [0,1]: 0.1514
+2025-01-03 03:28:44 [INFO]   WSP - Bruto: 116.0434, Normalizado [0,1]: 0.8705
+2025-01-03 03:28:44 [INFO] 
+Processando 27/60: BB30014.tfa
+2025-01-03 03:28:44 [INFO] [CLUSTALW] Gerando alinhamento: BB30014.tfa -> BB30014_clustalw.aln
+2025-01-03 03:28:44 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30014_clustalw.aln
+2025-01-03 03:28:44 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30014.tfa
+2025-01-03 03:28:46 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30014_muscle.aln
+2025-01-03 03:28:46 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:28:46 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30014_muscle.aln
+2025-01-03 03:28:46 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30014.msf
+2025-01-03 03:28:46 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30014.aln
+2025-01-03 03:28:46 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30014_clustalw.aln
+2025-01-03 03:28:48 [INFO] Scores calculados:
+2025-01-03 03:28:48 [INFO]   SP  - Bruto: 50113.0000, Normalizado [0,1]: 0.1754
+2025-01-03 03:28:48 [INFO]   WSP - Bruto: 111.9582, Normalizado [0,1]: 0.7743
+2025-01-03 03:28:48 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30014_muscle.aln
+2025-01-03 03:28:51 [INFO] Scores calculados:
+2025-01-03 03:28:51 [INFO]   SP  - Bruto: 52106.0000, Normalizado [0,1]: 0.1489
+2025-01-03 03:28:51 [INFO]   WSP - Bruto: 151.4589, Normalizado [0,1]: 0.8429
+2025-01-03 03:28:51 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30014.aln
+2025-01-03 03:28:54 [INFO] Scores calculados:
+2025-01-03 03:28:54 [INFO]   SP  - Bruto: 51717.0000, Normalizado [0,1]: 0.1781
+2025-01-03 03:28:54 [INFO]   WSP - Bruto: 131.1782, Normalizado [0,1]: 0.7625
+2025-01-03 03:28:54 [INFO] 
+Processando 28/60: BBS30019.tfa
+2025-01-03 03:28:54 [INFO] [CLUSTALW] Gerando alinhamento: BBS30019.tfa -> BBS30019_clustalw.aln
+2025-01-03 03:28:54 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30019_clustalw.aln
+2025-01-03 03:28:54 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30019.tfa
+2025-01-03 03:28:55 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30019_muscle.aln
+2025-01-03 03:28:55 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:28:55 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30019_muscle.aln
+2025-01-03 03:28:55 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30019.msf
+2025-01-03 03:28:55 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30019.aln
+2025-01-03 03:28:55 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30019_clustalw.aln
+2025-01-03 03:28:57 [INFO] Scores calculados:
+2025-01-03 03:28:57 [INFO]   SP  - Bruto: 31971.0000, Normalizado [0,1]: 0.2142
+2025-01-03 03:28:57 [INFO]   WSP - Bruto: 92.1968, Normalizado [0,1]: 0.6670
+2025-01-03 03:28:57 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30019_muscle.aln
+2025-01-03 03:28:58 [INFO] Scores calculados:
+2025-01-03 03:28:58 [INFO]   SP  - Bruto: 34552.0000, Normalizado [0,1]: 0.2053
+2025-01-03 03:28:58 [INFO]   WSP - Bruto: 96.0772, Normalizado [0,1]: 0.7494
+2025-01-03 03:28:58 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30019.aln
+2025-01-03 03:29:00 [INFO] Scores calculados:
+2025-01-03 03:29:00 [INFO]   SP  - Bruto: 33125.0000, Normalizado [0,1]: 0.2065
+2025-01-03 03:29:00 [INFO]   WSP - Bruto: 94.9396, Normalizado [0,1]: 0.7026
+2025-01-03 03:29:00 [INFO] 
+Processando 29/60: BBS30012.tfa
+2025-01-03 03:29:00 [INFO] [CLUSTALW] Gerando alinhamento: BBS30012.tfa -> BBS30012_clustalw.aln
+2025-01-03 03:29:02 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30012_clustalw.aln
+2025-01-03 03:29:02 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30012.tfa
+2025-01-03 03:29:08 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30012_muscle.aln
+2025-01-03 03:29:08 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:29:08 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30012_muscle.aln
+2025-01-03 03:29:08 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30012.msf
+2025-01-03 03:29:08 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30012.aln
+2025-01-03 03:29:08 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30012_clustalw.aln
+2025-01-03 03:29:15 [INFO] Scores calculados:
+2025-01-03 03:29:15 [INFO]   SP  - Bruto: 174197.0000, Normalizado [0,1]: 0.1989
+2025-01-03 03:29:15 [INFO]   WSP - Bruto: 233.0772, Normalizado [0,1]: 0.7173
+2025-01-03 03:29:15 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30012_muscle.aln
+2025-01-03 03:29:22 [INFO] Scores calculados:
+2025-01-03 03:29:22 [INFO]   SP  - Bruto: 179772.0000, Normalizado [0,1]: 0.1812
+2025-01-03 03:29:22 [INFO]   WSP - Bruto: 259.7393, Normalizado [0,1]: 0.7716
+2025-01-03 03:29:22 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30012.aln
+2025-01-03 03:29:29 [INFO] Scores calculados:
+2025-01-03 03:29:29 [INFO]   SP  - Bruto: 174265.0000, Normalizado [0,1]: 0.1866
+2025-01-03 03:29:29 [INFO]   WSP - Bruto: 266.7633, Normalizado [0,1]: 0.7397
+2025-01-03 03:29:29 [INFO] 
+Processando 30/60: BB30005.tfa
+2025-01-03 03:29:29 [INFO] [CLUSTALW] Gerando alinhamento: BB30005.tfa -> BB30005_clustalw.aln
+2025-01-03 03:29:40 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30005_clustalw.aln
+2025-01-03 03:29:40 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30005.tfa
+2025-01-03 03:30:31 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30005_muscle.aln
+2025-01-03 03:30:31 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:30:31 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30005_muscle.aln
+2025-01-03 03:30:31 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30005.msf
+2025-01-03 03:30:31 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30005.aln
+2025-01-03 03:30:31 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30005_clustalw.aln
+2025-01-03 03:31:21 [INFO] Scores calculados:
+2025-01-03 03:31:21 [INFO]   SP  - Bruto: 771750.0000, Normalizado [0,1]: 0.1005
+2025-01-03 03:31:21 [INFO]   WSP - Bruto: 1164.0270, Normalizado [0,1]: 0.9228
+2025-01-03 03:31:21 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30005_muscle.aln
+2025-01-03 03:32:19 [INFO] Scores calculados:
+2025-01-03 03:32:19 [INFO]   SP  - Bruto: 806083.0000, Normalizado [0,1]: 0.0862
+2025-01-03 03:32:19 [INFO]   WSP - Bruto: 1510.3474, Normalizado [0,1]: 0.9549
+2025-01-03 03:32:19 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30005.aln
+2025-01-03 03:33:10 [INFO] Scores calculados:
+2025-01-03 03:33:10 [INFO]   SP  - Bruto: 774792.0000, Normalizado [0,1]: 0.0966
+2025-01-03 03:33:10 [INFO]   WSP - Bruto: 1268.2363, Normalizado [0,1]: 0.9196
+2025-01-03 03:33:10 [INFO] 
+Processando 31/60: BBS30015.tfa
+2025-01-03 03:33:10 [INFO] [CLUSTALW] Gerando alinhamento: BBS30015.tfa -> BBS30015_clustalw.aln
+2025-01-03 03:33:10 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30015_clustalw.aln
+2025-01-03 03:33:10 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30015.tfa
+2025-01-03 03:33:10 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30015_muscle.aln
+2025-01-03 03:33:10 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:33:10 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30015_muscle.aln
+2025-01-03 03:33:10 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30015.msf
+2025-01-03 03:33:10 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30015.aln
+2025-01-03 03:33:10 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30015_clustalw.aln
+2025-01-03 03:33:10 [INFO] Scores calculados:
+2025-01-03 03:33:10 [INFO]   SP  - Bruto: 5789.0000, Normalizado [0,1]: 0.2154
+2025-01-03 03:33:10 [INFO]   WSP - Bruto: 14.2694, Normalizado [0,1]: 0.8008
+2025-01-03 03:33:10 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30015_muscle.aln
+2025-01-03 03:33:11 [INFO] Scores calculados:
+2025-01-03 03:33:11 [INFO]   SP  - Bruto: 6254.0000, Normalizado [0,1]: 0.2222
+2025-01-03 03:33:11 [INFO]   WSP - Bruto: 11.1527, Normalizado [0,1]: 0.8201
+2025-01-03 03:33:11 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30015.aln
+2025-01-03 03:33:11 [INFO] Scores calculados:
+2025-01-03 03:33:11 [INFO]   SP  - Bruto: 6270.0000, Normalizado [0,1]: 0.2279
+2025-01-03 03:33:11 [INFO]   WSP - Bruto: 16.4082, Normalizado [0,1]: 0.7746
+2025-01-03 03:33:11 [INFO] 
+Processando 32/60: BBS30006.tfa
+2025-01-03 03:33:11 [INFO] [CLUSTALW] Gerando alinhamento: BBS30006.tfa -> BBS30006_clustalw.aln
+2025-01-03 03:33:11 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30006_clustalw.aln
+2025-01-03 03:33:11 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30006.tfa
+2025-01-03 03:33:11 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30006_muscle.aln
+2025-01-03 03:33:11 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:33:11 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30006_muscle.aln
+2025-01-03 03:33:11 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30006.msf
+2025-01-03 03:33:11 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30006.aln
+2025-01-03 03:33:11 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30006_clustalw.aln
+2025-01-03 03:33:12 [INFO] Scores calculados:
+2025-01-03 03:33:12 [INFO]   SP  - Bruto: 3645.0000, Normalizado [0,1]: 0.1861
+2025-01-03 03:33:12 [INFO]   WSP - Bruto: 28.3017, Normalizado [0,1]: 0.6576
+2025-01-03 03:33:12 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30006_muscle.aln
+2025-01-03 03:33:12 [INFO] Scores calculados:
+2025-01-03 03:33:12 [INFO]   SP  - Bruto: 3679.0000, Normalizado [0,1]: 0.1423
+2025-01-03 03:33:12 [INFO]   WSP - Bruto: 44.6310, Normalizado [0,1]: 0.7607
+2025-01-03 03:33:12 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30006.aln
+2025-01-03 03:33:12 [INFO] Scores calculados:
+2025-01-03 03:33:12 [INFO]   SP  - Bruto: 3550.0000, Normalizado [0,1]: 0.1827
+2025-01-03 03:33:12 [INFO]   WSP - Bruto: 35.9370, Normalizado [0,1]: 0.6145
+2025-01-03 03:33:12 [INFO] 
+Processando 33/60: BB30007.tfa
+2025-01-03 03:33:12 [INFO] [CLUSTALW] Gerando alinhamento: BB30007.tfa -> BB30007_clustalw.aln
+2025-01-03 03:33:12 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30007_clustalw.aln
+2025-01-03 03:33:12 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30007.tfa
+2025-01-03 03:33:13 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30007_muscle.aln
+2025-01-03 03:33:13 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:33:13 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30007_muscle.aln
+2025-01-03 03:33:13 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30007.msf
+2025-01-03 03:33:13 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30007.aln
+2025-01-03 03:33:13 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30007_clustalw.aln
+2025-01-03 03:33:14 [INFO] Scores calculados:
+2025-01-03 03:33:14 [INFO]   SP  - Bruto: 7230.0000, Normalizado [0,1]: 0.0695
+2025-01-03 03:33:14 [INFO]   WSP - Bruto: 106.8277, Normalizado [0,1]: 0.7181
+2025-01-03 03:33:14 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30007_muscle.aln
+2025-01-03 03:33:16 [INFO] Scores calculados:
+2025-01-03 03:33:16 [INFO]   SP  - Bruto: 8301.0000, Normalizado [0,1]: 0.0452
+2025-01-03 03:33:16 [INFO]   WSP - Bruto: 245.7783, Normalizado [0,1]: 0.8940
+2025-01-03 03:33:16 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30007.aln
+2025-01-03 03:33:19 [INFO] Scores calculados:
+2025-01-03 03:33:19 [INFO]   SP  - Bruto: 7937.0000, Normalizado [0,1]: 0.0324
+2025-01-03 03:33:19 [INFO]   WSP - Bruto: 348.3224, Normalizado [0,1]: 0.9589
+2025-01-03 03:33:19 [INFO] 
+Processando 34/60: BBS30017.tfa
+2025-01-03 03:33:19 [INFO] [CLUSTALW] Gerando alinhamento: BBS30017.tfa -> BBS30017_clustalw.aln
+2025-01-03 03:33:19 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30017_clustalw.aln
+2025-01-03 03:33:19 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30017.tfa
+2025-01-03 03:33:20 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30017_muscle.aln
+2025-01-03 03:33:20 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:33:20 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30017_muscle.aln
+2025-01-03 03:33:20 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30017.msf
+2025-01-03 03:33:20 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30017.aln
+2025-01-03 03:33:20 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30017_clustalw.aln
+2025-01-03 03:33:20 [INFO] Scores calculados:
+2025-01-03 03:33:20 [INFO]   SP  - Bruto: 4902.0000, Normalizado [0,1]: 0.1567
+2025-01-03 03:33:20 [INFO]   WSP - Bruto: 45.1126, Normalizado [0,1]: 0.7146
+2025-01-03 03:33:20 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30017_muscle.aln
+2025-01-03 03:33:21 [INFO] Scores calculados:
+2025-01-03 03:33:21 [INFO]   SP  - Bruto: 5585.0000, Normalizado [0,1]: 0.1612
+2025-01-03 03:33:21 [INFO]   WSP - Bruto: 52.8164, Normalizado [0,1]: 0.7555
+2025-01-03 03:33:21 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30017.aln
+2025-01-03 03:33:21 [INFO] Scores calculados:
+2025-01-03 03:33:21 [INFO]   SP  - Bruto: 5410.0000, Normalizado [0,1]: 0.1636
+2025-01-03 03:33:21 [INFO]   WSP - Bruto: 50.9194, Normalizado [0,1]: 0.7328
+2025-01-03 03:33:21 [INFO] 
+Processando 35/60: BB30023.tfa
+2025-01-03 03:33:21 [INFO] [CLUSTALW] Gerando alinhamento: BB30023.tfa -> BB30023_clustalw.aln
+2025-01-03 03:33:23 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30023_clustalw.aln
+2025-01-03 03:33:23 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30023.tfa
+2025-01-03 03:33:36 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30023_muscle.aln
+2025-01-03 03:33:36 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:33:36 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30023_muscle.aln
+2025-01-03 03:33:36 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30023.msf
+2025-01-03 03:33:36 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30023.aln
+2025-01-03 03:33:36 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30023_clustalw.aln
+2025-01-03 03:33:50 [INFO] Scores calculados:
+2025-01-03 03:33:50 [INFO]   SP  - Bruto: 161502.0000, Normalizado [0,1]: 0.0777
+2025-01-03 03:33:50 [INFO]   WSP - Bruto: 1008.3493, Normalizado [0,1]: 0.8535
+2025-01-03 03:33:50 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30023_muscle.aln
+2025-01-03 03:34:10 [INFO] Scores calculados:
+2025-01-03 03:34:10 [INFO]   SP  - Bruto: 180573.0000, Normalizado [0,1]: 0.0652
+2025-01-03 03:34:10 [INFO]   WSP - Bruto: 1391.4039, Normalizado [0,1]: 0.9268
+2025-01-03 03:34:10 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30023.aln
+2025-01-03 03:34:24 [INFO] Scores calculados:
+2025-01-03 03:34:24 [INFO]   SP  - Bruto: 177526.0000, Normalizado [0,1]: 0.0884
+2025-01-03 03:34:24 [INFO]   WSP - Bruto: 957.5761, Normalizado [0,1]: 0.8331
+2025-01-03 03:34:24 [INFO] 
+Processando 36/60: BB30010.tfa
+2025-01-03 03:34:24 [INFO] [CLUSTALW] Gerando alinhamento: BB30010.tfa -> BB30010_clustalw.aln
+2025-01-03 03:34:29 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30010_clustalw.aln
+2025-01-03 03:34:29 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30010.tfa
+2025-01-03 03:34:39 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30010_muscle.aln
+2025-01-03 03:34:39 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:34:39 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30010_muscle.aln
+2025-01-03 03:34:39 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30010.msf
+2025-01-03 03:34:39 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30010.aln
+2025-01-03 03:34:39 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30010_clustalw.aln
+2025-01-03 03:34:53 [INFO] Scores calculados:
+2025-01-03 03:34:53 [INFO]   SP  - Bruto: 318150.0000, Normalizado [0,1]: 0.1954
+2025-01-03 03:34:53 [INFO]   WSP - Bruto: 776.4961, Normalizado [0,1]: 0.9038
+2025-01-03 03:34:53 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30010_muscle.aln
+2025-01-03 03:35:10 [INFO] Scores calculados:
+2025-01-03 03:35:10 [INFO]   SP  - Bruto: 325377.0000, Normalizado [0,1]: 0.1617
+2025-01-03 03:35:10 [INFO]   WSP - Bruto: 1053.0661, Normalizado [0,1]: 0.8571
+2025-01-03 03:35:10 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30010.aln
+2025-01-03 03:35:24 [INFO] Scores calculados:
+2025-01-03 03:35:24 [INFO]   SP  - Bruto: 320849.0000, Normalizado [0,1]: 0.1839
+2025-01-03 03:35:24 [INFO]   WSP - Bruto: 891.8750, Normalizado [0,1]: 0.8129
+2025-01-03 03:35:24 [INFO] 
+Processando 37/60: BB30001.tfa
+2025-01-03 03:35:24 [INFO] [CLUSTALW] Gerando alinhamento: BB30001.tfa -> BB30001_clustalw.aln
+2025-01-03 03:35:35 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30001_clustalw.aln
+2025-01-03 03:35:35 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30001.tfa
+2025-01-03 03:36:36 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30001_muscle.aln
+2025-01-03 03:36:36 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:36:36 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30001_muscle.aln
+2025-01-03 03:36:36 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30001.msf
+2025-01-03 03:36:36 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30001.aln
+2025-01-03 03:36:36 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30001_clustalw.aln
+2025-01-03 03:37:16 [INFO] Scores calculados:
+2025-01-03 03:37:16 [INFO]   SP  - Bruto: 788155.0000, Normalizado [0,1]: 0.1236
+2025-01-03 03:37:16 [INFO]   WSP - Bruto: 961.6936, Normalizado [0,1]: 0.8906
+2025-01-03 03:37:16 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30001_muscle.aln
+2025-01-03 03:38:05 [INFO] Scores calculados:
+2025-01-03 03:38:05 [INFO]   SP  - Bruto: 841630.0000, Normalizado [0,1]: 0.1078
+2025-01-03 03:38:05 [INFO]   WSP - Bruto: 1262.1253, Normalizado [0,1]: 0.9304
+2025-01-03 03:38:05 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30001.aln
+2025-01-03 03:38:45 [INFO] Scores calculados:
+2025-01-03 03:38:45 [INFO]   SP  - Bruto: 817506.0000, Normalizado [0,1]: 0.1292
+2025-01-03 03:38:45 [INFO]   WSP - Bruto: 1063.0242, Normalizado [0,1]: 0.8627
+2025-01-03 03:38:45 [INFO] 
+Processando 38/60: BB30008.tfa
+2025-01-03 03:38:45 [INFO] [CLUSTALW] Gerando alinhamento: BB30008.tfa -> BB30008_clustalw.aln
+2025-01-03 03:38:47 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30008_clustalw.aln
+2025-01-03 03:38:47 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30008.tfa
+2025-01-03 03:38:53 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30008_muscle.aln
+2025-01-03 03:38:53 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:38:53 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30008_muscle.aln
+2025-01-03 03:38:53 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30008.msf
+2025-01-03 03:38:53 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30008.aln
+2025-01-03 03:38:53 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30008_clustalw.aln
+2025-01-03 03:39:00 [INFO] Scores calculados:
+2025-01-03 03:39:00 [INFO]   SP  - Bruto: 87752.0000, Normalizado [0,1]: 0.1159
+2025-01-03 03:39:00 [INFO]   WSP - Bruto: 249.7362, Normalizado [0,1]: 0.9978
+2025-01-03 03:39:00 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30008_muscle.aln
+2025-01-03 03:39:10 [INFO] Scores calculados:
+2025-01-03 03:39:10 [INFO]   SP  - Bruto: 93680.0000, Normalizado [0,1]: 0.0932
+2025-01-03 03:39:10 [INFO]   WSP - Bruto: 405.5865, Normalizado [0,1]: 1.0318
+2025-01-03 03:39:10 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30008.aln
+2025-01-03 03:39:19 [INFO] Scores calculados:
+2025-01-03 03:39:19 [INFO]   SP  - Bruto: 82534.0000, Normalizado [0,1]: 0.0927
+2025-01-03 03:39:19 [INFO]   WSP - Bruto: 361.3588, Normalizado [0,1]: 1.0005
+2025-01-03 03:39:19 [INFO] 
+Processando 39/60: BBS30010.tfa
+2025-01-03 03:39:19 [INFO] [CLUSTALW] Gerando alinhamento: BBS30010.tfa -> BBS30010_clustalw.aln
+2025-01-03 03:39:22 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30010_clustalw.aln
+2025-01-03 03:39:22 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30010.tfa
+2025-01-03 03:39:28 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30010_muscle.aln
+2025-01-03 03:39:28 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:39:28 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30010_muscle.aln
+2025-01-03 03:39:28 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30010.msf
+2025-01-03 03:39:28 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30010.aln
+2025-01-03 03:39:28 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30010_clustalw.aln
+2025-01-03 03:39:35 [INFO] Scores calculados:
+2025-01-03 03:39:35 [INFO]   SP  - Bruto: 295656.0000, Normalizado [0,1]: 0.3707
+2025-01-03 03:39:35 [INFO]   WSP - Bruto: 301.4817, Normalizado [0,1]: 0.7053
+2025-01-03 03:39:35 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30010_muscle.aln
+2025-01-03 03:39:42 [INFO] Scores calculados:
+2025-01-03 03:39:42 [INFO]   SP  - Bruto: 300617.0000, Normalizado [0,1]: 0.3451
+2025-01-03 03:39:42 [INFO]   WSP - Bruto: 349.0882, Normalizado [0,1]: 0.7380
+2025-01-03 03:39:42 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30010.aln
+2025-01-03 03:39:49 [INFO] Scores calculados:
+2025-01-03 03:39:49 [INFO]   SP  - Bruto: 298504.0000, Normalizado [0,1]: 0.3749
+2025-01-03 03:39:49 [INFO]   WSP - Bruto: 305.8355, Normalizado [0,1]: 0.6967
+2025-01-03 03:39:49 [INFO] 
+Processando 40/60: BB30003.tfa
+2025-01-03 03:39:49 [INFO] [CLUSTALW] Gerando alinhamento: BB30003.tfa -> BB30003_clustalw.aln
+2025-01-03 03:39:59 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30003_clustalw.aln
+2025-01-03 03:39:59 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30003.tfa
+2025-01-03 03:43:07 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30003_muscle.aln
+2025-01-03 03:43:07 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:43:07 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30003_muscle.aln
+2025-01-03 03:43:07 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30003.msf
+2025-01-03 03:43:07 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30003.aln
+2025-01-03 03:43:07 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30003_clustalw.aln
+2025-01-03 03:43:47 [INFO] Scores calculados:
+2025-01-03 03:43:47 [INFO]   SP  - Bruto: 686661.0000, Normalizado [0,1]: 0.1062
+2025-01-03 03:43:47 [INFO]   WSP - Bruto: 956.1519, Normalizado [0,1]: 0.7716
+2025-01-03 03:43:47 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30003_muscle.aln
+2025-01-03 03:44:59 [INFO] Scores calculados:
+2025-01-03 03:44:59 [INFO]   SP  - Bruto: 776632.0000, Normalizado [0,1]: 0.0645
+2025-01-03 03:44:59 [INFO]   WSP - Bruto: 2144.5624, Normalizado [0,1]: 0.9507
+2025-01-03 03:44:59 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30003.aln
+2025-01-03 03:45:42 [INFO] Scores calculados:
+2025-01-03 03:45:42 [INFO]   SP  - Bruto: 723972.0000, Normalizado [0,1]: 0.1020
+2025-01-03 03:45:42 [INFO]   WSP - Bruto: 1047.8130, Normalizado [0,1]: 0.8072
+2025-01-03 03:45:42 [INFO] 
+Processando 41/60: BB30013.tfa
+2025-01-03 03:45:42 [INFO] [CLUSTALW] Gerando alinhamento: BB30013.tfa -> BB30013_clustalw.aln
+2025-01-03 03:45:54 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30013_clustalw.aln
+2025-01-03 03:45:54 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30013.tfa
+2025-01-03 03:46:51 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30013_muscle.aln
+2025-01-03 03:46:51 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:46:51 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30013_muscle.aln
+2025-01-03 03:46:51 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30013.msf
+2025-01-03 03:46:51 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30013.aln
+2025-01-03 03:46:51 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30013_clustalw.aln
+2025-01-03 03:47:20 [INFO] Scores calculados:
+2025-01-03 03:47:20 [INFO]   SP  - Bruto: 524697.0000, Normalizado [0,1]: 0.1232
+2025-01-03 03:47:20 [INFO]   WSP - Bruto: 739.9366, Normalizado [0,1]: 0.8497
+2025-01-03 03:47:20 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30013_muscle.aln
+2025-01-03 03:48:07 [INFO] Scores calculados:
+2025-01-03 03:48:07 [INFO]   SP  - Bruto: 585691.0000, Normalizado [0,1]: 0.0831
+2025-01-03 03:48:07 [INFO]   WSP - Bruto: 1263.4042, Normalizado [0,1]: 0.9808
+2025-01-03 03:48:07 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30013.aln
+2025-01-03 03:48:40 [INFO] Scores calculados:
+2025-01-03 03:48:40 [INFO]   SP  - Bruto: 557999.0000, Normalizado [0,1]: 0.1153
+2025-01-03 03:48:40 [INFO]   WSP - Bruto: 618.3394, Normalizado [0,1]: 0.9416
+2025-01-03 03:48:40 [INFO] 
+Processando 42/60: BBS30029.tfa
+2025-01-03 03:48:40 [INFO] [CLUSTALW] Gerando alinhamento: BBS30029.tfa -> BBS30029_clustalw.aln
+2025-01-03 03:48:47 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30029_clustalw.aln
+2025-01-03 03:48:47 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30029.tfa
+2025-01-03 03:49:13 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30029_muscle.aln
+2025-01-03 03:49:13 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:49:13 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30029_muscle.aln
+2025-01-03 03:49:13 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30029.msf
+2025-01-03 03:49:13 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30029.aln
+2025-01-03 03:49:13 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30029_clustalw.aln
+2025-01-03 03:49:31 [INFO] Scores calculados:
+2025-01-03 03:49:31 [INFO]   SP  - Bruto: 620118.0000, Normalizado [0,1]: 0.2249
+2025-01-03 03:49:31 [INFO]   WSP - Bruto: 400.6937, Normalizado [0,1]: 0.8217
+2025-01-03 03:49:31 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30029_muscle.aln
+2025-01-03 03:49:54 [INFO] Scores calculados:
+2025-01-03 03:49:54 [INFO]   SP  - Bruto: 637930.0000, Normalizado [0,1]: 0.1877
+2025-01-03 03:49:54 [INFO]   WSP - Bruto: 533.2241, Normalizado [0,1]: 0.8816
+2025-01-03 03:49:54 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30029.aln
+2025-01-03 03:50:12 [INFO] Scores calculados:
+2025-01-03 03:50:12 [INFO]   SP  - Bruto: 624275.0000, Normalizado [0,1]: 0.2300
+2025-01-03 03:50:12 [INFO]   WSP - Bruto: 396.7110, Normalizado [0,1]: 0.8032
+2025-01-03 03:50:12 [INFO] 
+Processando 43/60: BB30012.tfa
+2025-01-03 03:50:12 [INFO] [CLUSTALW] Gerando alinhamento: BB30012.tfa -> BB30012_clustalw.aln
+2025-01-03 03:50:14 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30012_clustalw.aln
+2025-01-03 03:50:14 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30012.tfa
+2025-01-03 03:50:24 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30012_muscle.aln
+2025-01-03 03:50:24 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:50:24 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30012_muscle.aln
+2025-01-03 03:50:24 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30012.msf
+2025-01-03 03:50:24 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30012.aln
+2025-01-03 03:50:24 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30012_clustalw.aln
+2025-01-03 03:50:38 [INFO] Scores calculados:
+2025-01-03 03:50:38 [INFO]   SP  - Bruto: 179562.0000, Normalizado [0,1]: 0.0990
+2025-01-03 03:50:38 [INFO]   WSP - Bruto: 624.7251, Normalizado [0,1]: 0.8827
+2025-01-03 03:50:38 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30012_muscle.aln
+2025-01-03 03:50:53 [INFO] Scores calculados:
+2025-01-03 03:50:53 [INFO]   SP  - Bruto: 197441.0000, Normalizado [0,1]: 0.0964
+2025-01-03 03:50:53 [INFO]   WSP - Bruto: 661.9308, Normalizado [0,1]: 0.9098
+2025-01-03 03:50:53 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30012.aln
+2025-01-03 03:51:06 [INFO] Scores calculados:
+2025-01-03 03:51:06 [INFO]   SP  - Bruto: 189864.0000, Normalizado [0,1]: 0.1093
+2025-01-03 03:51:06 [INFO]   WSP - Bruto: 612.0726, Normalizado [0,1]: 0.8616
+2025-01-03 03:51:06 [INFO] 
+Processando 44/60: BB30029.tfa
+2025-01-03 03:51:06 [INFO] [CLUSTALW] Gerando alinhamento: BB30029.tfa -> BB30029_clustalw.aln
+2025-01-03 03:51:16 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30029_clustalw.aln
+2025-01-03 03:51:16 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30029.tfa
+2025-01-03 03:52:00 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30029_muscle.aln
+2025-01-03 03:52:00 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:52:00 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30029_muscle.aln
+2025-01-03 03:52:00 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30029.msf
+2025-01-03 03:52:00 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30029.aln
+2025-01-03 03:52:00 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30029_clustalw.aln
+2025-01-03 03:52:39 [INFO] Scores calculados:
+2025-01-03 03:52:39 [INFO]   SP  - Bruto: 671861.0000, Normalizado [0,1]: 0.1140
+2025-01-03 03:52:39 [INFO]   WSP - Bruto: 1164.4792, Normalizado [0,1]: 0.9461
+2025-01-03 03:52:39 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30029_muscle.aln
+2025-01-03 03:53:25 [INFO] Scores calculados:
+2025-01-03 03:53:25 [INFO]   SP  - Bruto: 708811.0000, Normalizado [0,1]: 0.0997
+2025-01-03 03:53:25 [INFO]   WSP - Bruto: 1434.2045, Normalizado [0,1]: 0.9807
+2025-01-03 03:53:25 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30029.aln
+2025-01-03 03:54:03 [INFO] Scores calculados:
+2025-01-03 03:54:03 [INFO]   SP  - Bruto: 680956.0000, Normalizado [0,1]: 0.1166
+2025-01-03 03:54:03 [INFO]   WSP - Bruto: 1178.0814, Normalizado [0,1]: 0.9361
+2025-01-03 03:54:03 [INFO] 
+Processando 45/60: BB30009.tfa
+2025-01-03 03:54:03 [INFO] [CLUSTALW] Gerando alinhamento: BB30009.tfa -> BB30009_clustalw.aln
+2025-01-03 03:54:03 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30009_clustalw.aln
+2025-01-03 03:54:03 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30009.tfa
+2025-01-03 03:54:05 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30009_muscle.aln
+2025-01-03 03:54:05 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:54:05 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30009_muscle.aln
+2025-01-03 03:54:05 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30009.msf
+2025-01-03 03:54:05 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30009.aln
+2025-01-03 03:54:05 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30009_clustalw.aln
+2025-01-03 03:54:07 [INFO] Scores calculados:
+2025-01-03 03:54:07 [INFO]   SP  - Bruto: 25268.0000, Normalizado [0,1]: 0.1288
+2025-01-03 03:54:07 [INFO]   WSP - Bruto: 71.7127, Normalizado [0,1]: 0.8504
+2025-01-03 03:54:07 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30009_muscle.aln
+2025-01-03 03:54:10 [INFO] Scores calculados:
+2025-01-03 03:54:10 [INFO]   SP  - Bruto: 28039.0000, Normalizado [0,1]: 0.1010
+2025-01-03 03:54:10 [INFO]   WSP - Bruto: 123.3050, Normalizado [0,1]: 0.8926
+2025-01-03 03:54:10 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30009.aln
+2025-01-03 03:54:11 [INFO] Scores calculados:
+2025-01-03 03:54:11 [INFO]   SP  - Bruto: 23608.0000, Normalizado [0,1]: 0.1208
+2025-01-03 03:54:11 [INFO]   WSP - Bruto: 99.4964, Normalizado [0,1]: 0.7369
+2025-01-03 03:54:11 [INFO] 
+Processando 46/60: BBS30020.tfa
+2025-01-03 03:54:11 [INFO] [CLUSTALW] Gerando alinhamento: BBS30020.tfa -> BBS30020_clustalw.aln
+2025-01-03 03:54:12 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30020_clustalw.aln
+2025-01-03 03:54:12 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30020.tfa
+2025-01-03 03:54:12 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30020_muscle.aln
+2025-01-03 03:54:12 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:54:12 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30020_muscle.aln
+2025-01-03 03:54:12 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30020.msf
+2025-01-03 03:54:12 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30020.aln
+2025-01-03 03:54:12 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30020_clustalw.aln
+2025-01-03 03:54:14 [INFO] Scores calculados:
+2025-01-03 03:54:14 [INFO]   SP  - Bruto: 30708.0000, Normalizado [0,1]: 0.1881
+2025-01-03 03:54:14 [INFO]   WSP - Bruto: 39.1440, Normalizado [0,1]: 0.7949
+2025-01-03 03:54:14 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30020_muscle.aln
+2025-01-03 03:54:15 [INFO] Scores calculados:
+2025-01-03 03:54:15 [INFO]   SP  - Bruto: 31836.0000, Normalizado [0,1]: 0.1862
+2025-01-03 03:54:15 [INFO]   WSP - Bruto: 43.7639, Normalizado [0,1]: 0.7953
+2025-01-03 03:54:15 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30020.aln
+2025-01-03 03:54:17 [INFO] Scores calculados:
+2025-01-03 03:54:17 [INFO]   SP  - Bruto: 30767.0000, Normalizado [0,1]: 0.1850
+2025-01-03 03:54:17 [INFO]   WSP - Bruto: 41.7482, Normalizado [0,1]: 0.7871
+2025-01-03 03:54:17 [INFO] 
+Processando 47/60: BBS30007.tfa
+2025-01-03 03:54:17 [INFO] [CLUSTALW] Gerando alinhamento: BBS30007.tfa -> BBS30007_clustalw.aln
+2025-01-03 03:54:17 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30007_clustalw.aln
+2025-01-03 03:54:17 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30007.tfa
+2025-01-03 03:54:17 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30007_muscle.aln
+2025-01-03 03:54:17 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:54:17 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30007_muscle.aln
+2025-01-03 03:54:17 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30007.msf
+2025-01-03 03:54:17 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30007.aln
+2025-01-03 03:54:17 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30007_clustalw.aln
+2025-01-03 03:54:17 [INFO] Scores calculados:
+2025-01-03 03:54:17 [INFO]   SP  - Bruto: 7868.0000, Normalizado [0,1]: 0.2479
+2025-01-03 03:54:17 [INFO]   WSP - Bruto: 21.3162, Normalizado [0,1]: 0.6209
+2025-01-03 03:54:17 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30007_muscle.aln
+2025-01-03 03:54:18 [INFO] Scores calculados:
+2025-01-03 03:54:18 [INFO]   SP  - Bruto: 8085.0000, Normalizado [0,1]: 0.2382
+2025-01-03 03:54:18 [INFO]   WSP - Bruto: 33.6679, Normalizado [0,1]: 0.6538
+2025-01-03 03:54:18 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30007.aln
+2025-01-03 03:54:18 [INFO] Scores calculados:
+2025-01-03 03:54:18 [INFO]   SP  - Bruto: 7763.0000, Normalizado [0,1]: 0.2325
+2025-01-03 03:54:18 [INFO]   WSP - Bruto: 30.1424, Normalizado [0,1]: 0.6335
+2025-01-03 03:54:18 [INFO] 
+Processando 48/60: BB30026.tfa
+2025-01-03 03:54:18 [INFO] [CLUSTALW] Gerando alinhamento: BB30026.tfa -> BB30026_clustalw.aln
+2025-01-03 03:54:22 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30026_clustalw.aln
+2025-01-03 03:54:22 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30026.tfa
+2025-01-03 03:54:40 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30026_muscle.aln
+2025-01-03 03:54:40 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:54:40 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30026_muscle.aln
+2025-01-03 03:54:40 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30026.msf
+2025-01-03 03:54:40 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30026.aln
+2025-01-03 03:54:40 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30026_clustalw.aln
+2025-01-03 03:54:59 [INFO] Scores calculados:
+2025-01-03 03:54:59 [INFO]   SP  - Bruto: 257342.0000, Normalizado [0,1]: 0.0894
+2025-01-03 03:54:59 [INFO]   WSP - Bruto: 768.3787, Normalizado [0,1]: 0.8707
+2025-01-03 03:54:59 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30026_muscle.aln
+2025-01-03 03:55:26 [INFO] Scores calculados:
+2025-01-03 03:55:26 [INFO]   SP  - Bruto: 294702.0000, Normalizado [0,1]: 0.0763
+2025-01-03 03:55:26 [INFO]   WSP - Bruto: 795.9574, Normalizado [0,1]: 0.9511
+2025-01-03 03:55:26 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30026.aln
+2025-01-03 03:55:45 [INFO] Scores calculados:
+2025-01-03 03:55:45 [INFO]   SP  - Bruto: 283407.0000, Normalizado [0,1]: 0.1053
+2025-01-03 03:55:45 [INFO]   WSP - Bruto: 654.8471, Normalizado [0,1]: 0.8383
+2025-01-03 03:55:45 [INFO] 
+Processando 49/60: BBS30028.tfa
+2025-01-03 03:55:45 [INFO] [CLUSTALW] Gerando alinhamento: BBS30028.tfa -> BBS30028_clustalw.aln
+2025-01-03 03:55:49 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30028_clustalw.aln
+2025-01-03 03:55:49 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30028.tfa
+2025-01-03 03:56:00 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30028_muscle.aln
+2025-01-03 03:56:00 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:56:00 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30028_muscle.aln
+2025-01-03 03:56:00 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30028.msf
+2025-01-03 03:56:00 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30028.aln
+2025-01-03 03:56:00 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30028_clustalw.aln
+2025-01-03 03:56:11 [INFO] Scores calculados:
+2025-01-03 03:56:11 [INFO]   SP  - Bruto: 597427.0000, Normalizado [0,1]: 0.3872
+2025-01-03 03:56:11 [INFO]   WSP - Bruto: 220.1865, Normalizado [0,1]: 0.7991
+2025-01-03 03:56:11 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30028_muscle.aln
+2025-01-03 03:56:24 [INFO] Scores calculados:
+2025-01-03 03:56:24 [INFO]   SP  - Bruto: 606967.0000, Normalizado [0,1]: 0.3063
+2025-01-03 03:56:24 [INFO]   WSP - Bruto: 333.1762, Normalizado [0,1]: 0.8737
+2025-01-03 03:56:24 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30028.aln
+2025-01-03 03:56:35 [INFO] Scores calculados:
+2025-01-03 03:56:35 [INFO]   SP  - Bruto: 604094.0000, Normalizado [0,1]: 0.3781
+2025-01-03 03:56:35 [INFO]   WSP - Bruto: 234.1226, Normalizado [0,1]: 0.8044
+2025-01-03 03:56:35 [INFO] 
+Processando 50/60: BBS30023.tfa
+2025-01-03 03:56:35 [INFO] [CLUSTALW] Gerando alinhamento: BBS30023.tfa -> BBS30023_clustalw.aln
+2025-01-03 03:56:37 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30023_clustalw.aln
+2025-01-03 03:56:37 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30023.tfa
+2025-01-03 03:56:45 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30023_muscle.aln
+2025-01-03 03:56:45 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:56:45 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30023_muscle.aln
+2025-01-03 03:56:45 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30023.msf
+2025-01-03 03:56:45 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30023.aln
+2025-01-03 03:56:45 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30023_clustalw.aln
+2025-01-03 03:56:53 [INFO] Scores calculados:
+2025-01-03 03:56:53 [INFO]   SP  - Bruto: 162706.0000, Normalizado [0,1]: 0.1665
+2025-01-03 03:56:53 [INFO]   WSP - Bruto: 327.5834, Normalizado [0,1]: 0.6678
+2025-01-03 03:56:53 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30023_muscle.aln
+2025-01-03 03:57:03 [INFO] Scores calculados:
+2025-01-03 03:57:03 [INFO]   SP  - Bruto: 171148.0000, Normalizado [0,1]: 0.1209
+2025-01-03 03:57:03 [INFO]   WSP - Bruto: 611.0230, Normalizado [0,1]: 0.8028
+2025-01-03 03:57:03 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30023.aln
+2025-01-03 03:57:10 [INFO] Scores calculados:
+2025-01-03 03:57:10 [INFO]   SP  - Bruto: 168886.0000, Normalizado [0,1]: 0.1713
+2025-01-03 03:57:10 [INFO]   WSP - Bruto: 331.1462, Normalizado [0,1]: 0.6712
+2025-01-03 03:57:10 [INFO] 
+Processando 51/60: BB30016.tfa
+2025-01-03 03:57:10 [INFO] [CLUSTALW] Gerando alinhamento: BB30016.tfa -> BB30016_clustalw.aln
+2025-01-03 03:57:10 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30016_clustalw.aln
+2025-01-03 03:57:10 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30016.tfa
+2025-01-03 03:57:14 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30016_muscle.aln
+2025-01-03 03:57:14 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:57:14 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30016_muscle.aln
+2025-01-03 03:57:14 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30016.msf
+2025-01-03 03:57:14 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30016.aln
+2025-01-03 03:57:14 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30016_clustalw.aln
+2025-01-03 03:57:20 [INFO] Scores calculados:
+2025-01-03 03:57:20 [INFO]   SP  - Bruto: 33391.0000, Normalizado [0,1]: 0.0514
+2025-01-03 03:57:20 [INFO]   WSP - Bruto: 467.9053, Normalizado [0,1]: 0.9361
+2025-01-03 03:57:20 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30016_muscle.aln
+2025-01-03 03:57:30 [INFO] Scores calculados:
+2025-01-03 03:57:30 [INFO]   SP  - Bruto: 35778.0000, Normalizado [0,1]: 0.0358
+2025-01-03 03:57:30 [INFO]   WSP - Bruto: 726.1409, Normalizado [0,1]: 1.0208
+2025-01-03 03:57:30 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30016.aln
+2025-01-03 03:57:36 [INFO] Scores calculados:
+2025-01-03 03:57:36 [INFO]   SP  - Bruto: 31047.0000, Normalizado [0,1]: 0.0495
+2025-01-03 03:57:36 [INFO]   WSP - Bruto: 498.2423, Normalizado [0,1]: 0.9292
+2025-01-03 03:57:36 [INFO] 
+Processando 52/60: BB30025.tfa
+2025-01-03 03:57:36 [INFO] [CLUSTALW] Gerando alinhamento: BB30025.tfa -> BB30025_clustalw.aln
+2025-01-03 03:57:36 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30025_clustalw.aln
+2025-01-03 03:57:36 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30025.tfa
+2025-01-03 03:57:40 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30025_muscle.aln
+2025-01-03 03:57:40 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:57:40 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30025_muscle.aln
+2025-01-03 03:57:40 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30025.msf
+2025-01-03 03:57:40 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30025.aln
+2025-01-03 03:57:40 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30025_clustalw.aln
+2025-01-03 03:57:51 [INFO] Scores calculados:
+2025-01-03 03:57:51 [INFO]   SP  - Bruto: 58545.0000, Normalizado [0,1]: 0.0385
+2025-01-03 03:57:51 [INFO]   WSP - Bruto: 499.0749, Normalizado [0,1]: 0.9245
+2025-01-03 03:57:51 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30025_muscle.aln
+2025-01-03 03:58:09 [INFO] Scores calculados:
+2025-01-03 03:58:09 [INFO]   SP  - Bruto: 63128.0000, Normalizado [0,1]: 0.0252
+2025-01-03 03:58:09 [INFO]   WSP - Bruto: 909.0015, Normalizado [0,1]: 1.0176
+2025-01-03 03:58:09 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30025.aln
+2025-01-03 03:58:19 [INFO] Scores calculados:
+2025-01-03 03:58:19 [INFO]   SP  - Bruto: 59931.0000, Normalizado [0,1]: 0.0446
+2025-01-03 03:58:19 [INFO]   WSP - Bruto: 460.4552, Normalizado [0,1]: 0.8853
+2025-01-03 03:58:19 [INFO] 
+Processando 53/60: BB30017.tfa
+2025-01-03 03:58:19 [INFO] [CLUSTALW] Gerando alinhamento: BB30017.tfa -> BB30017_clustalw.aln
+2025-01-03 03:58:19 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30017_clustalw.aln
+2025-01-03 03:58:19 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30017.tfa
+2025-01-03 03:58:19 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30017_muscle.aln
+2025-01-03 03:58:19 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:58:19 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30017_muscle.aln
+2025-01-03 03:58:19 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30017.msf
+2025-01-03 03:58:19 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30017.aln
+2025-01-03 03:58:19 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30017_clustalw.aln
+2025-01-03 03:58:20 [INFO] Scores calculados:
+2025-01-03 03:58:20 [INFO]   SP  - Bruto: 5591.0000, Normalizado [0,1]: 0.1328
+2025-01-03 03:58:20 [INFO]   WSP - Bruto: 67.6388, Normalizado [0,1]: 0.6889
+2025-01-03 03:58:20 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30017_muscle.aln
+2025-01-03 03:58:21 [INFO] Scores calculados:
+2025-01-03 03:58:21 [INFO]   SP  - Bruto: 6352.0000, Normalizado [0,1]: 0.1350
+2025-01-03 03:58:21 [INFO]   WSP - Bruto: 81.4902, Normalizado [0,1]: 0.7341
+2025-01-03 03:58:21 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30017.aln
+2025-01-03 03:58:21 [INFO] Scores calculados:
+2025-01-03 03:58:21 [INFO]   SP  - Bruto: 5950.0000, Normalizado [0,1]: 0.1362
+2025-01-03 03:58:21 [INFO]   WSP - Bruto: 75.5294, Normalizado [0,1]: 0.6949
+2025-01-03 03:58:21 [INFO] 
+Processando 54/60: BBS30027.tfa
+2025-01-03 03:58:21 [INFO] [CLUSTALW] Gerando alinhamento: BBS30027.tfa -> BBS30027_clustalw.aln
+2025-01-03 03:58:21 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30027_clustalw.aln
+2025-01-03 03:58:21 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30027.tfa
+2025-01-03 03:58:21 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30027_muscle.aln
+2025-01-03 03:58:21 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:58:21 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30027_muscle.aln
+2025-01-03 03:58:21 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30027.msf
+2025-01-03 03:58:21 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30027.aln
+2025-01-03 03:58:21 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30027_clustalw.aln
+2025-01-03 03:58:22 [INFO] Scores calculados:
+2025-01-03 03:58:22 [INFO]   SP  - Bruto: 4638.0000, Normalizado [0,1]: 0.1863
+2025-01-03 03:58:22 [INFO]   WSP - Bruto: 19.6638, Normalizado [0,1]: 0.8480
+2025-01-03 03:58:22 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30027_muscle.aln
+2025-01-03 03:58:22 [INFO] Scores calculados:
+2025-01-03 03:58:22 [INFO]   SP  - Bruto: 4812.0000, Normalizado [0,1]: 0.1822
+2025-01-03 03:58:22 [INFO]   WSP - Bruto: 21.4532, Normalizado [0,1]: 0.8625
+2025-01-03 03:58:22 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30027.aln
+2025-01-03 03:58:23 [INFO] Scores calculados:
+2025-01-03 03:58:23 [INFO]   SP  - Bruto: 4530.0000, Normalizado [0,1]: 0.1793
+2025-01-03 03:58:23 [INFO]   WSP - Bruto: 16.1655, Normalizado [0,1]: 0.8098
+2025-01-03 03:58:23 [INFO] 
+Processando 55/60: BBS30014.tfa
+2025-01-03 03:58:23 [INFO] [CLUSTALW] Gerando alinhamento: BBS30014.tfa -> BBS30014_clustalw.aln
+2025-01-03 03:58:23 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30014_clustalw.aln
+2025-01-03 03:58:23 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30014.tfa
+2025-01-03 03:58:24 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30014_muscle.aln
+2025-01-03 03:58:24 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:58:24 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30014_muscle.aln
+2025-01-03 03:58:24 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30014.msf
+2025-01-03 03:58:24 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30014.aln
+2025-01-03 03:58:24 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30014_clustalw.aln
+2025-01-03 03:58:26 [INFO] Scores calculados:
+2025-01-03 03:58:26 [INFO]   SP  - Bruto: 48902.0000, Normalizado [0,1]: 0.2172
+2025-01-03 03:58:26 [INFO]   WSP - Bruto: 79.3410, Normalizado [0,1]: 0.7159
+2025-01-03 03:58:26 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30014_muscle.aln
+2025-01-03 03:58:28 [INFO] Scores calculados:
+2025-01-03 03:58:28 [INFO]   SP  - Bruto: 50718.0000, Normalizado [0,1]: 0.1901
+2025-01-03 03:58:28 [INFO]   WSP - Bruto: 102.6816, Normalizado [0,1]: 0.7831
+2025-01-03 03:58:28 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30014.aln
+2025-01-03 03:58:31 [INFO] Scores calculados:
+2025-01-03 03:58:31 [INFO]   SP  - Bruto: 50547.0000, Normalizado [0,1]: 0.2181
+2025-01-03 03:58:31 [INFO]   WSP - Bruto: 93.9053, Normalizado [0,1]: 0.7016
+2025-01-03 03:58:31 [INFO] 
+Processando 56/60: BB30030.tfa
+2025-01-03 03:58:31 [INFO] [CLUSTALW] Gerando alinhamento: BB30030.tfa -> BB30030_clustalw.aln
+2025-01-03 03:58:34 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30030_clustalw.aln
+2025-01-03 03:58:34 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30030.tfa
+2025-01-03 03:58:49 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30030_muscle.aln
+2025-01-03 03:58:49 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 03:58:49 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30030_muscle.aln
+2025-01-03 03:58:49 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30030.msf
+2025-01-03 03:58:49 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30030.aln
+2025-01-03 03:58:49 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30030_clustalw.aln
+2025-01-03 03:59:09 [INFO] Scores calculados:
+2025-01-03 03:59:09 [INFO]   SP  - Bruto: 166695.0000, Normalizado [0,1]: 0.0667
+2025-01-03 03:59:09 [INFO]   WSP - Bruto: 805.4220, Normalizado [0,1]: 0.8035
+2025-01-03 03:59:09 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30030_muscle.aln
+2025-01-03 03:59:54 [INFO] Scores calculados:
+2025-01-03 03:59:54 [INFO]   SP  - Bruto: 176657.0000, Normalizado [0,1]: 0.0293
+2025-01-03 03:59:54 [INFO]   WSP - Bruto: 2353.1836, Normalizado [0,1]: 0.9585
+2025-01-03 03:59:54 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30030.aln
+2025-01-03 04:00:23 [INFO] Scores calculados:
+2025-01-03 04:00:23 [INFO]   SP  - Bruto: 162787.0000, Normalizado [0,1]: 0.0427
+2025-01-03 04:00:23 [INFO]   WSP - Bruto: 1584.0404, Normalizado [0,1]: 0.8893
+2025-01-03 04:00:23 [INFO] 
+Processando 57/60: BBS30001.tfa
+2025-01-03 04:00:23 [INFO] [CLUSTALW] Gerando alinhamento: BBS30001.tfa -> BBS30001_clustalw.aln
+2025-01-03 04:00:25 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30001_clustalw.aln
+2025-01-03 04:00:25 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30001.tfa
+2025-01-03 04:00:35 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30001_muscle.aln
+2025-01-03 04:00:35 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 04:00:35 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30001_muscle.aln
+2025-01-03 04:00:35 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30001.msf
+2025-01-03 04:00:35 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30001.aln
+2025-01-03 04:00:35 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30001_clustalw.aln
+2025-01-03 04:00:45 [INFO] Scores calculados:
+2025-01-03 04:00:45 [INFO]   SP  - Bruto: 365352.0000, Normalizado [0,1]: 0.2524
+2025-01-03 04:00:45 [INFO]   WSP - Bruto: 139.5491, Normalizado [0,1]: 0.7806
+2025-01-03 04:00:45 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30001_muscle.aln
+2025-01-03 04:00:56 [INFO] Scores calculados:
+2025-01-03 04:00:56 [INFO]   SP  - Bruto: 377656.0000, Normalizado [0,1]: 0.2369
+2025-01-03 04:00:56 [INFO]   WSP - Bruto: 159.9759, Normalizado [0,1]: 0.8140
+2025-01-03 04:00:56 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30001.aln
+2025-01-03 04:01:06 [INFO] Scores calculados:
+2025-01-03 04:01:06 [INFO]   SP  - Bruto: 365914.0000, Normalizado [0,1]: 0.2528
+2025-01-03 04:01:06 [INFO]   WSP - Bruto: 139.6817, Normalizado [0,1]: 0.7785
+2025-01-03 04:01:06 [INFO] 
+Processando 58/60: BBS30025.tfa
+2025-01-03 04:01:06 [INFO] [CLUSTALW] Gerando alinhamento: BBS30025.tfa -> BBS30025_clustalw.aln
+2025-01-03 04:01:06 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30025_clustalw.aln
+2025-01-03 04:01:06 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30025.tfa
+2025-01-03 04:01:08 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30025_muscle.aln
+2025-01-03 04:01:08 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 04:01:08 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30025_muscle.aln
+2025-01-03 04:01:08 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30025.msf
+2025-01-03 04:01:08 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30025.aln
+2025-01-03 04:01:08 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30025_clustalw.aln
+2025-01-03 04:01:10 [INFO] Scores calculados:
+2025-01-03 04:01:10 [INFO]   SP  - Bruto: 51565.0000, Normalizado [0,1]: 0.1591
+2025-01-03 04:01:10 [INFO]   WSP - Bruto: 61.5615, Normalizado [0,1]: 0.7619
+2025-01-03 04:01:10 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30025_muscle.aln
+2025-01-03 04:01:14 [INFO] Scores calculados:
+2025-01-03 04:01:14 [INFO]   SP  - Bruto: 53675.0000, Normalizado [0,1]: 0.1316
+2025-01-03 04:01:14 [INFO]   WSP - Bruto: 85.3441, Normalizado [0,1]: 0.8413
+2025-01-03 04:01:14 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30025.aln
+2025-01-03 04:01:16 [INFO] Scores calculados:
+2025-01-03 04:01:16 [INFO]   SP  - Bruto: 52566.0000, Normalizado [0,1]: 0.1569
+2025-01-03 04:01:16 [INFO]   WSP - Bruto: 64.9222, Normalizado [0,1]: 0.7715
+2025-01-03 04:01:16 [INFO] 
+Processando 59/60: BBS30021.tfa
+2025-01-03 04:01:16 [INFO] [CLUSTALW] Gerando alinhamento: BBS30021.tfa -> BBS30021_clustalw.aln
+2025-01-03 04:01:19 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BBS30021_clustalw.aln
+2025-01-03 04:01:19 [INFO] [MUSCLE] Gerando FASTA intermediário: BBS30021.tfa
+2025-01-03 04:02:02 [INFO] [MUSCLE] Convertendo para CLUSTAL: BBS30021_muscle.aln
+2025-01-03 04:02:02 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 04:02:02 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BBS30021_muscle.aln
+2025-01-03 04:02:02 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BBS30021.msf
+2025-01-03 04:02:02 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30021.aln
+2025-01-03 04:02:02 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BBS30021_clustalw.aln
+2025-01-03 04:02:19 [INFO] Scores calculados:
+2025-01-03 04:02:19 [INFO]   SP  - Bruto: 385896.0000, Normalizado [0,1]: 0.1508
+2025-01-03 04:02:19 [INFO]   WSP - Bruto: 293.7780, Normalizado [0,1]: 0.7816
+2025-01-03 04:02:19 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BBS30021_muscle.aln
+2025-01-03 04:02:42 [INFO] Scores calculados:
+2025-01-03 04:02:42 [INFO]   SP  - Bruto: 412407.0000, Normalizado [0,1]: 0.1181
+2025-01-03 04:02:42 [INFO]   WSP - Bruto: 472.6679, Normalizado [0,1]: 0.8773
+2025-01-03 04:02:42 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BBS30021.aln
+2025-01-03 04:03:00 [INFO] Scores calculados:
+2025-01-03 04:03:00 [INFO]   SP  - Bruto: 395014.0000, Normalizado [0,1]: 0.1395
+2025-01-03 04:03:00 [INFO]   WSP - Bruto: 344.5930, Normalizado [0,1]: 0.8122
+2025-01-03 04:03:00 [INFO] 
+Processando 60/60: BB30015.tfa
+2025-01-03 04:03:00 [INFO] [CLUSTALW] Gerando alinhamento: BB30015.tfa -> BB30015_clustalw.aln
+2025-01-03 04:03:01 [INFO] [CLUSTALW] Alinhamento concluído: /dados/home/tesla-dados/multione/results/clustalw/BB30015_clustalw.aln
+2025-01-03 04:03:01 [INFO] [MUSCLE] Gerando FASTA intermediário: BB30015.tfa
+2025-01-03 04:03:02 [INFO] [MUSCLE] Convertendo para CLUSTAL: BB30015_muscle.aln
+2025-01-03 04:03:02 [INFO] [MUSCLE] Removendo FASTA temporário
+2025-01-03 04:03:02 [INFO] [MUSCLE] Alinhamento concluído: /dados/home/tesla-dados/multione/results/muscle/BB30015_muscle.aln
+2025-01-03 04:03:02 [INFO] [BAliBASE] Convertendo MSF para CLUSTAL: BB30015.msf
+2025-01-03 04:03:02 [INFO] [BAliBASE] Conversão concluída: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30015.aln
+2025-01-03 04:03:02 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/clustalw/BB30015_clustalw.aln
+2025-01-03 04:03:03 [INFO] Scores calculados:
+2025-01-03 04:03:03 [INFO]   SP  - Bruto: 10270.0000, Normalizado [0,1]: 0.0711
+2025-01-03 04:03:03 [INFO]   WSP - Bruto: 142.5871, Normalizado [0,1]: 1.0011
+2025-01-03 04:03:03 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/results/muscle/BB30015_muscle.aln
+2025-01-03 04:03:06 [INFO] Scores calculados:
+2025-01-03 04:03:06 [INFO]   SP  - Bruto: 11605.0000, Normalizado [0,1]: 0.0755
+2025-01-03 04:03:06 [INFO]   WSP - Bruto: 156.0986, Normalizado [0,1]: 1.0091
+2025-01-03 04:03:06 [INFO] 
+Avaliando alinhamento: /dados/home/tesla-dados/multione/BAliBASE/RV30/BB30015.aln
+2025-01-03 04:03:08 [INFO] Scores calculados:
+2025-01-03 04:03:08 [INFO]   SP  - Bruto: 10657.0000, Normalizado [0,1]: 0.0690
+2025-01-03 04:03:08 [INFO]   WSP - Bruto: 158.4773, Normalizado [0,1]: 1.0017
+2025-01-03 04:03:08 [INFO] 
+Salvando resultados: /dados/home/tesla-dados/multione/results/alignment_scores.csv
+2025-01-03 04:03:08 [INFO] Resultados salvos com sucesso
+2025-01-03 04:03:08 [INFO] 
+Pipeline concluído:
+2025-01-03 04:03:08 [INFO]   Processados com sucesso: 60/60
+2025-01-03 04:03:08 [INFO]   Erros: 0

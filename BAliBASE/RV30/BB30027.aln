@@ -1,0 +1,90 @@
+CLUSTAL W (1.83) multiple sequence alignment
+
+
+1dvh_           ------------------------------------------------------------
+C553_DESVM      ------------------------------------------------------------
+C553_DESDN      ------------------------------------------------------------
+CYSD_CHLLT      ------------------------------------------------------------
+1b7v_A          ------------------------------------------------------------
+1cno_A          ------------------------------------------------------------
+1h1o_A          VSSDCMVCHGMTGRDTLYPIVPRLAGQHKSYMEAQLKAYKDHSRADQNGEIYMWPVAQAL
+CYSD_CHLTE      ----------------------------------------------------------ML
+C554_PARSP      ------------------------------------------------------------
+1fj0_A          ------------------------------------------------------------
+155c_           ------------------------------------------------------------
+C550_PARPN      ------------------------------------------------------------
+1akk_           ------------------------------------------------------------
+CYC_ASPNG       ------------------------------------------------------------
+CYC_DEBHA       ------------------------------------------------------------
+CYC_SCHPO       ------------------------------------------------------------
+CY2_RHOGL       ------------------------------------------------------------
+CY2_RHOVA       ------------------------------------------------------------
+CY22_RHOFU      ------------------------------------------------------------
+CY21_RHOCE      ------------------------------------------------------------
+                                                                            
+
+1dvh_           -----------------------------ADGAALYKS---------CIGCHGADGS---
+C553_DESVM      ------MKRILVVMSICAALAFGVSAAMAADGAALYKS---------CVGCHGADGSK--
+C553_DESDN      ---------------------------SGDLGAERYAKM--------CKSCHGADGSN--
+CYSD_CHLLT      ---------------------APEQSKSIPRGEILSLS---------CAGCHGTDGKS--
+1b7v_A          -----------------------------VDAEAVVQQK--------CISCHGGDLT---
+1cno_A          -------------------------AGDIEAGKAKAAV---------CAACHGQNG----
+1h1o_A          DSAKITALADYFNAQKPPMQSSGIKHAGAKEGKAIFNQGVTNEQIPACMECHGSDG----
+CYSD_CHLTE      AAAPLLLASGNGFATTGPAAKPAVKPVTESRGEILSLS---------CAGCHGTDGNS--
+C554_PARSP      -------------------------AGDAAAGEDKIGT---------CVACHGTDGQG--
+1fj0_A          --------------------------XDAKAGEAVFKQ---------CMTCHRADK----
+155c_           ------------------------NEGDAAKGEKEFNK---------CKACHMIQAPDGT
+C550_PARPN      ------------------------QEGDAAKGEKEFNK---------CKACHMVQAPDGT
+1akk_           --------------------------GDVEKGKKIFVQK--------CAQCHTVEKGGK-
+CYC_ASPNG       ------------------GKDASFAPGDSAKGAKLFQTR--------CAQCHTVEAGGP-
+CYC_DEBHA       --------------------PAPYEKGSEKKGANLFKTR--------CLQCHTVEEGGP-
+CYC_SCHPO       ----------------------PYAPGDEKKGASLFKTR--------CAQCHTVEKGGA-
+CY2_RHOGL       ---------------------GSAPPGDPVEGKHLFHTI--------CILCHTDIKGR--
+CY2_RHOVA       -------------------------AGDPVKGEQVFKQ---------CKICHQVGPTAK-
+CY22_RHOFU      -----------------------------ADAPPAFGM---------CKACHSVEAGK--
+CY21_RHOCE      ------------------------QDGDPVKGEAVFKK---------CMACHRIGPDAK-
+                                                                            
+
+1dvh_           ----------------KAAMG-----------SAKPVKG----QGAEELYK-KMKGYADG
+C553_DESVM      ----------------QAMG------------VGHAVKG----QKADELFK-KLKGYADG
+C553_DESDN      ----------------AAMSRA--------------LKG-----LPAEEVKAALIGYKEQ
+CYSD_CHLLT      ----------------ESIIPT----------IYGRSAE----YIESALLD-FKSGARPS
+1b7v_A          ----------------GASAPA----------IDKAGAN----YSEEEILD-IILNGQG-
+1cno_A          ----------------ISQVP-----------IYPNLAG----QKEQYLVA-ALKAYKAG
+1h1o_A          ----------------QGAGP------------FPRLAG----QRYGYIIQ-QLTYFHNG
+CYSD_CHLTE      ----------------SSVIPS----------IYGKSPE----YIETALID-FKNGSRTS
+C554_PARSP      ---------------LAPIYPN----------LTGQSAT----YLESSIKA-YRDGQRKG
+1fj0_A          -----NMVGPALAGVVGRKAGTAAGFTYS--PLNHNSGEAGLVWTADNIVP-YLADPNAF
+155c_           DI-KGGKTGPNLYGVVGRKIASEEGFKYGEGILEVAEKNPDLTWTEANLIE-YVTDPKPL
+C550_PARPN      DIVKGGKTGPNLYGVVGRKIASEEGFKYGDGILEVAEKNPDLVWTEADLIE-YVTDPKPW
+1akk_           -----HKTGPNLHGLFGRKTGQAPGFTYT---DANKNKG--ITWKEETLME-YLENPKKY
+CYC_ASPNG       -----HKVGPNLHGLFGRKTGQSEGYAYT---DANKQAG--VTWDENTLFS-YLENPKKF
+CYC_DEBHA       -----HKVGPNLHGVVGRTSGQAQGFSYT---DANKKKG--VEWTEQDLSD-YLENPKKY
+CYC_SCHPO       -----NKVGPNLHGVFGRKTGQAEGFSYT---EANRDKG--ITWDEETLFA-YLENPKKY
+CY2_RHOGL       -----NKVGPSLYGVVGRHSGIEPGYNYS---EANIKSG--IVWTPDVLFK-YIEHPQKI
+CY2_RHOVA       -----NGVGPEQNDVFGQKAGARPGFNYS---DAMKNSG--LTWDEATLDK-YLENPKAV
+CY22_RHOFU      -----NGVGPSLAGVYGRKAGTLAGFKFS---DPHAKSG--LTWDEPTLTK-YLADPKGV
+CY21_RHOCE      -----NLVGPVLTGVVGRQAGVAPGFSYSALNHAAGEAG--LHWTAENIMA-YLPDPNAF
+                                                                            
+
+1dvh_           SYGGER----------KAMMTNAVKKYSDEELKALADYMSKL-----------------
+C553_DESVM      SYGGEK----------KAVMTNLVKRYSDEEMKAMADYMSKL-----------------
+C553_DESDN      TYGGKK----------KGMMERVVKSLTDEDIEVLATHIGTF-----------------
+CYSD_CHLLT      T-----------------VMGRHAKGYSDEEIHQIAEYFGSLSTMNN------------
+1b7v_A          ------------------GMPGGIAK--GAEAEAVAAWLAEKK----------------
+1cno_A          QRQGGQ----------APVMQGQATALSDADIANLAAYYASNPAAA-------------
+1h1o_A          TRVN-------------TLMNQIAKNITVAQMKDVAAYLSSL-----------------
+CYSD_CHLTE      T-----------------VMGRHAKGYTGEEIHLIAEYFGNLSKKNH------------
+C554_PARSP      GNA--------------ALMTPMAQGLSDEDIADIAAYYSSQE----------------
+1fj0_A          LKKFLTEKGKADQAVGVTKMTFKLAN--EQQRKDVVAYLATLK----------------
+155c_           VKKMTD------DKGAKTKMTFKMGK----NQADVVAFLAQDDPDAXXXXXXXXXXXXX
+C550_PARPN      LVEKTG------DSAAKTKMTFKLGK----NQADVVAFLAQNSPDAGAEAAPAEDAAD-
+1akk_           IPGT--------------KMIFAGIKK-KTEREDLIAYLKKATNE--------------
+CYC_ASPNG       IPGT--------------KMAFGGLKK-GKERNDLITYLKESTA---------------
+CYC_DEBHA       IPGT--------------KMAFGGLKK-AKDRNDLITYLVKATK---------------
+CYC_SCHPO       IPGT--------------KMAFAGFKK-PADRNNVITYLKKATSE--------------
+CY2_RHOGL       VPGT--------------KMGYPGQPD-PQKRADIIAYLETLK----------------
+CY2_RHOVA       VPGT--------------KMVFVGLKN-PQDRADVIAYLKQLSGK--------------
+CY22_RHOFU      IPGN--------------KMVFAGLKN-PADVAAVIAYLKSL-----------------
+CY21_RHOCE      LRKFVTDAGNPEAAKGSTKMVFK-LPN-EQERKDVVAYLKTFSN---------------
+                                                                           
