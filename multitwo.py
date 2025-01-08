@@ -70,7 +70,7 @@ import csv
 #
 # =========================================================================
 
-LOG_DIR = Path("/dados/home/tesla-dados/multione/results")
+LOG_DIR = Path("/home/augusto/projects/multiOne/results")
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 LOG_FILE = LOG_DIR / "alignment_pipeline.log"
@@ -92,8 +92,8 @@ logger.addHandler(file_handler)
 logger.addHandler(console_handler)
 
 # Ajuste conforme seu ambiente
-CLUSTALW_PATH = "/dados/home/tesla-dados/multione/clustalw-2.1/src/clustalw2"
-MUSCLE_PATH   = "/dados/home/tesla-dados/multione/muscle-5.3/src/muscle-linux"
+CLUSTALW_PATH = "/home/augusto/projects/multiOne/clustalw-2.1/src/clustalw2"
+MUSCLE_PATH   = "/home/augusto/projects/multiOne/muscle-5.3/src/muscle-linux"
 
 # Estrutura para organizar scores brutos e normalizados
 class AlignmentScores(NamedTuple):
@@ -743,9 +743,9 @@ class SequenceAlignmentPipeline:
 # =====================================================================
 
 if __name__ == "__main__":
-    balibase_dir = Path("/dados/home/tesla-dados/multione/BAliBASE/RV30")
-    reference_dir = Path("/dados/home/tesla-dados/multione/BAliBASE/RV30")
-    results_dir = Path("/dados/home/tesla-dados/multione/results")
+    balibase_dir = Path("/home/augusto/projects/multiOne/BAliBASE/RV30")
+    reference_dir = Path("/home/augusto/projects/multiOne/BAliBASE/RV30")
+    results_dir = Path("/home/augusto/projects/multiOne/results")
 
     pipeline = SequenceAlignmentPipeline(balibase_dir, reference_dir, results_dir)
     pipeline.run_pipeline()

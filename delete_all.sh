@@ -6,9 +6,9 @@
 set -e
 
 # Definição dos diretórios e arquivo de log
-CLUSTALW_DIR="/dados/home/tesla-dados/multione/results/clustalw"
-MUSCLE_DIR="/dados/home/tesla-dados/multione/results/muscle"
-LOG_FILE="/dados/home/tesla-dados/multione/alignment_pipeline.log"
+CLUSTALW_DIR="/home/augusto/projects/multiOne/results/clustalw"
+MUSCLE_DIR="/home/augusto/projects/multiOne/results/muscle"
+LOG_FILE="/home/augusto/projects/multiOne/alignment_pipeline.log"
 
 # Função para deletar conteúdos de um diretório
 delete_directory_contents() {
