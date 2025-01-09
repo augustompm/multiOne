@@ -31,11 +31,6 @@ Este script tem a finalidade de:
       => Implementação original segundo Gotoh (1994)
       => Usa árvore Neighbor Joining e recursão wsp2_gotoh
       => Mostra valores brutos e normalizados [0..1]
-
-References:
-1. Thompson JD, et al. (1999) BAliBASE: a benchmark alignment database
-2. Dayhoff MO, et al. (1978) A model of evolutionary change in proteins
-3. Gotoh O (1994) Further improvement in methods of group-to-group sequence alignment
 """
 
 import os
@@ -62,6 +57,10 @@ LOG_FILE = LOG_DIR / "alignment_pipeline.log"
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+# Remove any existing handlers to avoid duplication
+for handler in logger.handlers[:]:
+    logger.removeHandler(handler)
+
 formatter = logging.Formatter('%(asctime)s [%(levelname)s] %(message)s', 
                             "%Y-%m-%d %H:%M:%S")
 
@@ -87,19 +86,69 @@ class AlignmentScores(NamedTuple):
     wsp_raw: float     # WSP score (raw) from Gotoh method
     wsp_norm: float    # WSP score normalized to [0,1]
 
+# Base scoring functions
+def pairwise_distance(seq1, seq2) -> float:
+    """
+    Calculate evolutionary distance between two sequences.
+    Used for both SP and NJ tree construction.
+    
+    Returns:
+    - 1.0 = totally different sequences
+    - 0.0 = identical sequences
+    """
+    if len(seq1) != len(seq2):
+        return 1.0
+        
+    matches = total = 0
+    for c1, c2 in zip(seq1, seq2):
+        if c1 != '-' and c2 != '-':
+            total += 1
+            if c1 == c2:
+                matches += 1
+                
+    return 1.0 - (matches/total if total > 0 else 0.0)
+
+def compute_max_score(alignment: MultipleSeqAlignment) -> float:
+    """
+    Calculate theoretical maximum score for normalization.
+    
+    For SP:
+    - matches_per_column = N*(N-1)/2 where N = num_seqs
+    - total = matches_per_column * length
+    
+    For WSP:
+    - Uses same topology but identical sequences
+    - Preserves tree weights effect
+    """
+    nseqs = len(alignment)
+    length = alignment.get_alignment_length()
+    
+    # Maximum score per column (all pairs matching)
+    max_col_score = nseqs * (nseqs - 1) / 2
+    
+    # Total considering all columns
+    return max_col_score * length
+
 class SPScoreCalculator:
     """
     Scientific implementation of Sum-of-Pairs (SP) score calculation
     using PAM250 substitution matrix as recommended by Thompson et al. (1999)
     """
     def __init__(self):
-        """Initialize SP score calculator with PAM250 matrix"""
+        """
+        Initialize SP score calculator with PAM250 matrix.
+        Pre-calculate matrix extremes for optimization.
+        """
         self.matrix = substitution_matrices.load("PAM250")
+        self.max_score = max(self.matrix.values())
+        self.min_score = min(self.matrix.values())
+        self.score_range = self.max_score - self.min_score
         self.logger = logging.getLogger(__name__)
 
     def compute_sequence_weights(self, alignment: MultipleSeqAlignment) -> np.ndarray:
         """
-        Implement CLUSTAL W sequence weighting scheme (Thompson et al., 1994)
+        Implements CLUSTAL W sequence weighting scheme (Thompson et al., 1994).
+        Gives more weight to divergent sequences to reduce sampling bias.
         """
         num_seqs = len(alignment)
         weights = np.ones(num_seqs)
@@ -112,8 +161,9 @@ class SPScoreCalculator:
                     dist = self._pam_distance(alignment[i], alignment[j])
                     dists.append(dist)
             
+            # Weight based on average divergence
             weights[i] = np.mean(dists) if dists else 1.0
-        
+            
         # Normalize weights
         total = np.sum(weights)
         if total > 0:
@@ -122,91 +172,95 @@ class SPScoreCalculator:
         return weights
 
     def _pam_distance(self, seq1: SeqRecord, seq2: SeqRecord) -> float:
-        """Calculate evolutionary distance using PAM250 scores"""
+        """
+        Calculate evolutionary distance using PAM250 scores.
+        Implemented per Dayhoff et al. (1978).
+        """
         aligned_positions = 0
         total_score = 0
         
-        for pos in range(len(seq1)):
-            if seq1[pos] != '-' and seq2[pos] != '-':
-                score = self.matrix.get((seq1[pos], seq2[pos]), 
-                                     self.matrix.get((seq2[pos], seq1[pos]), 0))
+        # Convert sequences to strings for faster access
+        seq1_str = str(seq1.seq)
+        seq2_str = str(seq2.seq)
+        
+        for pos in range(len(seq1_str)):
+            c1, c2 = seq1_str[pos], seq2_str[pos]
+            if c1 != '-' and c2 != '-':
+                # Try matrix lookup only once
+                score = self.matrix.get((c1, c2), self.matrix.get((c2, c1), 0))
                 total_score += score
                 aligned_positions += 1
                 
         if aligned_positions == 0:
-            return 1.0
+            return 1.0  # Maximum distance for non-aligned sequences
             
-        # Normalize to [0,1]
-        max_score = max(self.matrix.values())
-        min_score = min(self.matrix.values())
-        score_range = max_score - min_score
-        
-        if score_range == 0:
-            return 0.0
-            
-        normalized_score = (total_score - min_score * aligned_positions) / \
-                         (score_range * aligned_positions)
+        # Normalize to [0,1] using pre-calculated matrix extremes
+        normalized_score = (total_score - self.min_score * aligned_positions) / \
+                         (self.score_range * aligned_positions)
                          
         return 1.0 - normalized_score
-class SPScoreCalculator:
+
     def compute_sp_score(self, alignment: MultipleSeqAlignment) -> Tuple[float, float]:
-        """
-        Calculate SP score using PAM250 matrix and sequence weights.
-        
-        This implementation:
-        1. Uses PAM250 for biologically meaningful scoring
-        2. Applies sequence weights to reduce redundancy bias
-        3. Handles terminal gaps according to BAliBASE guidelines
-        4. Returns both raw and normalized scores
-        """
-        weights = self.compute_sequence_weights(alignment)
-        num_seqs = len(alignment)
-        aln_length = alignment.get_alignment_length()
-        
-        total_score = 0.0
-        total_weighted_pairs = 0.0
-        
-        for pos in range(aln_length):
-            column_score = 0.0
-            column_pairs = 0
+            """
+            Calculate SP score using PAM250 matrix and sequence weights.
             
-            # Compare all pairs in column
-            for i in range(num_seqs-1):
-                for j in range(i+1, num_seqs):
-                    res_i = alignment[i,pos]
-                    res_j = alignment[j,pos]
-                    
-                    # Skip terminal gaps per BAliBASE guidelines
-                    if self._is_terminal_gap(alignment[i], pos) or \
-                       self._is_terminal_gap(alignment[j], pos):
-                        continue
-                    
-                    # Score using PAM250
-                    if res_i != '-' and res_j != '-':
-                        pair_score = self.matrix.get((res_i, res_j), 
-                                                   self.matrix.get((res_j, res_i), 0))
-                        weight = weights[i] * weights[j]
+            This implementation:
+            1. Uses PAM250 for biologically meaningful scoring
+            2. Applies sequence weights to reduce redundancy bias
+            3. Handles terminal gaps according to BAliBASE guidelines
+            4. Returns both raw sum (total matches) and normalized scores
+            """
+            weights = self.compute_sequence_weights(alignment)
+            num_seqs = len(alignment)
+            aln_length = alignment.get_alignment_length()
+            
+            total_matches = 0  # Raw sum of matches
+            total_score = 0.0  # Score for normalization
+            total_weighted_pairs = 0.0
+            
+            # Pre-convert sequences to strings
+            sequences = [str(seq.seq) for seq in alignment]
+            
+            for pos in range(aln_length):
+                column_score = 0.0
+                column_pairs = 0
+                
+                # Compare all pairs in column
+                for i in range(num_seqs-1):
+                    for j in range(i+1, num_seqs):
+                        res_i = sequences[i][pos]
+                        res_j = sequences[j][pos]
                         
-                        column_score += pair_score * weight
-                        column_pairs += 1
+                        # Skip terminal gaps per BAliBASE guidelines
+                        if self._is_terminal_gap(alignment[i], pos) or \
+                        self._is_terminal_gap(alignment[j], pos):
+                            continue
+                        
+                        # Count raw matches
+                        if res_i != '-' and res_j != '-':
+                            if res_i == res_j:  # Simple match for raw score
+                                total_matches += 1
+                                
+                            # PAM250 score for normalization
+                            pair_score = self.matrix.get((res_i, res_j), 
+                                                    self.matrix.get((res_j, res_i), 0))
+                            weight = weights[i] * weights[j]
+                            
+                            column_score += pair_score * weight
+                            column_pairs += 1
+                
+                if column_pairs > 0:
+                    total_score += column_score
+                    total_weighted_pairs += column_pairs
             
-            if column_pairs > 0:
-                total_score += column_score
-                total_weighted_pairs += column_pairs
-        
-        # Calculate raw score
-        raw_score = total_score / total_weighted_pairs if total_weighted_pairs > 0 else 0.0
-        
-        # Normalize to [0,1]
-        max_score = max(self.matrix.values())
-        min_score = min(self.matrix.values())
-        score_range = max_score - min_score
-        
-        if score_range == 0:
-            return raw_score, 0.0
+            # Return raw match count and normalized PAM250 score
+            if total_weighted_pairs == 0:
+                return 0.0, 0.0
+                
+            weighted_score = total_score / total_weighted_pairs
+            normalized_score = (weighted_score - self.min_score) / self.score_range
             
-        normalized_score = (raw_score - min_score) / score_range
-        return raw_score, normalized_score
+            return float(total_matches), normalized_score
 
     def _is_terminal_gap(self, sequence: SeqRecord, position: int) -> bool:
         """
@@ -214,14 +268,46 @@ class SPScoreCalculator:
         Terminal gaps often represent genuine biological differences
         rather than alignment errors.
         """
-        if position == 0:
-            return sequence[position] == '-'
-        elif position == len(sequence)-1:
-            return sequence[position] == '-'
-        return False
+        seq_str = str(sequence.seq)
+        return (position == 0 and seq_str[0] == '-') or \
+               (position == len(seq_str)-1 and seq_str[-1] == '-')
 
+def calculate_raw_sp_score(alignment: MultipleSeqAlignment) -> float:
+    """
+    Calculate SP score without normalization:
+    - For each column:
+      * Compare all possible pairs
+      * Add 1 for each match (ignoring gaps)
+    - Global sum = final score
+    """
+    nseqs = len(alignment)
+    length = alignment.get_alignment_length()
+    if nseqs < 2 or length == 0:
+        return 0.0
+
+    match_count = 0
+    for col in range(length):
+        for i in range(nseqs):
+            for j in range(i+1, nseqs):
+                c1 = alignment[i, col]
+                c2 = alignment[j, col]
+                if c1 == c2 and c1 != '-':
+                    match_count += 1
+
+    return float(match_count)
+
+def calculate_normalized_sp_score(alignment: MultipleSeqAlignment) -> float:
+    """
+    Normalize SP score to [0,1]:
+    - Calculate raw score
+    - Divide by theoretical maximum
+    - Enables comparison between different alignments
+    """
+    raw_score = calculate_raw_sp_score(alignment)
+    max_score = compute_max_score(alignment)
+    return raw_score / max_score if max_score > 0 else 0.0
 # =========================================================================
-#                 ESTRUTURAS E FUNÇÕES PARA O WSP REAL (Gotoh)
+#                 ESTRUTURAS E FUNÇÕES PARA O WSP (Gotoh)
 # =========================================================================
 
 class TreeNode:
@@ -250,7 +336,6 @@ def neighbor_joining_gotoh(dist_matrix: np.ndarray, names: List[str]) -> Optiona
     Extensões específicas:
     - Controle rigoroso de índices da matriz
     - Preservação de valores na expansão
-    - Logging detalhado para diagnóstico
     - Tratamento robusto de erros
     """
     try:
@@ -280,18 +365,18 @@ def neighbor_joining_gotoh(dist_matrix: np.ndarray, names: List[str]) -> Optiona
             
             for ai, i in enumerate(active[:-1]):
                 for j in active[ai + 1:]:
-                    q = (n_active - 2) * D[i,j] - r[active.index(i)] - r[active.index(j)]
+                    q = (n_active - 2) * D[i,j] - r[ai] - r[active.index(j)]
                     if q < min_q:
                         min_q = q
                         min_i, min_j = i, j
             
-            if min_i == -1:
+            if min_i == -1 or min_j == -1:
                 return None
                 
             # 3. Calcula comprimentos dos ramos
             d_ij = D[min_i, min_j]
             if n_active > 2:
-                d_i = 0.5 * d_ij + (r[active.index(min_i)] - r[active.index(min_j)]) / (2 * (n_active - 2))
+                d_i = 0.5 * d_ij + (r[ai] - r[active.index(min_j)]) / (2 * (n_active - 2))
             else:
                 d_i = 0.5 * d_ij
             d_j = d_ij - d_i
@@ -299,7 +384,7 @@ def neighbor_joining_gotoh(dist_matrix: np.ndarray, names: List[str]) -> Optiona
             # 4. Cria novo nó interno
             new_node = TreeNode(f"internal_{len(nodes)}")
             new_node.children.append((nodes[min_i], d_i))
-            new_node.children.append((nodes[min_j], d_j))
+            new_node.children.append((nodes[min_j], d_j))  # Corrigido aqui
             nodes.append(new_node)
             
             # 5. Expande matriz de distâncias preservando valores
@@ -326,6 +411,7 @@ def neighbor_joining_gotoh(dist_matrix: np.ndarray, names: List[str]) -> Optiona
     except Exception as e:
         logger.error(f"Erro durante Neighbor Joining: {e}")
         return None
+
 def compute_wsp_gotoh(alignment: MultipleSeqAlignment, 
                      normalize: bool = True, 
                      F: float = 1.15) -> float:
@@ -341,9 +427,6 @@ def compute_wsp_gotoh(alignment: MultipleSeqAlignment,
     - alignment: Alinhamento a ser avaliado
     - normalize: Se True, retorna WSP entre [0,1]
     - F: Fator de equalização do artigo original
-    
-    Retorna:
-    - WSP bruto ou normalizado, dependendo do parâmetro
     """
     try:
         if alignment is None or len(alignment) < 2:
@@ -383,8 +466,6 @@ def compute_wsp_gotoh(alignment: MultipleSeqAlignment,
             return wsp_raw * F
             
         # 5. Calcula WSP do alinhamento perfeito para normalização
-        # - Usa mesma árvore/topologia/pesos
-        # - Mas todas as sequências são idênticas
         perfect_seq = "A" * alignment.get_alignment_length()
         
         perfect_tree = neighbor_joining_gotoh(dist_matrix, [f"seq_{i}" for i in range(n_seqs)])
@@ -477,9 +558,6 @@ def sequence_to_profile(seq: str) -> Dict[int, Dict[str, float]]:
     - Cria distribuição sobre resíduos válidos
     - 1.0 para o resíduo observado
     - 0.0 para os demais
-    
-    Retorna dicionário:
-    posição -> {resíduo -> frequência}
     """
     valid_chars = set('ACDEFGHIKLMNPQRSTVWY-')
     profile = {}
@@ -499,9 +577,6 @@ def merge_profiles(p1: Dict[int, Dict[str, float]],
     Para cada posição:
     - Une conjunto de resíduos dos dois perfis
     - Soma frequências ponderadas pelo peso
-    
-    O peso vem do comprimento do ramo na árvore NJ
-    e influencia quanto cada perfil contribui.
     """
     result = {}
     all_pos = set(p1.keys()) | set(p2.keys())
@@ -524,15 +599,13 @@ def dot_product(p1: Dict[int, Dict[str, float]],
     Para cada posição em comum:
     - Multiplica frequências dos mesmos resíduos
     - Soma todos os produtos
-    
-    Mede similaridade considerando distribuições
-    de resíduos em cada posição.
     """
     score = 0.0
     for pos in set(p1.keys()) & set(p2.keys()):
         for ch in set(p1[pos].keys()) & set(p2[pos].keys()):
             score += p1[pos][ch] * p2[pos][ch]
     return score
+
 class SequenceAlignmentPipeline:
     """
     Comprehensive pipeline for multiple sequence alignment evaluation.
@@ -540,10 +613,7 @@ class SequenceAlignmentPipeline:
     with both enhanced SP and original WSP scoring.
     """
     def __init__(self, balibase_dir: Path, reference_dir: Path, results_dir: Path):
-        """
-        Initialize pipeline with directory configurations and scoring tools.
-        Creates necessary output directories and sets up logging.
-        """
+        """Initialize pipeline with directory configurations and scoring tools"""
         # Directory setup
         self.balibase_dir = balibase_dir
         self.reference_dir = reference_dir
@@ -556,7 +626,7 @@ class SequenceAlignmentPipeline:
         self.clustalw_results_dir.mkdir(parents=True, exist_ok=True)
         self.muscle_results_dir.mkdir(parents=True, exist_ok=True)
 
-        # Initialize scoring calculators
+        # Initialize scoring calculator
         self.sp_calculator = SPScoreCalculator()
 
         # Log initialization
@@ -568,19 +638,17 @@ class SequenceAlignmentPipeline:
         logger.info("=" * 60)
 
     def run_clustalw(self, input_file: Path) -> Optional[Path]:
-        """Execute ClustalW alignment with optimized parameters"""
+        """Execute ClustalW alignment with core parameters"""
         try:
             output_file = self.clustalw_results_dir / f"{input_file.stem}_clustalw.aln"
             
-            # ClustalW command with scientifically validated parameters
+            # Basic ClustalW command - removed problematic parameters
             cmd = [
                 CLUSTALW_PATH,
                 "-INFILE=" + str(input_file),
                 "-ALIGN",
                 "-OUTPUT=CLUSTAL",
-                "-OUTFILE=" + str(output_file),
-                "-TYPE=PROTEIN",
-                "-MATRIX=PAM250"  # Consistent with SP score matrix
+                "-OUTFILE=" + str(output_file)
             ]
             
             logger.info(f"[ClustalW] Processing: {input_file.name}")
@@ -616,7 +684,7 @@ class SequenceAlignmentPipeline:
             
             result = subprocess.run(muscle_cmd,
                                  check=True,
-                                 stdout=subprocess.PIPE,
+                                 stdout=subprocess.PIPE, 
                                  stderr=subprocess.PIPE,
                                  text=True)
 
@@ -646,6 +714,7 @@ class SequenceAlignmentPipeline:
         try:
             aln_file = msf_file.with_suffix(".aln")
             
+            # Use existing conversion if available
             if aln_file.exists() and aln_file.stat().st_size > 0:
                 logger.info(f"[BAliBASE] Using existing conversion: {aln_file.name}")
                 return aln_file
@@ -661,7 +730,7 @@ class SequenceAlignmentPipeline:
             
             result = subprocess.run(cmd,
                                  check=True,
-                                 stdout=subprocess.PIPE,
+                                 stdout=subprocess.PIPE, 
                                  stderr=subprocess.PIPE,
                                  text=True)
 
@@ -678,6 +747,7 @@ class SequenceAlignmentPipeline:
     def evaluate_alignment(self, aln_file: Path) -> Optional[Dict[str, float]]:
         """
         Evaluate alignment using both enhanced SP and original WSP scores.
+        Returns dictionary with raw and normalized scores.
         """
         try:
             logger.info(f"\nEvaluating alignment: {aln_file}")
@@ -687,7 +757,7 @@ class SequenceAlignmentPipeline:
             # Calculate SP scores using PAM250
             sp_raw, sp_norm = self.sp_calculator.compute_sp_score(alignment)
             
-            # Calculate WSP scores using original implementation
+            # Calculate WSP scores usando implementação original
             wsp_raw = compute_wsp_gotoh(alignment, normalize=False)
             wsp_norm = compute_wsp_gotoh(alignment, normalize=True)
             
@@ -711,13 +781,123 @@ class SequenceAlignmentPipeline:
         except Exception as e:
             logger.error(f"Evaluation error for {aln_file}: {str(e)}")
             return None
-class SequenceAlignmentPipeline:
+
+    def _generate_alignment_statistics(self, aln_file: Path, method: str) -> None:
+        """Generate detailed statistics for each alignment method"""
+        try:
+            alignment = AlignIO.read(aln_file, "clustal")
+            
+            num_sequences = len(alignment)
+            alignment_length = alignment.get_alignment_length()
+            
+            # Analyze gap distribution
+            gap_counts = []
+            for record in alignment:
+                gaps = str(record.seq).count('-')
+                gap_percentage = (gaps / alignment_length) * 100
+                gap_counts.append(gap_percentage)
+            
+            avg_gap_percentage = np.mean(gap_counts)
+            
+            logger.info(f"\n{method} Alignment Statistics:")
+            logger.info(f"Sequences: {num_sequences}")
+            logger.info(f"Alignment Length: {alignment_length}")
+            logger.info(f"Average Gap Percentage: {avg_gap_percentage:.2f}%")
+            
+        except Exception as e:
+            logger.error(f"Error generating statistics for {method}: {str(e)}")
+
+    def _calculate_comparative_metrics(self, sequence_results: Dict) -> None:
+        """Calculate comparative metrics between different methods"""
+        try:
+            methods = sequence_results["methods"]
+            sp_scores = sequence_results["sp_norm"]
+            wsp_scores = sequence_results["wsp_norm"]
+            
+            logger.info("\nComparative Analysis:")
+            for i, method1 in enumerate(methods[:-1]):
+                for method2 in methods[i+1:]:
+                    j = methods.index(method2)
+                    sp_diff = abs(sp_scores[i] - sp_scores[j])
+                    wsp_diff = abs(wsp_scores[i] - wsp_scores[j])
+                    
+                    logger.info(f"\n{method1} vs {method2}:")
+                    logger.info(f"SP Score Difference: {sp_diff:.4f}")
+                    logger.info(f"WSP Score Difference: {wsp_diff:.4f}")
+                    
+        except Exception as e:
+            logger.error(f"Error calculating comparative metrics: {str(e)}")
+
+    def _save_results(self, results: List[Dict]) -> None:
+        """Save comprehensive results to CSV format"""
+        try:
+            output_file = self.results_dir / "alignment_scores.csv"
+            logger.info(f"\nSaving results to: {output_file}")
+
+            fieldnames = [
+                "sequence", "method",
+                "sp_raw", "sp_norm",
+                "wsp_raw", "wsp_norm"
+            ]
+
+            with open(output_file, "w", newline='') as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writeheader()
+
+                for item in results:
+                    seq_id = item["sequence_id"]
+                    for i, method in enumerate(item["methods"]):
+                        writer.writerow({
+                            "sequence": seq_id,
+                            "method": method,
+                            "sp_raw": item["sp_raw"][i],
+                            "sp_norm": item["sp_norm"][i],
+                            "wsp_raw": item["wsp_raw"][i],
+                            "wsp_norm": item["wsp_norm"][i]
+                        })
+
+            logger.info("Results saved successfully")
+            
+        except Exception as e:
+            logger.error(f"Error saving results: {str(e)}")
+
+    def _generate_summary_report(self, results: List[Dict], 
+                               processed: int, errors: int, total: int) -> None:
+        """Generate comprehensive summary report"""
+        try:
+            report_file = self.results_dir / "analysis_report.txt"
+            
+            with open(report_file, "w") as f:
+                f.write("Multiple Sequence Alignment Analysis Report\n")
+                f.write("=" * 50 + "\n\n")
+                
+                f.write("Processing Statistics:\n")
+                f.write(f"Total sequences: {total}\n")
+                f.write(f"Successfully processed: {processed}\n")
+                f.write(f"Errors: {errors}\n\n")
+                
+                f.write("Method Comparison:\n")
+                for method in ["ClustalW", "MUSCLE", "BAliBASE"]:
+                    method_scores = [item for item in results 
+                                   if method in item["methods"]]
+                    
+                    if method_scores:
+                        sp_scores = [item["sp_norm"][item["methods"].index(method)]
+                                   for item in method_scores]
+                        wsp_scores = [item["wsp_norm"][item["methods"].index(method)]
+                                    for item in method_scores]
+                        
+                        f.write(f"\n{method}:\n")
+                        f.write(f"Average SP Score (PAM250): {np.mean(sp_scores):.4f}\n")
+                        f.write(f"Average WSP Score (Gotoh): {np.mean(wsp_scores):.4f}\n")
+                        
+            logger.info(f"Summary report generated: {report_file}")
+            
+        except Exception as e:
+            logger.error(f"Error generating summary report: {str(e)}")
+
     def run_pipeline(self) -> None:
-        """
-        Execute the complete alignment and evaluation pipeline.
-        Processes all FASTA files through multiple tools and generates
-        comprehensive comparison results using both enhanced SP and WSP scores.
-        """
+        """Execute the complete alignment and evaluation pipeline"""
         results = []
         processed = 0
         errors = 0
@@ -799,113 +979,27 @@ class SequenceAlignmentPipeline:
         else:
             logger.error("No results generated")
 
-    def _generate_alignment_statistics(self, aln_file: Path, method: str) -> None:
-        """Generate detailed statistics for each alignment method"""
-        try:
-            alignment = AlignIO.read(aln_file, "clustal")
-            
-            num_sequences = len(alignment)
-            alignment_length = alignment.get_alignment_length()
-            
-            # Analyze gap distribution
-            gap_counts = []
-            for record in alignment:
-                gaps = str(record.seq).count('-')
-                gap_percentage = (gaps / alignment_length) * 100
-                gap_counts.append(gap_percentage)
-            
-            avg_gap_percentage = np.mean(gap_counts)
-            
-            logger.info(f"\n{method} Alignment Statistics:")
-            logger.info(f"Sequences: {num_sequences}")
-            logger.info(f"Alignment Length: {alignment_length}")
-            logger.info(f"Average Gap Percentage: {avg_gap_percentage:.2f}%")
-            
-        except Exception as e:
-            logger.error(f"Error generating statistics for {method}: {str(e)}")
 
-    def _save_results(self, results: List[Dict]) -> None:
-        """Save comprehensive results to CSV format"""
-        try:
-            output_file = self.results_dir / "alignment_scores.csv"
-            logger.info(f"\nSaving results to: {output_file}")
-
-            fieldnames = [
-                "sequence_id", "method",
-                "sp_raw", "sp_norm",
-                "wsp_raw", "wsp_norm"
-            ]
-
-            with open(output_file, "w", newline='') as csvfile:
-                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                writer.writeheader()
-
-                for item in results:
-                    seq_id = item["sequence_id"]
-                    for i, method in enumerate(item["methods"]):
-                        writer.writerow({
-                            "sequence_id": seq_id,
-                            "method": method,
-                            "sp_raw": item["sp_raw"][i],
-                            "sp_norm": item["sp_norm"][i],
-                            "wsp_raw": item["wsp_raw"][i],
-                            "wsp_norm": item["wsp_norm"][i]
-                        })
-
-            logger.info("Results saved successfully")
-            
-        except Exception as e:
-            logger.error(f"Error saving results: {str(e)}")
-
-    def _generate_summary_report(self, results: List[Dict], 
-                               processed: int, errors: int, total: int) -> None:
-        """Generate comprehensive summary report"""
-        try:
-            report_file = self.results_dir / "analysis_report.txt"
-            
-            with open(report_file, "w") as f:
-                f.write("Multiple Sequence Alignment Analysis Report\n")
-                f.write("=" * 50 + "\n\n")
-                
-                f.write("Processing Statistics:\n")
-                f.write(f"Total sequences: {total}\n")
-                f.write(f"Successfully processed: {processed}\n")
-                f.write(f"Errors: {errors}\n\n")
-                
-                f.write("Method Comparison:\n")
-                for method in ["ClustalW", "MUSCLE", "BAliBASE"]:
-                    method_scores = [item for item in results 
-                                   if method in item["methods"]]
-                    
-                    if method_scores:
-                        sp_scores = [item["sp_norm"][item["methods"].index(method)]
-                                   for item in method_scores]
-                        wsp_scores = [item["wsp_norm"][item["methods"].index(method)]
-                                    for item in method_scores]
-                        
-                        f.write(f"\n{method}:\n")
-                        f.write(f"Average SP Score (PAM250): {np.mean(sp_scores):.4f}\n")
-                        f.write(f"Average WSP Score (Gotoh): {np.mean(wsp_scores):.4f}\n")
-                        
-            logger.info(f"Summary report generated: {report_file}")
-            
-        except Exception as e:
-            logger.error(f"Error generating summary report: {str(e)}")
+# =====================================================================
+# Main Execution
+# =====================================================================
 
 if __name__ == "__main__":
-    # Configure directories
-    balibase_dir = Path("/home/augusto/projects/multiOne/BAliBASE/RV30")
-    reference_dir = Path("/home/augusto/projects/multiOne/BAliBASE/RV30")
-    results_dir = Path("/home/augusto/projects/multiOne/results")
-
-    # Initialize and run pipeline
     try:
+        # Configure directories
+        balibase_dir = Path("/home/augusto/projects/multiOne/BAliBASE/RV30")
+        reference_dir = Path("/home/augusto/projects/multiOne/BAliBASE/RV30")
+        results_dir = Path("/home/augusto/projects/multiOne/results")
+
+        # Initialize and run pipeline
         pipeline = SequenceAlignmentPipeline(
             balibase_dir=balibase_dir,
             reference_dir=reference_dir,
             results_dir=results_dir
         )
+        
         pipeline.run_pipeline()
+        
     except Exception as e:
         logger.error(f"Pipeline execution failed: {str(e)}")
         sys.exit(1)

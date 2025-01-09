@@ -1,0 +1,21 @@
+Multiple Sequence Alignment Analysis Report
+==================================================
+
+Processing Statistics:
+Total sequences: 60
+Successfully processed: 60
+Errors: 0
+
+Method Comparison:
+
+ClustalW:
+Average SP Score (PAM250): 0.3200
+Average WSP Score (Gotoh): 0.8126
+
+MUSCLE:
+Average SP Score (PAM250): 0.3200
+Average WSP Score (Gotoh): 0.8716
+
+BAliBASE:
+Average SP Score (PAM250): 0.3200
+Average WSP Score (Gotoh): 0.8129
