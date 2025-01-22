@@ -2,7 +2,102 @@ ANÁLISE DETALHADA
 ================================================================================
 
 MELHOR MATRIZ:
-FO_compare: 0.0069
-FO original: 0.0322
+FO_compare: 0.0074
+FO original: 0.0362
 
 Diferença BAliBASE vs MUSCLE:
+  BAliBASE: 0.0362
+  MUSCLE: 0.0359
+  Delta: 0.0002
+
+TODAS AS MATRIZES:
+
+Matrix 1:
+  FO_compare: 0.0074
+  FO original: 0.0362
+  Scores:
+    clustalw: 0.0309
+    muscle: 0.0359
+    balibase: 0.0362
+----------------------------------------
+
+Matrix 2:
+  FO_compare: 0.0065
+  FO original: 0.0310
+  Scores:
+    clustalw: 0.0268
+    muscle: 0.0305
+    balibase: 0.0310
+----------------------------------------
+
+Matrix 3:
+  FO_compare: 0.0061
+  FO original: 0.0292
+  Scores:
+    clustalw: 0.0257
+    muscle: 0.0289
+    balibase: 0.0292
+----------------------------------------
+
+Matrix 4:
+  FO_compare: 0.0060
+  FO original: 0.0302
+  Scores:
+    clustalw: 0.0191
+    muscle: 0.0302
+    balibase: 0.0302
+----------------------------------------
+
+Matrix 5:
+  FO_compare: 0.0059
+  FO original: 0.0287
+  Scores:
+    clustalw: 0.0208
+    muscle: 0.0285
+    balibase: 0.0287
+----------------------------------------
+
+Matrix 6:
+  FO_compare: 0.0058
+  FO original: 0.0284
+  Scores:
+    clustalw: 0.0247
+    muscle: 0.0282
+    balibase: 0.0284
+----------------------------------------
+
+Matrix 7:
+  FO_compare: 0.0057
+  FO original: 0.0277
+  Scores:
+    clustalw: 0.0200
+    muscle: 0.0276
+    balibase: 0.0277
+----------------------------------------
+
+Matrix 8:
+  FO_compare: 0.0055
+  FO original: 0.0293
+  Scores:
+    clustalw: 0.0180
+    muscle: 0.0297
+    balibase: 0.0293
+----------------------------------------
+
+Matrix 9:
+  FO_compare: 0.0054
+  FO original: 0.0266
+  Scores:
+    clustalw: 0.0188
+    muscle: 0.0266
+    balibase: 0.0266
+----------------------------------------
+
+Matrix 10:
+  FO_compare: 0.0050
+  FO original: 0.0254
+  Scores:
+    clustalw: 0.0176
+    muscle: 0.0255
+    balibase: 0.0254
+----------------------------------------

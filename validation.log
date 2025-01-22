@@ -9685,3 +9685,94 @@ BALIBASE:
 2025-01-22 10:01:56,747 [INFO] 
 Melhor matriz salva em results/best_matrix.npy
 2025-01-22 10:01:56,747 [ERROR] Avaliação falhou: 'AlignmentScores' object has no attribute 'hybrid_norm'
+2025-01-22 10:10:14,245 [INFO] 
+MA-BioFit Iniciando ...
+2025-01-22 10:10:14,283 [INFO] Dados extraídos com sucesso: 31 core blocks, 4 sequências PDB, 466 posições com estrutura
+2025-01-22 10:10:14,283 [INFO] 
+Criando e avaliando PAM250 original...
+2025-01-22 10:10:14,284 [INFO] 
+Avaliando matriz...
+2025-01-22 10:10:18,308 [INFO] 
+Scores para clustalw:
+2025-01-22 10:10:18,308 [INFO] SP: 0.0138
+2025-01-22 10:10:18,473 [INFO] 
+Scores para muscle:
+2025-01-22 10:10:18,473 [INFO] SP: 0.0254
+2025-01-22 10:10:18,615 [INFO] 
+Scores para referência BAliBASE:
+2025-01-22 10:10:18,616 [INFO] SP: 0.0248
+2025-01-22 10:10:18,616 [INFO] 
+Gerando população inicial...
+2025-01-22 10:10:18,627 [INFO] 
+Avaliando população inicial...
+2025-01-22 10:10:18,628 [INFO] 
+Avaliando matriz 1/10
+2025-01-22 10:10:22,881 [INFO] FO_compare: 0.0057 Delta(BAli-MUS): 0.0002 FO_original: 0.0277
+2025-01-22 10:10:22,882 [INFO] 
+Avaliando matriz 2/10
+2025-01-22 10:10:32,989 [INFO] FO_compare: 0.0058 Delta(BAli-MUS): 0.0002 FO_original: 0.0284
+2025-01-22 10:10:32,989 [INFO] 
+Avaliando matriz 3/10
+2025-01-22 10:10:38,158 [INFO] FO_compare: 0.0060 Delta(BAli-MUS): -0.0000 FO_original: 0.0302
+2025-01-22 10:10:38,159 [INFO] 
+Avaliando matriz 4/10
+2025-01-22 10:10:43,045 [INFO] FO_compare: 0.0055 Delta(BAli-MUS): -0.0004 FO_original: 0.0293
+2025-01-22 10:10:43,045 [INFO] 
+Avaliando matriz 5/10
+2025-01-22 10:10:40,922 [INFO] FO_compare: 0.0059 Delta(BAli-MUS): 0.0002 FO_original: 0.0287
+2025-01-22 10:10:40,923 [INFO] 
+Avaliando matriz 6/10
+2025-01-22 10:10:45,297 [INFO] FO_compare: 0.0050 Delta(BAli-MUS): -0.0000 FO_original: 0.0254
+2025-01-22 10:10:45,298 [INFO] 
+Avaliando matriz 7/10
+2025-01-22 10:10:49,639 [INFO] FO_compare: 0.0065 Delta(BAli-MUS): 0.0004 FO_original: 0.0310
+2025-01-22 10:10:49,639 [INFO] 
+Avaliando matriz 8/10
+2025-01-22 10:10:54,490 [INFO] FO_compare: 0.0074 Delta(BAli-MUS): 0.0002 FO_original: 0.0362
+2025-01-22 10:10:54,490 [INFO] 
+Avaliando matriz 9/10
+2025-01-22 10:10:58,787 [INFO] FO_compare: 0.0061 Delta(BAli-MUS): 0.0003 FO_original: 0.0292
+2025-01-22 10:10:58,787 [INFO] 
+Avaliando matriz 10/10
+2025-01-22 10:11:03,219 [INFO] FO_compare: 0.0054 Delta(BAli-MUS): 0.0001 FO_original: 0.0266
+2025-01-22 10:11:03,219 [INFO] 
+Melhores soluções encontradas:
+2025-01-22 10:11:03,219 [INFO] 1. Matrix matrix_8: Delta=0.0002 FO_comp=0.0074 FO_orig=0.0362
+2025-01-22 10:11:03,219 [INFO] 2. Matrix matrix_7: Delta=0.0004 FO_comp=0.0065 FO_orig=0.0310
+2025-01-22 10:11:03,219 [INFO] 3. Matrix matrix_9: Delta=0.0003 FO_comp=0.0061 FO_orig=0.0292
+2025-01-22 10:11:03,220 [INFO] 4. Matrix matrix_3: Delta=-0.0000 FO_comp=0.0060 FO_orig=0.0302
+2025-01-22 10:11:03,220 [INFO] 5. Matrix matrix_5: Delta=0.0002 FO_comp=0.0059 FO_orig=0.0287
+2025-01-22 10:11:03,220 [WARNING] Nenhuma matriz encontrada com BAliBASE >= MUSCLE
+2025-01-22 10:11:03,220 [INFO] 
+Comparando melhor matriz com PAM250...
+2025-01-22 10:11:03,220 [INFO] 
+================================================================================
+2025-01-22 10:11:03,220 [INFO] MATRIX COMPARISON
+2025-01-22 10:11:03,220 [INFO] ================================================================================
+2025-01-22 10:11:03,220 [INFO] Method/Matrix        SP        
+2025-01-22 10:11:03,221 [INFO] --------------------------------------------------
+2025-01-22 10:11:03,221 [INFO] PAM250 clustalw          0.0138
+2025-01-22 10:11:03,221 [INFO] PAM250 muscle            0.0254
+2025-01-22 10:11:03,221 [INFO] PAM250 balibase          0.0248
+2025-01-22 10:11:03,221 [INFO] --------------------------------------------------
+2025-01-22 10:11:03,221 [INFO] AdaptivePAM clustalw     0.0309
+2025-01-22 10:11:03,221 [INFO] AdaptivePAM muscle       0.0359
+2025-01-22 10:11:03,221 [INFO] AdaptivePAM balibase     0.0362
+2025-01-22 10:11:03,221 [INFO] --------------------------------------------------
+2025-01-22 10:11:03,222 [INFO] % Improvement over PAM250:
+2025-01-22 10:11:03,222 [INFO] 
+CLUSTALW:
+2025-01-22 10:11:03,222 [INFO] SP:             124.27%
+2025-01-22 10:11:03,222 [INFO] 
+MUSCLE:
+2025-01-22 10:11:03,222 [INFO] SP:              41.35%
+2025-01-22 10:11:03,222 [INFO] 
+BALIBASE:
+2025-01-22 10:11:03,222 [INFO] SP:              45.62%
+2025-01-22 10:11:03,222 [INFO] --------------------------------------------------
+2025-01-22 10:11:03,223 [INFO] Matrix saved to results/best_matrix.npy
+2025-01-22 10:11:03,223 [INFO] 
+Melhor matriz salva em results/best_matrix.npy
+2025-01-22 10:11:03,223 [INFO] 
+Avaliação completa!
+2025-01-22 10:11:03,223 [INFO] Análise detalhada salva em results/analysis.txt

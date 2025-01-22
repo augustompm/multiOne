@@ -32,8 +32,8 @@ P_CONSERVATION = 0.6  # Probabilidade busca conservação
 P_STRUCTURAL = 0.3    # Probabilidade busca estrutural
 
 # Pesos da Função Objetivo
-ALPHA = 0.8  # Peso da diferença balibase-muscle
-BETA = 0.2   # Peso do score balibase
+ALPHA = 0.8  # Peso da diferença balibase-muscle (SP)
+BETA = 0.2   # Peso do score balibase (SP)
 
 # =============================================
 # Configuração de Logging
@@ -78,7 +78,7 @@ def evaluate_matrix(matrix: AdaptiveMatrix, input_file: Path, reference_file: Pa
                     logger.info(f"SP: {scores.sp_norm:.4f}")
                 except Exception as e:
                     logger.error(f"Erro avaliando {method}: {e}")
-                    method_scores[method] = AlignmentScores(0.0, 0.0, 0.0, 0.0, 0.0)
+                    method_scores[method] = AlignmentScores(0.0, 0.0)  # Apenas sp_raw e sp_norm
         
         # Avalia alinhamento referência do BAliBASE
         try:
@@ -89,7 +89,7 @@ def evaluate_matrix(matrix: AdaptiveMatrix, input_file: Path, reference_file: Pa
 
         except Exception as e:
             logger.error(f"Erro avaliando referência: {e}")
-            method_scores['balibase'] = AlignmentScores(0.0, 0.0, 0.0, 0.0, 0.0)
+            method_scores['balibase'] = AlignmentScores(0.0, 0.0)  # Apenas sp_raw e sp_norm
             
         return method_scores
             
@@ -176,7 +176,7 @@ def main():
             diagonal_range=(DIAGONAL_MIN, DIAGONAL_MAX)
         )
         
-        # Avalia população usando FO_compare
+        # Avalia população usando FO_compare (baseado em SP)
         logger.info("\nAvaliando população inicial...")
         results = memetic.evaluate_population(population)
         
@@ -204,9 +204,9 @@ def main():
                 f.write(f"FO_compare: {best_result.fo_compare:.4f}\n")
                 f.write(f"FO original: {best_result.fo_original:.4f}\n")
                 f.write("\nDiferença BAliBASE vs MUSCLE:\n")
-                f.write(f"  BAliBASE: {best_result.scores['balibase'].hybrid_norm:.4f}\n")
-                f.write(f"  MUSCLE: {best_result.scores['muscle'].hybrid_norm:.4f}\n")
-                f.write(f"  Delta: {best_result.scores['balibase'].hybrid_norm - best_result.scores['muscle'].hybrid_norm:.4f}\n")
+                f.write(f"  BAliBASE: {best_result.scores['balibase'].sp_norm:.4f}\n")
+                f.write(f"  MUSCLE: {best_result.scores['muscle'].sp_norm:.4f}\n")
+                f.write(f"  Delta: {best_result.scores['balibase'].sp_norm - best_result.scores['muscle'].sp_norm:.4f}\n")
                 
                 f.write("\nTODAS AS MATRIZES:\n")
                 for i, result in enumerate(results, 1):
@@ -215,7 +215,7 @@ def main():
                     f.write(f"  FO original: {result.fo_original:.4f}\n")
                     f.write("  Scores:\n")
                     for method, scores in result.scores.items():
-                        f.write(f"    {method}: {scores.hybrid_norm:.4f}\n")
+                        f.write(f"    {method}: {scores.sp_norm:.4f}\n")
                     f.write("-" * 40 + "\n")
             
             logger.info("\nAvaliação completa!")
