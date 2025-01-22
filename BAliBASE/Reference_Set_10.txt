@@ -1,0 +1,7 @@
+BAliBASE Reference Set 10 includes 218 large, complex protein families, designed to reproduce today's sequence exploration requirements and addressing 3 major points:
+
+(i) Most of the existing MSA benchmarks - and as a consequence, most MSA construction algorithms - have focused on the patterns conserved in the majority of the sequences and not enough attention has been paid to the less frequent patterns, or SDPs, that might indicate subfamily-specific or context-specific functions.
+
+(ii) Current MSA programs for protein sequences generally model globular domain structure and evolution. Nevertheless, many proteins, particularly in eukaryotes, are unstructured (natively disordered) or contain large unstructured regions.These regions frequently contain motifs, such as signalling sequences or sites of posttranslational modifications, that are involved in the regulatory functions of a cell.
+
+(iii) The use of high throughput sequencing technologies has produced huge volumes of very noisy data, including fragmentary or otherwise erroneous sequences, that affect MSA program performance.

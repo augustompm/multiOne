@@ -12,7 +12,7 @@ class EvaluationResult(NamedTuple):
     Estrutura para armazenar resultados da avaliação:
     
     matrix_id: Identificador único da matriz
-    fo_original: FO original (50% SP + 50% WSP)  
+    fo_original: FO original (SP score)
     fo_compare: FO comparativa (alpha*delta + beta*balibase)
     balibase_score: Score do alinhamento BAliBASE
     muscle_score: Score do alinhamento MUSCLE
@@ -57,7 +57,7 @@ class MemeticEngine:
     def evaluate_matrix(self, matrix: AdaptiveMatrix, matrix_id: str) -> Optional[EvaluationResult]:
         """
         Avalia uma matriz considerando:
-        1. FO original (SP + WSP)
+        1. FO original (SP)
         2. FO comparativa (diferença BAliBASE-MUSCLE)
         3. Scores individuais dos métodos
         """
@@ -88,13 +88,12 @@ class MemeticEngine:
                 return None
 
             # Calcula scores principais
-            balibase_score = method_scores['balibase'].hybrid_norm
-            muscle_score = method_scores['muscle'].hybrid_norm
+            balibase_score = method_scores['balibase'].sp_norm  # Modificado: usar sp_norm ao invés de hybrid_norm
+            muscle_score = method_scores['muscle'].sp_norm      # Modificado: usar sp_norm ao invés de hybrid_norm
             delta = balibase_score - muscle_score
 
             # Calcula FOs
-            fo_original = (method_scores['balibase'].sp_norm + 
-                         method_scores['balibase'].wsp_norm) / 2
+            fo_original = method_scores['balibase'].sp_norm    # Modificado: usar apenas sp_norm
                          
             fo_compare = self.alpha * delta + self.beta * balibase_score
 

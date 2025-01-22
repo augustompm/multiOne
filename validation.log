@@ -9297,3 +9297,45 @@ Melhor matriz salva em results/best_matrix.npy
 2025-01-21 19:34:48,989 [INFO] 
 Avaliação completa!
 2025-01-21 19:34:48,989 [INFO] Análise detalhada salva em results/analysis.txt
+2025-01-22 09:46:50,604 [INFO] 
+MA-BioFit Iniciando ...
+2025-01-22 09:46:50,638 [INFO] Dados extraídos com sucesso: 31 core blocks, 4 sequências PDB, 466 posições com estrutura
+2025-01-22 09:46:50,638 [INFO] 
+Criando e avaliando PAM250 original...
+2025-01-22 09:46:50,640 [INFO] 
+Avaliando matriz...
+2025-01-22 09:46:54,703 [INFO] 
+Scores para clustalw:
+2025-01-22 09:46:54,703 [INFO] SP: 0.0138
+2025-01-22 09:46:54,703 [ERROR] Erro avaliando clustalw: 'AlignmentScores' object has no attribute 'wsp_norm'
+2025-01-22 09:46:54,703 [ERROR] Erro avaliando matriz: AlignmentScores.__new__() takes 3 positional arguments but 6 were given
+2025-01-22 09:46:54,704 [INFO] 
+Gerando população inicial...
+2025-01-22 09:46:54,767 [INFO] 
+Avaliando população inicial...
+2025-01-22 09:46:54,768 [INFO] 
+Avaliando matriz 1/50
+2025-01-22 09:46:59,325 [ERROR] Erro avaliando matriz matrix_1: 'AlignmentScores' object has no attribute 'hybrid_norm'
+2025-01-22 09:46:59,325 [INFO] 
+Avaliando matriz 2/50
+2025-01-22 09:51:16,531 [INFO] 
+MA-BioFit Iniciando ...
+2025-01-22 09:51:16,578 [INFO] Dados extraídos com sucesso: 31 core blocks, 4 sequências PDB, 466 posições com estrutura
+2025-01-22 09:51:16,579 [INFO] 
+Criando e avaliando PAM250 original...
+2025-01-22 09:51:16,581 [INFO] 
+Avaliando matriz...
+2025-01-22 09:51:18,168 [INFO] 
+Scores para clustalw:
+2025-01-22 09:51:18,168 [INFO] SP: 0.0138
+2025-01-22 09:51:18,168 [ERROR] Erro avaliando clustalw: 'AlignmentScores' object has no attribute 'wsp_norm'
+2025-01-22 09:51:18,168 [ERROR] Erro avaliando matriz: AlignmentScores.__new__() takes 3 positional arguments but 6 were given
+2025-01-22 09:51:18,169 [INFO] 
+Gerando população inicial...
+2025-01-22 09:51:18,224 [INFO] 
+Avaliando população inicial...
+2025-01-22 09:51:18,224 [INFO] 
+Avaliando matriz 1/50
+2025-01-22 09:51:22,715 [INFO] FO_compare: 0.0060 Delta(BAli-MUS): 0.0003 FO_original: 0.0288
+2025-01-22 09:51:22,716 [INFO] 
+Avaliando matriz 2/50
