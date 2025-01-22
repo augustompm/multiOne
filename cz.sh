@@ -9,6 +9,11 @@ function error_exit {
     exit 1
 }
 
+# Função para exibir avisos
+function warning {
+    echo "WARNING: $1" 1>&2
+}
+
 # Verifica se o arquivo de referência existe. Se não, cria com 001
 if [ ! -f "$REF_FILE" ]; then
     echo "001" > "$REF_FILE" || error_exit "Erro ao criar o arquivo de referência."
@@ -23,6 +28,7 @@ if ! [[ "$CURRENT_REF" =~ ^[0-9]{3}$ ]]; then
     CURRENT_REF="001"
     echo "$CURRENT_REF" > "$REF_FILE" || error_exit "Erro ao reiniciar o número de referência."
 fi
+
 # Executa git add
 git add . || error_exit "Erro ao executar 'git add .'."
 
@@ -48,4 +54,4 @@ fi
 echo "$NEXT_REF" > "$REF_FILE" || error_exit "Erro ao atualizar o número de referência."
 
 echo "Commit realizado com sucesso com a referência V0.${CURRENT_REF}."
-echo "Próximo número de referência: V0.${NEXT_REF}
+echo "Próximo número de referência: V0.${NEXT_REF}."
