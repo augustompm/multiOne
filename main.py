@@ -19,7 +19,7 @@ XML_FILE = BALIBASE_DIR / "BB30002.xml"
 RESULTS_DIR = Path("results")
 
 # Parâmetros da População
-POPULATION_SIZE = 50
+POPULATION_SIZE = 10
 PERTURBATION_MIN = 0.05  # Mínima perturbação na PAM
 PERTURBATION_MAX = 0.15  # Máxima perturbação na PAM
 DIAGONAL_MIN = 1.1  # Mínimo reforço diagonal
@@ -76,8 +76,6 @@ def evaluate_matrix(matrix: AdaptiveMatrix, input_file: Path, reference_file: Pa
                     method_scores[method] = scores
                     logger.info(f"\nScores para {method}:")
                     logger.info(f"SP: {scores.sp_norm:.4f}")
-                    logger.info(f"WSP: {scores.wsp_norm:.4f}")
-                    logger.info(f"FO: {scores.hybrid_norm:.4f}")
                 except Exception as e:
                     logger.error(f"Erro avaliando {method}: {e}")
                     method_scores[method] = AlignmentScores(0.0, 0.0, 0.0, 0.0, 0.0)
@@ -88,8 +86,7 @@ def evaluate_matrix(matrix: AdaptiveMatrix, input_file: Path, reference_file: Pa
             method_scores['balibase'] = evaluator.evaluate_alignment(reference)
             logger.info(f"\nScores para referência BAliBASE:")
             logger.info(f"SP: {method_scores['balibase'].sp_norm:.4f}")
-            logger.info(f"WSP: {method_scores['balibase'].wsp_norm:.4f}")
-            logger.info(f"Hybrid: {method_scores['balibase'].hybrid_norm:.4f}")
+
         except Exception as e:
             logger.error(f"Erro avaliando referência: {e}")
             method_scores['balibase'] = AlignmentScores(0.0, 0.0, 0.0, 0.0, 0.0)
@@ -106,29 +103,24 @@ def print_comparison(pam_scores: dict, adaptive_scores: dict):
     logger.info("MATRIX COMPARISON")
     logger.info("="*80)
     
-    # Header
-    logger.info(f"{'Method/Matrix':<20} {'SP':<10} {'WSP':<10} {'Hybrid':<10}")
-    logger.info("-"*80)
+    logger.info(f"{'Method/Matrix':<20} {'SP':<10}")
+    logger.info("-"*50)  # Reduzido o tamanho da linha
     
     # Scores para cada método com PAM250
     for method in ['clustalw', 'muscle', 'balibase']:
         if method in pam_scores:
             logger.info(f"{f'PAM250 {method}':<20} "
-                       f"{pam_scores[method].sp_norm:>10.4f} "
-                       f"{pam_scores[method].wsp_norm:>10.4f} "
-                       f"{pam_scores[method].hybrid_norm:>10.4f}")
+                       f"{pam_scores[method].sp_norm:>10.4f}")
     
-    logger.info("-"*80)
+    logger.info("-"*50)
     
     # Scores para cada método com matriz adaptativa
     for method in ['clustalw', 'muscle', 'balibase']:
         if method in adaptive_scores:
             logger.info(f"{f'AdaptivePAM {method}':<20} "
-                       f"{adaptive_scores[method].sp_norm:>10.4f} "
-                       f"{adaptive_scores[method].wsp_norm:>10.4f} "
-                       f"{adaptive_scores[method].hybrid_norm:>10.4f}")
+                       f"{adaptive_scores[method].sp_norm:>10.4f}")
     
-    logger.info("-"*80)
+    logger.info("-"*50)
     logger.info("% Improvement over PAM250:")
     
     # Calcula melhoria percentual para cada método
@@ -145,25 +137,9 @@ def print_comparison(pam_scores: dict, adaptive_scores: dict):
                 sp_diff = ((adap.sp_norm - pam.sp_norm) / pam.sp_norm) * 100
                 sp_text = f"{sp_diff:>.2f}%"
             
-            # WSP Score
-            if pam.wsp_norm == 0:
-                wsp_text = "undefined" if adap.wsp_norm != 0 else "no change"
-            else:
-                wsp_diff = ((adap.wsp_norm - pam.wsp_norm) / pam.wsp_norm) * 100
-                wsp_text = f"{wsp_diff:>.2f}%"
-            
-            # Hybrid Score
-            if pam.hybrid_norm == 0:
-                hybrid_text = "undefined" if adap.hybrid_norm != 0 else "no change"
-            else:
-                hybrid_diff = ((adap.hybrid_norm - pam.hybrid_norm) / pam.hybrid_norm) * 100
-                hybrid_text = f"{hybrid_diff:>.2f}%"
-                
             logger.info(f"{'SP:':<12} {sp_text:>10}")
-            logger.info(f"{'WSP:':<12} {wsp_text:>10}")
-            logger.info(f"{'Hybrid:':<12} {hybrid_text:>10}")
     
-    logger.info("-"*80)
+    logger.info("-"*50)
 
 def main():
     try:

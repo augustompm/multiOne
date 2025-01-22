@@ -9339,3 +9339,349 @@ Avaliando matriz 1/50
 2025-01-22 09:51:22,715 [INFO] FO_compare: 0.0060 Delta(BAli-MUS): 0.0003 FO_original: 0.0288
 2025-01-22 09:51:22,716 [INFO] 
 Avaliando matriz 2/50
+2025-01-22 09:52:21,464 [INFO] 
+MA-BioFit Iniciando ...
+2025-01-22 09:52:21,497 [INFO] Dados extraídos com sucesso: 31 core blocks, 4 sequências PDB, 466 posições com estrutura
+2025-01-22 09:52:21,497 [INFO] 
+Criando e avaliando PAM250 original...
+2025-01-22 09:52:21,498 [INFO] 
+Avaliando matriz...
+2025-01-22 09:52:26,422 [INFO] 
+Scores para clustalw:
+2025-01-22 09:52:26,423 [INFO] SP: 0.0138
+2025-01-22 09:52:26,423 [ERROR] Erro avaliando clustalw: 'AlignmentScores' object has no attribute 'wsp_norm'
+2025-01-22 09:52:26,423 [ERROR] Erro avaliando matriz: AlignmentScores.__new__() takes 3 positional arguments but 6 were given
+2025-01-22 09:52:26,423 [INFO] 
+Gerando população inicial...
+2025-01-22 09:52:26,483 [INFO] 
+Avaliando população inicial...
+2025-01-22 09:52:26,484 [INFO] 
+Avaliando matriz 1/50
+2025-01-22 09:52:31,678 [INFO] FO_compare: 0.0055 Delta(BAli-MUS): -0.0000 FO_original: 0.0276
+2025-01-22 09:52:31,678 [INFO] 
+Avaliando matriz 2/50
+2025-01-22 09:52:36,957 [INFO] FO_compare: 0.0059 Delta(BAli-MUS): -0.0003 FO_original: 0.0307
+2025-01-22 09:52:36,957 [INFO] 
+Avaliando matriz 3/50
+2025-01-22 09:52:39,243 [INFO] FO_compare: 0.0058 Delta(BAli-MUS): 0.0001 FO_original: 0.0283
+2025-01-22 09:52:39,244 [INFO] 
+Avaliando matriz 4/50
+2025-01-22 09:52:44,120 [INFO] FO_compare: 0.0076 Delta(BAli-MUS): 0.0006 FO_original: 0.0355
+2025-01-22 09:52:44,120 [INFO] 
+Avaliando matriz 5/50
+2025-01-22 09:52:48,888 [INFO] FO_compare: 0.0051 Delta(BAli-MUS): -0.0001 FO_original: 0.0258
+2025-01-22 09:52:48,888 [INFO] 
+Avaliando matriz 6/50
+2025-01-22 09:52:53,736 [INFO] FO_compare: 0.0058 Delta(BAli-MUS): 0.0002 FO_original: 0.0284
+2025-01-22 09:52:53,736 [INFO] 
+Avaliando matriz 7/50
+2025-01-22 09:52:58,730 [INFO] FO_compare: 0.0054 Delta(BAli-MUS): 0.0000 FO_original: 0.0270
+2025-01-22 09:52:58,730 [INFO] 
+Avaliando matriz 8/50
+2025-01-22 09:53:03,613 [INFO] FO_compare: 0.0052 Delta(BAli-MUS): -0.0001 FO_original: 0.0266
+2025-01-22 09:53:03,613 [INFO] 
+Avaliando matriz 9/50
+2025-01-22 09:53:08,368 [INFO] FO_compare: 0.0051 Delta(BAli-MUS): -0.0001 FO_original: 0.0262
+2025-01-22 09:53:08,368 [INFO] 
+Avaliando matriz 10/50
+2025-01-22 09:53:13,255 [INFO] FO_compare: 0.0066 Delta(BAli-MUS): 0.0005 FO_original: 0.0312
+2025-01-22 09:53:13,255 [INFO] 
+Avaliando matriz 11/50
+2025-01-22 09:53:17,937 [INFO] FO_compare: 0.0049 Delta(BAli-MUS): -0.0001 FO_original: 0.0249
+2025-01-22 09:53:17,937 [INFO] 
+Avaliando matriz 12/50
+2025-01-22 09:53:23,042 [INFO] FO_compare: 0.0055 Delta(BAli-MUS): -0.0001 FO_original: 0.0282
+2025-01-22 09:53:23,042 [INFO] 
+Avaliando matriz 13/50
+2025-01-22 09:53:27,543 [INFO] FO_compare: 0.0065 Delta(BAli-MUS): 0.0004 FO_original: 0.0306
+2025-01-22 09:53:27,544 [INFO] 
+Avaliando matriz 14/50
+2025-01-22 09:53:32,007 [INFO] FO_compare: 0.0056 Delta(BAli-MUS): 0.0001 FO_original: 0.0277
+2025-01-22 09:53:32,007 [INFO] 
+Avaliando matriz 15/50
+2025-01-22 09:53:36,664 [INFO] FO_compare: 0.0059 Delta(BAli-MUS): 0.0002 FO_original: 0.0287
+2025-01-22 09:53:36,664 [INFO] 
+Avaliando matriz 16/50
+2025-01-22 09:53:41,316 [INFO] FO_compare: 0.0057 Delta(BAli-MUS): 0.0001 FO_original: 0.0277
+2025-01-22 09:53:41,316 [INFO] 
+Avaliando matriz 17/50
+2025-01-22 09:53:45,785 [INFO] FO_compare: 0.0061 Delta(BAli-MUS): -0.0000 FO_original: 0.0308
+2025-01-22 09:53:45,786 [INFO] 
+Avaliando matriz 18/50
+2025-01-22 09:53:50,372 [INFO] FO_compare: 0.0062 Delta(BAli-MUS): 0.0003 FO_original: 0.0298
+2025-01-22 09:53:50,372 [INFO] 
+Avaliando matriz 19/50
+2025-01-22 09:53:54,990 [INFO] FO_compare: 0.0054 Delta(BAli-MUS): -0.0001 FO_original: 0.0273
+2025-01-22 09:53:54,990 [INFO] 
+Avaliando matriz 20/50
+2025-01-22 09:53:59,604 [INFO] FO_compare: 0.0054 Delta(BAli-MUS): 0.0000 FO_original: 0.0271
+2025-01-22 09:53:59,605 [INFO] 
+Avaliando matriz 21/50
+2025-01-22 09:54:04,513 [INFO] FO_compare: 0.0053 Delta(BAli-MUS): -0.0000 FO_original: 0.0267
+2025-01-22 09:54:04,514 [INFO] 
+Avaliando matriz 22/50
+2025-01-22 09:54:09,150 [INFO] FO_compare: 0.0058 Delta(BAli-MUS): 0.0002 FO_original: 0.0284
+2025-01-22 09:54:09,150 [INFO] 
+Avaliando matriz 23/50
+2025-01-22 09:54:13,692 [INFO] FO_compare: 0.0061 Delta(BAli-MUS): 0.0002 FO_original: 0.0296
+2025-01-22 09:54:13,692 [INFO] 
+Avaliando matriz 24/50
+2025-01-22 09:54:18,193 [INFO] FO_compare: 0.0064 Delta(BAli-MUS): 0.0004 FO_original: 0.0306
+2025-01-22 09:54:18,193 [INFO] 
+Avaliando matriz 25/50
+2025-01-22 09:54:28,300 [INFO] FO_compare: 0.0060 Delta(BAli-MUS): 0.0000 FO_original: 0.0302
+2025-01-22 09:54:28,300 [INFO] 
+Avaliando matriz 26/50
+2025-01-22 09:54:27,912 [INFO] FO_compare: 0.0057 Delta(BAli-MUS): 0.0001 FO_original: 0.0284
+2025-01-22 09:54:27,912 [INFO] 
+Avaliando matriz 27/50
+2025-01-22 09:54:32,361 [INFO] FO_compare: 0.0059 Delta(BAli-MUS): 0.0002 FO_original: 0.0289
+2025-01-22 09:54:32,362 [INFO] 
+Avaliando matriz 28/50
+2025-01-22 09:54:36,739 [INFO] FO_compare: 0.0054 Delta(BAli-MUS): -0.0001 FO_original: 0.0274
+2025-01-22 09:54:36,740 [INFO] 
+Avaliando matriz 29/50
+2025-01-22 09:54:41,410 [INFO] FO_compare: 0.0059 Delta(BAli-MUS): 0.0003 FO_original: 0.0287
+2025-01-22 09:54:41,410 [INFO] 
+Avaliando matriz 30/50
+2025-01-22 09:54:45,964 [INFO] FO_compare: 0.0065 Delta(BAli-MUS): 0.0005 FO_original: 0.0307
+2025-01-22 09:54:45,964 [INFO] 
+Avaliando matriz 31/50
+2025-01-22 09:54:50,626 [INFO] FO_compare: 0.0068 Delta(BAli-MUS): 0.0005 FO_original: 0.0321
+2025-01-22 09:54:50,627 [INFO] 
+Avaliando matriz 32/50
+2025-01-22 09:54:55,330 [INFO] FO_compare: 0.0066 Delta(BAli-MUS): 0.0005 FO_original: 0.0310
+2025-01-22 09:54:55,331 [INFO] 
+Avaliando matriz 33/50
+2025-01-22 09:54:59,984 [INFO] FO_compare: 0.0063 Delta(BAli-MUS): 0.0003 FO_original: 0.0299
+2025-01-22 09:54:59,984 [INFO] 
+Avaliando matriz 34/50
+2025-01-22 09:55:04,836 [INFO] FO_compare: 0.0059 Delta(BAli-MUS): 0.0002 FO_original: 0.0285
+2025-01-22 09:55:04,837 [INFO] 
+Avaliando matriz 35/50
+2025-01-22 09:55:09,859 [INFO] FO_compare: 0.0057 Delta(BAli-MUS): 0.0001 FO_original: 0.0282
+2025-01-22 09:55:09,860 [INFO] 
+Avaliando matriz 36/50
+2025-01-22 09:55:14,748 [INFO] FO_compare: 0.0053 Delta(BAli-MUS): -0.0001 FO_original: 0.0267
+2025-01-22 09:55:14,748 [INFO] 
+Avaliando matriz 37/50
+2025-01-22 09:55:19,217 [INFO] FO_compare: 0.0063 Delta(BAli-MUS): 0.0003 FO_original: 0.0300
+2025-01-22 09:55:19,217 [INFO] 
+Avaliando matriz 38/50
+2025-01-22 09:55:24,491 [INFO] FO_compare: 0.0045 Delta(BAli-MUS): -0.0004 FO_original: 0.0241
+2025-01-22 09:55:24,491 [INFO] 
+Avaliando matriz 39/50
+2025-01-22 09:55:29,516 [INFO] FO_compare: 0.0060 Delta(BAli-MUS): 0.0003 FO_original: 0.0290
+2025-01-22 09:55:29,516 [INFO] 
+Avaliando matriz 40/50
+2025-01-22 09:55:34,222 [INFO] FO_compare: 0.0063 Delta(BAli-MUS): 0.0004 FO_original: 0.0299
+2025-01-22 09:55:34,222 [INFO] 
+Avaliando matriz 41/50
+2025-01-22 09:55:38,805 [INFO] FO_compare: 0.0060 Delta(BAli-MUS): -0.0000 FO_original: 0.0301
+2025-01-22 09:55:38,805 [INFO] 
+Avaliando matriz 42/50
+2025-01-22 09:55:43,449 [INFO] FO_compare: 0.0062 Delta(BAli-MUS): 0.0003 FO_original: 0.0299
+2025-01-22 09:55:43,449 [INFO] 
+Avaliando matriz 43/50
+2025-01-22 09:55:48,650 [INFO] FO_compare: 0.0055 Delta(BAli-MUS): 0.0001 FO_original: 0.0274
+2025-01-22 09:55:48,651 [INFO] 
+Avaliando matriz 44/50
+2025-01-22 09:55:53,374 [INFO] FO_compare: 0.0060 Delta(BAli-MUS): 0.0003 FO_original: 0.0290
+2025-01-22 09:55:53,375 [INFO] 
+Avaliando matriz 45/50
+2025-01-22 09:55:58,098 [INFO] FO_compare: 0.0055 Delta(BAli-MUS): 0.0001 FO_original: 0.0274
+2025-01-22 09:55:58,098 [INFO] 
+Avaliando matriz 46/50
+2025-01-22 09:56:08,436 [INFO] FO_compare: 0.0064 Delta(BAli-MUS): 0.0002 FO_original: 0.0308
+2025-01-22 09:56:08,436 [INFO] 
+Avaliando matriz 47/50
+2025-01-22 09:56:08,031 [INFO] FO_compare: 0.0057 Delta(BAli-MUS): 0.0002 FO_original: 0.0281
+2025-01-22 09:56:08,031 [INFO] 
+Avaliando matriz 48/50
+2025-01-22 09:56:12,385 [INFO] FO_compare: 0.0049 Delta(BAli-MUS): -0.0002 FO_original: 0.0253
+2025-01-22 09:56:12,385 [INFO] 
+Avaliando matriz 49/50
+2025-01-22 09:56:17,142 [INFO] FO_compare: 0.0059 Delta(BAli-MUS): 0.0002 FO_original: 0.0289
+2025-01-22 09:56:17,142 [INFO] 
+Avaliando matriz 50/50
+2025-01-22 09:56:21,854 [INFO] FO_compare: 0.0056 Delta(BAli-MUS): -0.0003 FO_original: 0.0290
+2025-01-22 09:56:21,854 [INFO] 
+Melhores soluções encontradas:
+2025-01-22 09:56:21,854 [INFO] 1. Matrix matrix_4: Delta=0.0006 FO_comp=0.0076 FO_orig=0.0355
+2025-01-22 09:56:21,854 [INFO] 2. Matrix matrix_31: Delta=0.0005 FO_comp=0.0068 FO_orig=0.0321
+2025-01-22 09:56:21,854 [INFO] 3. Matrix matrix_10: Delta=0.0005 FO_comp=0.0066 FO_orig=0.0312
+2025-01-22 09:56:21,854 [INFO] 4. Matrix matrix_32: Delta=0.0005 FO_comp=0.0066 FO_orig=0.0310
+2025-01-22 09:56:21,855 [INFO] 5. Matrix matrix_30: Delta=0.0005 FO_comp=0.0065 FO_orig=0.0307
+2025-01-22 09:56:21,855 [WARNING] Nenhuma matriz encontrada com BAliBASE >= MUSCLE
+2025-01-22 09:56:21,855 [INFO] 
+Comparando melhor matriz com PAM250...
+2025-01-22 09:56:21,855 [INFO] 
+================================================================================
+2025-01-22 09:56:21,855 [INFO] MATRIX COMPARISON
+2025-01-22 09:56:21,855 [INFO] ================================================================================
+2025-01-22 09:56:21,855 [INFO] Method/Matrix        SP         WSP        Hybrid    
+2025-01-22 09:56:21,856 [INFO] --------------------------------------------------------------------------------
+2025-01-22 09:56:21,856 [INFO] --------------------------------------------------------------------------------
+2025-01-22 09:56:21,856 [ERROR] Avaliação falhou: 'AlignmentScores' object has no attribute 'wsp_norm'
+2025-01-22 10:00:09,808 [INFO] 
+MA-BioFit Iniciando ...
+2025-01-22 10:00:09,842 [INFO] Dados extraídos com sucesso: 31 core blocks, 4 sequências PDB, 466 posições com estrutura
+2025-01-22 10:00:09,842 [INFO] 
+Criando e avaliando PAM250 original...
+2025-01-22 10:00:09,843 [INFO] 
+Avaliando matriz...
+2025-01-22 10:00:13,715 [INFO] 
+Scores para clustalw:
+2025-01-22 10:00:13,715 [INFO] SP: 0.0138
+2025-01-22 10:00:13,715 [ERROR] Erro avaliando clustalw: 'AlignmentScores' object has no attribute 'wsp_norm'
+2025-01-22 10:00:13,715 [ERROR] Erro avaliando matriz: AlignmentScores.__new__() takes 3 positional arguments but 6 were given
+2025-01-22 10:00:13,715 [INFO] 
+Gerando população inicial...
+2025-01-22 10:00:13,728 [INFO] 
+Avaliando população inicial...
+2025-01-22 10:00:13,728 [INFO] 
+Avaliando matriz 1/10
+2025-01-22 10:00:18,493 [INFO] FO_compare: 0.0061 Delta(BAli-MUS): 0.0003 FO_original: 0.0292
+2025-01-22 10:00:18,493 [INFO] 
+Avaliando matriz 2/10
+2025-01-22 10:00:22,868 [INFO] FO_compare: 0.0061 Delta(BAli-MUS): 0.0001 FO_original: 0.0300
+2025-01-22 10:00:22,868 [INFO] 
+Avaliando matriz 3/10
+2025-01-22 10:00:27,459 [INFO] FO_compare: 0.0056 Delta(BAli-MUS): 0.0001 FO_original: 0.0279
+2025-01-22 10:00:27,459 [INFO] 
+Avaliando matriz 4/10
+2025-01-22 10:00:31,803 [INFO] FO_compare: 0.0060 Delta(BAli-MUS): 0.0003 FO_original: 0.0291
+2025-01-22 10:00:31,804 [INFO] 
+Avaliando matriz 5/10
+2025-01-22 10:00:36,337 [INFO] FO_compare: 0.0059 Delta(BAli-MUS): -0.0000 FO_original: 0.0298
+2025-01-22 10:00:36,338 [INFO] 
+Avaliando matriz 6/10
+2025-01-22 10:00:41,190 [INFO] FO_compare: 0.0077 Delta(BAli-MUS): 0.0003 FO_original: 0.0370
+2025-01-22 10:00:41,190 [INFO] 
+Avaliando matriz 7/10
+2025-01-22 10:00:45,963 [INFO] FO_compare: 0.0053 Delta(BAli-MUS): 0.0000 FO_original: 0.0263
+2025-01-22 10:00:45,963 [INFO] 
+Avaliando matriz 8/10
+2025-01-22 10:00:56,072 [INFO] FO_compare: 0.0054 Delta(BAli-MUS): 0.0001 FO_original: 0.0270
+2025-01-22 10:00:56,073 [INFO] 
+Avaliando matriz 9/10
+2025-01-22 10:01:01,095 [INFO] FO_compare: 0.0054 Delta(BAli-MUS): -0.0000 FO_original: 0.0273
+2025-01-22 10:01:01,096 [INFO] 
+Avaliando matriz 10/10
+2025-01-22 10:01:06,374 [INFO] FO_compare: 0.0057 Delta(BAli-MUS): -0.0002 FO_original: 0.0293
+2025-01-22 10:01:06,375 [INFO] 
+Melhores soluções encontradas:
+2025-01-22 10:01:06,375 [INFO] 1. Matrix matrix_6: Delta=0.0003 FO_comp=0.0077 FO_orig=0.0370
+2025-01-22 10:01:06,375 [INFO] 2. Matrix matrix_2: Delta=0.0001 FO_comp=0.0061 FO_orig=0.0300
+2025-01-22 10:01:06,375 [INFO] 3. Matrix matrix_1: Delta=0.0003 FO_comp=0.0061 FO_orig=0.0292
+2025-01-22 10:01:06,375 [INFO] 4. Matrix matrix_4: Delta=0.0003 FO_comp=0.0060 FO_orig=0.0291
+2025-01-22 10:01:06,375 [INFO] 5. Matrix matrix_5: Delta=-0.0000 FO_comp=0.0059 FO_orig=0.0298
+2025-01-22 10:01:06,375 [WARNING] Nenhuma matriz encontrada com BAliBASE >= MUSCLE
+2025-01-22 10:01:06,376 [INFO] 
+Comparando melhor matriz com PAM250...
+2025-01-22 10:01:06,376 [INFO] 
+================================================================================
+2025-01-22 10:01:06,376 [INFO] MATRIX COMPARISON
+2025-01-22 10:01:06,376 [INFO] ================================================================================
+2025-01-22 10:01:06,376 [INFO] Method/Matrix        SP        
+2025-01-22 10:01:06,376 [INFO] --------------------------------------------------
+2025-01-22 10:01:06,376 [INFO] --------------------------------------------------
+2025-01-22 10:01:06,376 [INFO] AdaptivePAM clustalw     0.0310
+2025-01-22 10:01:06,377 [INFO] AdaptivePAM muscle       0.0366
+2025-01-22 10:01:06,377 [INFO] AdaptivePAM balibase     0.0370
+2025-01-22 10:01:06,377 [INFO] --------------------------------------------------
+2025-01-22 10:01:06,377 [INFO] % Improvement over PAM250:
+2025-01-22 10:01:06,377 [INFO] --------------------------------------------------
+2025-01-22 10:01:06,377 [INFO] Matrix saved to results/best_matrix.npy
+2025-01-22 10:01:06,377 [INFO] 
+Melhor matriz salva em results/best_matrix.npy
+2025-01-22 10:01:06,378 [ERROR] Avaliação falhou: 'AlignmentScores' object has no attribute 'hybrid_norm'
+2025-01-22 10:01:07,605 [INFO] 
+MA-BioFit Iniciando ...
+2025-01-22 10:01:07,638 [INFO] Dados extraídos com sucesso: 31 core blocks, 4 sequências PDB, 466 posições com estrutura
+2025-01-22 10:01:07,638 [INFO] 
+Criando e avaliando PAM250 original...
+2025-01-22 10:01:07,639 [INFO] 
+Avaliando matriz...
+2025-01-22 10:01:11,650 [INFO] 
+Scores para clustalw:
+2025-01-22 10:01:11,650 [INFO] SP: 0.0138
+2025-01-22 10:01:11,834 [INFO] 
+Scores para muscle:
+2025-01-22 10:01:11,834 [INFO] SP: 0.0254
+2025-01-22 10:01:11,977 [INFO] 
+Scores para referência BAliBASE:
+2025-01-22 10:01:11,977 [INFO] SP: 0.0248
+2025-01-22 10:01:11,977 [INFO] 
+Gerando população inicial...
+2025-01-22 10:01:11,989 [INFO] 
+Avaliando população inicial...
+2025-01-22 10:01:11,989 [INFO] 
+Avaliando matriz 1/10
+2025-01-22 10:01:16,317 [INFO] FO_compare: 0.0057 Delta(BAli-MUS): 0.0001 FO_original: 0.0279
+2025-01-22 10:01:16,318 [INFO] 
+Avaliando matriz 2/10
+2025-01-22 10:01:20,745 [INFO] FO_compare: 0.0058 Delta(BAli-MUS): 0.0001 FO_original: 0.0289
+2025-01-22 10:01:20,745 [INFO] 
+Avaliando matriz 3/10
+2025-01-22 10:01:25,147 [INFO] FO_compare: 0.0060 Delta(BAli-MUS): 0.0002 FO_original: 0.0291
+2025-01-22 10:01:25,147 [INFO] 
+Avaliando matriz 4/10
+2025-01-22 10:01:29,495 [INFO] FO_compare: 0.0069 Delta(BAli-MUS): 0.0006 FO_original: 0.0322
+2025-01-22 10:01:29,496 [INFO] 
+Avaliando matriz 5/10
+2025-01-22 10:01:33,840 [INFO] FO_compare: 0.0058 Delta(BAli-MUS): 0.0001 FO_original: 0.0287
+2025-01-22 10:01:33,841 [INFO] 
+Avaliando matriz 6/10
+2025-01-22 10:01:38,721 [INFO] FO_compare: 0.0055 Delta(BAli-MUS): -0.0000 FO_original: 0.0275
+2025-01-22 10:01:38,721 [INFO] 
+Avaliando matriz 7/10
+2025-01-22 10:01:43,231 [INFO] FO_compare: 0.0049 Delta(BAli-MUS): -0.0003 FO_original: 0.0256
+2025-01-22 10:01:43,231 [INFO] 
+Avaliando matriz 8/10
+2025-01-22 10:01:47,967 [INFO] FO_compare: 0.0058 Delta(BAli-MUS): 0.0002 FO_original: 0.0282
+2025-01-22 10:01:47,967 [INFO] 
+Avaliando matriz 9/10
+2025-01-22 10:01:52,381 [INFO] FO_compare: 0.0054 Delta(BAli-MUS): -0.0001 FO_original: 0.0272
+2025-01-22 10:01:52,381 [INFO] 
+Avaliando matriz 10/10
+2025-01-22 10:01:56,743 [INFO] FO_compare: 0.0047 Delta(BAli-MUS): -0.0001 FO_original: 0.0241
+2025-01-22 10:01:56,743 [INFO] 
+Melhores soluções encontradas:
+2025-01-22 10:01:56,743 [INFO] 1. Matrix matrix_4: Delta=0.0006 FO_comp=0.0069 FO_orig=0.0322
+2025-01-22 10:01:56,743 [INFO] 2. Matrix matrix_3: Delta=0.0002 FO_comp=0.0060 FO_orig=0.0291
+2025-01-22 10:01:56,743 [INFO] 3. Matrix matrix_5: Delta=0.0001 FO_comp=0.0058 FO_orig=0.0287
+2025-01-22 10:01:56,743 [INFO] 4. Matrix matrix_2: Delta=0.0001 FO_comp=0.0058 FO_orig=0.0289
+2025-01-22 10:01:56,743 [INFO] 5. Matrix matrix_8: Delta=0.0002 FO_comp=0.0058 FO_orig=0.0282
+2025-01-22 10:01:56,744 [WARNING] Nenhuma matriz encontrada com BAliBASE >= MUSCLE
+2025-01-22 10:01:56,744 [INFO] 
+Comparando melhor matriz com PAM250...
+2025-01-22 10:01:56,744 [INFO] 
+================================================================================
+2025-01-22 10:01:56,744 [INFO] MATRIX COMPARISON
+2025-01-22 10:01:56,744 [INFO] ================================================================================
+2025-01-22 10:01:56,744 [INFO] Method/Matrix        SP        
+2025-01-22 10:01:56,744 [INFO] --------------------------------------------------
+2025-01-22 10:01:56,744 [INFO] PAM250 clustalw          0.0138
+2025-01-22 10:01:56,744 [INFO] PAM250 muscle            0.0254
+2025-01-22 10:01:56,745 [INFO] PAM250 balibase          0.0248
+2025-01-22 10:01:56,745 [INFO] --------------------------------------------------
+2025-01-22 10:01:56,745 [INFO] AdaptivePAM clustalw     0.0243
+2025-01-22 10:01:56,745 [INFO] AdaptivePAM muscle       0.0316
+2025-01-22 10:01:56,745 [INFO] AdaptivePAM balibase     0.0322
+2025-01-22 10:01:56,745 [INFO] --------------------------------------------------
+2025-01-22 10:01:56,745 [INFO] % Improvement over PAM250:
+2025-01-22 10:01:56,745 [INFO] 
+CLUSTALW:
+2025-01-22 10:01:56,746 [INFO] SP:              76.53%
+2025-01-22 10:01:56,746 [INFO] 
+MUSCLE:
+2025-01-22 10:01:56,746 [INFO] SP:              24.33%
+2025-01-22 10:01:56,746 [INFO] 
+BALIBASE:
+2025-01-22 10:01:56,746 [INFO] SP:              29.63%
+2025-01-22 10:01:56,746 [INFO] --------------------------------------------------
+2025-01-22 10:01:56,747 [INFO] Matrix saved to results/best_matrix.npy
+2025-01-22 10:01:56,747 [INFO] 
+Melhor matriz salva em results/best_matrix.npy
+2025-01-22 10:01:56,747 [ERROR] Avaliação falhou: 'AlignmentScores' object has no attribute 'hybrid_norm'
