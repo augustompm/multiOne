@@ -9,13 +9,13 @@ Errors: 0
 Method Comparison:
 
 ClustalW:
-Average SP Score (PAM250): 0.3200
-Average WSP Score (Gotoh): 0.8126
+Average SP Score (PAM250): 0.3705
+Average WSP Score (Gotoh):  0.8153
 
 MUSCLE:
-Average SP Score (PAM250): 0.3200
-Average WSP Score (Gotoh): 0.8716
+Average SP Score (PAM250): 0.3790
+Average WSP Score (Gotoh):  0.8738
 
 BAliBASE:
-Average SP Score (PAM250): 0.3200
-Average WSP Score (Gotoh): 0.8129
+Average SP Score (PAM250): 0.3730
+Average WSP Score (Gotoh):  0.8157
