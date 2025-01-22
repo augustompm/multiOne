@@ -46,7 +46,7 @@ static void do_element(void)
 	int ec[4];
 
 	if(strcmp(Element,"sequence")==0) {
-/* this is the start of a new sequence, so reset the data for this sequence */
+		/* this is the start of a new sequence, so reset the data for this sequence */
 		for(i=0;i<MAXFTTYPE;i++)
 			Nftable[i]=(-1);
 		Ngorefs=(-1);
@@ -90,9 +90,9 @@ static void do_element(void)
 			warning("too many TAXON elements for sequence %s",Maln.seqs[Fseq+Nseqs].name);
 		}
 		else {
-		l=strlen(Content);
-		Maln.seqs[Fseq+Nseqs].taxon[Ntaxons]=(char *)ckalloc((l+1)*sizeof(char));
-		strcpy(Maln.seqs[Fseq+Nseqs].taxon[Ntaxons],Content);
+			l=strlen(Content);
+			Maln.seqs[Fseq+Nseqs].taxon[Ntaxons]=(char *)ckalloc((l+1)*sizeof(char));
+			strcpy(Maln.seqs[Fseq+Nseqs].taxon[Ntaxons],Content);
 		}
 	}
 	else if(strcmp(Element,"surface-accessibility")==0) {
@@ -112,35 +112,35 @@ static void do_element(void)
 		}
 	}
 	else if(strcmp(Element,"residue-contact-list")==0) {
-			NCresidue=0;
+		NCresidue=0;
 	}
 	else if(strcmp(Element,"contact-residue1")==0) {
-			Cresidue1=atoi(Content)-1;
-			if(Rcontacts==NULL) {
-				Rcontacts=(RCONTACT *)ckalloc((Cresidue1+10)*sizeof(RCONTACT));
-				NC=Cresidue1;
-			}
-			else if(Cresidue1>NC) {
-				Rcontacts=(RCONTACT *)ckrealloc(Rcontacts,(Cresidue1+10)*sizeof(RCONTACT));
-				for(j=NC+1;j<Cresidue1+10;j++)
-					Rcontacts[j].n=0;
-				NC=Cresidue1;
-			}
+		Cresidue1=atoi(Content)-1;
+		if(Rcontacts==NULL) {
+			Rcontacts=(RCONTACT *)ckalloc((Cresidue1+10)*sizeof(RCONTACT));
+			NC=Cresidue1;
+		}
+		else if(Cresidue1>NC) {
+			Rcontacts=(RCONTACT *)ckrealloc(Rcontacts,(Cresidue1+10)*sizeof(RCONTACT));
+			for(j=NC+1;j<Cresidue1+10;j++)
+				Rcontacts[j].n=0;
+			NC=Cresidue1;
+		}
 	}
 	else if(strcmp(Element,"contact-residue2")==0) {
-			NCresidue++;
-			Rcontacts[Cresidue1].n=NCresidue;
-			Rcontacts[Cresidue1].res[NCresidue-1]=atoi(Content)-1;
+		NCresidue++;
+		Rcontacts[Cresidue1].n=NCresidue;
+		Rcontacts[Cresidue1].res[NCresidue-1]=atoi(Content)-1;
 	}
 	else if(strcmp(Element,"ec")==0) {
 		strcpy(ec_text,Content);
-                for(j=0;j<strlen(ec_text)-1;j++) {
-                        if(!isdigit(ec_text[j])) ec_text[j]=' ';
-                }
-                n=sscanf(ec_text,"%d %d %d %d",&ec[0],&ec[1],&ec[2],&ec[3]);
-                if(n!=4) {
-                        for(l=0;l<4;l++) ec[l]=0;
-                }
+		for(j=0;j<strlen(ec_text)-1;j++) {
+			if(!isdigit(ec_text[j])) ec_text[j]=' ';
+		}
+		n=sscanf(ec_text,"%d %d %d %d",&ec[0],&ec[1],&ec[2],&ec[3]);
+		if(n!=4) {
+			for(l=0;l<4;l++) ec[l]=0;
+		}
 		for(l=0;l<4;l++) {
 			Maln.seqs[Fseq+Nseqs].ec[l]=ec[l];
 		}
@@ -220,12 +220,12 @@ static void do_element(void)
 		if(Nftable[Ftype]<MAXFT) Maln.ft[Fseq+Nseqs].data[Ftype][Nftable[Ftype]].score=atof(Content);
 	}
 	else if(strcmp(Element,"fnote")==0) {
-                if(Nftable[Ftype]<MAXFT)
-                        if(Content!=NULL) {
-                                for(i=0;i<strlen(Content);i++)
-                                        if (!isspace(Content[i])) break;
-                                strcpy(Maln.ft[Fseq+Nseqs].data[Ftype][Nftable[Ftype]].name,&Content[i]);
-                        }
+		if(Nftable[Ftype]<MAXFT)
+			if(Content!=NULL) {
+				for(i=0;i<strlen(Content);i++)
+					if (!isspace(Content[i])) break;
+				strcpy(Maln.ft[Fseq+Nseqs].data[Ftype][Nftable[Ftype]].name,&Content[i]);
+			}
 	}
 	else if(strcmp(Element,"column-score")==0) {
 		if(Ncolscores<MAXCSCORE) Ncolscores++;
@@ -265,26 +265,26 @@ static void do_element(void)
 	}
 	else if(strcmp(Element,"goid")==0) {
 		if(Ngorefs<MAXGOREF) {
-		l=strlen(Content);
-		Maln.go[Fseq+Nseqs].goref[Ngorefs].id=(void *)ckalloc((l+1)*sizeof(char));
-		strcpy(Maln.go[Fseq+Nseqs].goref[Ngorefs].id,Content);
+			l=strlen(Content);
+			Maln.go[Fseq+Nseqs].goref[Ngorefs].id=(void *)ckalloc((l+1)*sizeof(char));
+			strcpy(Maln.go[Fseq+Nseqs].goref[Ngorefs].id,Content);
 		}
 	}
 	else if(strcmp(Element,"goclass")==0) {
 		if(Ngorefs<MAXGOREF) {
-		Maln.go[Fseq+Nseqs].goref[Ngorefs].class=Content[0];
+			Maln.go[Fseq+Nseqs].goref[Ngorefs].class=Content[0];
 		}
 	}
 	else if(strcmp(Element,"godesc")==0) {
 		if(Ngorefs<MAXGOREF) {
-		l=strlen(Content);
-		Maln.go[Fseq+Nseqs].goref[Ngorefs].desc=(void *)ckalloc((l+1)*sizeof(char));
-		strcpy(Maln.go[Fseq+Nseqs].goref[Ngorefs].desc,Content);
+			l=strlen(Content);
+			Maln.go[Fseq+Nseqs].goref[Ngorefs].desc=(void *)ckalloc((l+1)*sizeof(char));
+			strcpy(Maln.go[Fseq+Nseqs].goref[Ngorefs].desc,Content);
 		}
 	}
 	else if(strcmp(Element,"goevidence")==0) {
 		if(Ngorefs<MAXGOREF) {
-		strncpy(Maln.go[Fseq+Nseqs].goref[Ngorefs].evidence,Content,3);
+			strncpy(Maln.go[Fseq+Nseqs].goref[Ngorefs].evidence,Content,3);
 		}
 	}
 	else if(strcmp(Element,"length")==0) {
@@ -299,9 +299,9 @@ static void do_element(void)
 			warning("too many KEYWORD elements for sequence %s",Maln.seqs[Fseq+Nseqs].name);
 		}
 		else {
-		l=strlen(Content);
-		Maln.seqs[Fseq+Nseqs].keyword[Nkeywords]=(void *)ckalloc((l+1)*sizeof(char));
-		strcpy(Maln.seqs[Fseq+Nseqs].keyword[Nkeywords],Content);
+			l=strlen(Content);
+			Maln.seqs[Fseq+Nseqs].keyword[Nkeywords]=(void *)ckalloc((l+1)*sizeof(char));
+			strcpy(Maln.seqs[Fseq+Nseqs].keyword[Nkeywords],Content);
 		}
 	}
 	else if(strcmp(Element,"seq-data")==0) {
@@ -310,15 +310,14 @@ static void do_element(void)
 		for(i=0,j=0;i<l;i++)
 			if(!isspace(Content[i])) Maln.seqs[Fseq+Nseqs].data[j++]=Content[i];
 		Maln.seqs[Fseq+Nseqs].len=j;
-/* then this sequence must be finished, so we can update the data for this sequence */
-
+		/* then this sequence must be finished, so we can update the data for this sequence */
 		Maln.seqs[Fseq+Nseqs].nkeywords=Nkeywords+1;
 		Maln.go[Fseq+Nseqs].ngorefs=Ngorefs+1;
 		Maln.seqs[Fseq+Nseqs].ntaxons=Ntaxons+1;
 		for(i=0;i<MAXFTTYPE;i++)
 			Maln.ft[Fseq+Nseqs].nentries[i]=Nftable[i]+1;
 
-/* copy residue contact data to multiple alignment taking into account gaps */
+		/* copy residue contact data to multiple alignment taking into account gaps */
 		if(Rcontacts!=NULL) {
 			Maln.seqs[Fseq+Nseqs].rcontacts=(RCONTACT *)ckalloc((Maln.seqs[Fseq+Nseqs].len+1)*sizeof(RCONTACT));
 			for(j=0;j<=Cresidue1;j++) {
@@ -384,11 +383,11 @@ static void start(void *data, const char *el, const char **attr)
 			strcpy(Attributes[i+1],attr[i+1]);
 		}
 	}
-/*
+	/* for debugging
 	for (i = 0; attr[i]; i += 2) {
-    printf(" %s='%s'", attr[i], attr[i + 1]);
+        printf(" %s='%s'", attr[i], attr[i + 1]);
 	}
-*/
+	*/
 
 	Depth++;
 }  
@@ -454,8 +453,8 @@ sint count_xml_seqs(FILE *fin)
 
     if (! XML_Parse(p, Buff, len, done)) {
       fprintf(stderr, "Parse error at line %d:\n%s\n",
-	      XML_GetCurrentLineNumber(p),
-	      XML_ErrorString(XML_GetErrorCode(p)));
+          XML_GetCurrentLineNumber(p),
+          XML_ErrorString(XML_GetErrorCode(p)));
       exit(-1);
     }
 
@@ -495,8 +494,8 @@ ALN read_xml(FILE *fin,int first_seq)
 
     if (! XML_Parse(p, Buff, len, done)) {
       fprintf(stderr, "Parse error at line %d:\n%s\n",
-	      XML_GetCurrentLineNumber(p),
-	      XML_ErrorString(XML_GetErrorCode(p)));
+          XML_GetCurrentLineNumber(p),
+          XML_ErrorString(XML_GetErrorCode(p)));
       exit(-1);
     }
 
@@ -529,5 +528,3 @@ int getfloatargs(char *inline1,float *args,int max)
 
         return(i);
 }
-
-

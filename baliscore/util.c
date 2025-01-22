@@ -1,5 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
+
+// Adicionar a declaração da função
+FILE *open_explicit_file(char *file_name);
+
 #include <string.h>
 #include <errno.h>
 #include <stdarg.h>
@@ -160,14 +164,14 @@ char * blank_to_(char *str)
 	
 	for(i=0;i<p;i++) 
 		if(
-                     (str[i]==' ') ||
-                     (str[i]==';') ||
-                     (str[i]==',') ||
-                     (str[i]=='(') ||
-                     (str[i]==')') ||
-                     (str[i]==':')
-                  )
-                      str[i] = '_';
+                 (str[i]==' ') ||
+                 (str[i]==';') ||
+                 (str[i]==',') ||
+                 (str[i]=='(') ||
+                 (str[i]==')') ||
+                 (str[i]==':')
+              )
+                  str[i] = '_';
 	
 	return str;
 }
@@ -214,7 +218,7 @@ char * lowstr(char *str)
 void getstr(char *instr,char *outstr)
 {	
 	fprintf(stdout,"%s: ",instr);
-	gets(outstr);
+	fgets(outstr, sizeof(outstr), stdin);
 }
 
 double getreal(char *instr,double minx,double maxx,double def)
@@ -225,7 +229,7 @@ double getreal(char *instr,double minx,double maxx,double def)
 	
 	while(TRUE) {
 		fprintf(stdout,"%s (%.1f-%.1f)   [%.1f]: ",instr,minx,maxx,def);
-		gets(line);
+		fgets(line, sizeof(line), stdin);
 		status=sscanf(line,"%f",&ret);
 		if(status == EOF) return def;
 		if(ret>maxx) {
@@ -250,7 +254,7 @@ int getint(char *instr,int minx,int maxx, int def)
 	while(TRUE) {
 		fprintf(stdout,"%s (%d..%d)    [%d]: ",
 		instr,(pint)minx,(pint)maxx,(pint)def);
-		gets(line);
+		fgets(line, sizeof(line), stdin);
 		status=sscanf(line,"%d",&ret);
 		if(status == EOF) return def;
 		if(ret>maxx) {
@@ -380,7 +384,7 @@ void realloc_aln(sint first_seq,sint nseqs,ALNPTR mult_aln)
 	mult_aln->repeat = (REP *)ckrealloc(mult_aln->repeat,(first_seq+nseqs+1) * sizeof (REP));
 	mult_aln->go = (GO *)ckrealloc(mult_aln->go,(first_seq+nseqs+1) * sizeof (GO));
 	for(i=first_seq;i<first_seq+nseqs;i++) {
-                mult_aln->seqs[i].name = (char *)ckalloc((MAXNAMES+1) * sizeof (char));
+            mult_aln->seqs[i].name = (char *)ckalloc((MAXNAMES+1) * sizeof (char));
 		mult_aln->seqs[i].access = (char *)ckalloc((MAXNAMES+1) * sizeof (char));
 		mult_aln->seqs[i].nid = (char *)ckalloc((MAXNAMES+1) * sizeof (char));
                 mult_aln->seqs[i].title = (char *)ckalloc((MAXTITLES+1) * sizeof (char));
@@ -409,16 +413,16 @@ void free_aln(ALNPTR mult_aln)
 		ckfree(mult_aln->seqs[i].org);
 		ckfree(mult_aln->seqs[i].data);
 		ckfree(mult_aln->seqs[i].mask);
-        	for(j=0;j<MAXFTTYPE;j++) {
-        		for(k=0;k<mult_aln->ft[i].nentries[j];k++) {
-				ckfree(mult_aln->ft[i].data[j][k].type);
-				ckfree(mult_aln->ft[i].data[j][k].name);
-			}
+            	for(j=0;j<MAXFTTYPE;j++) {
+            		for(k=0;k<mult_aln->ft[i].nentries[j];k++) {
+			ckfree(mult_aln->ft[i].data[j][k].type);
+			ckfree(mult_aln->ft[i].data[j][k].name);
 		}
-        	for(k=0;k<mult_aln->go[i].ngorefs;k++) {
-			ckfree(mult_aln->go[i].goref[k].id);
-			ckfree(mult_aln->go[i].goref[k].desc);
-		}
+	}
+            	for(k=0;k<mult_aln->go[i].ngorefs;k++) {
+		ckfree(mult_aln->go[i].goref[k].id);
+		ckfree(mult_aln->go[i].goref[k].desc);
+	}
 	}
 	ckfree(mult_aln->seqs);
 	ckfree(mult_aln->ft);
@@ -574,10 +578,10 @@ void create_parameter_output(OPT opt,ALN mult_aln)
 
 	usemenu=get_usemenu();
 	if(usemenu) {
-        	fprintf(stdout,"\nEnter a name for the parameter output file [%s]: ",
+            	fprintf(stdout,"\nEnter a name for the parameter output file [%s]: ",
                                            parname);
-               	gets(temp);
-               	if(*temp != EOS)
+                fgets(temp, sizeof(temp), stdin);
+                if(*temp != EOS)
                        	strcpy(parname,temp);
        	}
 
@@ -628,12 +632,12 @@ void create_parameter_output(OPT opt,ALN mult_aln)
 
 	if (!mult_aln.dnaflag) {
 		fprintf(parout,"-matrix=%s \\\n",opt.mult_opt->mtrxname);
-		fprintf(parout,"-gapopen=%.2f \\\n",opt.mult_opt->prot_gap_open);
-		fprintf(parout,"-gapext=%.2f \\\n",opt.mult_opt->prot_gap_extend);
+		fprintf(parout,"-gapopen=%.2f \\\n",(pint)opt.mult_opt->prot_gap_open);
+		fprintf(parout,"-gapext=%.2f \\\n",(pint)opt.mult_opt->prot_gap_extend);
 	}
 	else {
-		fprintf(parout,"-gapopen=%.2f \\\n",opt.mult_opt->dna_gap_open);
-		fprintf(parout,"-gapext=%.2f \\\n",opt.mult_opt->dna_gap_extend);
+		fprintf(parout,"-gapopen=%.2f \\\n",(pint)opt.mult_opt->dna_gap_open);
+		fprintf(parout,"-gapext=%.2f \\\n",(pint)opt.mult_opt->dna_gap_extend);
 	}
 
 	fprintf(parout,"-maxdiv=%d \\\n",(pint)opt.mult_opt->divergence_cutoff);
@@ -659,7 +663,7 @@ void create_parameter_output(OPT opt,ALN mult_aln)
      	else                      fprintf(parout,"-outorder=input \\\n");  
      	if (opt.alnout_opt->output_gde)
 		if (opt.alnout_opt->lowercase) fprintf(parout,"-case=lower \\\n");
-		else           fprintf(parout,"-case=upper \\\n");
+		else         fprintf(parout,"-case=upper \\\n");
 
 
         fprintf(parout,"-interactive\n");
@@ -667,8 +671,6 @@ void create_parameter_output(OPT opt,ALN mult_aln)
 	fclose(parout);
 
 }
-
-
 
 
 FILE *open_explicit_file(char *file_name)
@@ -869,7 +871,7 @@ void col2pos(char *seq,sint cstart,sint cend,sint *pstart,sint *pend)
         }
         (*pend)=ix-1;
 
-}
+} 
 
 sint overlap(sint f1,sint l1,sint f2, sint l2)
 {
@@ -1035,7 +1037,7 @@ void add_ft_entry(ALNPTR mult_aln,sint seq,sint first,sint last,sint type,sint c
 		if(strncmp(name,"PRED_HELIX",10)==0) color=VLRED;
 		else if(strncmp(name,"PRED_STRAND",11)==0) color=VLGREEN;
 		else if(strncmp(name,"PROP_HELIX",10)==0) color=LRED;
-		else if(strncmp(name,"PROP_STRAND",11)==11) color=LGREEN;
+		else if(strncmp(name,"PROP_STRAND",11)==0) color=LGREEN;
 		else if(strcmp(name,"HELIX")==0) color=RED;
 		else if(strcmp(name,"STRAND")==0) color=GREEN;
 	}
@@ -1147,8 +1149,6 @@ void add_ft_entry(ALNPTR mult_aln,sint seq,sint first,sint last,sint type,sint c
 
 
 
-
-
         mult_aln->ft[seq].nentries[type]++;
 
 }
@@ -1189,4 +1189,4 @@ void col2pos1(char *seq,sint cstart,sint *pstart)
         }
         (*pstart)=ix-1;
 
-}
+} 
