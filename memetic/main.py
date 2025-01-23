@@ -383,28 +383,91 @@ def print_comparison(pam_scores: dict, adaptive_scores: dict):
     logger.info("-"*50)
 
 def main():
-    # ...existing code...
-    # Salva análise completa
-    with open(RESULTS_DIR / "analysis.txt", "w") as f:
-        f.write("ANÁLISE DETALHADA\n")
-        f.write("=" * 80 + "\n\n")
+    try:
+        logger.info("\nMA-BioFit Iniciando ...")
+
+        # Inicializa busca local com parâmetros do topo
+        local_search = LocalSearch(
+            xml_file=XML_FILE,
+            p_nothing=P_NOTHING,
+            p_perturb=P_PERTURB,
+            p_conservation=P_CONSERVATION,
+            p_structural=P_STRUCTURAL
+        )
         
-        f.write("MELHOR MATRIZ:\n")
-        f.write(f"FO_compare: {best_result.fo_compare:.4f}\n")
-        f.write(f"FO original: {best_result.fo_original:.4f}\n")
-        f.write("\nDiferença BAliBASE vs MUSCLE:\n")
-        f.write(f"  BAliBASE: {best_result.scores['balibase'].sp_norm:.4f}\n")
-        f.write(f"  MUSCLE: {best_result.scores['muscle'].sp_norm:.4f}\n")
-        f.write(f"  Delta: {best_result.scores['balibase'].sp_norm - best_result.scores['muscle'].sp_norm:.4f}\n")
+        # Inicializa motor memético
+        memetic = MemeticEngine(
+            xml_file=XML_FILE,
+            input_file=INPUT_FILE,
+            reference_file=REFERENCE_FILE,
+            alpha=ALPHA,
+            beta=BETA
+        )
         
-        f.write("\nTODAS AS MATRIZES:\n")
-        for i, result in enumerate(results, 1):
-            f.write(f"\nMatrix {i}:\n")
-            f.write(f"  FO_compare: {result.fo_compare:.4f}\n")
-            f.write(f"  FO original: {result.fo_original:.4f}\n")
-            f.write("  Scores:\n")
-            for method, scores in result.scores.items():
-                f.write(f"    {method}: {scores.sp_norm:.4f}\n")
-            f.write("-" * 40 + "\n")
+        # Cria PAM250 original e avalia
+        logger.info("\nCriando e avaliando PAM250 original...")
+        pam250 = AdaptiveMatrix()
+        pam_scores = evaluate_matrix(pam250, INPUT_FILE, REFERENCE_FILE)
+        
+        # Gera população inicial
+        logger.info("\nGerando população inicial...")
+        population = pam250.generate_population(
+            size=POPULATION_SIZE,
+            perturbation_range=(PERTURBATION_MIN, PERTURBATION_MAX),
+            diagonal_range=(DIAGONAL_MIN, DIAGONAL_MAX)
+        )
+        
+        # Avalia população usando FO_compare (baseado em SP)
+        logger.info("\nAvaliando população inicial...")
+        results = memetic.evaluate_population(population)
+        
+        # Identifica melhor matriz
+        if best_idx := memetic.get_best_matrix(results):
+            best_matrix = population[int(best_idx)-1]
+            best_result = results[0]
             
-    # ...existing code...
+            # Compara com PAM250 original
+            logger.info("\nComparando melhor matriz com PAM250...")
+            print_comparison(pam_scores, best_result.scores)
+            
+            # Salva melhor matriz e resultados
+            RESULTS_DIR.mkdir(exist_ok=True)
+            
+            best_matrix.save(RESULTS_DIR / "best_matrix.npy")
+            logger.info(f"\nMelhor matriz salva em {RESULTS_DIR}/best_matrix.npy")
+            
+            # Salva análise completa
+            with open(RESULTS_DIR / "analysis.txt", "w") as f:
+                f.write("ANÁLISE DETALHADA\n")
+                f.write("=" * 80 + "\n\n")
+                
+                f.write("MELHOR MATRIZ:\n")
+                f.write(f"FO_compare: {best_result.fo_compare:.4f}\n")
+                f.write(f"FO original: {best_result.fo_original:.4f}\n")
+                f.write("\nDiferença BAliBASE vs MUSCLE:\n")
+                f.write(f"  BAliBASE: {best_result.scores['balibase'].sp_norm:.4f}\n")
+                f.write(f"  MUSCLE: {best_result.scores['muscle'].sp_norm:.4f}\n")
+                f.write(f"  Delta: {best_result.scores['balibase'].sp_norm - best_result.scores['muscle'].sp_norm:.4f}\n")
+                
+                f.write("\nTODAS AS MATRIZES:\n")
+                for i, result in enumerate(results, 1):
+                    f.write(f"\nMatrix {i}:\n")
+                    f.write(f"  FO_compare: {result.fo_compare:.4f}\n")
+                    f.write(f"  FO original: {result.fo_original:.4f}\n")
+                    f.write("  Scores:\n")
+                    for method, scores in result.scores.items():
+                        f.write(f"    {method}: {scores.sp_norm:.4f}\n")
+                    f.write("-" * 40 + "\n")
+            
+            logger.info("\nAvaliação completa!")
+            logger.info(f"Análise detalhada salva em {RESULTS_DIR}/analysis.txt")
+            
+        else:
+            logger.error("Nenhuma matriz válida encontrada!")
+            
+    except Exception as e:
+        logger.error(f"Avaliação falhou: {e}")
+        raise
+
+if __name__ == "__main__":
+    main()

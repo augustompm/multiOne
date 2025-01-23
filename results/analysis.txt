@@ -2,102 +2,102 @@ ANÁLISE DETALHADA
 ================================================================================
 
 MELHOR MATRIZ:
-FO_compare: 0.0074
-FO original: 0.0362
+FO_compare: 0.0079
+FO original: 0.0374
 
 Diferença BAliBASE vs MUSCLE:
-  BAliBASE: 0.0362
-  MUSCLE: 0.0359
-  Delta: 0.0002
+  BAliBASE: 0.0374
+  MUSCLE: 0.0369
+  Delta: 0.0005
 
 TODAS AS MATRIZES:
 
 Matrix 1:
-  FO_compare: 0.0074
-  FO original: 0.0362
+  FO_compare: 0.0079
+  FO original: 0.0374
   Scores:
-    clustalw: 0.0309
-    muscle: 0.0359
-    balibase: 0.0362
+    clustalw: 0.0278
+    muscle: 0.0369
+    balibase: 0.0374
 ----------------------------------------
 
 Matrix 2:
-  FO_compare: 0.0065
-  FO original: 0.0310
+  FO_compare: 0.0071
+  FO original: 0.0337
   Scores:
-    clustalw: 0.0268
-    muscle: 0.0305
-    balibase: 0.0310
+    clustalw: 0.0253
+    muscle: 0.0332
+    balibase: 0.0337
 ----------------------------------------
 
 Matrix 3:
-  FO_compare: 0.0061
-  FO original: 0.0292
+  FO_compare: 0.0063
+  FO original: 0.0310
   Scores:
-    clustalw: 0.0257
-    muscle: 0.0289
-    balibase: 0.0292
+    clustalw: 0.0219
+    muscle: 0.0309
+    balibase: 0.0310
 ----------------------------------------
 
 Matrix 4:
-  FO_compare: 0.0060
-  FO original: 0.0302
+  FO_compare: 0.0058
+  FO original: 0.0283
   Scores:
-    clustalw: 0.0191
-    muscle: 0.0302
-    balibase: 0.0302
+    clustalw: 0.0202
+    muscle: 0.0281
+    balibase: 0.0283
 ----------------------------------------
 
 Matrix 5:
-  FO_compare: 0.0059
-  FO original: 0.0287
+  FO_compare: 0.0057
+  FO original: 0.0283
   Scores:
-    clustalw: 0.0208
-    muscle: 0.0285
-    balibase: 0.0287
+    clustalw: 0.0253
+    muscle: 0.0282
+    balibase: 0.0283
 ----------------------------------------
 
 Matrix 6:
-  FO_compare: 0.0058
-  FO original: 0.0284
-  Scores:
-    clustalw: 0.0247
-    muscle: 0.0282
-    balibase: 0.0284
-----------------------------------------
-
-Matrix 7:
   FO_compare: 0.0057
   FO original: 0.0277
   Scores:
-    clustalw: 0.0200
-    muscle: 0.0276
+    clustalw: 0.0198
+    muscle: 0.0275
     balibase: 0.0277
 ----------------------------------------
 
-Matrix 8:
-  FO_compare: 0.0055
-  FO original: 0.0293
+Matrix 7:
+  FO_compare: 0.0056
+  FO original: 0.0276
   Scores:
-    clustalw: 0.0180
-    muscle: 0.0297
-    balibase: 0.0293
+    clustalw: 0.0197
+    muscle: 0.0275
+    balibase: 0.0276
+----------------------------------------
+
+Matrix 8:
+  FO_compare: 0.0051
+  FO original: 0.0268
+  Scores:
+    clustalw: 0.0215
+    muscle: 0.0272
+    balibase: 0.0268
 ----------------------------------------
 
 Matrix 9:
-  FO_compare: 0.0054
-  FO original: 0.0266
+  FO_compare: 0.0049
+  FO original: 0.0259
   Scores:
-    clustalw: 0.0188
-    muscle: 0.0266
-    balibase: 0.0266
+    clustalw: 0.0214
+    muscle: 0.0263
+    balibase: 0.0259
 ----------------------------------------
 
 Matrix 10:
-  FO_compare: 0.0050
-  FO original: 0.0254
+  FO_compare: 0.0047
+  FO original: 0.0244
   Scores:
-    clustalw: 0.0176
-    muscle: 0.0255
-    balibase: 0.0254
+    clustalw: 0.0166
+    muscle: 0.0246
+    balibase: 0.0244
 ----------------------------------------
