@@ -511,61 +511,50 @@ class SequenceAlignmentPipeline:
         logger.info(f"Results Dir: {self.results_dir}")
         logger.info("="*60)
 
-    def run_clustalw(self, input_file:Path)-> Optional[Path]:
+    def run_clustalw(self, input_file:Path) -> Optional[Path]:
         """
         Executa ClustalW => .aln
         """
         try:
-            output_file= self.clustalw_results_dir/ f"{input_file.stem}_clustalw.aln"
-            cmd= [
+            output_file = self.clustalw_results_dir / f"{input_file.stem}_clustalw.fasta"
+            cmd = [
                 CLUSTALW_PATH,
-                "-INFILE="+ str(input_file),
+                "-INFILE=" + str(input_file),
                 "-ALIGN",
-                "-OUTPUT=CLUSTAL",
-                "-OUTFILE="+ str(output_file)
+                "-OUTPUT=FASTA",
+                "-OUTFILE=" + str(output_file)
             ]
-            logger.info(f"[ClustalW] Processing: {input_file.name}")
             subprocess.run(cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
-            if not output_file.exists() or output_file.stat().st_size==0:
+    
+            if not output_file.exists() or output_file.stat().st_size == 0:
                 raise RuntimeError("ClustalW: missing or empty output")
-
+    
             logger.info(f"[ClustalW] Successfully generated: {output_file.name}")
             return output_file
         except Exception as e:
             logger.error(f"[ClustalW] Error: {e}")
             return None
 
-    def run_muscle(self, input_file:Path)-> Optional[Path]:
+    def run_muscle(self, input_file:Path) -> Optional[Path]:
         """
         Executa MUSCLE => converte => .aln
         """
         try:
-            output_fasta= self.muscle_results_dir/ f"{input_file.stem}_temp.fa"
-            output_file=  self.muscle_results_dir/ f"{input_file.stem}_muscle.aln"
-
+            output_file = self.muscle_results_dir / f"{input_file.stem}_muscle.fasta"
+            
             logger.info(f"[MUSCLE] Processing: {input_file.name}")
-            muscle_cmd= [
+            muscle_cmd = [
                 str(MUSCLE_PATH),
                 "-align", str(input_file),
-                "-output", str(output_fasta)
+                "-output", str(output_file)
             ]
             subprocess.run(muscle_cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-            if not output_fasta.exists():
+            
+            if not output_file.exists():
                 raise RuntimeError("MUSCLE alignment failed")
-
-            # Converte => clustal
-            logger.info("[MUSCLE] Converting to CLUSTAL format")
-            alignments= AlignIO.read(output_fasta, "fasta")
-            AlignIO.write(alignments, output_file, "clustal")
-
-            output_fasta.unlink()
-            if not output_file.exists() or output_file.stat().st_size==0:
-                raise RuntimeError("Format conversion failed")
-
-            logger.info(f"[MUSCLE] Successfully generated: {output_file.name}")
+                
             return output_file
-
+            
         except Exception as e:
             logger.error(f"[MUSCLE] Error: {e}")
             return None
@@ -598,7 +587,7 @@ class SequenceAlignmentPipeline:
             logger.error(f"[BAliBASE] Conversion error: {e}")
             return None
 
-    def evaluate_alignment(self, aln_file:Path)-> Optional[Dict[str,float]]:
+    def evaluate_alignment(self, aln_file:Path) -> Optional[Dict[str, float]]:
         """
         Faz a avaliação:
          sp_raw, sp_norm (PAM250)
@@ -606,7 +595,9 @@ class SequenceAlignmentPipeline:
         """
         try:
             logger.info(f"\nEvaluating alignment: {aln_file}")
-            alignment= AlignIO.read(aln_file, "clustal")
+            # Detecta o formato com base na extensão
+            fmt = "fasta" if aln_file.suffix in ['.fa', '.fasta'] else "clustal"
+            alignment = AlignIO.read(aln_file, fmt)
 
             # SP
             sp_raw, sp_norm= self.sp_calculator.compute_sp_score(alignment)
@@ -825,8 +816,8 @@ class SequenceAlignmentPipeline:
 # -------------------------------------------
 if __name__=="__main__":
     try:
-        balibase_dir  = Path("/home/augusto/projects/multiOne/BAliBASE/RV30")
-        reference_dir = Path("/home/augusto/projects/multiOne/BAliBASE/RV30")
+        balibase_dir  = Path("/home/augusto/projects/multiOne/BAliBASE/RV100")
+        reference_dir = Path("/home/augusto/projects/multiOne/BAliBASE/RV100")
         results_dir   = Path("/home/augusto/projects/multiOne/results")
 
         pipeline= SequenceAlignmentPipeline(

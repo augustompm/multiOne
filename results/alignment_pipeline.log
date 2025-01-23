@@ -1,0 +1,60 @@
+2025-01-23 12:51:25 [INFO] 
+=== Multiple Sequence Alignment Pipeline Initialized ===
+2025-01-23 12:51:25 [INFO] Using optimized SP (PAM250) and original WSP (Gotoh)
+2025-01-23 12:51:25 [INFO] Input Dir: /home/augusto/projects/multiOne/BAliBASE/RV100
+2025-01-23 12:51:25 [INFO] Reference Dir: /home/augusto/projects/multiOne/BAliBASE/RV100
+2025-01-23 12:51:25 [INFO] Results Dir: /home/augusto/projects/multiOne/results
+2025-01-23 12:51:25 [INFO] ============================================================
+2025-01-23 12:51:25 [INFO] 
+============================================================
+2025-01-23 12:51:25 [INFO] Starting pipeline processing for 218 sequences
+2025-01-23 12:51:25 [INFO] ============================================================
+2025-01-23 12:51:25 [INFO] 
+Processing sequence 1/218
+2025-01-23 12:51:25 [INFO] File: BBA0170.tfa
+2025-01-23 12:51:25 [INFO] ----------------------------------------
+2025-01-23 12:51:25 [INFO] [ClustalW] Processing: BBA0170.tfa
+2025-01-23 12:51:33 [INFO] [ClustalW] Successfully generated: BBA0170_clustalw.aln
+2025-01-23 12:51:33 [INFO] [MUSCLE] Processing: BBA0170.tfa
+2025-01-23 12:52:20 [INFO] [MUSCLE] Converting to CLUSTAL format
+2025-01-23 12:52:20 [INFO] [MUSCLE] Successfully generated: BBA0170_muscle.aln
+2025-01-23 12:52:20 [INFO] [BAliBASE] Using existing conversion: BBA0170.aln
+2025-01-23 12:52:20 [INFO] 
+Evaluating ClustalW alignment
+2025-01-23 12:52:20 [INFO] 
+Evaluating alignment: /home/augusto/projects/multiOne/results/clustalw/BBA0170_clustalw.aln
+2025-01-23 12:52:22 [INFO] [SPScore] raw=34.746 real=130.986 min=-1034.347 max=2197.987 norm=0.3605
+2025-01-23 12:52:48 [INFO] Scores calculated:
+2025-01-23 12:52:48 [INFO]   SP Score (PAM250):
+2025-01-23 12:52:48 [INFO]     Raw: 34.7461
+2025-01-23 12:52:48 [INFO]     Normalized [0,1]: 0.3605
+2025-01-23 12:52:48 [INFO]   WSP Score (Gotoh):
+2025-01-23 12:52:48 [INFO]     Raw: 3584.8022
+2025-01-23 12:52:48 [INFO]     Normalized [0,1]: 0.8004
+2025-01-23 12:52:48 [INFO] 
+ClustalW Alignment Statistics:
+2025-01-23 12:52:48 [INFO] Sequences: 87
+2025-01-23 12:52:48 [INFO] Alignment Length: 3384
+2025-01-23 12:52:48 [INFO] Average Gap Percentage: 84.45%
+2025-01-23 12:52:48 [INFO] 
+Evaluating MUSCLE alignment
+2025-01-23 12:52:48 [INFO] 
+Evaluating alignment: /home/augusto/projects/multiOne/results/muscle/BBA0170_muscle.aln
+2025-01-23 12:52:51 [INFO] [SPScore] raw=37.466 real=167.329 min=-973.147 max=2067.936 norm=0.3750
+2025-01-23 12:53:51 [INFO] Scores calculated:
+2025-01-23 12:53:51 [INFO]   SP Score (PAM250):
+2025-01-23 12:53:51 [INFO]     Raw: 37.4664
+2025-01-23 12:53:51 [INFO]     Normalized [0,1]: 0.3750
+2025-01-23 12:53:51 [INFO]   WSP Score (Gotoh):
+2025-01-23 12:53:51 [INFO]     Raw: 6935.4023
+2025-01-23 12:53:51 [INFO]     Normalized [0,1]: 1.0517
+2025-01-23 12:53:51 [INFO] 
+MUSCLE Alignment Statistics:
+2025-01-23 12:53:51 [INFO] Sequences: 87
+2025-01-23 12:53:51 [INFO] Alignment Length: 7410
+2025-01-23 12:53:51 [INFO] Average Gap Percentage: 92.90%
+2025-01-23 12:53:51 [INFO] 
+Evaluating BAliBASE alignment
+2025-01-23 12:53:51 [INFO] 
+Evaluating alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0170.aln
+2025-01-23 12:53:52 [INFO] [SPScore] raw=10.311 real=-94.174 min=-1104.653 max=2347.387 norm=0.2927
