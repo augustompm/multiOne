@@ -2,225 +2,141 @@
 
 import sys
 from pathlib import Path
-import subprocess
 import logging
 from datetime import datetime
-import os
-from typing import List, Tuple, Dict
-import json
 import numpy as np
 
-# Add project root to path
-current_dir = Path(__file__).parent
-sys.path.append(str(current_dir))
-
+from memetic.analysis import ExecutionAnalyzer
 from memetic.matrix import AdaptiveMatrix
-from memetic.local_search import LocalSearch
+from memetic.memetic import MemeticAlgorithm
 
-# Configure logging with both file and console output
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('adaptive_matrix.log'),
-        logging.StreamHandler()
-    ]
-)
-
-class MetaheuristicConfig:
-    """Manages configuration parameters for the metaheuristic algorithm."""
+# Hiperparâmetros do algoritmo
+HYPERPARAMS = {
+    # Parâmetros populacionais
+    'POPULATION_SIZE': 15,      # Tamanho da população
+    'ELITE_SIZE': 3,           # Número de indivíduos elite
+    'NUM_GENERATIONS': 10,     # Número de gerações
+    'NUM_RUNS': 3,            # Número de execuções independentes
     
-    def __init__(self):
-        # Population parameters
-        self.population_size = 30
-        self.elite_size = 5
-        self.generations = 100
-        
-        # Local search parameters
-        self.local_search_frequency = 5  # Apply every N generations
-        self.local_search_iterations = 20
-        
-        # VNS parameters
-        self.max_no_improve = 10
-        self.neighborhood_size = 3
-        
-        # Evaluation parameters
-        self.evaluation_samples = 5  # Number of times to evaluate each matrix
-        
-    def save(self, filepath: Path):
-        """Saves configuration to JSON file."""
-        with open(filepath, 'w') as f:
-            json.dump(self.__dict__, f, indent=4)
-            
-    @classmethod
-    def load(cls, filepath: Path):
-        """Loads configuration from JSON file."""
-        config = cls()
-        with open(filepath) as f:
-            config.__dict__.update(json.load(f))
-        return config
-
-def run_clustalw(input_file: str, output_file: str, matrix_file: str) -> bool:
-    """Executes ClustalW with a given matrix file."""
-    clustalw_path = str(current_dir / "clustalw-2.1/src/clustalw2")
+    # Parâmetros do VNS-ILS
+    'MAX_VNS_ITERATIONS': 10,  # Máximo de iterações VNS
+    'MAX_NO_IMPROVE': 5,      # Iterações sem melhoria antes de parar
+    'LOCAL_SEARCH_FREQ': 5,    # Frequência de busca local
     
-    cmd = [
-        clustalw_path,
-        f"-INFILE={input_file}",
-        f"-MATRIX={matrix_file}",
-        "-ALIGN",
-        "-OUTPUT=FASTA",
-        f"-OUTFILE={output_file}",
-        "-TYPE=PROTEIN"
-    ]
+    # Parâmetros de avaliação
+    'EVAL_SAMPLES': 2,         # Número de avaliações por matriz
+    'MIN_IMPROVEMENT': 1e-6,   # Melhoria mínima considerada
+}
+
+# Configuração de logging
+def setup_logging():
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('adaptive_matrix.log'),
+            logging.StreamHandler()
+        ]
+    )
+
+def evaluate_matrix(matrix: AdaptiveMatrix, xml_file: str, fasta_file: str) -> float:
+    """Avalia uma matriz usando Clustalw e bali_score"""
+    from clustalw import run_clustalw
+    from baliscore import get_bali_score
     
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-        return True
-    except subprocess.CalledProcessError as e:
-        logging.error(f"ClustalW error: {e.stderr}")
-        return False
-
-def get_bali_score(xml_file: str, alignment_file: str) -> float:
-    """Calculates bali_score for an alignment."""
-    try:
-        bali_score_path = str(current_dir / "baliscore" / "bali_score")
-        result = subprocess.run(
-            [bali_score_path, xml_file, alignment_file],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        
-        for line in result.stdout.split('\n'):
-            if "CS score=" in line:
-                return float(line.split('=')[1].strip())
-        return 0.0
-        
-    except subprocess.CalledProcessError as e:
-        logging.error(f"Bali_score error: {e.stderr}")
-        return 0.0
-
-def evaluate_matrix(matrix: AdaptiveMatrix, 
-                   xml_file: str, 
-                   fasta_file: str,
-                   num_evaluations: int = 1) -> float:
-    """
-    Evaluates a matrix multiple times to account for ClustalW variability.
-    Returns the mean score.
-    """
-    scores = []
-    matrix_file = current_dir / "temp_matrix.mat"
+    temp_dir = Path("temp")
+    temp_dir.mkdir(exist_ok=True)
+    
+    matrix_file = temp_dir / "temp_matrix.mat"
     matrix.to_clustalw_format(matrix_file)
     
-    for i in range(num_evaluations):
-        output_file = current_dir / f"temp_aln_{i}.fasta"
+    scores = []
+    for _ in range(HYPERPARAMS['EVAL_SAMPLES']):
+        aln_file = temp_dir / f"temp_aln_{_}.fasta"
         
-        if run_clustalw(fasta_file, str(output_file), str(matrix_file)):
-            score = get_bali_score(xml_file, str(output_file))
+        if run_clustalw(fasta_file, str(aln_file), str(matrix_file)):
+            score = get_bali_score(xml_file, str(aln_file))
             if score > 0:
                 scores.append(score)
                 
-        if output_file.exists():
-            output_file.unlink()
+        if aln_file.exists():
+            aln_file.unlink()
             
     matrix_file.unlink()
-    
     return np.mean(scores) if scores else 0.0
 
-def main():
-    # Load or create configuration
-    config_file = current_dir / "config.json"
-    if config_file.exists():
-        config = MetaheuristicConfig.load(config_file)
-    else:
-        config = MetaheuristicConfig()
-        config.save(config_file)
+def run_optimization(xml_file: str, fasta_file: str) -> AdaptiveMatrix:
+    """Executa uma otimização completa"""
+    analyzer = ExecutionAnalyzer()
+    best_matrix = None
+    best_score = float('-inf')
     
-    # Setup paths for BBA0142
-    xml_file = str(current_dir / "BAliBASE" / "RV100" / "BBA0142.xml")
-    fasta_file = str(current_dir / "BAliBASE" / "RV100" / "BBA0142.tfa")
-    results_dir = current_dir / "results"
-    results_dir.mkdir(exist_ok=True)
-    
-    # Initialize population tracking
-    best_scores = []
-    mean_scores = []
-    elite_matrices = []
-    
-    # Create initial population
-    population = [AdaptiveMatrix() for _ in range(config.population_size)]
-    
-    # Initialize local search
-    local_search = LocalSearch(population[0])  # Initialize with any matrix
-    local_search.analyze_alignment(Path(xml_file))  # Analyze reference alignment
-    
-    # Main evolutionary loop
-    for generation in range(config.generations):
-        logging.info(f"\nGeneration {generation + 1}/{config.generations}")
+    for run in range(HYPERPARAMS['NUM_RUNS']):
+        logging.info(f"\nExecutando run {run+1}/{HYPERPARAMS['NUM_RUNS']}")
         
-        # Evaluate population
-        scores = []
-        for idx, matrix in enumerate(population):
-            score = evaluate_matrix(
-                matrix, 
-                xml_file, 
-                fasta_file, 
-                config.evaluation_samples
+        try:
+            # Inicializa algoritmo memético
+            memetic = MemeticAlgorithm(
+                population_size=HYPERPARAMS['POPULATION_SIZE'],
+                elite_size=HYPERPARAMS['ELITE_SIZE'],
+                evaluation_function=lambda m: evaluate_matrix(m, xml_file, fasta_file),
+                xml_path=Path(xml_file)
             )
-            scores.append(score)
-            logging.info(f"Individual {idx + 1}: score = {score:.4f}")
             
-        # Track statistics
-        best_score = max(scores)
-        mean_score = np.mean(scores)
-        best_scores.append(best_score)
-        mean_scores.append(mean_score)
-        
-        logging.info(f"Generation stats - Best: {best_score:.4f}, Mean: {mean_score:.4f}")
-        
-        # Select elite
-        elite_indices = np.argsort(scores)[-config.elite_size:]
-        elite_matrices = [population[i].copy() for i in elite_indices]
-        
-        # Apply local search to elite members
-        if generation % config.local_search_frequency == 0:
-            logging.info("Applying local search to elite members...")
-            for matrix in elite_matrices:
-                local_search.matrix = matrix
-                local_search.vns_search(
-                    lambda m: evaluate_matrix(m, xml_file, fasta_file),
-                    max_iterations=config.local_search_iterations,
-                    max_no_improve=config.max_no_improve
-                )
-        
-        # Save best matrix
-        if generation % 10 == 0:
-            best_matrix = elite_matrices[-1]
-            output_file = results_dir / f"best_matrix_gen_{generation}.mat"
-            best_matrix.to_clustalw_format(output_file)
+            # Executa otimização
+            current_matrix = memetic.run(
+                generations=HYPERPARAMS['NUM_GENERATIONS'],
+                local_search_frequency=HYPERPARAMS['LOCAL_SEARCH_FREQ'],
+                local_search_iterations=HYPERPARAMS['MAX_VNS_ITERATIONS'],
+                max_no_improve=HYPERPARAMS['MAX_NO_IMPROVE']
+            )
             
-        # Create next generation (currently just copying elite)
-        population = elite_matrices.copy()
-        while len(population) < config.population_size:
-            population.append(elite_matrices[0].copy())
+            # Registra execução
+            if memetic.best_global_score > best_score:
+                best_score = memetic.best_global_score
+                best_matrix = current_matrix
+                logging.info(f"Novo melhor global encontrado: {best_score:.4f}")
+                
+            analyzer.record_execution(
+                initial_score=memetic.initial_score,
+                final_score=memetic.best_global_score,
+                improvements=memetic.local_search.improvements,
+                final_matrix=current_matrix.matrix
+            )
             
-    # Save final results
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    final_matrix = results_dir / f"final_matrix_{timestamp}.mat"
-    elite_matrices[-1].to_clustalw_format(final_matrix)
+        except Exception as e:
+            logging.error(f"Erro durante execução {run+1}: {str(e)}")
+            continue
+            
+    return best_matrix
+
+def main():
+    setup_logging()
     
-    # Save run statistics
-    stats = {
-        'best_scores': best_scores,
-        'mean_scores': mean_scores,
-        'config': config.__dict__
-    }
-    with open(results_dir / f"run_stats_{timestamp}.json", 'w') as f:
-        json.dump(stats, f, indent=4)
+    # Definição de caminhos
+    project_root = Path(__file__).parent
+    xml_file = str(project_root / "BAliBASE/RV100/BBA0142.xml")
+    fasta_file = str(project_root / "BAliBASE/RV100/BBA0142.tfa")
+    results_dir = project_root / "memetic/results"
+    
+    # Verifica arquivos necessários
+    if not all(Path(f).exists() for f in [xml_file, fasta_file]):
+        logging.error("Arquivos de entrada não encontrados")
+        sys.exit(1)
         
-    logging.info("\nOptimization completed")
-    logging.info(f"Best score achieved: {best_scores[-1]:.4f}")
+    logging.info("Iniciando otimização de matriz adaptativa")
+    
+    # Executa otimização
+    best_matrix = run_optimization(xml_file, fasta_file)
+    
+    # Salva resultado
+    if best_matrix:
+        timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M")
+        output_path = results_dir / f"{timestamp}-AdaptivePAM.txt"
+        best_matrix.to_clustalw_format(output_path)
+        logging.info(f"Melhor matriz salva em: {output_path}")
+    
+    logging.info("Otimização concluída com sucesso")
 
 if __name__ == "__main__":
     main()

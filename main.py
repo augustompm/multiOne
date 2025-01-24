@@ -2,179 +2,133 @@
 
 import sys
 from pathlib import Path
-import subprocess
 import logging
 from datetime import datetime
-import os
-from typing import List, Tuple
-import numpy as np
-
-# Add project root to path
-current_dir = Path(__file__).parent
-sys.path.append(str(current_dir))
 
 from memetic.matrix import AdaptiveMatrix
-from memetic.memetic import MemeticAlgorithm
+from memetic.local_search import LocalSearch
+from memetic.clustalw import run_clustalw
+from memetic.baliscore import get_bali_score
 
-# Configure logging with both file and console output
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('adaptive_matrix.log'),
-        logging.StreamHandler()
-    ]
-)
-
-def run_clustalw(input_file: str, output_file: str, matrix_file: str) -> bool:
-    """
-    Executes ClustalW with a given matrix file. We use a temporary file for the matrix
-    since ClustalW requires a file input, but our matrices are kept in memory.
-    """
-    clustalw_path = str(current_dir / "clustalw-2.1/src/clustalw2")
+# Hiperparâmetros do VNS-ILS
+HYPERPARAMS = {
+    # Parâmetros da busca
+    'VNS_MIN_IMPROVEMENT': 1e-6,
+    'VNS_MAX_ITER': 20,
+    'VNS_MAX_NO_IMPROVE': 10,
+    'VNS_PERTURBATION_SIZE': 2,
+    'VNS_MAX_PERTURBATION': 5,
     
-    cmd = [
-        clustalw_path,
-        f"-INFILE={input_file}",
-        f"-MATRIX={matrix_file}",
-        "-ALIGN",
-        "-OUTPUT=FASTA",
-        f"-OUTFILE={output_file}",
-        "-TYPE=PROTEIN"
-    ]
+    # Restrições da matriz PAM
+    'MATRIX_SCORE_DIAGONAL': {'min': -2, 'max': 17},
+    'MATRIX_SCORE_SIMILAR': {'min': -4, 'max': 8},
+    'MATRIX_SCORE_DIFFERENT': {'min': -8, 'max': 4},
     
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-        return True
-    except subprocess.CalledProcessError as e:
-        logging.error(f"ClustalW error: {e.stderr}")
-        return False
+    # Parâmetros de avaliação 
+    'EVAL_SAMPLES': 1,          # Número de avaliações por matriz
+    'NUM_RUNS': 3              # Número de execuções independentes
+}
 
-def get_bali_score(xml_file: str, alignment_file: str) -> float:
-    """
-    Calculates bali_score for an alignment. This function helps evaluate
-    the quality of alignments produced by our adaptive matrices.
-    """
-    try:
-        bali_score_path = str(current_dir / "baliscore" / "bali_score")
-        result = subprocess.run(
-            [bali_score_path, xml_file, alignment_file],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        
-        for line in result.stdout.split('\n'):
-            if "CS score=" in line:
-                return float(line.split('=')[1].strip())
-        return 0.0
-        
-    except subprocess.CalledProcessError as e:
-        logging.error(f"Bali_score error: {e.stderr}")
-        return 0.0
+def setup_logging():
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('vns_ils.log'),
+            logging.StreamHandler()
+        ]
+    )
 
-def evaluate_matrix(matrix: AdaptiveMatrix, 
-                   xml_file: str, 
-                   fasta_file: str,
-                   num_evaluations: int = 1) -> float:
-    """
-    Evaluates a matrix multiple times to account for ClustalW variability.
-    Uses temporary files for matrix and alignment storage, but the matrix
-    itself remains primarily in memory.
-    """
-    scores = []
-    # Create temporary directory if it doesn't exist
-    temp_dir = current_dir / "memetic" / "temp"
+def evaluate_matrix(matrix: AdaptiveMatrix, xml_file: Path, fasta_file: Path) -> float:
+    """Avalia uma matriz usando ClustalW e bali_score"""
+    temp_dir = Path("temp")
     temp_dir.mkdir(exist_ok=True)
     
     matrix_file = temp_dir / "temp_matrix.mat"
     matrix.to_clustalw_format(matrix_file)
     
-    for i in range(num_evaluations):
-        output_file = temp_dir / f"temp_aln_{i}.fasta"
-        
-        if run_clustalw(fasta_file, str(output_file), str(matrix_file)):
-            score = get_bali_score(xml_file, str(output_file))
+    scores = []
+    for i in range(HYPERPARAMS['EVAL_SAMPLES']):
+        aln_file = temp_dir / f"temp_aln_{i}.fasta"
+        if run_clustalw(str(fasta_file), str(aln_file), str(matrix_file)):
+            score = get_bali_score(str(xml_file), str(aln_file))
             if score > 0:
                 scores.append(score)
-                
-        if output_file.exists():
-            output_file.unlink()
+        
+        if aln_file.exists():
+            aln_file.unlink()
             
     matrix_file.unlink()
-    
-    return np.mean(scores) if scores else 0.0
-
-def save_best_matrix(matrix: AdaptiveMatrix, results_dir: Path) -> None:
-    """
-    Saves the best matrix found using the specified naming convention:
-    'YYYY-MM-DD-HH-mm-AdaptivePAM.txt'
-    """
-    timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M")
-    filename = f"{timestamp}-AdaptivePAM.txt"
-    output_path = results_dir / filename
-    
-    matrix.to_clustalw_format(output_path)
-    logging.info(f"Best matrix saved to {output_path}")
+    return sum(scores)/len(scores) if scores else 0.0
 
 def main():
-    # Get project root directory
+    setup_logging()
+    
+    # Verifica arquivos de entrada
     project_root = Path(__file__).parent
+    xml_file = project_root / "BAliBASE/RV100/BBA0142.xml"
+    fasta_file = project_root / "BAliBASE/RV100/BBA0142.tfa"
+    results_dir = project_root / "results"
+    results_dir.mkdir(exist_ok=True)
     
-    # Setup directory paths relative to project root
-    memetic_dir = project_root / "memetic"
-    matrices_dir = memetic_dir / "matrices"
-    results_dir = memetic_dir / "results"
-    
-    # Input files for BBA0142
-    xml_file = str(project_root / "BAliBASE" / "RV100" / "BBA0142.xml")
-    fasta_file = str(project_root / "BAliBASE" / "RV100" / "BBA0142.tfa")
-    
-    # Verify essential files exist
-    essential_files = [
-        (matrices_dir / "pam250.txt", "PAM250 matrix"),
-        (Path(xml_file), "BBA0142 XML"),
-        (Path(fasta_file), "BBA0142 sequences")
-    ]
-    
-    for file_path, description in essential_files:
-        if not file_path.exists():
-            logging.error(f"Missing required file: {description} at {file_path}")
-            sys.exit(1)
-            
-    logging.info("Starting memetic algorithm optimization")
-    logging.info(f"Using PAM250 matrix from: {matrices_dir / 'pam250.txt'}")
-    logging.info(f"Results will be saved to: {results_dir}")
-    
-    # Initialize and run memetic algorithm
-    try:
-        memetic = MemeticAlgorithm(
-            population_size=50,
-            elite_size=5,
-            evaluation_function=lambda matrix: evaluate_matrix(
-                matrix, 
-                xml_file, 
-                fasta_file, 
-                num_evaluations=3
-            ),
-            xml_path=Path(xml_file)
-        )
-        
-        best_matrix = memetic.run(
-            generations=50,
-            local_search_frequency=5,
-            local_search_iterations=20,
-            max_no_improve=10
-        )
-        
-        # Save the best matrix found
-        save_best_matrix(best_matrix, results_dir)
-        
-    except Exception as e:
-        logging.error(f"Error during optimization: {str(e)}")
+    if not all(f.exists() for f in [xml_file, fasta_file]):
+        logging.error("Arquivos necessários não encontrados")
         sys.exit(1)
+        
+    logging.info("Iniciando otimização VNS-ILS")
     
-    logging.info("Optimization completed successfully")
+    # Executa VNS-ILS múltiplas vezes
+    best_overall_score = float('-inf')
+    best_overall_matrix = None
+    
+    for run in range(HYPERPARAMS['NUM_RUNS']):
+        logging.info(f"\nIniciando execução {run + 1}/{HYPERPARAMS['NUM_RUNS']}")
+        
+        try:
+            # Inicializa nova busca
+            matrix = AdaptiveMatrix()
+            local_search = LocalSearch(
+                matrix=matrix,
+                min_improvement=HYPERPARAMS['VNS_MIN_IMPROVEMENT'],
+                perturbation_size=HYPERPARAMS['VNS_PERTURBATION_SIZE'],
+                max_perturbation=HYPERPARAMS['VNS_MAX_PERTURBATION'],
+                score_constraints={
+                    'diagonal': HYPERPARAMS['MATRIX_SCORE_DIAGONAL'],
+                    'similar': HYPERPARAMS['MATRIX_SCORE_SIMILAR'],
+                    'different': HYPERPARAMS['MATRIX_SCORE_DIFFERENT']
+                }
+            )
+            
+            # Analisa alinhamento
+            local_search.analyze_alignment(xml_file)
+            
+            # Executa busca
+            score = local_search.vns_search(
+                evaluation_func=lambda m: evaluate_matrix(m, xml_file, fasta_file),
+                max_iterations=HYPERPARAMS['VNS_MAX_ITER'],
+                max_no_improve=HYPERPARAMS['VNS_MAX_NO_IMPROVE']
+            )
+            
+            logging.info(f"Execução {run + 1} finalizada. Score: {score:.4f}")
+            
+            # Atualiza melhor global
+            if score > best_overall_score:
+                best_overall_score = score
+                best_overall_matrix = local_search.best_matrix
+                logging.info(f"Novo melhor score global: {best_overall_score:.4f}")
+            
+        except Exception as e:
+            logging.error(f"Erro durante execução {run + 1}: {str(e)}")
+            continue
+    
+    # Salva melhor resultado
+    if best_overall_matrix:
+        timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M")
+        output_path = results_dir / f"{timestamp}-VNS-ILS-{best_overall_score:.4f}.txt"
+        best_overall_matrix.to_clustalw_format(output_path)
+        logging.info(f"Melhor matriz salva em: {output_path}")
+    
+    logging.info(f"Otimização concluída. Melhor score: {best_overall_score:.4f}")
 
 if __name__ == "__main__":
     main()

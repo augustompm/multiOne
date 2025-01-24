@@ -1,0 +1,167 @@
+2025-01-24 18:55:27,758 - INFO - Iniciando otimização VNS-ILS
+2025-01-24 18:55:27,758 - INFO - 
+Iniciando execução 1/3
+2025-01-24 18:55:27,759 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 18:55:27,761 - INFO - Analisando padrões de conservação...
+2025-01-24 18:55:27,763 - INFO - Análise de padrões concluída.
+2025-01-24 18:55:27,763 - INFO - Análise de padrões concluída.
+2025-01-24 18:55:27,763 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=10
+2025-01-24 18:55:27,766 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,768 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,769 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,771 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,772 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,775 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,776 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,778 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,780 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,781 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,783 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,785 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,786 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,788 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,789 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,791 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,793 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,795 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,796 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,797 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,799 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,801 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,802 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,804 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,805 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,807 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,809 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,810 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,812 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,813 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,815 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,816 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,818 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,819 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,821 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,821 - INFO - Busca VNS-ILS concluída. Melhor score: 0.000000
+2025-01-24 18:55:27,821 - INFO - Execução 1 finalizada. Score: 0.0000
+2025-01-24 18:55:27,821 - INFO - Novo melhor score global: 0.0000
+2025-01-24 18:55:27,822 - INFO - 
+Iniciando execução 2/3
+2025-01-24 18:55:27,822 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 18:55:27,823 - INFO - Analisando padrões de conservação...
+2025-01-24 18:55:27,825 - INFO - Análise de padrões concluída.
+2025-01-24 18:55:27,825 - INFO - Análise de padrões concluída.
+2025-01-24 18:55:27,826 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=10
+2025-01-24 18:55:27,827 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,829 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,830 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,832 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,833 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,835 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,837 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,839 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,840 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,842 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,845 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,847 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,848 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,849 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,851 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,853 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,854 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,856 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,858 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,859 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,861 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,863 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,864 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,865 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,867 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,869 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,870 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,872 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,874 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,876 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,877 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,878 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,880 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,882 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,884 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,884 - INFO - Busca VNS-ILS concluída. Melhor score: 0.000000
+2025-01-24 18:55:27,885 - INFO - Execução 2 finalizada. Score: 0.0000
+2025-01-24 18:55:27,885 - INFO - 
+Iniciando execução 3/3
+2025-01-24 18:55:27,885 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 18:55:27,886 - INFO - Analisando padrões de conservação...
+2025-01-24 18:55:27,888 - INFO - Análise de padrões concluída.
+2025-01-24 18:55:27,889 - INFO - Análise de padrões concluída.
+2025-01-24 18:55:27,889 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=10
+2025-01-24 18:55:27,890 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,892 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,894 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,895 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,897 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,899 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,900 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,902 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,903 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,906 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,908 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,909 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,911 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,913 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,914 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,916 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,917 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,919 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,921 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,922 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,924 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,925 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,927 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,929 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,930 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,932 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,933 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,935 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,937 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,938 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,940 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,941 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,943 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,945 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,946 - ERROR - ClustalW não encontrado em: /home/augusto/projects/multiOne/memetic/clustalw-2.1/src/clustalw2
+2025-01-24 18:55:27,947 - INFO - Busca VNS-ILS concluída. Melhor score: 0.000000
+2025-01-24 18:55:27,947 - INFO - Execução 3 finalizada. Score: 0.0000
+2025-01-24 18:55:27,949 - INFO - Melhor matriz salva em: /home/augusto/projects/multiOne/results/2025-01-24-18-55-VNS-ILS-0.0000.txt
+2025-01-24 18:55:27,949 - INFO - Otimização concluída. Melhor score: 0.0000
+2025-01-24 18:58:07,699 - INFO - Iniciando otimização VNS-ILS
+2025-01-24 18:58:07,699 - INFO - 
+Iniciando execução 1/3
+2025-01-24 18:58:07,700 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 18:58:07,701 - INFO - Analisando padrões de conservação...
+2025-01-24 18:58:07,705 - INFO - Análise de padrões concluída.
+2025-01-24 18:58:07,705 - INFO - Análise de padrões concluída.
+2025-01-24 18:58:07,705 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=10
+2025-01-24 18:58:08,478 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 18:58:08,478 - INFO - Execução 1 finalizada. Score: 0.8100
+2025-01-24 18:58:08,478 - INFO - Novo melhor score global: 0.8100
+2025-01-24 18:58:08,478 - INFO - 
+Iniciando execução 2/3
+2025-01-24 18:58:08,479 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 18:58:08,480 - INFO - Analisando padrões de conservação...
+2025-01-24 18:58:08,482 - INFO - Análise de padrões concluída.
+2025-01-24 18:58:08,482 - INFO - Análise de padrões concluída.
+2025-01-24 18:58:08,482 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=10
+2025-01-24 18:58:09,238 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 18:58:09,239 - INFO - Execução 2 finalizada. Score: 0.8100
+2025-01-24 18:58:09,239 - INFO - 
+Iniciando execução 3/3
+2025-01-24 18:58:09,240 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 18:58:09,240 - INFO - Analisando padrões de conservação...
+2025-01-24 18:58:09,242 - INFO - Análise de padrões concluída.
+2025-01-24 18:58:09,243 - INFO - Análise de padrões concluída.
+2025-01-24 18:58:09,243 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=10
+2025-01-24 18:58:07,542 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 18:58:07,543 - INFO - Execução 3 finalizada. Score: 0.8100
+2025-01-24 18:58:07,543 - INFO - Melhor matriz salva em: /home/augusto/projects/multiOne/results/2025-01-24-18-58-VNS-ILS-0.8100.txt
+2025-01-24 18:58:07,544 - INFO - Otimização concluída. Melhor score: 0.8100

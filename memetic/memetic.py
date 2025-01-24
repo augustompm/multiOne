@@ -83,11 +83,11 @@ class ElitePool:
         diff = np.abs(matrix1.matrix - matrix2.matrix)
         return np.mean(diff <= 1)  # Consider entries within ±1 as similar
         
-    def get_best(self) -> Individual:
+    def get_best(self) -> Optional[Individual]:
         """Returns the best individual in the pool."""
         return self.individuals[0].copy() if self.individuals else None
         
-    def get_random_elite(self) -> Individual:
+    def get_random_elite(self) -> Optional[Individual]:
         """Returns a random elite individual."""
         return random.choice(self.individuals).copy() if self.individuals else None
 
@@ -197,6 +197,8 @@ class Population:
         while len(new_population) < self.size:
             # Select random elite
             template = self.elite_pool.get_random_elite()
+            if template is None:
+                break  # No elites to copy from
             new_ind = template.copy()
             
             # Apply small random changes
@@ -252,6 +254,31 @@ class MemeticAlgorithm:
             local_search=self.local_search
         )
         
+        # Initialize scores
+        self.best_global_matrix = None
+        self.best_global_score = float('-inf')
+        self.initial_score = None
+        
+        # Inicializa população e guarda score inicial
+        self.initialize_population()
+        
+    def initialize_population(self):
+        """
+        Initializes the population by evaluating it and storing the initial scores.
+        """
+        self.population.evaluate_population()
+        initial_best = self.population.elite_pool.get_best()
+        if initial_best:
+            self.best_global_matrix = initial_best.matrix.copy()
+            self.best_global_score = initial_best.fitness
+            self.initial_score = initial_best.fitness
+            logging.info(f"Initial best fitness: {self.initial_score:.4f}")
+        else:
+            self.best_global_matrix = None
+            self.best_global_score = float('-inf')
+            self.initial_score = None
+            logging.warning("No individuals found in the elite pool during initialization.")
+        
     def run(self,
             generations: int,
             local_search_frequency: int,
@@ -259,7 +286,15 @@ class MemeticAlgorithm:
             max_no_improve: int) -> AdaptiveMatrix:
         """
         Runs the memetic optimization process.
-        Returns the best matrix found.
+        
+        Args:
+            generations: Number of generations to run
+            local_search_frequency: Apply local search every N generations 
+            local_search_iterations: Max iterations for local search
+            max_no_improve: Stop local search after N non-improving iterations
+            
+        Returns:
+            AdaptiveMatrix: Best matrix found
         """
         for generation in range(generations):
             # Evaluate current population
@@ -279,7 +314,19 @@ class MemeticAlgorithm:
             self.population.create_next_generation()
             
             # Log progress
-            best_fitness = self.population.elite_pool.get_best().fitness
-            logging.info(f"Generation {generation + 1}: Best fitness = {best_fitness:.4f}")
-            
-        return self.population.elite_pool.get_best().matrix
+            best_individual = self.population.elite_pool.get_best()
+            if best_individual:
+                best_fitness = best_individual.fitness
+                logging.info(f"Generation {generation + 1}: Best fitness = {best_fitness:.4f}")
+                if self.best_global_score is None or best_fitness > self.best_global_score:
+                    self.best_global_score = best_fitness
+                    self.best_global_matrix = best_individual.matrix.copy()
+            else:
+                logging.warning(f"Generation {generation + 1}: No elite individuals found.")
+                
+        best_individual = self.population.elite_pool.get_best()
+        if best_individual and best_individual.fitness > self.best_global_score:
+            self.best_global_score = best_individual.fitness
+            self.best_global_matrix = best_individual.matrix.copy()
+        
+        return self.best_global_matrix if self.best_global_matrix else AdaptiveMatrix()

@@ -17,7 +17,7 @@ class AdaptiveMatrix:
     
     def __init__(self):
         # Inicializa o logger para a instância
-        self.logger = logging.getLogger(__name__)
+        self.logger = logging.getLogger(self.__class__.__name__)
         
         # Ordem padrão dos aminoácidos - incluindo os extras para combinar com PAM250
         self.aa_order = "ARNDCQEGHILKMFPSTWYV"
@@ -112,7 +112,7 @@ class AdaptiveMatrix:
         try:
             i = self.aa_to_index[aa1]
             j = self.aa_to_index[aa2]
-            return self.matrix[i][j]
+            return int(self.matrix[i][j])
         except KeyError:
             return -8  # Standard PAM250 penalty for unknown amino acids
                 
@@ -219,4 +219,16 @@ class AdaptiveMatrix:
                     
         except Exception as e:
             self.logger.error(f"Erro salvando matriz ClustalW: {e}")
-            raise
+            raise 
+        
+    def copy(self):
+        """
+        Creates a deep copy of the AdaptiveMatrix instance.
+        
+        Returns:
+            AdaptiveMatrix: A new instance with a copied matrix.
+        """
+        new_matrix = AdaptiveMatrix()
+        new_matrix.matrix = self.matrix.copy()
+        new_matrix.original_matrix = self.original_matrix.copy()
+        return new_matrix
