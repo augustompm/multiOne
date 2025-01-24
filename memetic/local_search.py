@@ -183,7 +183,7 @@ class LocalSearch:
             new_score = current + magnitude
 
             # Tenta aplicar mudança
-            if perturbed._validate_score_change(aa1, aa2, new_score):
+            if perturbed._validate_score(aa1, aa2, new_score):
                 perturbed.update_score(aa1, aa2, new_score)
                 changes_made += 1
 
@@ -219,7 +219,8 @@ class LocalSearch:
 
             new_score = current + direction
 
-            if new_matrix._validate_score_change(aa1, aa2, new_score):
+            # Aqui está a mudança: usar _validate_score em vez de _validate_score_change
+            if new_matrix._validate_score(aa1, aa2, new_score):
                 new_matrix.update_score(aa1, aa2, new_score)
                 improvements += 1
 
@@ -251,7 +252,7 @@ class LocalSearch:
                     # Ajuste baseado em pesos de conservação
                     if weight1 > np.median([w for _, w in conserved]):
                         new_score = current + 1
-                        if new_matrix._validate_score_change(aa1, aa2, new_score):
+                        if new_matrix._validate_score(aa1, aa2, new_score):
                             new_matrix.update_score(aa1, aa2, new_score)
                             improvements += 1
 
@@ -281,7 +282,7 @@ class LocalSearch:
                 # Probabilidade de ajuste inversamente proporcional ao score atual
                 if current < 5 and random.random() < 0.7:
                     new_score = current + 1
-                    if new_matrix._validate_score_change(aa1, aa2, new_score):
+                    if new_matrix._validate_score(aa1, aa2, new_score):
                         new_matrix.update_score(aa1, aa2, new_score)
                         improvements += 1
 

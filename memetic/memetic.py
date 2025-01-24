@@ -334,7 +334,7 @@ class MemeticAlgorithm:
         # Inicializa busca local
         self.local_search = LocalSearch(
             matrix=AdaptiveMatrix(),
-            hyperparams=hyperparams  # Deve passar apenas hyperparams
+            hyperparams=hyperparams  # Comentário removido para refletir a passagem correta dos parâmetros
         )
 
         if xml_path:
@@ -424,6 +424,18 @@ class MemeticAlgorithm:
                     self.best_global_score = ind.fitness
                     self.best_global_matrix = ind.matrix.copy()
                     self.logger.info(f"New best score: {self.best_global_score:.4f}")
+
+                    # Salva imediatamente a nova melhor matriz
+                    try:
+                        timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M")
+                        results_dir = Path("memetic/results")
+                        results_dir.mkdir(exist_ok=True, parents=True)
+
+                        matrix_file = results_dir / f"{timestamp}-AdaptivePAM-{self.best_global_score:.4f}.txt"
+                        self.best_global_matrix.to_clustalw_format(matrix_file)
+                        self.logger.info(f"Saved best matrix to: {matrix_file}")
+                    except Exception as e:
+                        self.logger.error(f"Error saving matrix: {e}")
 
             # Verifica critério de parada antecipada
             stagnation = self.population.elite_pool.get_stagnation_generations()

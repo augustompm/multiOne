@@ -1,0 +1,273 @@
+{
+  "changes": [
+    {
+      "aa1": "A",
+      "aa2": "M",
+      "old_score": -2.0,
+      "new_score": -2
+    },
+    {
+      "aa1": "A",
+      "aa2": "S",
+      "old_score": 2.0,
+      "new_score": 2
+    },
+    {
+      "aa1": "R",
+      "aa2": "Q",
+      "old_score": -1.0,
+      "new_score": -1
+    },
+    {
+      "aa1": "R",
+      "aa2": "F",
+      "old_score": -3.0,
+      "new_score": -3
+    },
+    {
+      "aa1": "R",
+      "aa2": "T",
+      "old_score": -3.0,
+      "new_score": -3
+    },
+    {
+      "aa1": "N",
+      "aa2": "G",
+      "old_score": -1.0,
+      "new_score": -1
+    },
+    {
+      "aa1": "N",
+      "aa2": "I",
+      "old_score": 0.0,
+      "new_score": 0
+    },
+    {
+      "aa1": "N",
+      "aa2": "S",
+      "old_score": 3.0,
+      "new_score": 3
+    },
+    {
+      "aa1": "N",
+      "aa2": "W",
+      "old_score": -3.0,
+      "new_score": -3
+    },
+    {
+      "aa1": "D",
+      "aa2": "Q",
+      "old_score": 3.0,
+      "new_score": 3
+    },
+    {
+      "aa1": "D",
+      "aa2": "H",
+      "old_score": 0.0,
+      "new_score": 0
+    },
+    {
+      "aa1": "D",
+      "aa2": "I",
+      "old_score": -4.0,
+      "new_score": -4
+    },
+    {
+      "aa1": "Q",
+      "aa2": "E",
+      "old_score": 1.0,
+      "new_score": 1
+    },
+    {
+      "aa1": "Q",
+      "aa2": "F",
+      "old_score": -6.0,
+      "new_score": -6
+    },
+    {
+      "aa1": "E",
+      "aa2": "I",
+      "old_score": 0.0,
+      "new_score": 0
+    },
+    {
+      "aa1": "E",
+      "aa2": "P",
+      "old_score": -2.0,
+      "new_score": -2
+    },
+    {
+      "aa1": "E",
+      "aa2": "T",
+      "old_score": 1.0,
+      "new_score": 1
+    },
+    {
+      "aa1": "E",
+      "aa2": "Y",
+      "old_score": -2.0,
+      "new_score": -2
+    },
+    {
+      "aa1": "G",
+      "aa2": "P",
+      "old_score": 2.0,
+      "new_score": 2
+    },
+    {
+      "aa1": "G",
+      "aa2": "S",
+      "old_score": 2.0,
+      "new_score": 2
+    },
+    {
+      "aa1": "G",
+      "aa2": "V",
+      "old_score": 1.0,
+      "new_score": 1
+    },
+    {
+      "aa1": "H",
+      "aa2": "T",
+      "old_score": 0.0,
+      "new_score": 0
+    },
+    {
+      "aa1": "H",
+      "aa2": "W",
+      "old_score": -1.0,
+      "new_score": -1
+    },
+    {
+      "aa1": "H",
+      "aa2": "Y",
+      "old_score": 1.0,
+      "new_score": 1
+    },
+    {
+      "aa1": "I",
+      "aa2": "K",
+      "old_score": -4.0,
+      "new_score": -4
+    },
+    {
+      "aa1": "I",
+      "aa2": "P",
+      "old_score": 0.0,
+      "new_score": 0
+    },
+    {
+      "aa1": "I",
+      "aa2": "S",
+      "old_score": 0.0,
+      "new_score": 0
+    },
+    {
+      "aa1": "L",
+      "aa2": "P",
+      "old_score": -5.0,
+      "new_score": -5
+    },
+    {
+      "aa1": "L",
+      "aa2": "T",
+      "old_score": -3.0,
+      "new_score": -3
+    },
+    {
+      "aa1": "K",
+      "aa2": "P",
+      "old_score": -3.0,
+      "new_score": -3
+    },
+    {
+      "aa1": "K",
+      "aa2": "W",
+      "old_score": -4.0,
+      "new_score": -4
+    },
+    {
+      "aa1": "M",
+      "aa2": "F",
+      "old_score": 1.0,
+      "new_score": 1
+    },
+    {
+      "aa1": "M",
+      "aa2": "T",
+      "old_score": 0.0,
+      "new_score": 0
+    },
+    {
+      "aa1": "F",
+      "aa2": "F",
+      "old_score": 10.0,
+      "new_score": 10
+    },
+    {
+      "aa1": "F",
+      "aa2": "S",
+      "old_score": -1.0,
+      "new_score": -1
+    },
+    {
+      "aa1": "P",
+      "aa2": "P",
+      "old_score": 5.0,
+      "new_score": 5
+    },
+    {
+      "aa1": "P",
+      "aa2": "V",
+      "old_score": 1.0,
+      "new_score": 1
+    },
+    {
+      "aa1": "T",
+      "aa2": "T",
+      "old_score": 2.0,
+      "new_score": 2
+    },
+    {
+      "aa1": "T",
+      "aa2": "W",
+      "old_score": -6.0,
+      "new_score": -6
+    },
+    {
+      "aa1": "T",
+      "aa2": "Y",
+      "old_score": -1.0,
+      "new_score": -1
+    },
+    {
+      "aa1": "W",
+      "aa2": "W",
+      "old_score": 16.0,
+      "new_score": 16
+    },
+    {
+      "aa1": "V",
+      "aa2": "V",
+      "old_score": 5.0,
+      "new_score": 5
+    }
+  ],
+  "hyperparams": {
+    "MATRIX": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    }
+  }
+}

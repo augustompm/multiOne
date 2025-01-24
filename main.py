@@ -12,7 +12,6 @@ from memetic.local_search import LocalSearch
 from memetic.memetic import MemeticAlgorithm
 from memetic.clustalw import run_clustalw
 from memetic.baliscore import get_bali_score
-from memetic.analysis import ExecutionAnalyzer
 
 # Configuração dos hiperparâmetros da metaheurística
 HYPERPARAMS = {
@@ -33,9 +32,9 @@ HYPERPARAMS = {
     
     # Parâmetros do algoritmo memético
     'MEMETIC': {
-        'POPULATION_SIZE': 30,          # Tamanho da população
+        'POPULATION_SIZE': 13,          # Tamanho da população
         'ELITE_SIZE': 5,                # Tamanho da elite
-        'MAX_GENERATIONS': 100,         # Número máximo de gerações
+        'MAX_GENERATIONS': 50,         # Número máximo de gerações
         'LOCAL_SEARCH_FREQ': 5,         # Frequência de busca local
         'DIVERSITY_THRESHOLD': 0.2,     # Limiar de diversidade na elite
     },
@@ -50,7 +49,7 @@ HYPERPARAMS = {
     
     # Parâmetros de execução
     'EXECUTION': {
-        'NUM_RUNS': 5,                  # Número de execuções independentes
+        'NUM_RUNS': 3,                  # Número de execuções independentes
         'EVAL_SAMPLES': 1,              # Avaliações por matriz
         'SEED': None,                   # Seed para reprodutibilidade
     }
@@ -152,7 +151,7 @@ def main():
         sys.exit(1)
     
     # Inicializa analisador de execuções
-    analyzer = ExecutionAnalyzer()
+    # Removido: ExecutionAnalyzer que gera gráficos
     
     # Executa múltiplas vezes
     best_overall_score = float('-inf')
@@ -163,7 +162,6 @@ def main():
         
         try:
             # Inicializa algoritmo memético
-# Inicializa algoritmo memético
             memetic = MemeticAlgorithm(
                 population_size=HYPERPARAMS['MEMETIC']['POPULATION_SIZE'],
                 elite_size=HYPERPARAMS['MEMETIC']['ELITE_SIZE'],
@@ -192,20 +190,13 @@ def main():
                 best_overall_matrix = best_matrix
                 logging.info(f"New best global score: {best_overall_score:.4f}")
             
-            # Registra execução para análise
-            analyzer.record_execution(
-                initial_score=memetic.initial_score,
-                final_score=final_score,
-                improvements=memetic.local_search.improvements,
-                final_matrix=best_matrix.matrix
-            )
+            # Removido: Registro de execução para análise (ExecutionAnalyzer)
             
         except Exception as e:
             logging.error(f"Error during run {run + 1}: {str(e)}", exc_info=True)
             continue
     
-    # Análise final
-    analyzer.export_analysis(results_dir)
+    # Removido: Análise final com ExecutionAnalyzer
     
     # Salva melhor resultado
     if best_overall_matrix:
@@ -215,8 +206,8 @@ def main():
             best_overall_score,
             {
                 'num_runs': HYPERPARAMS['EXECUTION']['NUM_RUNS'],
-                'best_score': best_overall_score,
-                'analyzer_stats': analyzer.get_stats()  # Usa get_stats em vez de analyze
+                'best_score': best_overall_score
+                # Removido: 'analyzer_stats': analyzer.get_stats()
             }
         )
   

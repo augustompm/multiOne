@@ -95,14 +95,18 @@ class AdaptiveMatrix:
             raise
             
     def get_score(self, aa1: str, aa2: str) -> int:
-        """Retorna score com validação."""
         try:
+            aa1, aa2 = aa1.upper(), aa2.upper()
+            
+            if aa1 not in self.aa_order or aa2 not in self.aa_order:
+                self.logger.debug(f"Invalid amino acids: {aa1}, {aa2}")  # Mudou de warning para debug
+                return -8
+                
             i = self.aa_to_index[aa1]
             j = self.aa_to_index[aa2]
             return int(self.matrix[i][j])
         except KeyError:
-            self.logger.warning(f"Invalid amino acids: {aa1}, {aa2}")
-            return -8  # Penalidade padrão PAM
+            return -8
             
     def update_score(self, aa1: str, aa2: str, new_score: int) -> bool:
         """
