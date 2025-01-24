@@ -1,3 +1,5 @@
+# memetic/matrix.py
+
 import numpy as np
 from pathlib import Path
 import xml.etree.ElementTree as ET
@@ -33,6 +35,11 @@ class AdaptiveMatrix:
         
         # Limite máximo de ajuste em relação à PAM250 original
         self.max_adjustment = 2
+        
+        # Ajustes diferentes para diferentes tipos de mudanças
+        self.max_diagonal_adjustment = 3    # Para diagonal principal
+        self.max_similar_adjustment = 2     # Para aminoácidos similares
+        self.max_different_adjustment = 1   # Para outros casos
         
         # Carrega matriz PAM250
         self.matrix = self._load_pam250()
@@ -120,9 +127,17 @@ class AdaptiveMatrix:
             i = self.aa_to_index[aa1]
             j = self.aa_to_index[aa2]
             
-            # Check if adjustment is within allowed range
+            # Escolhe o limite apropriado
+            if i == j:  # Diagonal
+                max_allowed = self.max_diagonal_adjustment
+            elif self._are_similar(aa1, aa2):  # Aminoácidos similares
+                max_allowed = self.max_similar_adjustment
+            else:
+                max_allowed = self.max_different_adjustment
+                
             original_score = self.original_matrix[i][j]
-            if abs(new_score - original_score) > self.max_adjustment:
+            if abs(new_score - original_score) > max_allowed:
+                self.logger.debug(f"Ajuste {aa1}-{aa2}: {new_score} excede limite {max_allowed}")
                 return False
                 
             # Maintain relative scoring relationships
@@ -138,6 +153,10 @@ class AdaptiveMatrix:
         except KeyError:
             return False
                 
+    def _are_similar(self, aa1: str, aa2: str) -> bool:
+        """Verifica se dois aminoácidos estão no mesmo grupo físico-químico"""
+        return any(aa1 in group and aa2 in group for group in self.similar_groups)
+        
     def _validate_physicochemical_constraints(self, aa1: str, aa2: str, new_score: int) -> bool:
         """
         Ensures that the new score maintains proper physicochemical relationships

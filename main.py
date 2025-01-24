@@ -161,7 +161,7 @@ def main():
         )
         
         best_matrix = memetic.run(
-            generations=100,
+            generations=50,
             local_search_frequency=5,
             local_search_iterations=20,
             max_no_improve=10
