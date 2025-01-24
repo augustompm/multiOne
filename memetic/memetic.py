@@ -2,331 +2,488 @@
 
 import numpy as np
 from pathlib import Path
-from typing import List, Tuple, Optional
+from typing import List, Dict, Optional, Callable
 import logging
 from copy import deepcopy
 import random
+from datetime import datetime
 
 from .matrix import AdaptiveMatrix
 from .local_search import LocalSearch
 
+
 class Individual:
     """
-    Represents a single solution in our population - an adaptive substitution matrix
-    with its associated fitness score and optimization history.
+    Representa uma solução (matriz adaptativa) com seu histórico de otimização.
     """
     def __init__(self, matrix: Optional[AdaptiveMatrix] = None):
-        # Initialize with either a provided matrix or create a new one
         self.matrix = matrix if matrix else AdaptiveMatrix()
         self.fitness = float('-inf')
-        self.improvement_count = 0
-        self.local_search_applications = 0
-        
+        self.age = 0  # Controle de idade para diversidade
+        self.parent_ids = set()  # Rastreia ancestrais
+        self.last_improvement = 0  # Última geração com melhoria
+        self.local_search_count = 0
+
     def copy(self) -> 'Individual':
-        """Creates a deep copy of the individual."""
         new_ind = Individual()
-        new_ind.matrix = deepcopy(self.matrix)
+        new_ind.matrix = self.matrix.copy()
         new_ind.fitness = self.fitness
-        new_ind.improvement_count = self.improvement_count
-        new_ind.local_search_applications = self.local_search_applications
+        new_ind.age = self.age
+        new_ind.parent_ids = self.parent_ids.copy()
+        new_ind.last_improvement = self.last_improvement
+        new_ind.local_search_count = self.local_search_count
         return new_ind
+
 
 class ElitePool:
     """
-    Manages the elite individuals in our population, maintaining diversity
-    while preserving the best solutions found.
+    Gerencia a elite com mecanismos para manter diversidade.
     """
-    def __init__(self, size: int, diversity_threshold: float = 0.1):
+    def __init__(self, size: int, diversity_threshold: float):
         self.size = size
         self.diversity_threshold = diversity_threshold
         self.individuals: List[Individual] = []
-        
-    def add(self, individual: Individual) -> bool:
-        """
-        Attempts to add an individual to the elite pool while maintaining diversity.
-        Returns True if individual was added.
-        """
-        # If pool isn't full, add directly
+        self.history: Dict[int, float] = {}  # Histórico de fitness por geração
+
+    def add(self, individual: Individual, generation: int) -> bool:
+        """Tenta adicionar indivíduo mantendo diversidade."""
+        # Registra histórico
+        self.history[generation] = max(
+            self.history.get(generation, float('-inf')),
+            individual.fitness
+        )
+
+        # Pool não está cheio
         if len(self.individuals) < self.size:
             self.individuals.append(individual.copy())
             self._sort_pool()
             return True
-            
-        # Check if new individual is better than worst elite
+
+        # Verifica se é melhor que o pior elite
         if individual.fitness <= self.individuals[-1].fitness:
             return False
-            
-        # Check diversity against existing elite members
-        for elite in self.individuals:
-            if self._matrix_similarity(individual.matrix, elite.matrix) > (1 - self.diversity_threshold):
-                # Too similar to existing elite - replace if better
-                if individual.fitness > elite.fitness:
-                    elite.matrix = individual.matrix
-                    elite.fitness = individual.fitness
-                    self._sort_pool()
-                return False
-                
-        # Add new individual, remove worst
+
+        # Calcula distâncias para todos os elite
+        distances = [
+            self._calculate_distance(individual, elite)
+            for elite in self.individuals
+        ]
+
+        # Se muito similar a algum elite existente
+        min_distance = min(distances)
+        if min_distance < self.diversity_threshold:
+            similar_idx = distances.index(min_distance)
+            # Substitui apenas se significativamente melhor
+            if individual.fitness > self.individuals[similar_idx].fitness * 1.05:
+                self.individuals[similar_idx] = individual.copy()
+                self._sort_pool()
+                return True
+            return False
+
+        # Adiciona novo indivíduo, remove pior
         self.individuals[-1] = individual.copy()
         self._sort_pool()
         return True
-        
+
+    def _calculate_distance(self, ind1: Individual, ind2: Individual) -> float:
+        """Calcula distância entre matrizes considerando padrões de substituição."""
+        diff_matrix = np.abs(ind1.matrix.matrix - ind2.matrix.matrix)
+
+        # Pesos diferentes para diferentes regiões da matriz
+        weights = np.ones_like(diff_matrix)
+        n = len(ind1.matrix.aa_order)
+
+        # Maior peso para diagonal
+        for i in range(n):
+            weights[i, i] = 2.0
+
+        # Peso intermediário para aminoácidos similares
+        for i in range(n):
+            for j in range(i + 1, n):
+                if ind1.matrix._are_similar(
+                    ind1.matrix.aa_order[i],
+                    ind1.matrix.aa_order[j]
+                ):
+                    weights[i, j] = weights[j, i] = 1.5
+
+        return np.average(diff_matrix, weights=weights)
+
     def _sort_pool(self):
-        """Sorts elite pool by fitness in descending order."""
-        self.individuals.sort(key=lambda x: x.fitness, reverse=True)
-        
-    def _matrix_similarity(self, matrix1: AdaptiveMatrix, matrix2: AdaptiveMatrix) -> float:
-        """
-        Calculates similarity between two matrices as proportion of entries
-        within a small difference threshold.
-        """
-        diff = np.abs(matrix1.matrix - matrix2.matrix)
-        return np.mean(diff <= 1)  # Consider entries within ±1 as similar
-        
-    def get_best(self) -> Optional[Individual]:
-        """Returns the best individual in the pool."""
-        return self.individuals[0].copy() if self.individuals else None
-        
-    def get_random_elite(self) -> Optional[Individual]:
-        """Returns a random elite individual."""
-        return random.choice(self.individuals).copy() if self.individuals else None
+        """Ordena pool por fitness e idade."""
+        self.individuals.sort(
+            key=lambda x: (x.fitness, -x.age),  # Prioriza fitness, desempata por idade
+            reverse=True
+        )
+
+    def get_diverse_parents(self, num_parents: int) -> List[Individual]:
+        """Seleciona pais diversos para crossover."""
+        if len(self.individuals) < num_parents:
+            return self.individuals.copy()
+
+        selected = []
+        available = self.individuals.copy()
+
+        while len(selected) < num_parents and available:
+            if not selected:
+                # Primeiro pai é o melhor disponível
+                selected.append(available.pop(0))
+            else:
+                # Próximos pais são os mais distantes dos já selecionados
+                distances = [
+                    sum(self._calculate_distance(ind, sel) for sel in selected)
+                    for ind in available
+                ]
+                idx = distances.index(max(distances))
+                selected.append(available.pop(idx))
+
+        return selected
+
+    def update_ages(self):
+        """Incrementa idade dos indivíduos."""
+        for ind in self.individuals:
+            ind.age += 1
+
+    def get_stagnation_generations(self) -> int:
+        """Retorna número de gerações sem melhoria significativa."""
+        if len(self.history) < 2:
+            return 0
+
+        recent_best = max(
+            v for k, v in self.history.items()
+            if k >= max(0, max(self.history.keys()) - 10)
+        )
+        return sum(1 for v in self.history.values() if v >= recent_best * 0.99)
+
 
 class Population:
     """
-    Manages a population of adaptive matrices, handling their evolution
-    and interaction with local search.
+    Gerencia população com mecanismos adaptativos.
     """
-    def __init__(self, 
-                 size: int,
-                 elite_size: int,
-                 evaluation_function,
-                 local_search: LocalSearch):
+    def __init__(
+        self,
+        size: int,
+        elite_size: int,
+        evaluation_function: Callable,
+        local_search: LocalSearch,
+        hyperparams: Dict
+    ):
         self.size = size
         self.individuals: List[Individual] = []
-        self.elite_pool = ElitePool(elite_size)
+        self.elite_pool = ElitePool(
+            elite_size,
+            hyperparams['MEMETIC']['DIVERSITY_THRESHOLD']
+        )
         self.evaluate = evaluation_function
         self.local_search = local_search
-        
-        # Initialize population
+        self.hyperparams = hyperparams
+
+        # Inicializa população
         self._initialize_population()
-        
+
     def _initialize_population(self):
-        """Creates initial population with controlled diversity."""
-        # Create first individual from standard PAM250
-        first_ind = Individual()
-        self.individuals.append(first_ind)
-        
-        # Create rest with small random perturbations
+        """Inicializa população com diversidade controlada."""
+        # Primeiro indivíduo é PAM250 padrão
+        self.individuals.append(Individual())
+
+        # Cria variações do PAM250
         while len(self.individuals) < self.size:
             new_ind = Individual()
-            # Apply small random changes to matrix
-            for i in range(20):
-                for j in range(i+1, 20):
-                    if random.random() < 0.1:  # 10% chance of modification
-                        current = new_ind.matrix.get_score(
-                            new_ind.matrix.aa_order[i],
-                            new_ind.matrix.aa_order[j]
-                        )
-                        # Small random adjustment
-                        adjustment = random.choice([-1, 1])
-                        new_ind.matrix.update_score(
-                            new_ind.matrix.aa_order[i],
-                            new_ind.matrix.aa_order[j],
-                            current + adjustment
-                        )
+
+            # Aplica perturbações estruturadas
+            for i, aa1 in enumerate(new_ind.matrix.aa_order):
+                for j, aa2 in enumerate(new_ind.matrix.aa_order[i:], i):
+                    if random.random() < 0.15:  # 15% chance de modificação
+                        current = new_ind.matrix.get_score(aa1, aa2)
+
+                        # Ajuste baseado em propriedades dos AAs
+                        if new_ind.matrix._are_similar(aa1, aa2):
+                            adjustment = random.choice([-1, 1])
+                        else:
+                            adjustment = random.choice([-2, -1, 1, 2])
+
+                        # Alteração aplicada aqui: _validate_score em vez de _validate_score_change
+                        if new_ind.matrix._validate_score(aa1, aa2, current + adjustment):
+                            new_ind.matrix.update_score(aa1, aa2, current + adjustment)
+
             self.individuals.append(new_ind)
-            
+
     def evaluate_population(self):
-        """Evaluates all individuals in the population."""
+        """Avalia população garantindo precisão."""
         for ind in self.individuals:
-            if ind.fitness == float('-inf'):  # Only evaluate if not already scored
-                ind.fitness = self.evaluate(ind.matrix)
-                
-    def update_elite(self):
-        """Updates elite pool with current population."""
-        for ind in self.individuals:
-            self.elite_pool.add(ind)
-            
-    def apply_local_search(self, 
-                          max_iterations: int,
-                          max_no_improve: int,
-                          proportion: float = 0.2):
-        """
-        Applies local search to a proportion of the population,
-        focusing on promising individuals.
-        """
-        # Sort population by fitness
-        self.individuals.sort(key=lambda x: x.fitness, reverse=True)
-        
-        # Apply local search to top proportion
-        num_to_improve = int(self.size * proportion)
-        for i in range(num_to_improve):
-            ind = self.individuals[i]
-            
-            # Skip if local search recently applied
-            if ind.local_search_applications >= 2:
-                continue
-                
-            # Apply VNS local search
-            self.local_search.matrix = ind.matrix
-            new_score = self.local_search.vns_search(
-                self.evaluate,
-                max_iterations=max_iterations,
-                max_no_improve=max_no_improve
-            )
-            
-            if new_score > ind.fitness:
-                ind.fitness = new_score
-                ind.improvement_count += 1
-                
-            ind.local_search_applications += 1
-            
-    def create_next_generation(self):
-        """
-        Creates next generation using elite solutions.
-        Note: Currently only uses elite solutions as basis,
-        mutation/crossover to be added later.
-        """
+            if ind.fitness == float('-inf'):
+                # Múltiplas avaliações para reduzir ruído
+                scores = []
+                for _ in range(self.hyperparams['EXECUTION']['EVAL_SAMPLES']):
+                    score = self.evaluate(ind.matrix)
+                    if score > 0:
+                        scores.append(score)
+
+                ind.fitness = np.mean(scores) if scores else 0.0
+
+    def create_next_generation(self, generation: int):
+        """Cria próxima geração com mecanismos adaptativos."""
         new_population = []
-        
-        # Keep elite solutions
+
+        # Mantém elite
         for elite in self.elite_pool.individuals:
             new_population.append(elite.copy())
-            
-        # Fill rest with variations of elite solutions
+
+        # Detecta estagnação
+        stagnation = self.elite_pool.get_stagnation_generations()
+
+        # Ajusta parâmetros baseado em estagnação
+        if stagnation > self.hyperparams['VNS']['ESCAPE_THRESHOLD']:
+            perturbation_size = min(
+                self.hyperparams['VNS']['MAX_PERTURBATION'],
+                self.hyperparams['VNS']['PERTURBATION_SIZE'] * (1 + stagnation / 10)
+            )
+        else:
+            perturbation_size = self.hyperparams['VNS']['PERTURBATION_SIZE']
+
+        # Preenche resto da população
         while len(new_population) < self.size:
-            # Select random elite
-            template = self.elite_pool.get_random_elite()
-            if template is None:
-                break  # No elites to copy from
-            new_ind = template.copy()
-            
-            # Apply small random changes
-            for i in range(20):
-                for j in range(i+1, 20):
-                    if random.random() < 0.05:  # 5% chance of modification
-                        current = new_ind.matrix.get_score(
-                            new_ind.matrix.aa_order[i],
-                            new_ind.matrix.aa_order[j]
-                        )
-                        adjustment = random.choice([-1, 1])
-                        new_ind.matrix.update_score(
-                            new_ind.matrix.aa_order[i],
-                            new_ind.matrix.aa_order[j],
-                            current + adjustment
-                        )
-                        
-            new_population.append(new_ind)
-            
+            if random.random() < 0.7:  # 70% chance de crossover
+                # Seleciona pais diversos
+                parents = self.elite_pool.get_diverse_parents(2)
+                if len(parents) >= 2:
+                    child = self._crossover(parents[0], parents[1])
+                else:
+                    child = self._mutate(self.elite_pool.individuals[0])
+            else:
+                # Mutação mais agressiva em caso de estagnação
+                template = random.choice(self.elite_pool.individuals)
+                child = self._mutate(
+                    template,
+                    mutation_rate=0.1 * (1 + stagnation / 10)
+                )
+
+            new_population.append(child)
+
         self.individuals = new_population
+        self.elite_pool.update_ages()
+
+    def _crossover(self, parent1: Individual, parent2: Individual) -> Individual:
+        """Crossover adaptativo baseado em padrões de substituição."""
+        child = Individual()
+
+        # Herança baseada em fitness relativo
+        total_fitness = parent1.fitness + parent2.fitness
+        p1_weight = parent1.fitness / total_fitness if total_fitness != 0 else 0.5
+
+        for i, aa1 in enumerate(child.matrix.aa_order):
+            for j, aa2 in enumerate(child.matrix.aa_order[i:], i):
+                if random.random() < p1_weight:
+                    score = parent1.matrix.get_score(aa1, aa2)
+                else:
+                    score = parent2.matrix.get_score(aa1, aa2)
+
+                # Pequena chance de inovação
+                if random.random() < 0.1:
+                    adjustment = random.choice([-1, 1])
+                    score += adjustment
+
+                # Alteração aplicada aqui: _validate_score em vez de _validate_score_change
+                if child.matrix._validate_score(aa1, aa2, score):
+                    child.matrix.update_score(aa1, aa2, score)
+
+        # Registra parentesco
+        child.parent_ids = {id(parent1), id(parent2)}
+        return child
+
+    def _mutate(self, template: Individual, mutation_rate: float = 0.1) -> Individual:
+        """Mutação com taxa adaptativa."""
+        child = template.copy()
+
+        for i, aa1 in enumerate(child.matrix.aa_order):
+            for j, aa2 in enumerate(child.matrix.aa_order[i:], i):
+                if random.random() < mutation_rate:
+                    current = child.matrix.get_score(aa1, aa2)
+
+                    # Ajuste baseado em propriedades
+                    if child.matrix._are_similar(aa1, aa2):
+                        adjustment = random.choice([-1, 1])
+                    else:
+                        adjustment = random.choice([-2, -1, 1, 2])
+
+                    # Alteração aplicada aqui: _validate_score em vez de _validate_score_change
+                    if child.matrix._validate_score(
+                        aa1, aa2, current + adjustment
+                    ):
+                        child.matrix.update_score(aa1, aa2, current + adjustment)
+
+        return child
+
 
 class MemeticAlgorithm:
     """
-    Coordinates the memetic algorithm, combining population-based search
-    with local improvement.
+    Coordena o algoritmo memético com mecanismos adaptativos.
     """
-    def __init__(self,
-                 population_size: int,
-                 elite_size: int = None,  # Will default to 10% of population
-                 evaluation_function = None,
-                 xml_path: Path = None,
-                 max_generations: int = 100,
-                 local_search_frequency: int = 5):
-        
-        # Set default elite size if not provided
-        if elite_size is None:
-            elite_size = max(3, int(population_size * 0.1))
-            
-        self.population_size = population_size
-        self.max_generations = max_generations
-        self.local_search_frequency = local_search_frequency
-        
-        # Initialize local search
-        self.local_search = LocalSearch(AdaptiveMatrix())
+    def __init__(
+        self,
+        population_size: int,
+        elite_size: int,
+        evaluation_function: Callable,
+        xml_path: Path,
+        max_generations: int,
+        local_search_frequency: int,
+        hyperparams: Dict
+    ):
+        self.logger = logging.getLogger(self.__class__.__name__)
+        self.hyperparams = hyperparams
+
+        # Inicializa busca local
+        self.local_search = LocalSearch(
+            matrix=AdaptiveMatrix(),
+            hyperparams=hyperparams  # Deve passar apenas hyperparams
+        )
+
         if xml_path:
             self.local_search.analyze_alignment(xml_path)
-            
-        # Initialize population
+
+        # Inicializa população
         self.population = Population(
             size=population_size,
             elite_size=elite_size,
             evaluation_function=evaluation_function,
-            local_search=self.local_search
+            local_search=self.local_search,
+            hyperparams=hyperparams
         )
-        
-        # Initialize scores
+
         self.best_global_matrix = None
         self.best_global_score = float('-inf')
         self.initial_score = None
-        
-        # Inicializa população e guarda score inicial
+
+        # Inicializa população
         self.initialize_population()
-        
+
     def initialize_population(self):
-        """
-        Initializes the population by evaluating it and storing the initial scores.
-        """
+        """Inicializa população e registra score inicial."""
         self.population.evaluate_population()
-        initial_best = self.population.elite_pool.get_best()
+        initial_best = self.population.elite_pool.individuals[0] if self.population.elite_pool.individuals else None
+
         if initial_best:
             self.best_global_matrix = initial_best.matrix.copy()
             self.best_global_score = initial_best.fitness
             self.initial_score = initial_best.fitness
-            logging.info(f"Initial best fitness: {self.initial_score:.4f}")
+            self.logger.info(f"Initial best fitness: {self.initial_score:.4f}")
         else:
-            self.best_global_matrix = None
-            self.best_global_score = float('-inf')
-            self.initial_score = None
-            logging.warning("No individuals found in the elite pool during initialization.")
-        
-    def run(self,
-            generations: int,
-            local_search_frequency: int,
-            local_search_iterations: int,
-            max_no_improve: int) -> AdaptiveMatrix:
-        """
-        Runs the memetic optimization process.
-        
-        Args:
-            generations: Number of generations to run
-            local_search_frequency: Apply local search every N generations 
-            local_search_iterations: Max iterations for local search
-            max_no_improve: Stop local search after N non-improving iterations
-            
-        Returns:
-            AdaptiveMatrix: Best matrix found
-        """
-        for generation in range(generations):
-            # Evaluate current population
+            self.logger.warning("No viable individuals in initial population")
+
+    def run(
+        self,
+        generations: int,
+        local_search_frequency: int,
+        local_search_iterations: int,
+        max_no_improve: int
+    ) -> AdaptiveMatrix:
+        """Executa otimização com mecanismos adaptativos."""
+        self.logger.info("Starting memetic optimization")
+
+        for generation in range(1, generations + 1):
+            # Avalia população
             self.population.evaluate_population()
-            
-            # Update elite pool
-            self.population.update_elite()
-            
-            # Apply local search periodically
+
+            # Aplicação da busca local em frequências definidas
             if generation % local_search_frequency == 0:
-                self.population.apply_local_search(
-                    max_iterations=local_search_iterations,
-                    max_no_improve=max_no_improve
+                # Ajusta intensidade da busca local baseado em estagnação
+                stagnation = self.population.elite_pool.get_stagnation_generations()
+                intensity = min(1.0, stagnation / self.hyperparams['VNS']['ESCAPE_THRESHOLD'])
+                num_candidates = max(
+                    1,
+                    int(self.population.size * 0.2 * (1 + intensity))
                 )
-                
-            # Create next generation
-            self.population.create_next_generation()
-            
-            # Log progress
-            best_individual = self.population.elite_pool.get_best()
-            if best_individual:
-                best_fitness = best_individual.fitness
-                logging.info(f"Generation {generation + 1}: Best fitness = {best_fitness:.4f}")
-                if self.best_global_score is None or best_fitness > self.best_global_score:
-                    self.best_global_score = best_fitness
-                    self.best_global_matrix = best_individual.matrix.copy()
-            else:
-                logging.warning(f"Generation {generation + 1}: No elite individuals found.")
-                
-        best_individual = self.population.elite_pool.get_best()
-        if best_individual and best_individual.fitness > self.best_global_score:
-            self.best_global_score = best_individual.fitness
-            self.best_global_matrix = best_individual.matrix.copy()
-        
-        return self.best_global_matrix if self.best_global_matrix else AdaptiveMatrix()
+
+                # Seleciona candidatos para busca local
+                candidates = sorted(
+                    self.population.individuals,
+                    key=lambda x: x.fitness,
+                    reverse=True
+                )[:num_candidates]
+
+                for candidate in candidates:
+                    if candidate.local_search_count < 3:  # Limita aplicações de busca local
+                        self.local_search.matrix = candidate.matrix
+                        new_score = self.local_search.vns_search(
+                            evaluation_func=lambda m: self.population.evaluate(m),
+                            max_iterations=int(local_search_iterations * (1 + intensity)),
+                            max_no_improve=max_no_improve
+                        )
+
+                        if new_score > candidate.fitness:
+                            candidate.fitness = new_score
+                            candidate.last_improvement = generation
+
+                        candidate.local_search_count += 1
+
+            # Atualiza elite pool
+            for ind in self.population.individuals:
+                self.population.elite_pool.add(ind, generation)
+
+                # Atualiza melhor global
+                if ind.fitness > self.best_global_score:
+                    self.best_global_score = ind.fitness
+                    self.best_global_matrix = ind.matrix.copy()
+                    self.logger.info(f"New best score: {self.best_global_score:.4f}")
+
+            # Verifica critério de parada antecipada
+            stagnation = self.population.elite_pool.get_stagnation_generations()
+            if stagnation > self.hyperparams['VNS']['MAX_NO_IMPROVE']:
+                # Aplica reinício parcial se estagnado
+                if random.random() < 0.3:  # 30% chance de reinício
+                    self.logger.info("Applying partial restart due to stagnation")
+                    self._partial_restart()
+                    continue
+
+                # Ou termina se já próximo do máximo de gerações
+                if generation > generations * 0.8:
+                    self.logger.info("Early stopping due to stagnation")
+                    break
+
+            # Cria próxima geração
+            self.population.create_next_generation(generation)
+
+            # Log do progresso
+            if generation % 10 == 0:  # Log a cada 10 gerações
+                elite_fitness = [ind.fitness for ind in self.population.elite_pool.individuals]
+                elite_avg = np.mean(elite_fitness) if elite_fitness else 0.0
+                self.logger.info(
+                    f"Generation {generation}: "
+                    f"Best={self.best_global_score:.4f}, "
+                    f"Elite_avg={elite_avg:.4f}, "
+                    f"Stagnation={stagnation}"
+                )
+
+        # Retorna melhor matriz encontrada
+        if self.best_global_matrix is None:
+            self.logger.warning("No viable solution found, returning default matrix")
+            return AdaptiveMatrix()
+
+        return self.best_global_matrix
+
+    def _partial_restart(self):
+        """Reinicia parte da população mantendo melhores soluções."""
+        # Mantém top 20% dos indivíduos
+        num_keep = max(1, int(self.population.size * 0.2))
+        kept_individuals = sorted(
+            self.population.individuals,
+            key=lambda x: x.fitness,
+            reverse=True
+        )[:num_keep]
+
+        # Reinicia resto da população
+        new_individuals = []
+        for _ in range(self.population.size - num_keep):
+            if random.random() < 0.5:  # 50% chance de usar elite como template
+                template = random.choice(kept_individuals)
+                new_ind = self.population._mutate(
+                    template,
+                    mutation_rate=0.2  # Taxa maior para aumentar diversidade
+                )
+            else:  # Cria novo indivíduo do zero
+                new_ind = Individual()
+
+            new_individuals.append(new_ind)
+
+        # Atualiza população
+        self.population.individuals = kept_individuals + new_individuals
+        self.logger.info(f"Partial restart: kept {num_keep} individuals")

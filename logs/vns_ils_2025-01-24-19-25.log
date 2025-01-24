@@ -1,0 +1,110 @@
+2025-01-24 19:25:58,895 - root - INFO - Iniciando execução com hiperparâmetros:
+2025-01-24 19:25:58,896 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 1e-06,
+    "MAX_ITER": 100,
+    "MAX_NO_IMPROVE": 20,
+    "PERTURBATION_SIZE": 5,
+    "MAX_PERTURBATION": 20,
+    "ESCAPE_THRESHOLD": 10,
+    "SCORE_CONSTRAINTS": {
+      "DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "DIFFERENT": {
+        "min": -8,
+        "max": 4
+      }
+    }
+  },
+  "MEMETIC": {
+    "POPULATION_SIZE": 30,
+    "ELITE_SIZE": 5,
+    "MAX_GENERATIONS": 100,
+    "LOCAL_SEARCH_FREQ": 5,
+    "DIVERSITY_THRESHOLD": 0.2
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "EXECUTION": {
+    "NUM_RUNS": 5,
+    "EVAL_SAMPLES": 1,
+    "SEED": null
+  }
+}
+2025-01-24 19:25:58,896 - root - INFO - 
+Starting run 1/5
+2025-01-24 19:25:58,898 - root - ERROR - Error during run 1: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 167, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 329, in __init__
+    self.local_search = LocalSearch(
+                        ^^^^^^^^^^^^
+TypeError: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+2025-01-24 19:25:58,899 - root - INFO - 
+Starting run 2/5
+2025-01-24 19:25:58,900 - root - ERROR - Error during run 2: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 167, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 329, in __init__
+    self.local_search = LocalSearch(
+                        ^^^^^^^^^^^^
+TypeError: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+2025-01-24 19:25:58,900 - root - INFO - 
+Starting run 3/5
+2025-01-24 19:25:58,901 - root - ERROR - Error during run 3: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 167, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 329, in __init__
+    self.local_search = LocalSearch(
+                        ^^^^^^^^^^^^
+TypeError: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+2025-01-24 19:25:58,901 - root - INFO - 
+Starting run 4/5
+2025-01-24 19:25:58,901 - root - ERROR - Error during run 4: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 167, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 329, in __init__
+    self.local_search = LocalSearch(
+                        ^^^^^^^^^^^^
+TypeError: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+2025-01-24 19:25:58,902 - root - INFO - 
+Starting run 5/5
+2025-01-24 19:25:58,902 - root - ERROR - Error during run 5: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 167, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 329, in __init__
+    self.local_search = LocalSearch(
+                        ^^^^^^^^^^^^
+TypeError: LocalSearch.__init__() got an unexpected keyword argument 'min_improvement'
+2025-01-24 19:25:59,279 - matplotlib.legend - WARNING - No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+2025-01-24 19:25:59,380 - ExecutionAnalyzer - INFO - Analysis exported to /home/augusto/projects/multiOne/results
+2025-01-24 19:25:59,381 - root - INFO - Optimization completed. Best score: -inf

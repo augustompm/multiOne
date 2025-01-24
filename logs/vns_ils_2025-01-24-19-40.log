@@ -1,0 +1,185 @@
+2025-01-24 19:40:47,079 - root - INFO - Iniciando execução com hiperparâmetros:
+2025-01-24 19:40:47,079 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 1e-06,
+    "MAX_ITER": 100,
+    "MAX_NO_IMPROVE": 20,
+    "PERTURBATION_SIZE": 5,
+    "MAX_PERTURBATION": 20,
+    "ESCAPE_THRESHOLD": 10,
+    "SCORE_CONSTRAINTS": {
+      "DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "DIFFERENT": {
+        "min": -8,
+        "max": 4
+      }
+    }
+  },
+  "MEMETIC": {
+    "POPULATION_SIZE": 30,
+    "ELITE_SIZE": 5,
+    "MAX_GENERATIONS": 100,
+    "LOCAL_SEARCH_FREQ": 5,
+    "DIVERSITY_THRESHOLD": 0.2
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "EXECUTION": {
+    "NUM_RUNS": 5,
+    "EVAL_SAMPLES": 1,
+    "SEED": null
+  }
+}
+2025-01-24 19:40:47,079 - root - INFO - 
+Starting run 1/5
+2025-01-24 19:40:47,080 - LocalSearch - INFO - Analyzing alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml
+2025-01-24 19:40:47,085 - LocalSearch - INFO - Analyzing substitution patterns
+2025-01-24 19:40:47,098 - LocalSearch - INFO - Pattern analysis completed
+2025-01-24 19:40:47,845 - MemeticAlgorithm - WARNING - No viable individuals in initial population
+2025-01-24 19:40:47,845 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-24 19:40:47,847 - MemeticAlgorithm - INFO - New best score: 0.8100
+2025-01-24 19:40:49,120 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-24 19:40:49,558 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=110)
+2025-01-24 19:40:49,582 - AdaptiveMatrix - WARNING - Invalid amino acids: d, d
+2025-01-24 19:40:49,582 - root - ERROR - Error during run 1: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 178, in main
+    best_matrix = memetic.run(
+                  ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 406, in run
+    new_score = self.local_search.vns_search(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 341, in vns_search
+    neighbor = neighborhood()
+               ^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 222, in _frequency_based_neighborhood
+    if new_matrix._validate_score_change(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+2025-01-24 19:40:49,583 - root - INFO - 
+Starting run 2/5
+2025-01-24 19:40:49,584 - LocalSearch - INFO - Analyzing alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml
+2025-01-24 19:40:49,584 - LocalSearch - INFO - Analyzing substitution patterns
+2025-01-24 19:40:49,590 - LocalSearch - INFO - Pattern analysis completed
+2025-01-24 19:40:47,803 - MemeticAlgorithm - WARNING - No viable individuals in initial population
+2025-01-24 19:40:47,804 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-24 19:40:47,805 - MemeticAlgorithm - INFO - New best score: 0.8100
+2025-01-24 19:40:47,808 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-24 19:40:49,836 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-24 19:40:49,860 - AdaptiveMatrix - WARNING - Invalid amino acids: d, d
+2025-01-24 19:40:49,860 - root - ERROR - Error during run 2: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 178, in main
+    best_matrix = memetic.run(
+                  ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 406, in run
+    new_score = self.local_search.vns_search(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 341, in vns_search
+    neighbor = neighborhood()
+               ^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 222, in _frequency_based_neighborhood
+    if new_matrix._validate_score_change(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+2025-01-24 19:40:49,861 - root - INFO - 
+Starting run 3/5
+2025-01-24 19:40:49,861 - LocalSearch - INFO - Analyzing alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml
+2025-01-24 19:40:49,862 - LocalSearch - INFO - Analyzing substitution patterns
+2025-01-24 19:40:49,868 - LocalSearch - INFO - Pattern analysis completed
+2025-01-24 19:40:50,539 - MemeticAlgorithm - WARNING - No viable individuals in initial population
+2025-01-24 19:40:50,540 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-24 19:40:50,541 - MemeticAlgorithm - INFO - New best score: 0.8100
+2025-01-24 19:40:50,544 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-24 19:40:52,351 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-24 19:40:52,373 - AdaptiveMatrix - WARNING - Invalid amino acids: d, d
+2025-01-24 19:40:52,373 - root - ERROR - Error during run 3: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 178, in main
+    best_matrix = memetic.run(
+                  ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 406, in run
+    new_score = self.local_search.vns_search(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 341, in vns_search
+    neighbor = neighborhood()
+               ^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 222, in _frequency_based_neighborhood
+    if new_matrix._validate_score_change(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+2025-01-24 19:40:52,374 - root - INFO - 
+Starting run 4/5
+2025-01-24 19:40:52,375 - LocalSearch - INFO - Analyzing alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml
+2025-01-24 19:40:52,376 - LocalSearch - INFO - Analyzing substitution patterns
+2025-01-24 19:40:52,382 - LocalSearch - INFO - Pattern analysis completed
+2025-01-24 19:40:53,043 - MemeticAlgorithm - WARNING - No viable individuals in initial population
+2025-01-24 19:40:53,045 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-24 19:40:53,046 - MemeticAlgorithm - INFO - New best score: 0.8100
+2025-01-24 19:40:53,049 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-24 19:40:54,680 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-24 19:40:54,702 - AdaptiveMatrix - WARNING - Invalid amino acids: d, d
+2025-01-24 19:40:54,703 - root - ERROR - Error during run 4: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 178, in main
+    best_matrix = memetic.run(
+                  ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 406, in run
+    new_score = self.local_search.vns_search(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 341, in vns_search
+    neighbor = neighborhood()
+               ^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 222, in _frequency_based_neighborhood
+    if new_matrix._validate_score_change(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+2025-01-24 19:40:54,704 - root - INFO - 
+Starting run 5/5
+2025-01-24 19:40:54,704 - LocalSearch - INFO - Analyzing alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml
+2025-01-24 19:40:54,705 - LocalSearch - INFO - Analyzing substitution patterns
+2025-01-24 19:40:54,710 - LocalSearch - INFO - Pattern analysis completed
+2025-01-24 19:40:55,407 - MemeticAlgorithm - WARNING - No viable individuals in initial population
+2025-01-24 19:40:55,408 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-24 19:40:55,409 - MemeticAlgorithm - INFO - New best score: 0.8100
+2025-01-24 19:40:55,876 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-24 19:40:57,264 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=130)
+2025-01-24 19:40:57,288 - AdaptiveMatrix - WARNING - Invalid amino acids: d, d
+2025-01-24 19:40:57,288 - root - ERROR - Error during run 5: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 178, in main
+    best_matrix = memetic.run(
+                  ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 406, in run
+    new_score = self.local_search.vns_search(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 341, in vns_search
+    neighbor = neighborhood()
+               ^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 222, in _frequency_based_neighborhood
+    if new_matrix._validate_score_change(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AdaptiveMatrix' object has no attribute '_validate_score_change'
+2025-01-24 19:40:57,401 - matplotlib.legend - WARNING - No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+2025-01-24 19:40:57,469 - ExecutionAnalyzer - INFO - Analysis exported to /home/augusto/projects/multiOne/results
+2025-01-24 19:40:57,469 - root - INFO - Optimization completed. Best score: -inf

@@ -165,3 +165,96 @@ Iniciando execução 3/3
 2025-01-24 18:58:07,543 - INFO - Execução 3 finalizada. Score: 0.8100
 2025-01-24 18:58:07,543 - INFO - Melhor matriz salva em: /home/augusto/projects/multiOne/results/2025-01-24-18-58-VNS-ILS-0.8100.txt
 2025-01-24 18:58:07,544 - INFO - Otimização concluída. Melhor score: 0.8100
+2025-01-24 19:00:47,486 - INFO - Iniciando otimização VNS-ILS
+2025-01-24 19:00:47,487 - INFO - 
+Iniciando execução 1/3
+2025-01-24 19:00:47,487 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 19:00:47,488 - INFO - Analisando padrões de conservação...
+2025-01-24 19:00:47,491 - INFO - Análise de padrões concluída.
+2025-01-24 19:00:47,491 - INFO - Análise de padrões concluída.
+2025-01-24 19:00:47,491 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=10
+2025-01-24 19:00:48,245 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 19:00:48,245 - INFO - Execução 1 finalizada. Score: 0.8100
+2025-01-24 19:00:48,245 - INFO - Novo melhor score global: 0.8100
+2025-01-24 19:00:48,245 - INFO - 
+Iniciando execução 2/3
+2025-01-24 19:00:48,246 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 19:00:48,247 - INFO - Analisando padrões de conservação...
+2025-01-24 19:00:48,249 - INFO - Análise de padrões concluída.
+2025-01-24 19:00:48,249 - INFO - Análise de padrões concluída.
+2025-01-24 19:00:48,249 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=10
+2025-01-24 19:00:49,017 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 19:00:49,017 - INFO - Execução 2 finalizada. Score: 0.8100
+2025-01-24 19:00:49,017 - INFO - 
+Iniciando execução 3/3
+2025-01-24 19:00:49,018 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 19:00:49,019 - INFO - Analisando padrões de conservação...
+2025-01-24 19:00:49,021 - INFO - Análise de padrões concluída.
+2025-01-24 19:00:49,021 - INFO - Análise de padrões concluída.
+2025-01-24 19:00:49,021 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=10
+2025-01-24 19:00:49,805 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 19:00:49,805 - INFO - Execução 3 finalizada. Score: 0.8100
+2025-01-24 19:00:49,805 - INFO - Melhor matriz salva em: /home/augusto/projects/multiOne/results/2025-01-24-19-00-VNS-ILS-0.8100.txt
+2025-01-24 19:00:49,806 - INFO - Otimização concluída. Melhor score: 0.8100
+2025-01-24 19:01:09,410 - INFO - Iniciando otimização VNS-ILS
+2025-01-24 19:01:09,410 - INFO - 
+Iniciando execução 1/3
+2025-01-24 19:01:09,411 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 19:01:09,412 - INFO - Analisando padrões de conservação...
+2025-01-24 19:01:09,414 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:09,415 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:09,415 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=20
+2025-01-24 19:01:10,921 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 19:01:10,921 - INFO - Execução 1 finalizada. Score: 0.8100
+2025-01-24 19:01:10,922 - INFO - Novo melhor score global: 0.8100
+2025-01-24 19:01:10,922 - INFO - 
+Iniciando execução 2/3
+2025-01-24 19:01:10,922 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 19:01:10,923 - INFO - Analisando padrões de conservação...
+2025-01-24 19:01:10,925 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:10,925 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:10,925 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=20
+2025-01-24 19:01:12,463 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 19:01:12,463 - INFO - Execução 2 finalizada. Score: 0.8100
+2025-01-24 19:01:12,464 - INFO - 
+Iniciando execução 3/3
+2025-01-24 19:01:12,464 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 19:01:12,465 - INFO - Analisando padrões de conservação...
+2025-01-24 19:01:12,467 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:12,467 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:12,467 - INFO - Iniciando busca VNS-ILS com max_iterations=20, max_no_improve=20
+2025-01-24 19:01:13,977 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 19:01:13,977 - INFO - Execução 3 finalizada. Score: 0.8100
+2025-01-24 19:01:13,978 - INFO - Melhor matriz salva em: /home/augusto/projects/multiOne/results/2025-01-24-19-01-VNS-ILS-0.8100.txt
+2025-01-24 19:01:13,978 - INFO - Otimização concluída. Melhor score: 0.8100
+2025-01-24 19:01:39,676 - INFO - Iniciando otimização VNS-ILS
+2025-01-24 19:01:39,676 - INFO - 
+Iniciando execução 1/3
+2025-01-24 19:01:39,677 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 19:01:39,678 - INFO - Analisando padrões de conservação...
+2025-01-24 19:01:39,680 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:39,680 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:39,681 - INFO - Iniciando busca VNS-ILS com max_iterations=100, max_no_improve=20
+2025-01-24 19:01:41,227 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 19:01:41,227 - INFO - Execução 1 finalizada. Score: 0.8100
+2025-01-24 19:01:41,227 - INFO - Novo melhor score global: 0.8100
+2025-01-24 19:01:41,227 - INFO - 
+Iniciando execução 2/3
+2025-01-24 19:01:41,228 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 19:01:41,229 - INFO - Analisando padrões de conservação...
+2025-01-24 19:01:41,231 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:41,231 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:41,231 - INFO - Iniciando busca VNS-ILS com max_iterations=100, max_no_improve=20
+2025-01-24 19:01:42,792 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 19:01:42,793 - INFO - Execução 2 finalizada. Score: 0.8100
+2025-01-24 19:01:42,793 - INFO - 
+Iniciando execução 3/3
+2025-01-24 19:01:42,794 - INFO - Iniciando análise de alinhamento no arquivo: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml.
+2025-01-24 19:01:42,794 - INFO - Analisando padrões de conservação...
+2025-01-24 19:01:42,797 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:42,797 - INFO - Análise de padrões concluída.
+2025-01-24 19:01:42,797 - INFO - Iniciando busca VNS-ILS com max_iterations=100, max_no_improve=20
+2025-01-24 19:01:44,338 - INFO - Busca VNS-ILS concluída. Melhor score: 0.810000
+2025-01-24 19:01:44,338 - INFO - Execução 3 finalizada. Score: 0.8100
+2025-01-24 19:01:44,339 - INFO - Melhor matriz salva em: /home/augusto/projects/multiOne/results/2025-01-24-19-01-VNS-ILS-0.8100.txt
+2025-01-24 19:01:44,339 - INFO - Otimização concluída. Melhor score: 0.8100

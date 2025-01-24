@@ -1,0 +1,93 @@
+2025-01-24 19:19:29,164 - root - INFO - Iniciando execução com hiperparâmetros:
+2025-01-24 19:19:29,165 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 1e-06,
+    "MAX_ITER": 100,
+    "MAX_NO_IMPROVE": 20,
+    "PERTURBATION_SIZE": 5,
+    "MAX_PERTURBATION": 20,
+    "ESCAPE_THRESHOLD": 10
+  },
+  "MEMETIC": {
+    "POPULATION_SIZE": 30,
+    "ELITE_SIZE": 5,
+    "MAX_GENERATIONS": 100,
+    "LOCAL_SEARCH_FREQ": 5,
+    "DIVERSITY_THRESHOLD": 0.2
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "EXECUTION": {
+    "NUM_RUNS": 5,
+    "EVAL_SAMPLES": 1,
+    "SEED": null
+  }
+}
+2025-01-24 19:19:29,165 - root - INFO - 
+Starting run 1/5
+2025-01-24 19:19:29,166 - root - ERROR - Error during run 1: 'SCORE_CONSTRAINTS'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 161, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 334, in __init__
+    score_constraints=hyperparams['VNS']['SCORE_CONSTRAINTS']
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'SCORE_CONSTRAINTS'
+2025-01-24 19:19:29,168 - root - INFO - 
+Starting run 2/5
+2025-01-24 19:19:29,168 - root - ERROR - Error during run 2: 'SCORE_CONSTRAINTS'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 161, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 334, in __init__
+    score_constraints=hyperparams['VNS']['SCORE_CONSTRAINTS']
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'SCORE_CONSTRAINTS'
+2025-01-24 19:19:29,168 - root - INFO - 
+Starting run 3/5
+2025-01-24 19:19:29,169 - root - ERROR - Error during run 3: 'SCORE_CONSTRAINTS'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 161, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 334, in __init__
+    score_constraints=hyperparams['VNS']['SCORE_CONSTRAINTS']
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'SCORE_CONSTRAINTS'
+2025-01-24 19:19:29,169 - root - INFO - 
+Starting run 4/5
+2025-01-24 19:19:29,169 - root - ERROR - Error during run 4: 'SCORE_CONSTRAINTS'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 161, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 334, in __init__
+    score_constraints=hyperparams['VNS']['SCORE_CONSTRAINTS']
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'SCORE_CONSTRAINTS'
+2025-01-24 19:19:29,170 - root - INFO - 
+Starting run 5/5
+2025-01-24 19:19:29,170 - root - ERROR - Error during run 5: 'SCORE_CONSTRAINTS'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 161, in main
+    memetic = MemeticAlgorithm(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 334, in __init__
+    score_constraints=hyperparams['VNS']['SCORE_CONSTRAINTS']
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'SCORE_CONSTRAINTS'
