@@ -1,0 +1,106 @@
+2025-01-25 11:02:43,776 - root - INFO - Starting executions with hyperparameters:
+2025-01-25 11:02:43,777 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 1e-06,
+    "MAX_ITER": 50,
+    "MAX_NO_IMPROVE": 10,
+    "PERTURBATION_SIZE": 5
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 5,
+    "MUTATION_RATE": 0.1
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "LOCAL_SEARCH": {
+    "NEIGHBORHOOD_WEIGHTS": {
+      "subfamily": 0.4,
+      "disorder": 0.3,
+      "conservation": 0.2,
+      "random": 0.1
+    },
+    "SCORE_ADJUSTMENTS": {
+      "strong": -2,
+      "medium": -1,
+      "weak": 1
+    },
+    "PATTERN_WINDOW": 2,
+    "MIN_CONSERVATION": 0.1,
+    "SUBFAMILY_CHANGES": 3,
+    "DISORDER_CHANGES": 3,
+    "CONSERVATION_TOP_N": 5,
+    "RANDOM_CHANGES": 3,
+    "USE_DISORDER_INFO": true
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 5,
+    "EVAL_SAMPLES": 1,
+    "SEED": null
+  }
+}
+2025-01-25 11:02:43,777 - root - INFO - 
+Processing instance BBA0142
+2025-01-25 11:02:43,777 - root - INFO - Starting execution 1/5 for BBA0142
+2025-01-25 11:02:43,817 - root - INFO - New best score for BBA0142: 0.8100
+2025-01-25 11:02:44,072 - MemeticAlgorithm - INFO - Initial best fitness: 0.8100
+2025-01-25 11:02:44,073 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-25 11:02:46,081 - MemeticAlgorithm - INFO - Generation 0: Best=0.8100, Master=0.8100, Stagnation=1
+2025-01-25 11:02:43,842 - root - INFO - New best score for BBA0142: 0.9290
+2025-01-25 11:02:43,940 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-25 11:02:47,661 - MemeticAlgorithm - INFO - Generation 5: Best=0.9290, Master=0.9290, Stagnation=4
+2025-01-25 11:02:52,070 - MemeticAlgorithm - INFO - Generation 10: Best=0.9290, Master=0.9290, Stagnation=9
+2025-01-25 11:02:52,632 - MemeticAlgorithm - INFO - Stopping early due to stagnation after 11 generations
+2025-01-25 11:02:52,655 - root - INFO - Execution 1 completed in 8.9s
+2025-01-25 11:02:52,655 - root - INFO - Starting execution 2/5 for BBA0142
+2025-01-25 11:02:52,947 - MemeticAlgorithm - INFO - Initial best fitness: 0.8100
+2025-01-25 11:02:52,948 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-25 11:02:55,131 - MemeticAlgorithm - INFO - Generation 0: Best=0.8100, Master=0.8100, Stagnation=1
+2025-01-25 11:02:59,746 - MemeticAlgorithm - INFO - Generation 5: Best=0.8100, Master=0.8100, Stagnation=6
+2025-01-25 11:03:02,043 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-25 11:03:03,723 - MemeticAlgorithm - INFO - Generation 10: Best=0.9290, Master=0.9290, Stagnation=1
+2025-01-25 11:03:07,914 - MemeticAlgorithm - INFO - Generation 15: Best=0.9290, Master=0.9290, Stagnation=6
+2025-01-25 11:03:10,183 - MemeticAlgorithm - INFO - Stopping early due to stagnation after 19 generations
+2025-01-25 11:03:10,206 - root - INFO - Execution 2 completed in 17.6s
+2025-01-25 11:03:10,207 - root - INFO - Starting execution 3/5 for BBA0142
+2025-01-25 11:03:10,502 - MemeticAlgorithm - INFO - Initial best fitness: 0.8100
+2025-01-25 11:03:10,503 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-25 11:03:12,441 - MemeticAlgorithm - INFO - Generation 0: Best=0.8100, Master=0.8100, Stagnation=1
+2025-01-25 11:03:13,011 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-25 11:03:13,873 - MemeticAlgorithm - INFO - Generation 5: Best=0.9290, Master=0.9290, Stagnation=4
+2025-01-25 11:03:18,406 - MemeticAlgorithm - INFO - Generation 10: Best=0.9290, Master=0.9290, Stagnation=9
+2025-01-25 11:03:19,021 - MemeticAlgorithm - INFO - Stopping early due to stagnation after 11 generations
+2025-01-25 11:03:19,045 - root - INFO - Execution 3 completed in 8.8s
+2025-01-25 11:03:19,045 - root - INFO - Starting execution 4/5 for BBA0142
+2025-01-25 11:03:19,341 - MemeticAlgorithm - INFO - Initial best fitness: 0.8100
+2025-01-25 11:03:19,342 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-25 11:03:21,466 - MemeticAlgorithm - INFO - Generation 0: Best=0.8100, Master=0.8100, Stagnation=1
+2025-01-25 11:03:25,788 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-25 11:03:25,788 - MemeticAlgorithm - INFO - Generation 5: Best=0.9290, Master=0.9290, Stagnation=0
+2025-01-25 11:03:30,180 - MemeticAlgorithm - INFO - Generation 10: Best=0.9290, Master=0.9290, Stagnation=5
+2025-01-25 11:03:34,575 - MemeticAlgorithm - INFO - Stopping early due to stagnation after 15 generations
+2025-01-25 11:03:34,598 - root - INFO - Execution 4 completed in 15.6s
+2025-01-25 11:03:34,598 - root - INFO - Starting execution 5/5 for BBA0142
+2025-01-25 11:03:34,903 - MemeticAlgorithm - INFO - Initial best fitness: 0.8100
+2025-01-25 11:03:34,904 - MemeticAlgorithm - INFO - Starting memetic optimization
+2025-01-25 11:03:37,068 - MemeticAlgorithm - INFO - Generation 0: Best=0.8100, Master=0.8100, Stagnation=1
+2025-01-25 11:03:37,645 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-25 11:03:41,550 - MemeticAlgorithm - INFO - Generation 5: Best=0.9290, Master=0.9290, Stagnation=4
+2025-01-25 11:03:43,454 - MemeticAlgorithm - INFO - Generation 10: Best=0.9290, Master=0.9290, Stagnation=9
+2025-01-25 11:03:44,014 - MemeticAlgorithm - INFO - Stopping early due to stagnation after 11 generations
+2025-01-25 11:03:44,037 - root - INFO - Execution 5 completed in 9.4s
+2025-01-25 11:03:44,037 - root - INFO - BBA0142 best score: 0.9290
+2025-01-25 11:03:44,038 - root - INFO - All instances processed successfully

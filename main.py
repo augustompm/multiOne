@@ -17,7 +17,7 @@ from memetic.clustalw import run_clustalw
 from memetic.baliscore import get_bali_score
 
 INSTANCES = [
-  'BBA0142'
+  'BBA0004'
 ]
 
 HYPERPARAMS = {
@@ -59,7 +59,7 @@ HYPERPARAMS = {
         'USE_DISORDER_INFO': True
     },
     'EXECUTION': {
-        'MATRICES_PER_INSTANCE': 5,
+        'MATRICES_PER_INSTANCE': 1,
         'EVAL_SAMPLES': 1,
         'SEED': None
     }
@@ -149,6 +149,7 @@ def process_instance(
     hyperparams: Dict,
     best_results: Dict[str, BestResult]
 ) -> Optional[BestResult]:
+    """Processa uma única instância."""
     logging.info(f"\nProcessing instance {instance}")
     
     xml_file = input_dir / f"{instance}.xml"
@@ -159,19 +160,33 @@ def process_instance(
         return None
         
     instance_best = None
+    total_executions = hyperparams['EXECUTION']['MATRICES_PER_INSTANCE']
     
-    for execution_id in range(hyperparams['EXECUTION']['MATRICES_PER_INSTANCE']):
-        logging.info(f"Starting execution {execution_id + 1}/5 for {instance}")
-        start_time = time.time()
+    for execution_id in range(total_executions):
+        logging.info(f"Starting execution {execution_id + 1}/{total_executions} for {instance}")
         
-        def evaluation_function(matrix: AdaptiveMatrix) -> float:
-            score = evaluate_matrix(matrix, xml_file, fasta_file)
+        start_time = time.time()
+        try:
+            memetic = MemeticAlgorithm(
+                evaluation_function=lambda m: evaluate_matrix(m, xml_file, fasta_file),
+                xml_path=xml_file,
+                hyperparams=hyperparams
+            )
             
-            nonlocal instance_best
-            if instance_best is None or score > instance_best.score:
+            best_matrix, best_score = memetic.run(
+                generations=hyperparams['MEMETIC']['MAX_GENERATIONS'],
+                local_search_frequency=hyperparams['MEMETIC']['LOCAL_SEARCH_FREQ'],
+                local_search_iterations=hyperparams['VNS']['MAX_ITER'],
+                max_no_improve=hyperparams['VNS']['MAX_NO_IMPROVE'],
+                evaluation_function=lambda m: evaluate_matrix(m, xml_file, fasta_file)
+            )
+            
+            execution_time = time.time() - start_time
+            
+            if instance_best is None or best_score > instance_best.score:
                 instance_best = BestResult(
-                    matrix=matrix.copy(),
-                    score=score,
+                    matrix=best_matrix,
+                    score=best_score,
                     instance=instance,
                     execution_id=execution_id,
                     timestamp=datetime.now().isoformat(),
@@ -179,31 +194,13 @@ def process_instance(
                     start_time=start_time
                 )
                 instance_best.save(results_dir)
-                logging.info(f"New best score for {instance}: {score:.4f}")
-                
-            return score
-        
-        try:
-            memetic = MemeticAlgorithm(
-                evaluation_function=evaluation_function,
-                xml_path=xml_file,
-                hyperparams=hyperparams
-            )
+                logging.info(f"New best score for {instance}: {best_score:.4f}")
             
-            _, _ = memetic.run(
-                generations=hyperparams['MEMETIC']['MAX_GENERATIONS'],
-                local_search_frequency=hyperparams['MEMETIC']['LOCAL_SEARCH_FREQ'],
-                local_search_iterations=hyperparams['VNS']['MAX_ITER'],
-                max_no_improve=hyperparams['VNS']['MAX_NO_IMPROVE'],
-                evaluation_function=evaluation_function
-            )
-            
-            execution_time = time.time() - start_time
             logging.info(f"Execution {execution_id + 1} completed in {execution_time:.1f}s")
             
         except Exception as e:
             logging.error(f"Error processing {instance} execution {execution_id + 1}: {str(e)}", exc_info=True)
-    
+            
     if instance_best and (instance not in best_results or instance_best.score > best_results[instance].score):
         best_results[instance] = instance_best
         
