@@ -32,9 +32,9 @@ HYPERPARAMS = {
     
     # Parâmetros do algoritmo memético
     'MEMETIC': {
-        'POPULATION_SIZE': 13,          # Tamanho da população
+        'POPULATION_SIZE': 20,          # Tamanho da população
         'ELITE_SIZE': 5,                # Tamanho da elite
-        'MAX_GENERATIONS': 50,         # Número máximo de gerações
+        'MAX_GENERATIONS': 50,          # Número máximo de gerações
         'LOCAL_SEARCH_FREQ': 5,         # Frequência de busca local
         'DIVERSITY_THRESHOLD': 0.2,     # Limiar de diversidade na elite
     },
@@ -150,9 +150,6 @@ def main():
         logging.error("Required input files not found")
         sys.exit(1)
     
-    # Inicializa analisador de execuções
-    # Removido: ExecutionAnalyzer que gera gráficos
-    
     # Executa múltiplas vezes
     best_overall_score = float('-inf')
     best_overall_matrix = None
@@ -172,23 +169,25 @@ def main():
                 hyperparams=HYPERPARAMS  
             )
             
-            # Executa otimização
+            # Executa otimização passando run_id e evaluation_function
             best_matrix = memetic.run(
                 generations=HYPERPARAMS['MEMETIC']['MAX_GENERATIONS'],
                 local_search_frequency=HYPERPARAMS['MEMETIC']['LOCAL_SEARCH_FREQ'],
                 local_search_iterations=HYPERPARAMS['VNS']['MAX_ITER'],
-                max_no_improve=HYPERPARAMS['VNS']['MAX_NO_IMPROVE']
+                max_no_improve=HYPERPARAMS['VNS']['MAX_NO_IMPROVE'],
+                run_id=run + 1,  # Passa o ID da execução
+                evaluation_function=lambda m: evaluate_matrix(m, xml_file, fasta_file)  # Passa a função de avaliação
             )
             
-            # Avalia melhor matriz
+            # Avalia melhor matriz (opcional, caso queira confirmar o score)
             final_score = evaluate_matrix(best_matrix, xml_file, fasta_file)
             logging.info(f"Run {run + 1} completed. Score: {final_score:.4f}")
             
-            # Atualiza melhor global
+            # Atualiza melhor global apenas no final de cada execução
             if final_score > best_overall_score:
                 best_overall_score = final_score
                 best_overall_matrix = best_matrix
-                logging.info(f"New best global score: {best_overall_score:.4f}")
+                logging.info(f"New best overall score: {best_overall_score:.4f}")
             
             # Removido: Registro de execução para análise (ExecutionAnalyzer)
             
