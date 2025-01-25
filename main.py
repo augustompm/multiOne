@@ -17,18 +17,18 @@ from memetic.clustalw import run_clustalw
 from memetic.baliscore import get_bali_score
 
 INSTANCES = [
-  'BBA0142'
+  'BBA0183'
 ]
 
 HYPERPARAMS = {
     'VNS': {
         'MIN_IMPROVEMENT': 1e-6,
         'MAX_ITER': 50,                
-        'MAX_NO_IMPROVE': 20,           
+        'MAX_NO_IMPROVE': 10,           
         'PERTURBATION_SIZE': 10
     },
     'MEMETIC': {
-        'MAX_GENERATIONS': 50,
+        'MAX_GENERATIONS': 100,
         'LOCAL_SEARCH_FREQ': 10,
         'MUTATION_RATE': 0.1
     },

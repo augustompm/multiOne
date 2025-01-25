@@ -1,0 +1,84 @@
+2025-01-25 20:01:40,059 - root - INFO - Starting executions with hyperparameters:
+2025-01-25 20:01:40,059 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 1e-06,
+    "MAX_ITER": 50,
+    "MAX_NO_IMPROVE": 10,
+    "PERTURBATION_SIZE": 10
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 100,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.1
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "LOCAL_SEARCH": {
+    "NEIGHBORHOOD_WEIGHTS": {
+      "subfamily": 0.4,
+      "disorder": 0.3,
+      "conservation": 0.2,
+      "random": 0.1
+    },
+    "SCORE_ADJUSTMENTS": {
+      "strong": -2,
+      "medium": -1,
+      "weak": 1
+    },
+    "PATTERN_WINDOW": 2,
+    "MIN_CONSERVATION": 0.1,
+    "SUBFAMILY_CHANGES": 3,
+    "DISORDER_CHANGES": 3,
+    "CONSERVATION_TOP_N": 5,
+    "RANDOM_CHANGES": 3,
+    "USE_DISORDER_INFO": true,
+    "BLOCK_SCORE_THRESHOLD": 25,
+    "HIGH_SCORE_BLOCKS": 3,
+    "SAMPLES_PER_BLOCK": 2
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "SEED": null
+  }
+}
+2025-01-25 20:01:40,059 - root - INFO - 
+Processing instance BBA0183
+2025-01-25 20:01:40,059 - root - INFO - Starting execution 1/1 for BBA0183
+2025-01-25 20:01:40,063 - EnhancedLocalSearch - INFO - Analyzed BAliBASE4 data: 85 blocks, 8 groups
+2025-01-25 20:01:40,065 - StructuredPopulation - INFO - Analyzed BAliBASE4 data: 139 blocks, 19 SEQERR regions
+2025-01-25 20:01:44,562 - MemeticAlgorithm - INFO - Initial best fitness: 0.6650
+2025-01-25 20:01:44,563 - MemeticAlgorithm - INFO - Starting memetic optimization with enhanced operators
+2025-01-25 20:01:44,563 - MemeticAlgorithm - INFO - Applying enhanced local search with structural neighborhoods
+2025-01-25 20:01:44,930 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:01:45,630 - root - ERROR - Error processing BBA0183 execution 1: 'all'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/main.py", line 181, in process_instance
+    best_matrix, best_score = memetic.run(
+                              ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 390, in run
+    self._apply_local_search(
+  File "/home/augusto/projects/multiOne/memetic/memetic.py", line 464, in _apply_local_search
+    new_score = self.local_search.vns_search(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 158, in vns_search
+    neighbor = neighborhood_func(current_matrix, force_factor)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/memetic/local_search.py", line 300, in _low_conservation_neighborhood
+    all_scores = self.column_scores['all']
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'all'
+2025-01-25 20:01:45,631 - root - INFO - All instances processed successfully

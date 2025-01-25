@@ -1,0 +1,167 @@
+2025-01-25 20:07:47,478 - root - INFO - Starting executions with hyperparameters:
+2025-01-25 20:07:47,478 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 1e-06,
+    "MAX_ITER": 50,
+    "MAX_NO_IMPROVE": 10,
+    "PERTURBATION_SIZE": 10
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 100,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.1
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "LOCAL_SEARCH": {
+    "NEIGHBORHOOD_WEIGHTS": {
+      "subfamily": 0.4,
+      "disorder": 0.3,
+      "conservation": 0.2,
+      "random": 0.1
+    },
+    "SCORE_ADJUSTMENTS": {
+      "strong": -2,
+      "medium": -1,
+      "weak": 1
+    },
+    "PATTERN_WINDOW": 2,
+    "MIN_CONSERVATION": 0.1,
+    "SUBFAMILY_CHANGES": 3,
+    "DISORDER_CHANGES": 3,
+    "CONSERVATION_TOP_N": 5,
+    "RANDOM_CHANGES": 3,
+    "USE_DISORDER_INFO": true,
+    "BLOCK_SCORE_THRESHOLD": 25,
+    "HIGH_SCORE_BLOCKS": 3,
+    "SAMPLES_PER_BLOCK": 2
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "SEED": null
+  }
+}
+2025-01-25 20:07:47,478 - root - INFO - 
+Processing instance BBA0142
+2025-01-25 20:07:47,478 - root - INFO - Starting execution 1/1 for BBA0142
+2025-01-25 20:07:47,480 - EnhancedLocalSearch - INFO - Analyzed BAliBASE4 data: 9 blocks, 2 groups
+2025-01-25 20:07:47,481 - StructuredPopulation - INFO - Analyzed BAliBASE4 data: 8 blocks, 0 SEQERR regions
+2025-01-25 20:07:47,755 - MemeticAlgorithm - INFO - Initial best fitness: 0.8100
+2025-01-25 20:07:47,755 - MemeticAlgorithm - INFO - Starting memetic optimization with enhanced operators
+2025-01-25 20:07:47,755 - MemeticAlgorithm - INFO - Applying enhanced local search with structural neighborhoods
+2025-01-25 20:07:47,775 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:48,127 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:48,485 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:48,836 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:49,726 - MemeticAlgorithm - INFO - Generation 0: Best=0.8100, Current=0.8100, Stagnation=1
+2025-01-25 20:07:50,281 - MemeticAlgorithm - INFO - New best score in generation 1: 0.9290
+2025-01-25 20:07:52,512 - MemeticAlgorithm - INFO - Generation 5: Best=0.9290, Current=0.9290, Stagnation=4
+2025-01-25 20:07:54,801 - MemeticAlgorithm - INFO - Applying enhanced local search with structural neighborhoods
+2025-01-25 20:07:54,823 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:55,196 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:55,568 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:55,939 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:56,876 - MemeticAlgorithm - INFO - Generation 10: Best=0.9290, Current=0.9290, Stagnation=9
+2025-01-25 20:07:57,454 - MemeticAlgorithm - INFO - Stopping early at generation 11 due to stagnation. Best score: 0.9290
+2025-01-25 20:07:57,476 - MemeticAlgorithm - INFO - Optimization completed. Initial score: 0.8100, Final best: 0.9290
+2025-01-25 20:07:57,478 - root - INFO - New best score for BBA0142: 0.9290
+2025-01-25 20:07:57,478 - root - INFO - Execution 1 completed in 10.0s
+2025-01-25 20:07:57,478 - root - INFO - BBA0142 best score: 0.9290
+2025-01-25 20:07:57,479 - root - INFO - All instances processed successfully
+2025-01-25 20:07:58,709 - root - INFO - Starting executions with hyperparameters:
+2025-01-25 20:07:58,709 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 1e-06,
+    "MAX_ITER": 50,
+    "MAX_NO_IMPROVE": 10,
+    "PERTURBATION_SIZE": 10
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 100,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.1
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "LOCAL_SEARCH": {
+    "NEIGHBORHOOD_WEIGHTS": {
+      "subfamily": 0.4,
+      "disorder": 0.3,
+      "conservation": 0.2,
+      "random": 0.1
+    },
+    "SCORE_ADJUSTMENTS": {
+      "strong": -2,
+      "medium": -1,
+      "weak": 1
+    },
+    "PATTERN_WINDOW": 2,
+    "MIN_CONSERVATION": 0.1,
+    "SUBFAMILY_CHANGES": 3,
+    "DISORDER_CHANGES": 3,
+    "CONSERVATION_TOP_N": 5,
+    "RANDOM_CHANGES": 3,
+    "USE_DISORDER_INFO": true,
+    "BLOCK_SCORE_THRESHOLD": 25,
+    "HIGH_SCORE_BLOCKS": 3,
+    "SAMPLES_PER_BLOCK": 2
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "SEED": null
+  }
+}
+2025-01-25 20:07:58,709 - root - INFO - 
+Processing instance BBA0142
+2025-01-25 20:07:58,709 - root - INFO - Starting execution 1/1 for BBA0142
+2025-01-25 20:07:58,711 - EnhancedLocalSearch - INFO - Analyzed BAliBASE4 data: 9 blocks, 2 groups
+2025-01-25 20:07:58,711 - StructuredPopulation - INFO - Analyzed BAliBASE4 data: 8 blocks, 0 SEQERR regions
+2025-01-25 20:07:58,990 - MemeticAlgorithm - INFO - Initial best fitness: 0.8100
+2025-01-25 20:07:58,990 - MemeticAlgorithm - INFO - Starting memetic optimization with enhanced operators
+2025-01-25 20:07:58,990 - MemeticAlgorithm - INFO - Applying enhanced local search with structural neighborhoods
+2025-01-25 20:07:59,010 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:59,371 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:07:59,731 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:08:00,089 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:08:00,994 - MemeticAlgorithm - INFO - New best score in generation 0: 0.9290
+2025-01-25 20:08:00,995 - MemeticAlgorithm - INFO - Generation 0: Best=0.9290, Current=0.9290, Stagnation=0
+2025-01-25 20:08:03,820 - MemeticAlgorithm - INFO - Generation 5: Best=0.9290, Current=0.9290, Stagnation=5
+2025-01-25 20:08:06,056 - MemeticAlgorithm - INFO - Applying enhanced local search with structural neighborhoods
+2025-01-25 20:08:06,079 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:08:06,461 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:08:06,831 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:08:07,200 - EnhancedLocalSearch - INFO - Starting VNS search with structural neighborhoods
+2025-01-25 20:08:08,099 - MemeticAlgorithm - INFO - Stopping early at generation 10 due to stagnation. Best score: 0.9290
+2025-01-25 20:08:08,120 - MemeticAlgorithm - INFO - Optimization completed. Initial score: 0.8100, Final best: 0.9290
+2025-01-25 20:08:08,122 - root - INFO - New best score for BBA0142: 0.9290
+2025-01-25 20:08:08,122 - root - INFO - Execution 1 completed in 9.4s
+2025-01-25 20:08:08,122 - root - INFO - BBA0142 best score: 0.9290
+2025-01-25 20:08:08,123 - root - INFO - All instances processed successfully
