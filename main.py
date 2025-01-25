@@ -17,19 +17,19 @@ from memetic.clustalw import run_clustalw
 from memetic.baliscore import get_bali_score
 
 INSTANCES = [
-  'BBA0004'
+  'BBA0142'
 ]
 
 HYPERPARAMS = {
     'VNS': {
         'MIN_IMPROVEMENT': 1e-6,
         'MAX_ITER': 50,                
-        'MAX_NO_IMPROVE': 10,           
-        'PERTURBATION_SIZE': 5
+        'MAX_NO_IMPROVE': 20,           
+        'PERTURBATION_SIZE': 10
     },
     'MEMETIC': {
         'MAX_GENERATIONS': 50,
-        'LOCAL_SEARCH_FREQ': 5,
+        'LOCAL_SEARCH_FREQ': 10,
         'MUTATION_RATE': 0.1
     },
     'MATRIX': {
@@ -56,7 +56,11 @@ HYPERPARAMS = {
         'DISORDER_CHANGES': 3,
         'CONSERVATION_TOP_N': 5,
         'RANDOM_CHANGES': 3,
-        'USE_DISORDER_INFO': True
+        'USE_DISORDER_INFO': True,
+        'BLOCK_SCORE_THRESHOLD': 25,    # Threshold para ajustes fortes em blocos conservados
+        'HIGH_SCORE_BLOCKS': 3,         # Número de blocos de alto score a considerar
+        'SAMPLES_PER_BLOCK': 2,         # Amostras por bloco na análise
+        'PATTERN_WINDOW': 2             # Tamanho da janela para análise de padrões
     },
     'EXECUTION': {
         'MATRICES_PER_INSTANCE': 1,
@@ -132,6 +136,7 @@ def evaluate_matrix(matrix: AdaptiveMatrix, xml_file: Path, fasta_file: Path) ->
             if run_clustalw(str(fasta_file), str(aln_file), str(matrix_file)):
                 score = get_bali_score(str(xml_file), str(aln_file))
                 if score > 0:
+                    logging.debug(f"Block scores from evaluation: {score:.4f}")
                     scores.append(score)
         finally:
             if aln_file.exists():

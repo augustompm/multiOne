@@ -2,13 +2,37 @@
   "changes": [
     {
       "aa1": "A",
-      "aa2": "D",
+      "aa2": "Q",
       "old_score": -1.0,
       "new_score": -1
     },
     {
       "aa1": "A",
-      "aa2": "Q",
+      "aa2": "I",
+      "old_score": -2.0,
+      "new_score": -2
+    },
+    {
+      "aa1": "A",
+      "aa2": "L",
+      "old_score": -4.0,
+      "new_score": -4
+    },
+    {
+      "aa1": "A",
+      "aa2": "K",
+      "old_score": -3.0,
+      "new_score": -3
+    },
+    {
+      "aa1": "A",
+      "aa2": "F",
+      "old_score": -5.0,
+      "new_score": -5
+    },
+    {
+      "aa1": "A",
+      "aa2": "P",
       "old_score": -1.0,
       "new_score": -1
     },
@@ -20,33 +44,27 @@
     },
     {
       "aa1": "A",
-      "aa2": "Y",
-      "old_score": -4.0,
-      "new_score": -4
+      "aa2": "W",
+      "old_score": -8.0,
+      "new_score": -8
     },
     {
       "aa1": "R",
-      "aa2": "D",
-      "old_score": -3.0,
-      "new_score": -3
-    },
-    {
-      "aa1": "R",
-      "aa2": "C",
-      "old_score": -5.0,
-      "new_score": -5
-    },
-    {
-      "aa1": "R",
-      "aa2": "M",
+      "aa2": "Q",
       "old_score": -1.0,
       "new_score": -1
     },
     {
       "aa1": "R",
-      "aa2": "F",
-      "old_score": -6.0,
-      "new_score": -6
+      "aa2": "I",
+      "old_score": -4.0,
+      "new_score": -4
+    },
+    {
+      "aa1": "R",
+      "aa2": "L",
+      "old_score": -4.0,
+      "new_score": -4
     },
     {
       "aa1": "R",
@@ -56,15 +74,9 @@
     },
     {
       "aa1": "N",
-      "aa2": "D",
-      "old_score": 1.0,
-      "new_score": 1
-    },
-    {
-      "aa1": "N",
-      "aa2": "L",
-      "old_score": -4.0,
-      "new_score": -4
+      "aa2": "G",
+      "old_score": -1.0,
+      "new_score": -1
     },
     {
       "aa1": "N",
@@ -74,15 +86,9 @@
     },
     {
       "aa1": "N",
-      "aa2": "F",
+      "aa2": "W",
       "old_score": -5.0,
       "new_score": -5
-    },
-    {
-      "aa1": "N",
-      "aa2": "S",
-      "old_score": 0.0,
-      "new_score": 0
     },
     {
       "aa1": "N",
@@ -103,28 +109,16 @@
       "new_score": -1
     },
     {
-      "aa1": "D",
-      "aa2": "W",
+      "aa1": "C",
+      "aa2": "L",
       "old_score": -8.0,
       "new_score": -8
     },
     {
-      "aa1": "D",
-      "aa2": "Y",
-      "old_score": -5.0,
-      "new_score": -5
-    },
-    {
       "aa1": "C",
-      "aa2": "H",
-      "old_score": -4.0,
-      "new_score": -4
-    },
-    {
-      "aa1": "C",
-      "aa2": "I",
-      "old_score": -4.0,
-      "new_score": -4
+      "aa2": "K",
+      "old_score": -7.0,
+      "new_score": -7
     },
     {
       "aa1": "C",
@@ -133,22 +127,64 @@
       "new_score": -7
     },
     {
-      "aa1": "Q",
-      "aa2": "I",
+      "aa1": "C",
+      "aa2": "P",
+      "old_score": -5.0,
+      "new_score": -5
+    },
+    {
+      "aa1": "C",
+      "aa2": "S",
+      "old_score": -2.0,
+      "new_score": -2
+    },
+    {
+      "aa1": "C",
+      "aa2": "T",
       "old_score": -4.0,
       "new_score": -4
     },
     {
       "aa1": "Q",
-      "aa2": "W",
-      "old_score": -7.0,
-      "new_score": -7
+      "aa2": "H",
+      "old_score": 1.0,
+      "new_score": 1
     },
     {
-      "aa1": "E",
-      "aa2": "G",
-      "old_score": -1.0,
-      "new_score": -1
+      "aa1": "Q",
+      "aa2": "M",
+      "old_score": -3.0,
+      "new_score": -3
+    },
+    {
+      "aa1": "Q",
+      "aa2": "F",
+      "old_score": -6.0,
+      "new_score": -6
+    },
+    {
+      "aa1": "Q",
+      "aa2": "P",
+      "old_score": -2.0,
+      "new_score": -2
+    },
+    {
+      "aa1": "Q",
+      "aa2": "T",
+      "old_score": -2.0,
+      "new_score": -2
+    },
+    {
+      "aa1": "Q",
+      "aa2": "W",
+      "old_score": -6.0,
+      "new_score": -6
+    },
+    {
+      "aa1": "Q",
+      "aa2": "V",
+      "old_score": -3.0,
+      "new_score": -3
     },
     {
       "aa1": "E",
@@ -158,33 +194,27 @@
     },
     {
       "aa1": "E",
-      "aa2": "L",
-      "old_score": -5.0,
-      "new_score": -5
-    },
-    {
-      "aa1": "E",
-      "aa2": "F",
-      "old_score": -7.0,
-      "new_score": -7
-    },
-    {
-      "aa1": "E",
-      "aa2": "Y",
-      "old_score": -6.0,
-      "new_score": -6
-    },
-    {
-      "aa1": "G",
-      "aa2": "H",
+      "aa2": "I",
       "old_score": -3.0,
       "new_score": -3
     },
     {
-      "aa1": "G",
-      "aa2": "L",
-      "old_score": -6.0,
-      "new_score": -6
+      "aa1": "E",
+      "aa2": "K",
+      "old_score": -2.0,
+      "new_score": -2
+    },
+    {
+      "aa1": "E",
+      "aa2": "M",
+      "old_score": -4.0,
+      "new_score": -4
+    },
+    {
+      "aa1": "E",
+      "aa2": "S",
+      "old_score": -1.0,
+      "new_score": -1
     },
     {
       "aa1": "G",
@@ -194,27 +224,15 @@
     },
     {
       "aa1": "G",
-      "aa2": "T",
-      "old_score": -2.0,
-      "new_score": -2
-    },
-    {
-      "aa1": "G",
-      "aa2": "Y",
-      "old_score": -6.0,
-      "new_score": -6
-    },
-    {
-      "aa1": "H",
       "aa2": "P",
       "old_score": -1.0,
       "new_score": -1
     },
     {
       "aa1": "H",
-      "aa2": "T",
-      "old_score": -3.0,
-      "new_score": -3
+      "aa2": "P",
+      "old_score": -2.0,
+      "new_score": -2
     },
     {
       "aa1": "H",
@@ -224,45 +242,27 @@
     },
     {
       "aa1": "I",
-      "aa2": "P",
-      "old_score": -4.0,
-      "new_score": -4
-    },
-    {
-      "aa1": "I",
-      "aa2": "T",
-      "old_score": -2.0,
-      "new_score": -2
-    },
-    {
-      "aa1": "I",
-      "aa2": "Y",
-      "old_score": -2.0,
-      "new_score": -2
-    },
-    {
-      "aa1": "I",
-      "aa2": "V",
+      "aa2": "L",
       "old_score": 3.0,
       "new_score": 3
     },
     {
-      "aa1": "L",
-      "aa2": "T",
+      "aa1": "I",
+      "aa2": "S",
       "old_score": -3.0,
       "new_score": -3
     },
     {
-      "aa1": "L",
-      "aa2": "W",
-      "old_score": -4.0,
-      "new_score": -4
+      "aa1": "I",
+      "aa2": "Y",
+      "old_score": -2.0,
+      "new_score": -2
     },
     {
-      "aa1": "K",
-      "aa2": "F",
-      "old_score": -7.0,
-      "new_score": -7
+      "aa1": "I",
+      "aa2": "V",
+      "old_score": 2.0,
+      "new_score": 2
     },
     {
       "aa1": "K",
@@ -271,64 +271,40 @@
       "new_score": -3
     },
     {
-      "aa1": "K",
-      "aa2": "W",
-      "old_score": -5.0,
-      "new_score": -5
+      "aa1": "M",
+      "aa2": "P",
+      "old_score": -4.0,
+      "new_score": -4
     },
     {
-      "aa1": "K",
+      "aa1": "M",
+      "aa2": "V",
+      "old_score": 1.0,
+      "new_score": 1
+    },
+    {
+      "aa1": "S",
       "aa2": "Y",
-      "old_score": -5.0,
-      "new_score": -5
+      "old_score": -4.0,
+      "new_score": -4
     },
     {
-      "aa1": "K",
+      "aa1": "S",
       "aa2": "V",
       "old_score": -3.0,
       "new_score": -3
     },
     {
-      "aa1": "F",
-      "aa2": "P",
-      "old_score": -6.0,
-      "new_score": -6
-    },
-    {
-      "aa1": "F",
-      "aa2": "Y",
-      "old_score": 6.0,
-      "new_score": 6
-    },
-    {
-      "aa1": "P",
-      "aa2": "P",
-      "old_score": 4.0,
-      "new_score": 4
-    },
-    {
-      "aa1": "P",
-      "aa2": "W",
-      "old_score": -7.0,
-      "new_score": -7
-    },
-    {
-      "aa1": "P",
-      "aa2": "Y",
-      "old_score": -7.0,
-      "new_score": -7
-    },
-    {
-      "aa1": "S",
+      "aa1": "T",
       "aa2": "V",
       "old_score": -2.0,
       "new_score": -2
     },
     {
-      "aa1": "T",
-      "aa2": "W",
-      "old_score": -6.0,
-      "new_score": -6
+      "aa1": "W",
+      "aa2": "V",
+      "old_score": -7.0,
+      "new_score": -7
     },
     {
       "aa1": "Y",
