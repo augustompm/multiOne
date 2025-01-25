@@ -1,0 +1,59 @@
+2025-01-25 02:11:49,198 - root - INFO - Starting executions with hyperparameters:
+2025-01-25 02:11:49,198 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 1e-06,
+    "MAX_ITER": 50,
+    "MAX_NO_IMPROVE": 10,
+    "PERTURBATION_SIZE": 10,
+    "MAX_PERTURBATION": 30,
+    "ESCAPE_THRESHOLD": 15,
+    "SCORE_CONSTRAINTS": {
+      "DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "DIFFERENT": {
+        "min": -8,
+        "max": 4
+      }
+    }
+  },
+  "MEMETIC": {
+    "POPULATION_SIZE": 30,
+    "ELITE_SIZE": 8,
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 5,
+    "DIVERSITY_THRESHOLD": 0.2
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "EXECUTION": {
+    "NUM_RUNS": 1,
+    "MATRICES_PER_INSTANCE": 5,
+    "EVAL_SAMPLES": 1,
+    "SEED": null
+  }
+}
+2025-01-25 02:11:49,199 - root - INFO - 
+Processing instance BBA0004
+2025-01-25 02:11:49,199 - root - INFO - Starting execution 1/5 for BBA0004
+2025-01-25 02:11:49,200 - LocalSearch - INFO - Analyzing alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0004.xml
+2025-01-25 02:11:49,211 - LocalSearch - INFO - Analyzing substitution patterns
+2025-01-25 02:11:49,254 - LocalSearch - INFO - Pattern analysis completed
