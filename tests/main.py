@@ -10,22 +10,58 @@ from memetic.analysis import ExecutionAnalyzer
 from memetic.matrix import AdaptiveMatrix
 from memetic.memetic import MemeticAlgorithm
 
-# Hiperparâmetros do algoritmo
+# Hiperparâmetros atualizados para main.py
+
 HYPERPARAMS = {
-    # Parâmetros populacionais
-    'POPULATION_SIZE': 15,      # Tamanho da população
-    'ELITE_SIZE': 3,           # Número de indivíduos elite
-    'NUM_GENERATIONS': 10,     # Número de gerações
-    'NUM_RUNS': 3,            # Número de execuções independentes
-    
-    # Parâmetros do VNS-ILS
-    'MAX_VNS_ITERATIONS': 10,  # Máximo de iterações VNS
-    'MAX_NO_IMPROVE': 5,      # Iterações sem melhoria antes de parar
-    'LOCAL_SEARCH_FREQ': 5,    # Frequência de busca local
-    
-    # Parâmetros de avaliação
-    'EVAL_SAMPLES': 2,         # Número de avaliações por matriz
-    'MIN_IMPROVEMENT': 1e-6,   # Melhoria mínima considerada
+    'VNS': {
+        'MIN_IMPROVEMENT': 1e-6,
+        'MAX_ITER': 50,                
+        'MAX_NO_IMPROVE': 10,           
+        'PERTURBATION_SIZE': 5
+    },
+    'MEMETIC': {
+        'MAX_GENERATIONS': 50,
+        'LOCAL_SEARCH_FREQ': 5,
+        'MUTATION_RATE': 0.1
+    },
+    'MATRIX': {
+        'SCORE_DIAGONAL': {'min': -2, 'max': 17},
+        'SCORE_SIMILAR': {'min': -4, 'max': 8},
+        'SCORE_DIFFERENT': {'min': -8, 'max': 4},
+        'MAX_ADJUSTMENT': 2
+    },
+    'LOCAL_SEARCH': {
+        # Pesos das diferentes estratégias de vizinhança
+        'NEIGHBORHOOD_WEIGHTS': {
+            'subfamily': 0.4,    # Foco em padrões específicos de subfamílias
+            'disorder': 0.3,     # Regiões desordenadas
+            'conservation': 0.2, # Conservação global
+            'random': 0.1       # Exploração aleatória
+        },
+        # Ajustes de scores (minimização PAM)
+        'SCORE_ADJUSTMENTS': {
+            'strong': -2,   # Mudança forte (alta confiança)
+            'medium': -1,   # Mudança média
+            'weak': 1       # Mudança fraca (exploração)
+        },
+        # Configurações de análise de padrões
+        'PATTERN_WINDOW': 2,     # Tamanho da janela para análise de padrões
+        'MIN_CONSERVATION': 0.1, # Threshold mínimo de conservação
+        
+        # Número de mudanças por estratégia
+        'SUBFAMILY_CHANGES': 3,    # Mudanças por subfamília
+        'DISORDER_CHANGES': 3,     # Mudanças em regiões desordenadas
+        'CONSERVATION_TOP_N': 5,   # Top N AAs mais conservados
+        'RANDOM_CHANGES': 3,       # Mudanças aleatórias
+        
+        # Flags de controle
+        'USE_DISORDER_INFO': True  # Habilita uso de info de regiões desordenadas
+    },
+    'EXECUTION': {
+        'MATRICES_PER_INSTANCE': 5,
+        'EVAL_SAMPLES': 1,
+        'SEED': None
+    }
 }
 
 # Configuração de logging

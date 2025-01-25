@@ -1,424 +1,292 @@
-# memetic/local_search.py
-
 import xml.etree.ElementTree as ET
 from pathlib import Path
-import subprocess
-from typing import Dict, List, Tuple, Set
 import numpy as np
 from collections import defaultdict
 import logging
 import random
-from datetime import datetime
+from typing import Dict, List, Set, Tuple, Optional
+
 from .matrix import AdaptiveMatrix
 
-
-class LocalSearch:
-    """
-    VNS-ILS para otimização de matrizes adaptativas com mecanismos de escape.
-    """
-
+class EnhancedLocalSearch:
     def __init__(self, matrix: AdaptiveMatrix, hyperparams: Dict):
         self.logger = logging.getLogger(self.__class__.__name__)
-
-        # Configurações principais
         self.matrix = matrix
         self.hyperparams = hyperparams
-
-        # Extrai parâmetros do hyperparams
-        self.min_improvement = hyperparams['VNS']['MIN_IMPROVEMENT']
-        self.perturbation_size = hyperparams['VNS']['PERTURBATION_SIZE']
-        self.max_perturbation = hyperparams['VNS']['MAX_PERTURBATION']
-
-        # Inicializações padrão
+        
+        # Estruturas para análise do BAliBASE4
+        self.core_blocks = defaultdict(list)  # Blocos por cor (nível de conservação)
+        self.disorder_regions = []  # Regiões com DISORDER tag
+        self.subfamily_groups = defaultdict(list)  # Sequências por grupo
+        self.conservation_scores = defaultdict(float)  # Scores por posição
+        
         self.best_matrix = matrix.copy()
-        self.current_matrix = matrix.copy()
         self.best_score = float('-inf')
-
-        # Estruturas de análise
-        self.substitution_frequencies = defaultdict(lambda: defaultdict(float))
-        self.conservation_weights = defaultdict(float)
-        self.position_specific_patterns = defaultdict(list)
-
-        # Tracking de progresso
-        self.improvements = []
-        self.stagnation_counter = 0
-        self.cycle_detector = set()
-
-        # Controle de temperatura para aceite de pioras
-        self.current_temperature = 1.0
-        self.cooling_rate = 0.95
-
-        # Rastreamento de vizinhanças
-        self.neighborhood_stats = {
-            'frequency': {'attempts': 0, 'improvements': 0},
-            'conservation': {'attempts': 0, 'improvements': 0},
-            'group': {'attempts': 0, 'improvements': 0}
-        }
-
-        # Grupos físico-químicos dos aminoácidos
-        self.aa_groups = {
-            'hydrophobic': {'I', 'L', 'V', 'M', 'F', 'W', 'A'},
-            'polar': {'S', 'T', 'N', 'Q'},
-            'acidic': {'D', 'E'},
-            'basic': {'K', 'R', 'H'},
-            'special': {'C', 'G', 'P', 'Y'}
-        }
-
+        
     def analyze_alignment(self, xml_path: Path) -> None:
-        """Analisa alinhamento para extrair padrões de substituição."""
-        self.logger.info(f"Analyzing alignment: {xml_path}")
-
+        """Análise detalhada do alinhamento BAliBASE4."""
         try:
             tree = ET.parse(xml_path)
             root = tree.getroot()
-
-            sequences = {}
-            blocks = []
-
-            # Extrai sequências e blocos
+            
             for seq in root.findall(".//sequence"):
                 seq_name = seq.find("seq-name").text
                 seq_data = seq.find("seq-data").text.strip()
-                sequences[seq_name] = seq_data
-
+                group = int(seq.find("seq-info/group").text)
+                
+                # Agrupa sequências por subfamília
+                self.subfamily_groups[group].append({
+                    'name': seq_name,
+                    'data': seq_data
+                })
+                
+                # Processa blocos conservados (core blocks)
                 for block in seq.findall(".//fitem/[ftype='BLOCK']"):
+                    color = int(block.find("fcolor").text)  # Nível de conservação
                     start = int(block.find("fstart").text)
                     stop = int(block.find("fstop").text)
                     score = float(block.find("fscore").text)
-
-                    blocks.append({
+                    
+                    self.core_blocks[color].append({
+                        'seq': seq_name,
+                        'group': group,
+                        'start': start,
+                        'stop': stop,
+                        'data': seq_data[start-1:stop],
+                        'score': score
+                    })
+                    
+                    # Atualiza scores de conservação por posição
+                    for pos in range(start-1, stop):
+                        if seq_data[pos] != '-':
+                            self.conservation_scores[pos] += score
+                            
+                # Registra regiões desordenadas
+                for disorder in seq.findall(".//fitem/[ftype='DISORDER']"):
+                    start = int(disorder.find("fstart").text)
+                    stop = int(disorder.find("fstop").text)
+                    
+                    self.disorder_regions.append({
                         'seq': seq_name,
                         'start': start,
                         'stop': stop,
-                        'score': score,
-                        'data': seq_data[start - 1:stop]
+                        'data': seq_data[start-1:stop]
                     })
-
-            self._analyze_patterns(sequences, blocks)
-
+                    
+            self._analyze_subfamily_patterns()
+            self._normalize_conservation_scores()
+            
         except Exception as e:
-            self.logger.error(f"Error analyzing alignment: {e}")
+            self.logger.error(f"Error analyzing BAliBASE4 data: {e}")
             raise
-
-    def _analyze_patterns(self, sequences: Dict[str, str], blocks: List[Dict]) -> None:
-        """Analisa padrões de substituição e conservação nos blocos."""
-        self.logger.info("Analyzing substitution patterns")
-
-        # Reset estruturas
-        self.substitution_frequencies.clear()
-        self.conservation_weights.clear()
-        self.position_specific_patterns.clear()
-
-        # Agrupa blocos por posição
-        aligned_blocks = defaultdict(list)
-        for block in blocks:
-            aligned_blocks[block['start']].append(block)
-
-        # Analisa cada posição alinhada
-        for pos, block_group in aligned_blocks.items():
-            conservation_score = np.mean([b['score'] for b in block_group])
-            frequency_factor = len(block_group) / len(sequences)
-
-            # Analisa substituições no bloco
-            for i, block1 in enumerate(block_group):
-                for j, block2 in enumerate(block_group[i + 1:], i + 1):
-                    for offset in range(min(len(block1['data']), len(block2['data']))):
-                        aa1 = block1['data'][offset]
-                        aa2 = block2['data'][offset]
-
-                        if aa1 != '-' and aa2 != '-':
-                            # Peso considera conservação e frequência
-                            weight = conservation_score * frequency_factor
-
-                            # Ajusta peso baseado em contexto
-                            if self._are_similar(aa1, aa2):
-                                weight *= 1.2  # Bonus para substituições similares
-
-                            self.substitution_frequencies[aa1][aa2] += weight
-                            self.conservation_weights[aa1] += weight
-                            self.conservation_weights[aa2] += weight
-
-                            # Registra padrão específico da posição
-                            self.position_specific_patterns[pos].append(
-                                (aa1, aa2, weight)
-                            )
-
-        self.logger.info("Pattern analysis completed")
-
-    def _are_similar(self, aa1: str, aa2: str) -> bool:
-        """Verifica se dois aminoácidos pertencem ao mesmo grupo."""
-        return any(aa1 in group and aa2 in group for group in self.aa_groups.values())
-
-    def perturb_solution(self) -> AdaptiveMatrix:
-        """Aplica perturbação adaptativa na solução atual."""
-        self.logger.debug(f"Applying perturbation (size={self.perturbation_size})")
-
-        perturbed = self.current_matrix.copy()
-        positions = list(range(len(self.matrix.aa_order)))
-
-        # Perturbação adaptativa baseada em estagnação
-        num_changes = int(self.perturbation_size * (1 + self.stagnation_counter / 10))
-        num_changes = min(num_changes, self.max_perturbation)
-
-        changes_made = 0
-        attempts = 0
-        max_attempts = num_changes * 3
-
-        while changes_made < num_changes and attempts < max_attempts:
-            attempts += 1
-            i, j = random.sample(positions, 2)
-            aa1, aa2 = self.matrix.aa_order[i], self.matrix.aa_order[j]
-
-            # Define magnitude da perturbação
-            if self._are_similar(aa1, aa2):
-                magnitude = random.choice([-1, 1])
-            else:
-                magnitude = random.choice([-2, -1, 1, 2])
-
-            # Maior probabilidade de aumentar scores baixos
-            current = perturbed.get_score(aa1, aa2)
-            if current < 0 and random.random() < 0.7:
-                magnitude = abs(magnitude)
-
-            new_score = current + magnitude
-
-            # Tenta aplicar mudança
-            if perturbed._validate_score(aa1, aa2, new_score):
-                perturbed.update_score(aa1, aa2, new_score)
-                changes_made += 1
-
-        return perturbed
-
-    def _frequency_based_neighborhood(self) -> AdaptiveMatrix:
-        """Vizinhança baseada em frequências de substituição."""
-        self.logger.debug("Exploring frequency-based neighborhood")
-        self.neighborhood_stats['frequency']['attempts'] += 1
-
-        new_matrix = self.current_matrix.copy()
-
-        # Seleciona substituições mais frequentes
-        sorted_subs = [
-            (aa1, aa2, freq)
-            for aa1, subs in self.substitution_frequencies.items()
-            for aa2, freq in subs.items()
-        ]
-        sorted_subs.sort(key=lambda x: x[2], reverse=True)
-
-        # Modifica top substituições
-        improvements = 0
-        for aa1, aa2, freq in sorted_subs[:5]:
-            current = new_matrix.get_score(aa1, aa2)
-
-            # Ajuste proporcional à frequência
-            median_freq = np.median([x[2] for x in sorted_subs]) if sorted_subs else 1
-            direction = 1 if freq > median_freq else -1
-
-            # Adiciona componente aleatório
-            if random.random() < 0.3:
-                direction *= -1
-
-            new_score = current + direction
-
-            # Aqui está a mudança: usar _validate_score em vez de _validate_score_change
-            if new_matrix._validate_score(aa1, aa2, new_score):
-                new_matrix.update_score(aa1, aa2, new_score)
-                improvements += 1
-
-        if improvements > 0:
-            self.neighborhood_stats['frequency']['improvements'] += 1
-
-        return new_matrix
-
-    def _conservation_based_neighborhood(self) -> AdaptiveMatrix:
-        """Vizinhança baseada em padrões de conservação."""
-        self.logger.debug("Exploring conservation-based neighborhood")
-        self.neighborhood_stats['conservation']['attempts'] += 1
-
-        new_matrix = self.current_matrix.copy()
-
-        # Seleciona aminoácidos mais conservados
-        conserved = sorted(
-            self.conservation_weights.items(),
-            key=lambda x: x[1],
-            reverse=True
-        )[:4]
-
-        improvements = 0
-        for aa1, weight1 in conserved:
-            for aa2, weight2 in conserved:
-                if aa1 != aa2:
+            
+    def _analyze_subfamily_patterns(self) -> None:
+        """Analisa padrões específicos de cada subfamília."""
+        self.subfamily_patterns = defaultdict(lambda: defaultdict(float))
+        
+        for group, blocks in self.core_blocks.items():
+            high_conserved = [b for b in blocks if b['score'] > 0.8]
+            
+            for block in high_conserved:
+                data = block['data']
+                score = block['score']
+                subfamily = block['group']
+                
+                # Analisa padrões de substituição conservados
+                for i in range(len(data)-1):
+                    if data[i] != '-' and data[i+1] != '-':
+                        pair = tuple(sorted([data[i], data[i+1]]))
+                        self.subfamily_patterns[subfamily][pair] += score
+                        
+    def _normalize_conservation_scores(self) -> None:
+        """Normaliza scores de conservação."""
+        if self.conservation_scores:
+            max_score = max(self.conservation_scores.values())
+            if max_score > 0:
+                for pos in self.conservation_scores:
+                    self.conservation_scores[pos] /= max_score
+                    
+    def vns_search(self, evaluation_func, max_iterations: int, max_no_improve: int) -> float:
+        """VNS-ILS baseado em evidências do BAliBASE4."""
+        current_matrix = self.matrix.copy()
+        current_score = evaluation_func(current_matrix)
+        
+        self.best_score = current_score
+        self.best_matrix = current_matrix.copy()
+        
+        iterations_no_improve = 0
+        
+        while iterations_no_improve < max_no_improve:
+            improved = False
+            
+            # Vizinhanças baseadas em evidências do BAliBASE4
+            neighborhoods = [
+                (self._core_block_neighborhood, 0.4),      # Core blocks altamente conservados
+                (self._subfamily_specific_neighborhood, 0.3),  # Padrões específicos
+                (self._disorder_aware_neighborhood, 0.2),   # Regiões desordenadas
+                (self._random_neighborhood, 0.1)           # Exploração
+            ]
+            
+            for neighborhood, prob in neighborhoods:
+                if random.random() < prob:
+                    neighbor = neighborhood(current_matrix)
+                    neighbor_score = evaluation_func(neighbor)
+                    
+                    if neighbor_score > current_score + self.hyperparams['VNS']['MIN_IMPROVEMENT']:
+                        current_matrix = neighbor
+                        current_score = neighbor_score
+                        improved = True
+                        
+                        if current_score > self.best_score:
+                            self.best_score = current_score
+                            self.best_matrix = current_matrix.copy()
+                            iterations_no_improve = 0
+                            break
+                            
+            if not improved:
+                iterations_no_improve += 1
+                if iterations_no_improve > max_no_improve // 2:
+                    current_matrix = self._adaptive_perturbation(current_matrix)
+                    current_score = evaluation_func(current_matrix)
+                    
+        return self.best_score
+        
+    def _core_block_neighborhood(self, matrix: AdaptiveMatrix) -> AdaptiveMatrix:
+        """Vizinhança baseada em core blocks altamente conservados."""
+        new_matrix = matrix.copy()
+        
+        # Seleciona blocos altamente conservados
+        high_conserved = []
+        for blocks in self.core_blocks.values():
+            high_conserved.extend([b for b in blocks if b['score'] > 0.8])
+            
+        if high_conserved:
+            block = random.choice(high_conserved)
+            data = block['data']
+            
+            # Ajusta scores para substituições observadas
+            for i in range(len(data)-1):
+                if data[i] != '-' and data[i+1] != '-':
+                    aa1, aa2 = data[i], data[i+1]
                     current = new_matrix.get_score(aa1, aa2)
-
-                    # Ajuste baseado em pesos de conservação
-                    if weight1 > np.median([w for _, w in conserved]):
-                        new_score = current + 1
-                        if new_matrix._validate_score(aa1, aa2, new_score):
-                            new_matrix.update_score(aa1, aa2, new_score)
-                            improvements += 1
-
-        if improvements > 0:
-            self.neighborhood_stats['conservation']['improvements'] += 1
-
-        return new_matrix
-
-    def _group_based_neighborhood(self) -> AdaptiveMatrix:
-        """Vizinhança baseada em grupos físico-químicos."""
-        self.logger.debug("Exploring group-based neighborhood")
-        self.neighborhood_stats['group']['attempts'] += 1
-
-        new_matrix = self.current_matrix.copy()
-
-        # Seleciona grupo aleatório
-        group_aas = random.choice(list(self.aa_groups.values()))
-        group_list = list(group_aas)
-
-        improvements = 0
-
-        # Fortalece relações dentro do grupo
-        for i, aa1 in enumerate(group_list):
-            for aa2 in group_list[i + 1:]:
-                current = new_matrix.get_score(aa1, aa2)
-
-                # Probabilidade de ajuste inversamente proporcional ao score atual
-                if current < 5 and random.random() < 0.7:
-                    new_score = current + 1
+                    
+                    # Minimização mais forte para padrões conservados
+                    new_score = current + self.hyperparams['LOCAL_SEARCH']['SCORE_ADJUSTMENTS']['strong']
+                    
                     if new_matrix._validate_score(aa1, aa2, new_score):
                         new_matrix.update_score(aa1, aa2, new_score)
-                        improvements += 1
-
-        if improvements > 0:
-            self.neighborhood_stats['group']['improvements'] += 1
-
+                        
         return new_matrix
-
-    def accept_solution(self, new_score: float, current_score: float) -> bool:
-        """Critério de aceite com temperatura adaptativa."""
-        if new_score >= current_score:
-            return True
-
-        # Aceite probabilístico de pioras
-        delta = new_score - current_score
-        probability = np.exp(delta / self.current_temperature)
-
-        # Temperatura diminui com estagnação
-        self.current_temperature *= self.cooling_rate
-
-        return random.random() < probability
-
-    def vns_search(self, evaluation_func, max_iterations: int, max_no_improve: int) -> float:
-        """VNS com ILS integrado e mecanismos adaptativos."""
-        self.logger.info(f"Starting VNS-ILS search (max_iter={max_iterations})")
-
-        current_score = evaluation_func(self.current_matrix)
-        self.best_score = current_score
-        iterations_no_improve = 0
-
+        
+    def _subfamily_specific_neighborhood(self, matrix: AdaptiveMatrix) -> AdaptiveMatrix:
+        """Vizinhança baseada em padrões específicos de subfamílias."""
+        new_matrix = matrix.copy()
+        
+        if self.subfamily_patterns:
+            # Seleciona subfamília aleatória
+            subfamily = random.choice(list(self.subfamily_patterns.keys()))
+            patterns = self.subfamily_patterns[subfamily]
+            
+            # Pega top N substituições mais frequentes
+            top_n = self.hyperparams['LOCAL_SEARCH']['SUBFAMILY_CHANGES']
+            top_pairs = sorted(
+                patterns.items(),
+                key=lambda x: x[1],
+                reverse=True
+            )[:top_n]
+            
+            for (aa1, aa2), weight in top_pairs:
+                current = new_matrix.get_score(aa1, aa2)
+                
+                # Ajuste baseado no peso do padrão
+                if weight > 0.5:
+                    adjustment = self.hyperparams['LOCAL_SEARCH']['SCORE_ADJUSTMENTS']['strong']
+                else:
+                    adjustment = self.hyperparams['LOCAL_SEARCH']['SCORE_ADJUSTMENTS']['medium']
+                    
+                new_score = current + adjustment
+                if new_matrix._validate_score(aa1, aa2, new_score):
+                    new_matrix.update_score(aa1, aa2, new_score)
+                    
+        return new_matrix
+        
+    def _disorder_aware_neighborhood(self, matrix: AdaptiveMatrix) -> AdaptiveMatrix:
+        """Vizinhança especializada para regiões desordenadas."""
+        new_matrix = matrix.copy()
+        
+        if not self.hyperparams['LOCAL_SEARCH']['USE_DISORDER_INFO']:
+            return new_matrix
+            
+        # Analisa padrões em regiões desordenadas
+        disorder_patterns = defaultdict(float)
+        for region in self.disorder_regions:
+            data = region['data']
+            for i in range(len(data)-1):
+                if data[i] != '-' and data[i+1] != '-':
+                    pair = tuple(sorted([data[i], data[i+1]]))
+                    disorder_patterns[pair] += 1
+                    
+        if disorder_patterns:
+            max_changes = self.hyperparams['LOCAL_SEARCH']['DISORDER_CHANGES']
+            patterns = random.sample(
+                list(disorder_patterns.items()),
+                min(max_changes, len(disorder_patterns))
+            )
+            
+            for (aa1, aa2), freq in patterns:
+                current = new_matrix.get_score(aa1, aa2)
+                
+                # Ajustes mais suaves para regiões desordenadas
+                if freq > 2:
+                    adjustment = self.hyperparams['LOCAL_SEARCH']['SCORE_ADJUSTMENTS']['medium']
+                else:
+                    adjustment = self.hyperparams['LOCAL_SEARCH']['SCORE_ADJUSTMENTS']['weak']
+                    
+                new_score = current + adjustment
+                if new_matrix._validate_score(aa1, aa2, new_score):
+                    new_matrix.update_score(aa1, aa2, new_score)
+                    
+        return new_matrix
+        
+    def _random_neighborhood(self, matrix: AdaptiveMatrix) -> AdaptiveMatrix:
+        """Vizinhança aleatória para exploração."""
+        new_matrix = matrix.copy()
+        
+        num_changes = self.hyperparams['LOCAL_SEARCH']['RANDOM_CHANGES']
+        for _ in range(num_changes):
+            aa1 = random.choice(new_matrix.aa_order)
+            aa2 = random.choice(new_matrix.aa_order)
+            current = new_matrix.get_score(aa1, aa2)
+            
+            adjustment = random.choice([
+                self.hyperparams['LOCAL_SEARCH']['SCORE_ADJUSTMENTS']['strong'],
+                self.hyperparams['LOCAL_SEARCH']['SCORE_ADJUSTMENTS']['medium'],
+                self.hyperparams['LOCAL_SEARCH']['SCORE_ADJUSTMENTS']['weak']
+            ])
+            
+            new_score = current + adjustment
+            if new_matrix._validate_score(aa1, aa2, new_score):
+                new_matrix.update_score(aa1, aa2, new_score)
+                
+        return new_matrix
+        
+    def _adaptive_perturbation(self, matrix: AdaptiveMatrix) -> AdaptiveMatrix:
+        """Perturbação adaptativa baseada em evidências."""
+        perturbed = matrix.copy()
+        size = self.hyperparams['VNS']['PERTURBATION_SIZE']
+        
         neighborhoods = [
-            self._frequency_based_neighborhood,
-            self._conservation_based_neighborhood,
-            self._group_based_neighborhood
+            (self._core_block_neighborhood, 0.4),
+            (self._subfamily_specific_neighborhood, 0.3),
+            (self._disorder_aware_neighborhood, 0.2),
+            (self._random_neighborhood, 0.1)
         ]
-
-        while iterations_no_improve < max_no_improve:
-            self.logger.debug(f"Iteration {iterations_no_improve + 1}/{max_no_improve}")
-
-            # Aplica perturbação em caso de estagnação
-            if iterations_no_improve > max_no_improve // 2:
-                self.stagnation_counter += 1
-                self.current_matrix = self.perturb_solution()
-                current_score = evaluation_func(self.current_matrix)
-
-                # Reinicia temperatura
-                self.current_temperature = 1.0
-
-                self.logger.debug(
-                    f"Applied perturbation (stagnation={self.stagnation_counter}). "
-                    f"New score: {current_score:.4f}"
-                )
-
-            # Exploração de vizinhanças
-            improved = False
-            for k, neighborhood in enumerate(neighborhoods):
-                neighbor = neighborhood()
-                neighbor_score = evaluation_func(neighbor)
-
-                # Detecta ciclos
-                neighbor_hash = hash(str(neighbor.matrix))
-                if neighbor_hash in self.cycle_detector:
-                    continue
-
-                self.cycle_detector.add(neighbor_hash)
-                if len(self.cycle_detector) > 1000:  # Limita tamanho
-                    self.cycle_detector.clear()
-
-                # Critério de aceite
-                if self.accept_solution(neighbor_score, current_score):
-                    improvement = neighbor_score - current_score
-                    self.current_matrix = neighbor
-                    current_score = neighbor_score
-
-                    if improvement > self.min_improvement:
-                        self.improvements.append({
-                            'score_improvement': improvement,
-                            'neighborhood': k,
-                            'iteration': iterations_no_improve
-                        })
-                        improved = True
-                        break
-
-            # Atualiza melhor solução
-            if current_score > self.best_score + self.min_improvement:
-                self.best_matrix = self.current_matrix.copy()
-                self.best_score = current_score
-                iterations_no_improve = 0
-                self.stagnation_counter = 0
-                self.perturbation_size = self.hyperparams['VNS']['PERTURBATION_SIZE']
-                self.logger.info(f"New best score found: {self.best_score:.4f}")
-            else:
-                iterations_no_improve += 1
-
-                # Ajusta tamanho da perturbação
-                if iterations_no_improve > max_no_improve // 2:
-                    self.perturbation_size = min(
-                        self.max_perturbation,
-                        self.perturbation_size + 1
-                    )
-
-            # Log do progresso
-            if iterations_no_improve % 5 == 0:
-                success_rates = {
-                    name: stats['improvements'] / max(1, stats['attempts'])
-                    for name, stats in self.neighborhood_stats.items()
-                }
-
-                self.logger.debug(
-                    f"Progress: score={current_score:.4f}, "
-                    f"best={self.best_score:.4f}, "
-                    f"stagnation={iterations_no_improve}, "
-                    f"perturbation={self.perturbation_size}, "
-                    f"temperature={self.current_temperature:.2f}, "
-                    f"neighborhood_success={success_rates}"
-                )
-
-        # Restaura melhor solução encontrada
-        self.current_matrix = self.best_matrix.copy()
-        self.logger.info(f"VNS-ILS search completed. Best score: {self.best_score:.4f}")
-
-        # Análise final das vizinhanças
-        total_improvements = sum(
-            stats['improvements']
-            for stats in self.neighborhood_stats.values()
-        )
-
-        if total_improvements > 0:
-            for name, stats in self.neighborhood_stats.items():
-                success_rate = stats['improvements'] / max(1, stats['attempts'])
-                contribution = stats['improvements'] / total_improvements
-                self.logger.info(
-                    f"Neighborhood {name}: "
-                    f"success_rate={success_rate:.2%}, "
-                    f"contribution={contribution:.2%}"
-                )
-
-        final_score = evaluation_func(self.best_matrix)  # Validação final
-        return final_score  # Retorna o score validado
+        
+        for _ in range(size):
+            strategy = random.choices(
+                [n[0] for n in neighborhoods],
+                weights=[n[1] for n in neighborhoods]
+            )[0]
+            perturbed = strategy(perturbed)
+            
+        return perturbed
