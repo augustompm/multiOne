@@ -2,7 +2,7 @@
 
 import numpy as np
 from pathlib import Path
-from typing import List, Dict, Optional, Callable
+from typing import List, Dict, Optional, Callable, Tuple
 import logging
 from copy import deepcopy
 import random
@@ -316,7 +316,7 @@ class Population:
 
 class MemeticAlgorithm:
     """
-    Coordena o algoritmo memético com mecanismos adaptativos.
+    Coordina o algoritmo memético com mecanismos adaptativos.
     """
     def __init__(
         self,
@@ -375,15 +375,15 @@ class MemeticAlgorithm:
         local_search_frequency: int,
         local_search_iterations: int,
         max_no_improve: int,
-        run_id: int,  # Adicionado run_id
-        evaluation_function: Callable  # Adicionado evaluation_function
-    ) -> AdaptiveMatrix:
+        evaluation_function
+    ) -> Tuple[AdaptiveMatrix, float]:
         """Executa otimização com mecanismos adaptativos."""
-        self.logger.info(f"Starting memetic optimization for Run {run_id}")
+        
+        self.logger.info("Starting memetic optimization")
         best_of_this_run = float('-inf')
         best_matrix_of_run = None
 
-        for generation in range(1, generations + 1):
+        for generation in range(generations):
             # Avalia população
             self.population.evaluate_population()
 
@@ -427,19 +427,7 @@ class MemeticAlgorithm:
                 if ind.fitness > self.best_global_score:
                     self.best_global_score = ind.fitness
                     self.best_global_matrix = ind.matrix.copy()
-                    self.logger.info(f"Run {run_id}: New best global score: {self.best_global_score:.4f}")
-
-                    # Salva imediatamente a nova melhor matriz
-                    try:
-                        timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M")
-                        results_dir = Path("memetic/results")
-                        results_dir.mkdir(exist_ok=True, parents=True)
-
-                        matrix_file = results_dir / f"{timestamp}-Run{run_id}-AdaptivePAM-{self.best_global_score:.4f}.txt"
-                        self.best_global_matrix.to_clustalw_format(matrix_file)
-                        self.logger.info(f"Run {run_id}: Saved best matrix to: {matrix_file}")
-                    except Exception as e:
-                        self.logger.error(f"Run {run_id}: Error saving matrix: {e}")
+                    self.logger.info(f"New best global score: {self.best_global_score:.4f}")
 
             # Atualiza melhor desta execução
             current_best = max(self.population.individuals, key=lambda ind: ind.fitness, default=None)
@@ -449,20 +437,20 @@ class MemeticAlgorithm:
                 if current_score > best_of_this_run:
                     best_of_this_run = current_score
                     best_matrix_of_run = current_best.matrix.copy()
-                    self.logger.info(f"Run {run_id}: New best score (validated): {best_of_this_run:.4f}")
+                    self.logger.info(f"New best score (validated): {best_of_this_run:.4f}")
 
             # Verifica critério de parada antecipada
             stagnation = self.population.elite_pool.get_stagnation_generations()
             if stagnation > self.hyperparams['VNS']['MAX_NO_IMPROVE']:
                 # Aplica reinício parcial se estagnado
                 if random.random() < 0.3:  # 30% chance de reinício
-                    self.logger.info(f"Run {run_id}: Applying partial restart due to stagnation")
+                    self.logger.info(f"Applying partial restart due to stagnation")
                     self._partial_restart()
                     continue
 
                 # Ou termina se já próximo do máximo de gerações
                 if generation > generations * 0.8:
-                    self.logger.info(f"Run {run_id}: Early stopping due to stagnation")
+                    self.logger.info(f"Early stopping due to stagnation")
                     break
 
             # Cria próxima geração
@@ -473,33 +461,16 @@ class MemeticAlgorithm:
                 elite_fitness = [ind.fitness for ind in self.population.elite_pool.individuals]
                 elite_avg = np.mean(elite_fitness) if elite_fitness else 0.0
                 self.logger.info(
-                    f"Run {run_id} - Generation {generation}: "
+                    f"Generation {generation}: "
                     f"Best={self.best_global_score:.4f}, "
                     f"Elite_avg={elite_avg:.4f}, "
                     f"Stagnation={stagnation}"
                 )
 
-        # Salva apenas se for o melhor global após validação
-        if best_of_this_run > self.best_global_score:
-            self.best_global_score = best_of_this_run
-            self.best_global_matrix = best_matrix_of_run
-
-            try:
-                # Apenas um arquivo por execução, somente o melhor global validado
-                results_dir = Path("memetic/results")
-                results_dir.mkdir(exist_ok=True, parents=True)
-
-                # Remove arquivos anteriores desta execução
-                for f in results_dir.glob(f"*Run{run_id}*"):
-                    f.unlink()
-
-                matrix_file = results_dir / f"Run{run_id}-AdaptivePAM-{best_of_this_run:.4f}.txt"
-                best_matrix_of_run.to_clustalw_format(matrix_file)
-                self.logger.info(f"Run {run_id}: Saved validated best matrix (score: {best_of_this_run:.4f}) to: {matrix_file}")
-            except Exception as e:
-                self.logger.error(f"Run {run_id}: Error saving matrix: {e}")
-
-        return best_matrix_of_run
+        if best_matrix_of_run:
+            final_score = evaluation_function(best_matrix_of_run)
+            return best_matrix_of_run, final_score
+        return None, float('-inf')
 
     def _partial_restart(self):
         """Reinicia parte da população mantendo melhores soluções."""

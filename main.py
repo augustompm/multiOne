@@ -5,7 +5,7 @@ from pathlib import Path
 import logging
 from datetime import datetime
 import json
-from typing import Dict, Optional
+from typing import Dict, Optional, Tuple
 
 from memetic.matrix import AdaptiveMatrix
 from memetic.local_search import LocalSearch
@@ -76,14 +76,22 @@ def setup_logging(log_dir: Path) -> None:
 def evaluate_matrix(matrix: AdaptiveMatrix, xml_file: Path, fasta_file: Path) -> float:
     """Avalia uma matriz usando ClustalW e bali_score."""
     temp_dir = Path("temp")
+    # Limpa diretório temp
+    if temp_dir.exists():
+        for f in temp_dir.glob("*"):
+            try:
+                f.unlink()
+                logging.debug(f"Removed temporary file: {f}")
+            except Exception as e:
+                logging.error(f"Error removing temporary file {f}: {e}")
     temp_dir.mkdir(exist_ok=True)
     
     matrix_file = temp_dir / "temp_matrix.mat"
     matrix.to_clustalw_format(matrix_file)
     
     scores = []
-    for _ in range(HYPERPARAMS['EXECUTION']['EVAL_SAMPLES']):
-        aln_file = temp_dir / f"temp_aln_{_}.fasta"
+    for sample in range(HYPERPARAMS['EXECUTION']['EVAL_SAMPLES']):
+        aln_file = temp_dir / f"temp_aln_{sample}.fasta"
         try:
             if run_clustalw(str(fasta_file), str(aln_file), str(matrix_file)):
                 score = get_bali_score(str(xml_file), str(aln_file))
@@ -94,10 +102,18 @@ def evaluate_matrix(matrix: AdaptiveMatrix, xml_file: Path, fasta_file: Path) ->
             logging.error(f"Error during matrix evaluation: {str(e)}")
         finally:
             if aln_file.exists():
-                aln_file.unlink()
+                try:
+                    aln_file.unlink()
+                    logging.debug(f"Removed alignment file: {aln_file}")
+                except Exception as e:
+                    logging.error(f"Error removing alignment file {aln_file}: {e}")
     
     if matrix_file.exists():
-        matrix_file.unlink()
+        try:
+            matrix_file.unlink()
+            logging.debug(f"Removed matrix file: {matrix_file}")
+        except Exception as e:
+            logging.error(f"Error removing matrix file {matrix_file}: {e}")
         
     return sum(scores)/len(scores) if scores else 0.0
 
@@ -133,11 +149,11 @@ def main():
     # Setup de diretórios
     project_root = Path(__file__).parent
     input_dir = project_root / "BAliBASE/RV100"
-    results_dir = project_root / "results"
+    results_dir = project_root / "memetic/results"
     log_dir = project_root / "logs"
     
     for d in [results_dir, log_dir]:
-        d.mkdir(exist_ok=True)
+        d.mkdir(parents=True, exist_ok=True)
     
     # Setup do logging
     setup_logging(log_dir)
@@ -154,6 +170,17 @@ def main():
     best_overall_score = float('-inf')
     best_overall_matrix = None
     
+    # Limpa diretório de resultados
+    if results_dir.exists():
+        for f in results_dir.glob("*"):
+            try:
+                f.unlink()
+                logging.debug(f"Removed previous result file: {f}")
+            except Exception as e:
+                logging.error(f"Error removing file {f}: {e}")
+    else:
+        results_dir.mkdir(parents=True, exist_ok=True)
+    
     for run in range(HYPERPARAMS['EXECUTION']['NUM_RUNS']):
         logging.info(f"\nStarting run {run + 1}/{HYPERPARAMS['EXECUTION']['NUM_RUNS']}")
         
@@ -169,33 +196,39 @@ def main():
                 hyperparams=HYPERPARAMS  
             )
             
-            # Executa otimização passando run_id e evaluation_function
-            best_matrix = memetic.run(
+            # Executa otimização passando evaluation_function
+            best_matrix, best_score = memetic.run(
                 generations=HYPERPARAMS['MEMETIC']['MAX_GENERATIONS'],
                 local_search_frequency=HYPERPARAMS['MEMETIC']['LOCAL_SEARCH_FREQ'],
                 local_search_iterations=HYPERPARAMS['VNS']['MAX_ITER'],
                 max_no_improve=HYPERPARAMS['VNS']['MAX_NO_IMPROVE'],
-                run_id=run + 1,  # Passa o ID da execução
-                evaluation_function=lambda m: evaluate_matrix(m, xml_file, fasta_file)  # Passa a função de avaliação
+                evaluation_function=lambda m: evaluate_matrix(m, xml_file, fasta_file)
             )
             
-            # Avalia melhor matriz (opcional, caso queira confirmar o score)
-            final_score = evaluate_matrix(best_matrix, xml_file, fasta_file)
-            logging.info(f"Run {run + 1} completed. Score: {final_score:.4f}")
-            
-            # Atualiza melhor global apenas no final de cada execução
-            if final_score > best_overall_score:
-                best_overall_score = final_score
-                best_overall_matrix = best_matrix
-                logging.info(f"New best overall score: {best_overall_score:.4f}")
-            
-            # Removido: Registro de execução para análise (ExecutionAnalyzer)
-            
+            # Salva somente se for melhor que o global
+            if best_score > best_overall_score:
+                # Faz validação final
+                validation_score = evaluate_matrix(best_matrix, xml_file, fasta_file)
+                if validation_score > best_overall_score:
+                    best_overall_score = validation_score
+                    best_overall_matrix = best_matrix
+                    
+                    # Remove todos arquivos anteriores
+                    for f in results_dir.glob("*AdaptivePAM*"):
+                        try:
+                            f.unlink()
+                            logging.debug(f"Removed previous result file: {f}")
+                        except Exception as e:
+                            logging.error(f"Error removing file {f}: {e}")
+                    
+                    # Salva apenas o novo melhor global
+                    matrix_file = results_dir / f"AdaptivePAM-{validation_score:.4f}.txt"
+                    best_overall_matrix.to_clustalw_format(matrix_file)
+                    logging.info(f"New best validated score: {validation_score:.4f}")
+                
         except Exception as e:
             logging.error(f"Error during run {run + 1}: {str(e)}", exc_info=True)
             continue
-    
-    # Removido: Análise final com ExecutionAnalyzer
     
     # Salva melhor resultado
     if best_overall_matrix:
@@ -206,7 +239,7 @@ def main():
             {
                 'num_runs': HYPERPARAMS['EXECUTION']['NUM_RUNS'],
                 'best_score': best_overall_score
-                # Removido: 'analyzer_stats': analyzer.get_stats()
+                # Adicione outras informações relevantes aqui, se necessário
             }
         )
   

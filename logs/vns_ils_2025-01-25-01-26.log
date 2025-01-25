@@ -1,0 +1,1031 @@
+2025-01-25 01:26:46,838 - root - INFO - Iniciando execução com hiperparâmetros:
+2025-01-25 01:26:46,839 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 1e-06,
+    "MAX_ITER": 100,
+    "MAX_NO_IMPROVE": 20,
+    "PERTURBATION_SIZE": 5,
+    "MAX_PERTURBATION": 20,
+    "ESCAPE_THRESHOLD": 10,
+    "SCORE_CONSTRAINTS": {
+      "DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "DIFFERENT": {
+        "min": -8,
+        "max": 4
+      }
+    }
+  },
+  "MEMETIC": {
+    "POPULATION_SIZE": 20,
+    "ELITE_SIZE": 5,
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 5,
+    "DIVERSITY_THRESHOLD": 0.2
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "EXECUTION": {
+    "NUM_RUNS": 3,
+    "EVAL_SAMPLES": 1,
+    "SEED": null
+  }
+}
+2025-01-25 01:26:46,839 - root - INFO - 
+Starting run 1/3
+2025-01-25 01:26:46,840 - LocalSearch - INFO - Analyzing alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml
+2025-01-25 01:26:46,841 - LocalSearch - INFO - Analyzing substitution patterns
+2025-01-25 01:26:46,846 - LocalSearch - INFO - Pattern analysis completed
+2025-01-25 01:26:47,256 - MemeticAlgorithm - WARNING - No viable individuals in initial population
+2025-01-25 01:26:47,256 - MemeticAlgorithm - INFO - Starting memetic optimization for Run 1
+2025-01-25 01:26:47,257 - MemeticAlgorithm - INFO - Run 1: New best global score: 0.8100
+2025-01-25 01:26:47,279 - MemeticAlgorithm - INFO - Run 1: New best score (validated): 0.8100
+2025-01-25 01:26:48,439 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:26:49,623 - LocalSearch - INFO - New best score found: 0.8330
+2025-01-25 01:26:51,155 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:26:51,155 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.22%, contribution=37.63%
+2025-01-25 01:26:51,155 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.71%
+2025-01-25 01:26:51,156 - LocalSearch - INFO - Neighborhood group: success_rate=61.11%, contribution=23.66%
+2025-01-25 01:26:51,156 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:26:52,736 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:26:52,736 - LocalSearch - INFO - Neighborhood frequency: success_rate=92.86%, contribution=35.86%
+2025-01-25 01:26:52,736 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.62%
+2025-01-25 01:26:52,737 - LocalSearch - INFO - Neighborhood group: success_rate=66.07%, contribution=25.52%
+2025-01-25 01:26:52,737 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:26:54,303 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:26:54,303 - LocalSearch - INFO - Neighborhood frequency: success_rate=93.42%, contribution=36.04%
+2025-01-25 01:26:54,303 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.58%
+2025-01-25 01:26:54,303 - LocalSearch - INFO - Neighborhood group: success_rate=65.79%, contribution=25.38%
+2025-01-25 01:26:54,304 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:26:55,820 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:26:55,820 - LocalSearch - INFO - Neighborhood frequency: success_rate=93.75%, contribution=36.00%
+2025-01-25 01:26:55,820 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.40%
+2025-01-25 01:26:55,820 - LocalSearch - INFO - Neighborhood group: success_rate=66.67%, contribution=25.60%
+2025-01-25 01:26:55,820 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:26:57,371 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:26:57,371 - LocalSearch - INFO - Neighborhood frequency: success_rate=94.83%, contribution=36.91%
+2025-01-25 01:26:57,371 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.93%
+2025-01-25 01:26:57,371 - LocalSearch - INFO - Neighborhood group: success_rate=62.07%, contribution=24.16%
+2025-01-25 01:26:57,372 - MemeticAlgorithm - INFO - Run 1: New best global score: 0.8330
+2025-01-25 01:26:57,616 - MemeticAlgorithm - INFO - Run 1: New best score (validated): 0.8330
+2025-01-25 01:26:57,842 - MemeticAlgorithm - INFO - Run 1: New best global score: 0.9290
+2025-01-25 01:26:57,864 - MemeticAlgorithm - INFO - Run 1: New best score (validated): 0.9290
+2025-01-25 01:26:58,737 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=130)
+2025-01-25 01:27:00,256 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:00,256 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.59%, contribution=36.83%
+2025-01-25 01:27:00,256 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.53%
+2025-01-25 01:27:00,256 - LocalSearch - INFO - Neighborhood group: success_rate=63.97%, contribution=24.65%
+2025-01-25 01:27:00,257 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=130)
+2025-01-25 01:27:01,770 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:01,770 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.51%, contribution=36.88%
+2025-01-25 01:27:01,770 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.61%
+2025-01-25 01:27:01,770 - LocalSearch - INFO - Neighborhood group: success_rate=63.46%, contribution=24.50%
+2025-01-25 01:27:01,770 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=130)
+2025-01-25 01:27:03,291 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:03,291 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.02%, contribution=37.39%
+2025-01-25 01:27:03,291 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.94%
+2025-01-25 01:27:03,291 - LocalSearch - INFO - Neighborhood group: success_rate=60.80%, contribution=23.67%
+2025-01-25 01:27:03,291 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=130)
+2025-01-25 01:27:04,892 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:04,893 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.92%, contribution=37.60%
+2025-01-25 01:27:04,893 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.20%
+2025-01-25 01:27:04,893 - LocalSearch - INFO - Neighborhood group: success_rate=59.18%, contribution=23.20%
+2025-01-25 01:27:04,893 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=130)
+2025-01-25 01:27:06,415 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:06,415 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.37%, contribution=37.59%
+2025-01-25 01:27:06,415 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.42%
+2025-01-25 01:27:06,415 - LocalSearch - INFO - Neighborhood group: success_rate=58.33%, contribution=22.99%
+2025-01-25 01:27:06,478 - MemeticAlgorithm - INFO - Run 1 - Generation 10: Best=0.9290, Elite_avg=0.9290, Stagnation=4
+2025-01-25 01:27:07,680 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=180)
+2025-01-25 01:27:09,203 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:09,203 - LocalSearch - INFO - Neighborhood frequency: success_rate=94.92%, contribution=37.52%
+2025-01-25 01:27:09,203 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.53%
+2025-01-25 01:27:09,203 - LocalSearch - INFO - Neighborhood group: success_rate=58.05%, contribution=22.95%
+2025-01-25 01:27:09,203 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=180)
+2025-01-25 01:27:10,733 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:10,733 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.31%, contribution=37.48%
+2025-01-25 01:27:10,733 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.32%
+2025-01-25 01:27:10,733 - LocalSearch - INFO - Neighborhood group: success_rate=58.98%, contribution=23.20%
+2025-01-25 01:27:10,733 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=180)
+2025-01-25 01:27:12,258 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:12,258 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.65%, contribution=37.66%
+2025-01-25 01:27:12,258 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.37%
+2025-01-25 01:27:12,258 - LocalSearch - INFO - Neighborhood group: success_rate=58.33%, contribution=22.97%
+2025-01-25 01:27:12,258 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=180)
+2025-01-25 01:27:13,791 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:13,791 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.95%, contribution=37.67%
+2025-01-25 01:27:13,791 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.26%
+2025-01-25 01:27:13,791 - LocalSearch - INFO - Neighborhood group: success_rate=58.78%, contribution=23.08%
+2025-01-25 01:27:13,791 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=180)
+2025-01-25 01:27:15,318 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:15,319 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.57%, contribution=37.56%
+2025-01-25 01:27:15,319 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.30%
+2025-01-25 01:27:15,319 - LocalSearch - INFO - Neighborhood group: success_rate=58.86%, contribution=23.13%
+2025-01-25 01:27:15,319 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=180)
+2025-01-25 01:27:16,861 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:16,861 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.54%, contribution=37.50%
+2025-01-25 01:27:16,861 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.25%
+2025-01-25 01:27:16,861 - LocalSearch - INFO - Neighborhood group: success_rate=59.23%, contribution=23.25%
+2025-01-25 01:27:16,861 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=180)
+2025-01-25 01:27:18,407 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:18,407 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.79%, contribution=37.51%
+2025-01-25 01:27:18,407 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.16%
+2025-01-25 01:27:18,407 - LocalSearch - INFO - Neighborhood group: success_rate=59.55%, contribution=23.32%
+2025-01-25 01:27:19,639 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:21,177 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:21,177 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.01%, contribution=37.60%
+2025-01-25 01:27:21,177 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.17%
+2025-01-25 01:27:21,177 - LocalSearch - INFO - Neighborhood group: success_rate=59.31%, contribution=23.23%
+2025-01-25 01:27:21,177 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:22,694 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:22,694 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.96%, contribution=37.62%
+2025-01-25 01:27:22,694 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.21%
+2025-01-25 01:27:22,694 - LocalSearch - INFO - Neighborhood group: success_rate=59.09%, contribution=23.17%
+2025-01-25 01:27:22,694 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:24,216 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:24,216 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.15%, contribution=37.70%
+2025-01-25 01:27:24,216 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.21%
+2025-01-25 01:27:24,216 - LocalSearch - INFO - Neighborhood group: success_rate=58.89%, contribution=23.09%
+2025-01-25 01:27:24,216 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:25,737 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:25,737 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.10%, contribution=37.68%
+2025-01-25 01:27:25,737 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.21%
+2025-01-25 01:27:25,738 - LocalSearch - INFO - Neighborhood group: success_rate=58.94%, contribution=23.11%
+2025-01-25 01:27:25,738 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:27,255 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:27,255 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.27%, contribution=37.71%
+2025-01-25 01:27:27,255 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.18%
+2025-01-25 01:27:27,255 - LocalSearch - INFO - Neighborhood group: success_rate=58.99%, contribution=23.11%
+2025-01-25 01:27:27,255 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:28,774 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:28,774 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.22%, contribution=37.85%
+2025-01-25 01:27:28,775 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.34%
+2025-01-25 01:27:28,775 - LocalSearch - INFO - Neighborhood group: success_rate=57.98%, contribution=22.81%
+2025-01-25 01:27:28,775 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:30,294 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:30,294 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.17%, contribution=37.89%
+2025-01-25 01:27:30,294 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.40%
+2025-01-25 01:27:30,294 - LocalSearch - INFO - Neighborhood group: success_rate=57.66%, contribution=22.72%
+2025-01-25 01:27:30,294 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:31,810 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:31,810 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.32%, contribution=37.85%
+2025-01-25 01:27:31,810 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.30%
+2025-01-25 01:27:31,810 - LocalSearch - INFO - Neighborhood group: success_rate=58.14%, contribution=22.85%
+2025-01-25 01:27:31,878 - MemeticAlgorithm - INFO - Run 1 - Generation 20: Best=0.9290, Elite_avg=0.9290, Stagnation=14
+2025-01-25 01:27:33,275 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:34,830 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:34,830 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.46%, contribution=37.88%
+2025-01-25 01:27:34,830 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.27%
+2025-01-25 01:27:34,830 - LocalSearch - INFO - Neighborhood group: success_rate=58.21%, contribution=22.86%
+2025-01-25 01:27:34,830 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:36,331 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:36,331 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.22%, contribution=37.86%
+2025-01-25 01:27:36,331 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.35%
+2025-01-25 01:27:36,331 - LocalSearch - INFO - Neighborhood group: success_rate=57.91%, contribution=22.79%
+2025-01-25 01:27:36,332 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:37,836 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:37,836 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.18%, contribution=37.87%
+2025-01-25 01:27:37,836 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.37%
+2025-01-25 01:27:37,836 - LocalSearch - INFO - Neighborhood group: success_rate=57.81%, contribution=22.76%
+2025-01-25 01:27:37,836 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:39,403 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:39,403 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.14%, contribution=37.87%
+2025-01-25 01:27:39,403 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.39%
+2025-01-25 01:27:39,404 - LocalSearch - INFO - Neighborhood group: success_rate=57.72%, contribution=22.74%
+2025-01-25 01:27:39,404 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:40,944 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:40,945 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.10%, contribution=37.88%
+2025-01-25 01:27:40,945 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.41%
+2025-01-25 01:27:40,945 - LocalSearch - INFO - Neighborhood group: success_rate=57.63%, contribution=22.71%
+2025-01-25 01:27:40,945 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:42,483 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:42,483 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.23%, contribution=37.85%
+2025-01-25 01:27:42,483 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.33%
+2025-01-25 01:27:42,483 - LocalSearch - INFO - Neighborhood group: success_rate=58.02%, contribution=22.82%
+2025-01-25 01:27:42,483 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:44,037 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:44,037 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.34%, contribution=37.89%
+2025-01-25 01:27:44,037 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.33%
+2025-01-25 01:27:44,037 - LocalSearch - INFO - Neighborhood group: success_rate=57.93%, contribution=22.78%
+2025-01-25 01:27:44,037 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:45,628 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:45,628 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.45%, contribution=37.84%
+2025-01-25 01:27:45,628 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.23%
+2025-01-25 01:27:45,628 - LocalSearch - INFO - Neighborhood group: success_rate=58.43%, contribution=22.93%
+2025-01-25 01:27:46,925 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:48,496 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:48,496 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.41%, contribution=37.93%
+2025-01-25 01:27:48,496 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.34%
+2025-01-25 01:27:48,496 - LocalSearch - INFO - Neighborhood group: success_rate=57.76%, contribution=22.72%
+2025-01-25 01:27:48,496 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:50,070 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:50,070 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.51%, contribution=37.86%
+2025-01-25 01:27:50,070 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.23%
+2025-01-25 01:27:50,070 - LocalSearch - INFO - Neighborhood group: success_rate=58.38%, contribution=22.90%
+2025-01-25 01:27:50,071 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:51,609 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:51,609 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.47%, contribution=37.89%
+2025-01-25 01:27:51,610 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.27%
+2025-01-25 01:27:51,610 - LocalSearch - INFO - Neighborhood group: success_rate=58.15%, contribution=22.84%
+2025-01-25 01:27:51,610 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:53,120 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:53,120 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.56%, contribution=37.96%
+2025-01-25 01:27:53,120 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.31%
+2025-01-25 01:27:53,120 - LocalSearch - INFO - Neighborhood group: success_rate=57.80%, contribution=22.72%
+2025-01-25 01:27:53,120 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:54,719 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:54,719 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.65%, contribution=37.99%
+2025-01-25 01:27:54,719 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.31%
+2025-01-25 01:27:54,719 - LocalSearch - INFO - Neighborhood group: success_rate=57.73%, contribution=22.70%
+2025-01-25 01:27:54,719 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:56,279 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:56,280 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.73%, contribution=37.95%
+2025-01-25 01:27:56,280 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.23%
+2025-01-25 01:27:56,280 - LocalSearch - INFO - Neighborhood group: success_rate=58.17%, contribution=22.82%
+2025-01-25 01:27:56,280 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:57,884 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:57,884 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.69%, contribution=37.97%
+2025-01-25 01:27:57,885 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.27%
+2025-01-25 01:27:57,885 - LocalSearch - INFO - Neighborhood group: success_rate=57.97%, contribution=22.76%
+2025-01-25 01:27:57,885 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:27:59,460 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:27:59,460 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.65%, contribution=37.90%
+2025-01-25 01:27:59,460 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.21%
+2025-01-25 01:27:59,461 - LocalSearch - INFO - Neighborhood group: success_rate=58.37%, contribution=22.89%
+2025-01-25 01:27:59,534 - MemeticAlgorithm - INFO - Run 1 - Generation 30: Best=0.9290, Elite_avg=0.9290, Stagnation=24
+2025-01-25 01:28:00,428 - MemeticAlgorithm - INFO - Run 1: Applying partial restart due to stagnation
+2025-01-25 01:28:00,437 - MemeticAlgorithm - INFO - Partial restart: kept 4 individuals
+2025-01-25 01:28:00,867 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:02,405 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:02,405 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.61%, contribution=37.88%
+2025-01-25 01:28:02,405 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.21%
+2025-01-25 01:28:02,405 - LocalSearch - INFO - Neighborhood group: success_rate=58.41%, contribution=22.90%
+2025-01-25 01:28:02,406 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:03,978 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:03,978 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.46%, contribution=37.86%
+2025-01-25 01:28:03,978 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.25%
+2025-01-25 01:28:03,979 - LocalSearch - INFO - Neighborhood group: success_rate=58.33%, contribution=22.89%
+2025-01-25 01:28:03,979 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:05,494 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:05,494 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.32%, contribution=37.80%
+2025-01-25 01:28:05,494 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.25%
+2025-01-25 01:28:05,494 - LocalSearch - INFO - Neighborhood group: success_rate=58.48%, contribution=22.95%
+2025-01-25 01:28:05,494 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:07,015 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:07,015 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.40%, contribution=37.77%
+2025-01-25 01:28:07,015 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.18%
+2025-01-25 01:28:07,015 - LocalSearch - INFO - Neighborhood group: success_rate=58.84%, contribution=23.05%
+2025-01-25 01:28:07,015 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:08,626 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:08,626 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.26%, contribution=37.75%
+2025-01-25 01:28:08,626 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.21%
+2025-01-25 01:28:08,626 - LocalSearch - INFO - Neighborhood group: success_rate=58.76%, contribution=23.04%
+2025-01-25 01:28:08,627 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:10,153 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:10,153 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.34%, contribution=37.79%
+2025-01-25 01:28:10,153 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.23%
+2025-01-25 01:28:10,153 - LocalSearch - INFO - Neighborhood group: success_rate=58.58%, contribution=22.98%
+2025-01-25 01:28:10,153 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:11,685 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:11,685 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.41%, contribution=37.82%
+2025-01-25 01:28:11,685 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.23%
+2025-01-25 01:28:11,685 - LocalSearch - INFO - Neighborhood group: success_rate=58.50%, contribution=22.95%
+2025-01-25 01:28:11,685 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:13,261 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:13,262 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.39%, contribution=37.80%
+2025-01-25 01:28:13,262 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.21%
+2025-01-25 01:28:13,262 - LocalSearch - INFO - Neighborhood group: success_rate=58.63%, contribution=22.99%
+2025-01-25 01:28:14,231 - MemeticAlgorithm - INFO - Run 1: Applying partial restart due to stagnation
+2025-01-25 01:28:14,243 - MemeticAlgorithm - INFO - Partial restart: kept 4 individuals
+2025-01-25 01:28:14,729 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:16,429 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:16,429 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.46%, contribution=37.84%
+2025-01-25 01:28:16,429 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.23%
+2025-01-25 01:28:16,429 - LocalSearch - INFO - Neighborhood group: success_rate=58.46%, contribution=22.93%
+2025-01-25 01:28:16,429 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:18,033 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:18,033 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.43%, contribution=37.83%
+2025-01-25 01:28:18,033 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.23%
+2025-01-25 01:28:18,033 - LocalSearch - INFO - Neighborhood group: success_rate=58.49%, contribution=22.95%
+2025-01-25 01:28:18,033 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:19,599 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:19,600 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.50%, contribution=37.87%
+2025-01-25 01:28:19,600 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.24%
+2025-01-25 01:28:19,600 - LocalSearch - INFO - Neighborhood group: success_rate=58.33%, contribution=22.89%
+2025-01-25 01:28:19,600 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:21,200 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:21,200 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.47%, contribution=37.83%
+2025-01-25 01:28:21,200 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.21%
+2025-01-25 01:28:21,200 - LocalSearch - INFO - Neighborhood group: success_rate=58.55%, contribution=22.96%
+2025-01-25 01:28:21,200 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:22,756 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:22,757 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.44%, contribution=37.86%
+2025-01-25 01:28:22,757 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.26%
+2025-01-25 01:28:22,757 - LocalSearch - INFO - Neighborhood group: success_rate=58.30%, contribution=22.89%
+2025-01-25 01:28:22,757 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:24,338 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:24,339 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.51%, contribution=37.87%
+2025-01-25 01:28:24,339 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.24%
+2025-01-25 01:28:24,339 - LocalSearch - INFO - Neighborhood group: success_rate=58.33%, contribution=22.89%
+2025-01-25 01:28:24,339 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:25,922 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:25,922 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.57%, contribution=37.87%
+2025-01-25 01:28:25,923 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.21%
+2025-01-25 01:28:25,923 - LocalSearch - INFO - Neighborhood group: success_rate=58.45%, contribution=22.92%
+2025-01-25 01:28:25,923 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:27,557 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:28:27,557 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.63%, contribution=37.84%
+2025-01-25 01:28:27,557 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.16%
+2025-01-25 01:28:27,557 - LocalSearch - INFO - Neighborhood group: success_rate=58.74%, contribution=23.00%
+2025-01-25 01:28:27,626 - MemeticAlgorithm - INFO - Run 1 - Generation 40: Best=0.9290, Elite_avg=0.9290, Stagnation=34
+2025-01-25 01:28:27,895 - MemeticAlgorithm - INFO - Run 1: Early stopping due to stagnation
+2025-01-25 01:28:27,898 - root - INFO - New best matrix saved (score: 0.9290)
+2025-01-25 01:28:27,898 - root - INFO - 
+Starting run 2/3
+2025-01-25 01:28:27,899 - LocalSearch - INFO - Analyzing alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml
+2025-01-25 01:28:27,900 - LocalSearch - INFO - Analyzing substitution patterns
+2025-01-25 01:28:27,906 - LocalSearch - INFO - Pattern analysis completed
+2025-01-25 01:28:28,340 - MemeticAlgorithm - WARNING - No viable individuals in initial population
+2025-01-25 01:28:28,341 - MemeticAlgorithm - INFO - Starting memetic optimization for Run 2
+2025-01-25 01:28:28,342 - MemeticAlgorithm - INFO - Run 2: New best global score: 0.8100
+2025-01-25 01:28:28,345 - MemeticAlgorithm - INFO - Run 2: New best global score: 0.9290
+2025-01-25 01:28:28,367 - MemeticAlgorithm - INFO - Run 2: New best score (validated): 0.9290
+2025-01-25 01:28:29,405 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:28:30,329 - LocalSearch - INFO - New best score found: 0.9290
+2025-01-25 01:28:31,853 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:31,853 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.97%, contribution=36.78%
+2025-01-25 01:28:31,853 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=37.93%
+2025-01-25 01:28:31,853 - LocalSearch - INFO - Neighborhood group: success_rate=66.67%, contribution=25.29%
+2025-01-25 01:28:31,853 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:28:33,396 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:33,396 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.11%, contribution=36.36%
+2025-01-25 01:28:33,396 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=37.06%
+2025-01-25 01:28:33,396 - LocalSearch - INFO - Neighborhood group: success_rate=71.70%, contribution=26.57%
+2025-01-25 01:28:33,396 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:28:34,904 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:34,904 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.63%, contribution=37.11%
+2025-01-25 01:28:34,904 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=37.63%
+2025-01-25 01:28:34,904 - LocalSearch - INFO - Neighborhood group: success_rate=67.12%, contribution=25.26%
+2025-01-25 01:28:34,904 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:28:36,418 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:36,418 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.92%, contribution=37.25%
+2025-01-25 01:28:36,418 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=37.65%
+2025-01-25 01:28:36,418 - LocalSearch - INFO - Neighborhood group: success_rate=66.67%, contribution=25.10%
+2025-01-25 01:28:36,418 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:28:37,929 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:37,929 - LocalSearch - INFO - Neighborhood frequency: success_rate=99.12%, contribution=37.84%
+2025-01-25 01:28:37,929 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.18%
+2025-01-25 01:28:37,929 - LocalSearch - INFO - Neighborhood group: success_rate=62.83%, contribution=23.99%
+2025-01-25 01:28:39,362 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:28:40,895 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:40,895 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.50%, contribution=38.08%
+2025-01-25 01:28:40,895 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.66%
+2025-01-25 01:28:40,895 - LocalSearch - INFO - Neighborhood group: success_rate=60.15%, contribution=23.26%
+2025-01-25 01:28:40,895 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:28:42,390 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:42,390 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.39%, contribution=38.01%
+2025-01-25 01:28:42,390 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.03%
+2025-01-25 01:28:42,390 - LocalSearch - INFO - Neighborhood group: success_rate=58.82%, contribution=22.96%
+2025-01-25 01:28:42,390 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:28:43,915 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:43,915 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.69%, contribution=38.15%
+2025-01-25 01:28:43,915 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.05%
+2025-01-25 01:28:43,915 - LocalSearch - INFO - Neighborhood group: success_rate=58.38%, contribution=22.80%
+2025-01-25 01:28:43,915 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:28:45,526 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:45,527 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.93%, contribution=38.10%
+2025-01-25 01:28:45,527 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.91%
+2025-01-25 01:28:45,527 - LocalSearch - INFO - Neighborhood group: success_rate=59.07%, contribution=22.98%
+2025-01-25 01:28:45,527 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:28:47,078 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:47,078 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.65%, contribution=37.96%
+2025-01-25 01:28:47,078 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.87%
+2025-01-25 01:28:47,078 - LocalSearch - INFO - Neighborhood group: success_rate=59.62%, contribution=23.18%
+2025-01-25 01:28:47,078 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:28:48,577 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:48,578 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.42%, contribution=37.96%
+2025-01-25 01:28:48,578 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.96%
+2025-01-25 01:28:48,578 - LocalSearch - INFO - Neighborhood group: success_rate=59.23%, contribution=23.08%
+2025-01-25 01:28:48,578 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:28:50,087 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:50,087 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.63%, contribution=38.06%
+2025-01-25 01:28:50,087 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.98%
+2025-01-25 01:28:50,087 - LocalSearch - INFO - Neighborhood group: success_rate=58.89%, contribution=22.96%
+2025-01-25 01:28:50,147 - MemeticAlgorithm - INFO - Run 2 - Generation 10: Best=0.9290, Elite_avg=0.9290, Stagnation=10
+2025-01-25 01:28:51,471 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:52,995 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:52,995 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.70%, contribution=37.66%
+2025-01-25 01:28:52,995 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.94%
+2025-01-25 01:28:52,995 - LocalSearch - INFO - Neighborhood group: success_rate=60.07%, contribution=23.40%
+2025-01-25 01:28:52,995 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:54,503 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:54,503 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.93%, contribution=37.57%
+2025-01-25 01:28:54,503 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.76%
+2025-01-25 01:28:54,503 - LocalSearch - INFO - Neighborhood group: success_rate=61.09%, contribution=23.68%
+2025-01-25 01:28:54,503 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:56,000 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:56,000 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.12%, contribution=37.67%
+2025-01-25 01:28:56,000 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.79%
+2025-01-25 01:28:56,000 - LocalSearch - INFO - Neighborhood group: success_rate=60.70%, contribution=23.54%
+2025-01-25 01:28:56,000 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:57,506 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:57,506 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.30%, contribution=37.85%
+2025-01-25 01:28:57,506 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.90%
+2025-01-25 01:28:57,506 - LocalSearch - INFO - Neighborhood group: success_rate=59.76%, contribution=23.25%
+2025-01-25 01:28:57,506 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:28:59,045 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:28:59,045 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.45%, contribution=37.84%
+2025-01-25 01:28:59,045 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.83%
+2025-01-25 01:28:59,045 - LocalSearch - INFO - Neighborhood group: success_rate=60.06%, contribution=23.32%
+2025-01-25 01:28:59,045 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:00,637 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:00,637 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.32%, contribution=37.81%
+2025-01-25 01:29:00,637 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.85%
+2025-01-25 01:29:00,637 - LocalSearch - INFO - Neighborhood group: success_rate=60.05%, contribution=23.33%
+2025-01-25 01:29:00,637 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:02,166 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:02,166 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.46%, contribution=37.77%
+2025-01-25 01:29:02,166 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.76%
+2025-01-25 01:29:02,166 - LocalSearch - INFO - Neighborhood group: success_rate=60.56%, contribution=23.47%
+2025-01-25 01:29:02,166 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:03,738 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:03,738 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.58%, contribution=37.73%
+2025-01-25 01:29:03,738 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.67%
+2025-01-25 01:29:03,738 - LocalSearch - INFO - Neighborhood group: success_rate=61.02%, contribution=23.60%
+2025-01-25 01:29:05,449 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:07,001 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:07,001 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.46%, contribution=37.61%
+2025-01-25 01:29:07,001 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.59%
+2025-01-25 01:29:07,001 - LocalSearch - INFO - Neighborhood group: success_rate=61.66%, contribution=23.80%
+2025-01-25 01:29:07,001 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:08,556 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:08,556 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.57%, contribution=37.59%
+2025-01-25 01:29:08,556 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.52%
+2025-01-25 01:29:08,556 - LocalSearch - INFO - Neighborhood group: success_rate=62.03%, contribution=23.89%
+2025-01-25 01:29:08,556 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:10,094 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:10,094 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.67%, contribution=37.78%
+2025-01-25 01:29:10,094 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.68%
+2025-01-25 01:29:10,094 - LocalSearch - INFO - Neighborhood group: success_rate=60.89%, contribution=23.55%
+2025-01-25 01:29:10,094 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:11,643 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:11,643 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.57%, contribution=37.67%
+2025-01-25 01:29:11,643 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.61%
+2025-01-25 01:29:11,644 - LocalSearch - INFO - Neighborhood group: success_rate=61.46%, contribution=23.73%
+2025-01-25 01:29:11,644 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:13,226 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:13,226 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.66%, contribution=37.70%
+2025-01-25 01:29:13,226 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.60%
+2025-01-25 01:29:13,226 - LocalSearch - INFO - Neighborhood group: success_rate=61.40%, contribution=23.70%
+2025-01-25 01:29:13,226 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:14,798 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:14,798 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.75%, contribution=37.73%
+2025-01-25 01:29:14,798 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.60%
+2025-01-25 01:29:14,798 - LocalSearch - INFO - Neighborhood group: success_rate=61.35%, contribution=23.68%
+2025-01-25 01:29:14,798 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:16,324 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:16,324 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.83%, contribution=37.75%
+2025-01-25 01:29:16,324 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.59%
+2025-01-25 01:29:16,324 - LocalSearch - INFO - Neighborhood group: success_rate=61.30%, contribution=23.66%
+2025-01-25 01:29:16,325 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:17,857 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:17,857 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.91%, contribution=37.80%
+2025-01-25 01:29:17,857 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.61%
+2025-01-25 01:29:17,857 - LocalSearch - INFO - Neighborhood group: success_rate=61.08%, contribution=23.58%
+2025-01-25 01:29:17,921 - MemeticAlgorithm - INFO - Run 2 - Generation 20: Best=0.9290, Elite_avg=0.9290, Stagnation=20
+2025-01-25 01:29:19,236 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:20,836 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:20,836 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.98%, contribution=37.85%
+2025-01-25 01:29:20,836 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.63%
+2025-01-25 01:29:20,836 - LocalSearch - INFO - Neighborhood group: success_rate=60.88%, contribution=23.52%
+2025-01-25 01:29:20,836 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:22,350 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:22,350 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.04%, contribution=37.89%
+2025-01-25 01:29:22,350 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.65%
+2025-01-25 01:29:22,350 - LocalSearch - INFO - Neighborhood group: success_rate=60.69%, contribution=23.46%
+2025-01-25 01:29:22,351 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:23,894 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:23,894 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.10%, contribution=37.80%
+2025-01-25 01:29:23,894 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.53%
+2025-01-25 01:29:23,894 - LocalSearch - INFO - Neighborhood group: success_rate=61.45%, contribution=23.68%
+2025-01-25 01:29:23,894 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:25,437 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:25,437 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.01%, contribution=37.80%
+2025-01-25 01:29:25,437 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.57%
+2025-01-25 01:29:25,437 - LocalSearch - INFO - Neighborhood group: success_rate=61.26%, contribution=23.63%
+2025-01-25 01:29:25,438 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:26,957 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:26,957 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.07%, contribution=37.78%
+2025-01-25 01:29:26,957 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.52%
+2025-01-25 01:29:26,957 - LocalSearch - INFO - Neighborhood group: success_rate=61.52%, contribution=23.70%
+2025-01-25 01:29:26,957 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:28,555 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:28,555 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.98%, contribution=37.74%
+2025-01-25 01:29:28,555 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.52%
+2025-01-25 01:29:28,555 - LocalSearch - INFO - Neighborhood group: success_rate=61.62%, contribution=23.74%
+2025-01-25 01:29:28,555 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:30,084 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:30,084 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.04%, contribution=37.78%
+2025-01-25 01:29:30,085 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.54%
+2025-01-25 01:29:30,085 - LocalSearch - INFO - Neighborhood group: success_rate=61.43%, contribution=23.68%
+2025-01-25 01:29:30,085 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:31,597 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:31,597 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.09%, contribution=37.86%
+2025-01-25 01:29:31,597 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.60%
+2025-01-25 01:29:31,597 - LocalSearch - INFO - Neighborhood group: success_rate=60.98%, contribution=23.54%
+2025-01-25 01:29:31,617 - MemeticAlgorithm - INFO - Run 2: Applying partial restart due to stagnation
+2025-01-25 01:29:31,625 - MemeticAlgorithm - INFO - Partial restart: kept 4 individuals
+2025-01-25 01:29:32,371 - MemeticAlgorithm - INFO - Run 2: Applying partial restart due to stagnation
+2025-01-25 01:29:32,382 - MemeticAlgorithm - INFO - Partial restart: kept 4 individuals
+2025-01-25 01:29:32,888 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:34,495 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:34,495 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.14%, contribution=37.86%
+2025-01-25 01:29:34,495 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.58%
+2025-01-25 01:29:34,495 - LocalSearch - INFO - Neighborhood group: success_rate=61.09%, contribution=23.57%
+2025-01-25 01:29:34,495 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:36,154 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:36,154 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.06%, contribution=37.84%
+2025-01-25 01:29:36,154 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.59%
+2025-01-25 01:29:36,155 - LocalSearch - INFO - Neighborhood group: success_rate=61.06%, contribution=23.56%
+2025-01-25 01:29:36,155 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:37,701 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:37,701 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.86%, contribution=37.78%
+2025-01-25 01:29:37,701 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.61%
+2025-01-25 01:29:37,701 - LocalSearch - INFO - Neighborhood group: success_rate=61.16%, contribution=23.61%
+2025-01-25 01:29:37,701 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:39,287 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:39,287 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.91%, contribution=37.74%
+2025-01-25 01:29:39,287 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.55%
+2025-01-25 01:29:39,287 - LocalSearch - INFO - Neighborhood group: success_rate=61.50%, contribution=23.71%
+2025-01-25 01:29:39,287 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:40,935 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:40,935 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.96%, contribution=37.76%
+2025-01-25 01:29:40,935 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.55%
+2025-01-25 01:29:40,935 - LocalSearch - INFO - Neighborhood group: success_rate=61.46%, contribution=23.69%
+2025-01-25 01:29:40,935 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:42,614 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:42,614 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.01%, contribution=37.74%
+2025-01-25 01:29:42,614 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.51%
+2025-01-25 01:29:42,614 - LocalSearch - INFO - Neighborhood group: success_rate=61.66%, contribution=23.75%
+2025-01-25 01:29:42,614 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:44,188 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:44,188 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.05%, contribution=37.79%
+2025-01-25 01:29:44,188 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.54%
+2025-01-25 01:29:44,188 - LocalSearch - INFO - Neighborhood group: success_rate=61.40%, contribution=23.66%
+2025-01-25 01:29:44,188 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:45,718 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:45,718 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.10%, contribution=37.86%
+2025-01-25 01:29:45,718 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.59%
+2025-01-25 01:29:45,718 - LocalSearch - INFO - Neighborhood group: success_rate=61.03%, contribution=23.55%
+2025-01-25 01:29:45,786 - MemeticAlgorithm - INFO - Run 2 - Generation 30: Best=0.9290, Elite_avg=0.9290, Stagnation=30
+2025-01-25 01:29:47,162 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:48,793 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:48,794 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.03%, contribution=37.80%
+2025-01-25 01:29:48,794 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.56%
+2025-01-25 01:29:48,794 - LocalSearch - INFO - Neighborhood group: success_rate=61.34%, contribution=23.65%
+2025-01-25 01:29:48,794 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:50,450 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:50,450 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.64%, contribution=37.68%
+2025-01-25 01:29:50,451 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.59%
+2025-01-25 01:29:50,451 - LocalSearch - INFO - Neighborhood group: success_rate=61.52%, contribution=23.74%
+2025-01-25 01:29:50,451 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:52,004 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:29:52,004 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.59%, contribution=37.71%
+2025-01-25 01:29:52,005 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.65%
+2025-01-25 01:29:52,005 - LocalSearch - INFO - Neighborhood group: success_rate=61.18%, contribution=23.64%
+2025-01-25 01:29:52,005 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:53,190 - LocalSearch - INFO - New best score found: 0.9520
+2025-01-25 01:29:54,727 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9520
+2025-01-25 01:29:54,727 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.57%, contribution=37.77%
+2025-01-25 01:29:54,727 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.71%
+2025-01-25 01:29:54,727 - LocalSearch - INFO - Neighborhood group: success_rate=60.77%, contribution=23.52%
+2025-01-25 01:29:54,727 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:56,316 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9520
+2025-01-25 01:29:56,316 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.62%, contribution=37.81%
+2025-01-25 01:29:56,316 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.73%
+2025-01-25 01:29:56,317 - LocalSearch - INFO - Neighborhood group: success_rate=60.56%, contribution=23.45%
+2025-01-25 01:29:56,317 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:57,951 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9520
+2025-01-25 01:29:57,951 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.38%, contribution=37.80%
+2025-01-25 01:29:57,951 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.82%
+2025-01-25 01:29:57,951 - LocalSearch - INFO - Neighborhood group: success_rate=60.25%, contribution=23.39%
+2025-01-25 01:29:57,951 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:29:59,528 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9520
+2025-01-25 01:29:59,528 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.14%, contribution=37.77%
+2025-01-25 01:29:59,528 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.88%
+2025-01-25 01:29:59,528 - LocalSearch - INFO - Neighborhood group: success_rate=60.06%, contribution=23.35%
+2025-01-25 01:29:59,529 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:30:01,114 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9520
+2025-01-25 01:30:01,114 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.19%, contribution=37.75%
+2025-01-25 01:30:01,114 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.84%
+2025-01-25 01:30:01,114 - LocalSearch - INFO - Neighborhood group: success_rate=60.24%, contribution=23.40%
+2025-01-25 01:30:01,115 - MemeticAlgorithm - INFO - Run 2: New best global score: 0.9520
+2025-01-25 01:30:02,588 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:30:04,221 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9520
+2025-01-25 01:30:04,221 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.15%, contribution=37.70%
+2025-01-25 01:30:04,221 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.81%
+2025-01-25 01:30:04,222 - LocalSearch - INFO - Neighborhood group: success_rate=60.51%, contribution=23.49%
+2025-01-25 01:30:04,222 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:30:05,872 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9520
+2025-01-25 01:30:05,873 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.20%, contribution=37.75%
+2025-01-25 01:30:05,873 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.83%
+2025-01-25 01:30:05,873 - LocalSearch - INFO - Neighborhood group: success_rate=60.32%, contribution=23.42%
+2025-01-25 01:30:05,873 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:30:07,514 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9520
+2025-01-25 01:30:07,514 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.17%, contribution=37.72%
+2025-01-25 01:30:07,514 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.82%
+2025-01-25 01:30:07,514 - LocalSearch - INFO - Neighborhood group: success_rate=60.41%, contribution=23.45%
+2025-01-25 01:30:07,514 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:30:09,147 - LocalSearch - INFO - New best score found: 0.9760
+2025-01-25 01:30:10,830 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:10,830 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.17%, contribution=37.80%
+2025-01-25 01:30:10,830 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.89%
+2025-01-25 01:30:10,830 - LocalSearch - INFO - Neighborhood group: success_rate=59.93%, contribution=23.31%
+2025-01-25 01:30:10,830 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:30:12,467 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:12,467 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.97%, contribution=37.75%
+2025-01-25 01:30:12,467 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.93%
+2025-01-25 01:30:12,467 - LocalSearch - INFO - Neighborhood group: success_rate=59.93%, contribution=23.33%
+2025-01-25 01:30:12,467 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:30:14,181 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:14,181 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.02%, contribution=37.79%
+2025-01-25 01:30:14,181 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.96%
+2025-01-25 01:30:14,181 - LocalSearch - INFO - Neighborhood group: success_rate=59.69%, contribution=23.25%
+2025-01-25 01:30:14,182 - MemeticAlgorithm - INFO - Run 2: New best global score: 0.9760
+2025-01-25 01:30:14,271 - MemeticAlgorithm - INFO - Run 2 - Generation 40: Best=0.9760, Elite_avg=0.9520, Stagnation=1
+2025-01-25 01:30:15,999 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=110)
+2025-01-25 01:30:17,811 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:17,811 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.07%, contribution=37.85%
+2025-01-25 01:30:17,811 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.00%
+2025-01-25 01:30:17,811 - LocalSearch - INFO - Neighborhood group: success_rate=59.36%, contribution=23.15%
+2025-01-25 01:30:17,811 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=110)
+2025-01-25 01:30:19,720 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:19,720 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.96%, contribution=37.86%
+2025-01-25 01:30:19,720 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.05%
+2025-01-25 01:30:19,720 - LocalSearch - INFO - Neighborhood group: success_rate=59.13%, contribution=23.09%
+2025-01-25 01:30:19,720 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=110)
+2025-01-25 01:30:21,440 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:21,441 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.00%, contribution=37.89%
+2025-01-25 01:30:21,441 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.06%
+2025-01-25 01:30:21,441 - LocalSearch - INFO - Neighborhood group: success_rate=58.99%, contribution=23.04%
+2025-01-25 01:30:21,441 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=110)
+2025-01-25 01:30:23,235 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:23,235 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.74%, contribution=37.84%
+2025-01-25 01:30:23,235 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.11%
+2025-01-25 01:30:23,236 - LocalSearch - INFO - Neighborhood group: success_rate=58.93%, contribution=23.05%
+2025-01-25 01:30:24,647 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=120)
+2025-01-25 01:30:26,352 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:26,352 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.79%, contribution=37.85%
+2025-01-25 01:30:26,352 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.10%
+2025-01-25 01:30:26,352 - LocalSearch - INFO - Neighborhood group: success_rate=58.94%, contribution=23.05%
+2025-01-25 01:30:26,353 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=120)
+2025-01-25 01:30:28,065 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:28,065 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.84%, contribution=37.89%
+2025-01-25 01:30:28,065 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.13%
+2025-01-25 01:30:28,065 - LocalSearch - INFO - Neighborhood group: success_rate=58.73%, contribution=22.98%
+2025-01-25 01:30:28,065 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=120)
+2025-01-25 01:30:29,787 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:29,787 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.81%, contribution=37.87%
+2025-01-25 01:30:29,787 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.12%
+2025-01-25 01:30:29,787 - LocalSearch - INFO - Neighborhood group: success_rate=58.83%, contribution=23.01%
+2025-01-25 01:30:29,788 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=120)
+2025-01-25 01:30:31,469 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:30:31,469 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.78%, contribution=37.92%
+2025-01-25 01:30:31,469 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.18%
+2025-01-25 01:30:31,469 - LocalSearch - INFO - Neighborhood group: success_rate=58.48%, contribution=22.91%
+2025-01-25 01:30:31,533 - MemeticAlgorithm - INFO - Run 2 - Generation 50: Best=0.9760, Elite_avg=0.9520, Stagnation=3
+2025-01-25 01:30:31,533 - root - INFO - 
+Starting run 3/3
+2025-01-25 01:30:31,534 - LocalSearch - INFO - Analyzing alignment: /home/augusto/projects/multiOne/BAliBASE/RV100/BBA0142.xml
+2025-01-25 01:30:31,534 - LocalSearch - INFO - Analyzing substitution patterns
+2025-01-25 01:30:31,539 - LocalSearch - INFO - Pattern analysis completed
+2025-01-25 01:30:31,977 - MemeticAlgorithm - WARNING - No viable individuals in initial population
+2025-01-25 01:30:31,978 - MemeticAlgorithm - INFO - Starting memetic optimization for Run 3
+2025-01-25 01:30:31,979 - MemeticAlgorithm - INFO - Run 3: New best global score: 0.8100
+2025-01-25 01:30:31,982 - MemeticAlgorithm - INFO - Run 3: New best global score: 0.9290
+2025-01-25 01:30:32,005 - MemeticAlgorithm - INFO - Run 3: New best score (validated): 0.9290
+2025-01-25 01:30:32,968 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:30:34,036 - LocalSearch - INFO - New best score found: 0.8330
+2025-01-25 01:30:35,657 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:30:35,657 - LocalSearch - INFO - Neighborhood frequency: success_rate=100.00%, contribution=36.96%
+2025-01-25 01:30:35,657 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=36.96%
+2025-01-25 01:30:35,657 - LocalSearch - INFO - Neighborhood group: success_rate=70.59%, contribution=26.09%
+2025-01-25 01:30:35,657 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:30:37,243 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.8330
+2025-01-25 01:30:37,243 - LocalSearch - INFO - Neighborhood frequency: success_rate=100.00%, contribution=37.24%
+2025-01-25 01:30:37,243 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=37.24%
+2025-01-25 01:30:37,243 - LocalSearch - INFO - Neighborhood group: success_rate=68.52%, contribution=25.52%
+2025-01-25 01:30:37,243 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:30:38,815 - LocalSearch - INFO - New best score found: 0.9290
+2025-01-25 01:30:40,566 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:40,566 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.94%, contribution=37.50%
+2025-01-25 01:30:40,566 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=37.90%
+2025-01-25 01:30:40,566 - LocalSearch - INFO - Neighborhood group: success_rate=64.89%, contribution=24.60%
+2025-01-25 01:30:40,566 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:30:42,140 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:42,140 - LocalSearch - INFO - Neighborhood frequency: success_rate=98.25%, contribution=37.97%
+2025-01-25 01:30:42,141 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=38.64%
+2025-01-25 01:30:42,141 - LocalSearch - INFO - Neighborhood group: success_rate=60.53%, contribution=23.39%
+2025-01-25 01:30:42,141 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=140)
+2025-01-25 01:30:43,805 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:43,805 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.27%, contribution=38.05%
+2025-01-25 01:30:43,805 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.53%
+2025-01-25 01:30:43,805 - LocalSearch - INFO - Neighborhood group: success_rate=56.72%, contribution=22.42%
+2025-01-25 01:30:45,375 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:30:46,990 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:46,990 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.10%, contribution=37.95%
+2025-01-25 01:30:46,991 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.49%
+2025-01-25 01:30:46,991 - LocalSearch - INFO - Neighborhood group: success_rate=57.14%, contribution=22.56%
+2025-01-25 01:30:46,991 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:30:48,650 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:48,650 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.98%, contribution=38.22%
+2025-01-25 01:30:48,651 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.82%
+2025-01-25 01:30:48,651 - LocalSearch - INFO - Neighborhood group: success_rate=55.17%, contribution=21.97%
+2025-01-25 01:30:48,651 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:30:50,316 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:50,316 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.39%, contribution=38.24%
+2025-01-25 01:30:50,316 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.67%
+2025-01-25 01:30:50,316 - LocalSearch - INFO - Neighborhood group: success_rate=55.67%, contribution=22.09%
+2025-01-25 01:30:50,317 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:30:51,965 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:51,965 - LocalSearch - INFO - Neighborhood frequency: success_rate=95.79%, contribution=38.10%
+2025-01-25 01:30:51,965 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.78%
+2025-01-25 01:30:51,965 - LocalSearch - INFO - Neighborhood group: success_rate=55.61%, contribution=22.12%
+2025-01-25 01:30:51,965 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:30:53,600 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:53,600 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.15%, contribution=38.40%
+2025-01-25 01:30:53,600 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.93%
+2025-01-25 01:30:53,600 - LocalSearch - INFO - Neighborhood group: success_rate=54.27%, contribution=21.67%
+2025-01-25 01:30:53,600 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:30:55,244 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:55,245 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.46%, contribution=38.34%
+2025-01-25 01:30:55,245 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.75%
+2025-01-25 01:30:55,245 - LocalSearch - INFO - Neighborhood group: success_rate=55.12%, contribution=21.91%
+2025-01-25 01:30:55,245 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=190)
+2025-01-25 01:30:56,898 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:56,898 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.72%, contribution=38.63%
+2025-01-25 01:30:56,898 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=39.94%
+2025-01-25 01:30:56,898 - LocalSearch - INFO - Neighborhood group: success_rate=53.65%, contribution=21.43%
+2025-01-25 01:30:56,952 - MemeticAlgorithm - INFO - Run 3 - Generation 10: Best=0.9290, Elite_avg=0.9290, Stagnation=10
+2025-01-25 01:30:58,300 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:30:59,933 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:30:59,933 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.60%, contribution=38.74%
+2025-01-25 01:30:59,933 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=40.11%
+2025-01-25 01:30:59,933 - LocalSearch - INFO - Neighborhood group: success_rate=52.72%, contribution=21.15%
+2025-01-25 01:30:59,934 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:01,576 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:31:01,576 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.82%, contribution=38.78%
+2025-01-25 01:31:01,576 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=40.05%
+2025-01-25 01:31:01,576 - LocalSearch - INFO - Neighborhood group: success_rate=52.87%, contribution=21.17%
+2025-01-25 01:31:01,576 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:03,180 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:31:03,180 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.01%, contribution=38.85%
+2025-01-25 01:31:03,180 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=40.05%
+2025-01-25 01:31:03,180 - LocalSearch - INFO - Neighborhood group: success_rate=52.69%, contribution=21.10%
+2025-01-25 01:31:03,180 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:04,884 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9290
+2025-01-25 01:31:04,884 - LocalSearch - INFO - Neighborhood frequency: success_rate=97.18%, contribution=38.87%
+2025-01-25 01:31:04,884 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=40.00%
+2025-01-25 01:31:04,884 - LocalSearch - INFO - Neighborhood group: success_rate=52.82%, contribution=21.13%
+2025-01-25 01:31:04,884 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:06,238 - LocalSearch - INFO - New best score found: 0.9760
+2025-01-25 01:31:07,995 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:07,996 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.68%, contribution=38.77%
+2025-01-25 01:31:07,996 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=40.10%
+2025-01-25 01:31:07,996 - LocalSearch - INFO - Neighborhood group: success_rate=52.69%, contribution=21.13%
+2025-01-25 01:31:07,996 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:09,765 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:09,765 - LocalSearch - INFO - Neighborhood frequency: success_rate=96.35%, contribution=38.71%
+2025-01-25 01:31:09,765 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=40.18%
+2025-01-25 01:31:09,766 - LocalSearch - INFO - Neighborhood group: success_rate=52.55%, contribution=21.11%
+2025-01-25 01:31:09,766 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:11,614 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:11,614 - LocalSearch - INFO - Neighborhood frequency: success_rate=94.66%, contribution=38.20%
+2025-01-25 01:31:11,614 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=40.36%
+2025-01-25 01:31:11,614 - LocalSearch - INFO - Neighborhood group: success_rate=53.13%, contribution=21.44%
+2025-01-25 01:31:11,614 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:13,255 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:13,255 - LocalSearch - INFO - Neighborhood frequency: success_rate=92.90%, contribution=37.85%
+2025-01-25 01:31:13,255 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=40.74%
+2025-01-25 01:31:13,255 - LocalSearch - INFO - Neighborhood group: success_rate=52.55%, contribution=21.41%
+2025-01-25 01:31:13,256 - MemeticAlgorithm - INFO - Run 3: New best global score: 0.9760
+2025-01-25 01:31:14,601 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:31:16,272 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:16,273 - LocalSearch - INFO - Neighborhood frequency: success_rate=91.51%, contribution=37.51%
+2025-01-25 01:31:16,273 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=40.99%
+2025-01-25 01:31:16,273 - LocalSearch - INFO - Neighborhood group: success_rate=52.44%, contribution=21.50%
+2025-01-25 01:31:16,273 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:31:17,946 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:17,946 - LocalSearch - INFO - Neighborhood frequency: success_rate=89.82%, contribution=37.06%
+2025-01-25 01:31:17,946 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.26%
+2025-01-25 01:31:17,946 - LocalSearch - INFO - Neighborhood group: success_rate=52.55%, contribution=21.68%
+2025-01-25 01:31:17,946 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:31:19,595 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:19,595 - LocalSearch - INFO - Neighborhood frequency: success_rate=89.82%, contribution=37.11%
+2025-01-25 01:31:19,596 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.31%
+2025-01-25 01:31:19,596 - LocalSearch - INFO - Neighborhood group: success_rate=52.25%, contribution=21.58%
+2025-01-25 01:31:19,596 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:31:21,234 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:21,234 - LocalSearch - INFO - Neighborhood frequency: success_rate=89.45%, contribution=36.96%
+2025-01-25 01:31:21,234 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.32%
+2025-01-25 01:31:21,234 - LocalSearch - INFO - Neighborhood group: success_rate=52.54%, contribution=21.71%
+2025-01-25 01:31:21,234 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:31:22,862 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:22,862 - LocalSearch - INFO - Neighborhood frequency: success_rate=88.93%, contribution=36.81%
+2025-01-25 01:31:22,862 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.40%
+2025-01-25 01:31:22,862 - LocalSearch - INFO - Neighborhood group: success_rate=52.63%, contribution=21.79%
+2025-01-25 01:31:22,862 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=150)
+2025-01-25 01:31:24,500 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:24,501 - LocalSearch - INFO - Neighborhood frequency: success_rate=88.44%, contribution=36.70%
+2025-01-25 01:31:24,501 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.50%
+2025-01-25 01:31:24,501 - LocalSearch - INFO - Neighborhood group: success_rate=52.54%, contribution=21.80%
+2025-01-25 01:31:24,566 - MemeticAlgorithm - INFO - Run 3 - Generation 20: Best=0.9760, Elite_avg=0.9760, Stagnation=6
+2025-01-25 01:31:25,724 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:27,369 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:27,369 - LocalSearch - INFO - Neighborhood frequency: success_rate=87.65%, contribution=36.53%
+2025-01-25 01:31:27,369 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.68%
+2025-01-25 01:31:27,369 - LocalSearch - INFO - Neighborhood group: success_rate=52.28%, contribution=21.79%
+2025-01-25 01:31:27,369 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:29,059 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:29,059 - LocalSearch - INFO - Neighborhood frequency: success_rate=87.73%, contribution=36.49%
+2025-01-25 01:31:29,059 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.59%
+2025-01-25 01:31:29,059 - LocalSearch - INFO - Neighborhood group: success_rate=52.70%, contribution=21.92%
+2025-01-25 01:31:29,059 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:30,830 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:30,831 - LocalSearch - INFO - Neighborhood frequency: success_rate=87.32%, contribution=36.37%
+2025-01-25 01:31:30,831 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.65%
+2025-01-25 01:31:30,831 - LocalSearch - INFO - Neighborhood group: success_rate=52.77%, contribution=21.98%
+2025-01-25 01:31:30,831 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:32,496 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:32,496 - LocalSearch - INFO - Neighborhood frequency: success_rate=86.94%, contribution=36.28%
+2025-01-25 01:31:32,496 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.73%
+2025-01-25 01:31:32,496 - LocalSearch - INFO - Neighborhood group: success_rate=52.69%, contribution=21.99%
+2025-01-25 01:31:32,496 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:34,194 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:34,194 - LocalSearch - INFO - Neighborhood frequency: success_rate=86.14%, contribution=36.08%
+2025-01-25 01:31:34,194 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.89%
+2025-01-25 01:31:34,195 - LocalSearch - INFO - Neighborhood group: success_rate=52.61%, contribution=22.03%
+2025-01-25 01:31:34,195 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:35,854 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:35,855 - LocalSearch - INFO - Neighborhood frequency: success_rate=85.96%, contribution=36.00%
+2025-01-25 01:31:35,855 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=41.88%
+2025-01-25 01:31:35,855 - LocalSearch - INFO - Neighborhood group: success_rate=52.82%, contribution=22.12%
+2025-01-25 01:31:35,855 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:37,516 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:37,516 - LocalSearch - INFO - Neighborhood frequency: success_rate=85.65%, contribution=35.97%
+2025-01-25 01:31:37,516 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.00%
+2025-01-25 01:31:37,516 - LocalSearch - INFO - Neighborhood group: success_rate=52.46%, contribution=22.03%
+2025-01-25 01:31:37,516 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:39,152 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:39,153 - LocalSearch - INFO - Neighborhood frequency: success_rate=85.23%, contribution=35.87%
+2025-01-25 01:31:39,153 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.08%
+2025-01-25 01:31:39,153 - LocalSearch - INFO - Neighborhood group: success_rate=52.39%, contribution=22.05%
+2025-01-25 01:31:40,535 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:42,178 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:42,179 - LocalSearch - INFO - Neighborhood frequency: success_rate=84.42%, contribution=35.58%
+2025-01-25 01:31:42,179 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.14%
+2025-01-25 01:31:42,179 - LocalSearch - INFO - Neighborhood group: success_rate=52.86%, contribution=22.28%
+2025-01-25 01:31:42,179 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:43,976 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:43,977 - LocalSearch - INFO - Neighborhood frequency: success_rate=84.05%, contribution=35.43%
+2025-01-25 01:31:43,977 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.15%
+2025-01-25 01:31:43,977 - LocalSearch - INFO - Neighborhood group: success_rate=53.18%, contribution=22.42%
+2025-01-25 01:31:43,977 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:45,647 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:45,647 - LocalSearch - INFO - Neighborhood frequency: success_rate=83.19%, contribution=35.22%
+2025-01-25 01:31:45,647 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.34%
+2025-01-25 01:31:45,647 - LocalSearch - INFO - Neighborhood group: success_rate=52.97%, contribution=22.43%
+2025-01-25 01:31:45,647 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:47,391 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:47,391 - LocalSearch - INFO - Neighborhood frequency: success_rate=82.98%, contribution=35.09%
+2025-01-25 01:31:47,391 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.28%
+2025-01-25 01:31:47,391 - LocalSearch - INFO - Neighborhood group: success_rate=53.51%, contribution=22.63%
+2025-01-25 01:31:47,391 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:49,104 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:49,105 - LocalSearch - INFO - Neighborhood frequency: success_rate=82.43%, contribution=34.90%
+2025-01-25 01:31:49,105 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.33%
+2025-01-25 01:31:49,105 - LocalSearch - INFO - Neighborhood group: success_rate=53.79%, contribution=22.77%
+2025-01-25 01:31:49,105 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:50,772 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:50,772 - LocalSearch - INFO - Neighborhood frequency: success_rate=82.02%, contribution=34.76%
+2025-01-25 01:31:50,772 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.38%
+2025-01-25 01:31:50,772 - LocalSearch - INFO - Neighborhood group: success_rate=53.94%, contribution=22.86%
+2025-01-25 01:31:50,772 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:52,438 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:52,438 - LocalSearch - INFO - Neighborhood frequency: success_rate=81.63%, contribution=34.62%
+2025-01-25 01:31:52,438 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.41%
+2025-01-25 01:31:52,438 - LocalSearch - INFO - Neighborhood group: success_rate=54.19%, contribution=22.98%
+2025-01-25 01:31:52,439 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:54,066 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:54,067 - LocalSearch - INFO - Neighborhood frequency: success_rate=80.70%, contribution=34.39%
+2025-01-25 01:31:54,067 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.61%
+2025-01-25 01:31:54,067 - LocalSearch - INFO - Neighborhood group: success_rate=53.98%, contribution=23.00%
+2025-01-25 01:31:54,127 - MemeticAlgorithm - INFO - Run 3 - Generation 30: Best=0.9760, Elite_avg=0.9760, Stagnation=16
+2025-01-25 01:31:55,500 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:57,123 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:57,123 - LocalSearch - INFO - Neighborhood frequency: success_rate=80.24%, contribution=34.24%
+2025-01-25 01:31:57,123 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.67%
+2025-01-25 01:31:57,123 - LocalSearch - INFO - Neighborhood group: success_rate=54.12%, contribution=23.09%
+2025-01-25 01:31:57,124 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:31:58,767 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:31:58,767 - LocalSearch - INFO - Neighborhood frequency: success_rate=80.34%, contribution=34.30%
+2025-01-25 01:31:58,768 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.69%
+2025-01-25 01:31:58,768 - LocalSearch - INFO - Neighborhood group: success_rate=53.92%, contribution=23.02%
+2025-01-25 01:31:58,768 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:00,409 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:00,409 - LocalSearch - INFO - Neighborhood frequency: success_rate=79.71%, contribution=34.14%
+2025-01-25 01:32:00,409 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.84%
+2025-01-25 01:32:00,409 - LocalSearch - INFO - Neighborhood group: success_rate=53.73%, contribution=23.02%
+2025-01-25 01:32:00,409 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:02,069 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:02,070 - LocalSearch - INFO - Neighborhood frequency: success_rate=79.30%, contribution=34.09%
+2025-01-25 01:32:02,070 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=42.98%
+2025-01-25 01:32:02,070 - LocalSearch - INFO - Neighborhood group: success_rate=53.35%, contribution=22.93%
+2025-01-25 01:32:02,070 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:03,716 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:03,716 - LocalSearch - INFO - Neighborhood frequency: success_rate=79.01%, contribution=34.00%
+2025-01-25 01:32:03,716 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.03%
+2025-01-25 01:32:03,717 - LocalSearch - INFO - Neighborhood group: success_rate=53.38%, contribution=22.97%
+2025-01-25 01:32:03,717 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:05,369 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:05,369 - LocalSearch - INFO - Neighborhood frequency: success_rate=78.14%, contribution=33.78%
+2025-01-25 01:32:05,369 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.22%
+2025-01-25 01:32:05,369 - LocalSearch - INFO - Neighborhood group: success_rate=53.21%, contribution=23.00%
+2025-01-25 01:32:05,369 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:07,024 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:07,024 - LocalSearch - INFO - Neighborhood frequency: success_rate=77.50%, contribution=33.59%
+2025-01-25 01:32:07,025 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.34%
+2025-01-25 01:32:07,025 - LocalSearch - INFO - Neighborhood group: success_rate=53.25%, contribution=23.08%
+2025-01-25 01:32:07,025 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:08,663 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:08,663 - LocalSearch - INFO - Neighborhood frequency: success_rate=77.26%, contribution=33.48%
+2025-01-25 01:32:08,663 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.34%
+2025-01-25 01:32:08,663 - LocalSearch - INFO - Neighborhood group: success_rate=53.47%, contribution=23.18%
+2025-01-25 01:32:08,686 - MemeticAlgorithm - INFO - Run 3: Applying partial restart due to stagnation
+2025-01-25 01:32:08,695 - MemeticAlgorithm - INFO - Partial restart: kept 4 individuals
+2025-01-25 01:32:09,800 - MemeticAlgorithm - INFO - Run 3: Applying partial restart due to stagnation
+2025-01-25 01:32:09,807 - MemeticAlgorithm - INFO - Partial restart: kept 4 individuals
+2025-01-25 01:32:10,010 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:11,644 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:11,644 - LocalSearch - INFO - Neighborhood frequency: success_rate=76.94%, contribution=33.39%
+2025-01-25 01:32:11,645 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.40%
+2025-01-25 01:32:11,645 - LocalSearch - INFO - Neighborhood group: success_rate=53.50%, contribution=23.22%
+2025-01-25 01:32:11,645 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:13,364 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:13,364 - LocalSearch - INFO - Neighborhood frequency: success_rate=76.81%, contribution=33.37%
+2025-01-25 01:32:13,364 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.45%
+2025-01-25 01:32:13,364 - LocalSearch - INFO - Neighborhood group: success_rate=53.35%, contribution=23.18%
+2025-01-25 01:32:13,364 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:15,029 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:15,029 - LocalSearch - INFO - Neighborhood frequency: success_rate=76.15%, contribution=33.19%
+2025-01-25 01:32:15,029 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.59%
+2025-01-25 01:32:15,030 - LocalSearch - INFO - Neighborhood group: success_rate=53.29%, contribution=23.22%
+2025-01-25 01:32:15,030 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:16,742 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:16,743 - LocalSearch - INFO - Neighborhood frequency: success_rate=75.95%, contribution=33.09%
+2025-01-25 01:32:16,743 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.57%
+2025-01-25 01:32:16,743 - LocalSearch - INFO - Neighborhood group: success_rate=53.58%, contribution=23.34%
+2025-01-25 01:32:16,743 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:18,436 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:18,436 - LocalSearch - INFO - Neighborhood frequency: success_rate=75.85%, contribution=33.09%
+2025-01-25 01:32:18,436 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.63%
+2025-01-25 01:32:18,436 - LocalSearch - INFO - Neighborhood group: success_rate=53.34%, contribution=23.28%
+2025-01-25 01:32:18,436 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:20,271 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:20,271 - LocalSearch - INFO - Neighborhood frequency: success_rate=75.66%, contribution=33.06%
+2025-01-25 01:32:20,271 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.69%
+2025-01-25 01:32:20,271 - LocalSearch - INFO - Neighborhood group: success_rate=53.20%, contribution=23.25%
+2025-01-25 01:32:20,271 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:21,984 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:21,984 - LocalSearch - INFO - Neighborhood frequency: success_rate=75.31%, contribution=32.95%
+2025-01-25 01:32:21,984 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.75%
+2025-01-25 01:32:21,984 - LocalSearch - INFO - Neighborhood group: success_rate=53.23%, contribution=23.29%
+2025-01-25 01:32:21,984 - LocalSearch - INFO - Starting VNS-ILS search (max_iter=200)
+2025-01-25 01:32:23,668 - LocalSearch - INFO - VNS-ILS search completed. Best score: 0.9760
+2025-01-25 01:32:23,669 - LocalSearch - INFO - Neighborhood frequency: success_rate=75.23%, contribution=32.95%
+2025-01-25 01:32:23,669 - LocalSearch - INFO - Neighborhood conservation: success_rate=100.00%, contribution=43.80%
+2025-01-25 01:32:23,669 - LocalSearch - INFO - Neighborhood group: success_rate=53.10%, contribution=23.25%
+2025-01-25 01:32:23,731 - MemeticAlgorithm - INFO - Run 3 - Generation 40: Best=0.9760, Elite_avg=0.9760, Stagnation=26
+2025-01-25 01:32:23,987 - MemeticAlgorithm - INFO - Run 3: Early stopping due to stagnation
+2025-01-25 01:32:23,989 - root - INFO - Matrix saved to: /home/augusto/projects/multiOne/memetic/results/AdaptivePAM_2025-01-25-01-32_0.9290.txt
+2025-01-25 01:32:23,989 - root - INFO - Run info saved to: /home/augusto/projects/multiOne/memetic/results/run_info_2025-01-25-01-32.json
+2025-01-25 01:32:23,989 - root - INFO - Optimization completed. Best score: 0.9290

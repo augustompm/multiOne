@@ -420,34 +420,5 @@ class LocalSearch:
                     f"contribution={contribution:.2%}"
                 )
 
-        return self.best_score
-
-    def save_best_matrix(self, results_dir: Path, run_info: str) -> None:
-        """Salva melhor matriz encontrada com metadados."""
-        try:
-            timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M")
-            filename = f"{timestamp}-AdaptivePAM-{run_info}.txt"
-            output_path = results_dir / filename
-
-            # Salva matriz
-            self.best_matrix.to_clustalw_format(output_path)
-
-            # Salva metadados
-            meta_path = output_path.with_suffix('.meta.json')
-            meta_data = {
-                'timestamp': timestamp,
-                'score': self.best_score,
-                'improvements': self.improvements,
-                'neighborhood_stats': self.neighborhood_stats,
-                'hyperparams': self.hyperparams
-            }
-
-            with open(meta_path, 'w') as f:
-                import json
-                json.dump(meta_data, f, indent=2)
-
-            self.logger.info(f"Results saved to: {output_path}")
-
-        except Exception as e:
-            self.logger.error(f"Error saving results: {e}")
-            raise
+        final_score = evaluation_func(self.best_matrix)  # Validação final
+        return final_score  # Retorna o score validado

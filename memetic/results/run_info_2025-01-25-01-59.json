@@ -1,0 +1,59 @@
+{
+  "timestamp": "2025-01-25-01-59",
+  "score": 0.976,
+  "hyperparams": {
+    "VNS": {
+      "MIN_IMPROVEMENT": 1e-06,
+      "MAX_ITER": 100,
+      "MAX_NO_IMPROVE": 20,
+      "PERTURBATION_SIZE": 5,
+      "MAX_PERTURBATION": 20,
+      "ESCAPE_THRESHOLD": 10,
+      "SCORE_CONSTRAINTS": {
+        "DIAGONAL": {
+          "min": -2,
+          "max": 17
+        },
+        "SIMILAR": {
+          "min": -4,
+          "max": 8
+        },
+        "DIFFERENT": {
+          "min": -8,
+          "max": 4
+        }
+      }
+    },
+    "MEMETIC": {
+      "POPULATION_SIZE": 20,
+      "ELITE_SIZE": 5,
+      "MAX_GENERATIONS": 50,
+      "LOCAL_SEARCH_FREQ": 5,
+      "DIVERSITY_THRESHOLD": 0.2
+    },
+    "MATRIX": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "EXECUTION": {
+      "NUM_RUNS": 3,
+      "EVAL_SAMPLES": 1,
+      "SEED": null
+    }
+  },
+  "run_info": {
+    "num_runs": 3,
+    "best_score": 0.976
+  }
+}
