@@ -1,0 +1,51 @@
+2025-01-26 11:58:44,638 - INFO - Iniciando execução do ClustalW para instâncias do RV100
+2025-01-26 11:58:44,638 - INFO - Processando BBA0004
+2025-01-26 11:58:50,186 - INFO - ClustalW executado com sucesso para BBA0004
+2025-01-26 11:58:50,186 - INFO - Processando BBA0005
+2025-01-26 11:58:50,774 - INFO - ClustalW executado com sucesso para BBA0005
+2025-01-26 11:58:50,775 - INFO - Processando BBA0008
+2025-01-26 11:58:53,412 - INFO - ClustalW executado com sucesso para BBA0008
+2025-01-26 11:58:53,413 - INFO - Processando BBA0011
+2025-01-26 11:58:55,153 - INFO - ClustalW executado com sucesso para BBA0011
+2025-01-26 11:58:55,154 - INFO - Processando BBA0014
+2025-01-26 11:58:55,647 - INFO - ClustalW executado com sucesso para BBA0014
+2025-01-26 11:58:55,647 - INFO - Processando BBA0015
+2025-01-26 11:58:58,702 - INFO - ClustalW executado com sucesso para BBA0015
+2025-01-26 11:58:58,702 - INFO - Processando BBA0019
+2025-01-26 11:58:59,570 - INFO - ClustalW executado com sucesso para BBA0019
+2025-01-26 11:58:59,570 - INFO - Processando BBA0021
+2025-01-26 11:59:00,386 - INFO - ClustalW executado com sucesso para BBA0021
+2025-01-26 11:59:00,386 - INFO - Processando BBA0022
+2025-01-26 11:59:00,518 - INFO - ClustalW executado com sucesso para BBA0022
+2025-01-26 11:59:00,519 - INFO - Processando BBA0024
+2025-01-26 11:59:02,030 - INFO - ClustalW executado com sucesso para BBA0024
+2025-01-26 11:59:02,030 - INFO - Processando BBA0080
+2025-01-26 11:59:02,110 - INFO - ClustalW executado com sucesso para BBA0080
+2025-01-26 11:59:02,110 - INFO - Processando BBA0126
+2025-01-26 11:59:03,985 - INFO - ClustalW executado com sucesso para BBA0126
+2025-01-26 11:59:03,986 - INFO - Processando BBA0133
+2025-01-26 11:59:36,555 - INFO - ClustalW executado com sucesso para BBA0133
+2025-01-26 11:59:36,555 - INFO - Processando BBA0142
+2025-01-26 11:59:36,585 - INFO - ClustalW executado com sucesso para BBA0142
+2025-01-26 11:59:36,585 - INFO - Processando BBA0148
+2025-01-26 11:59:41,169 - INFO - ClustalW executado com sucesso para BBA0148
+2025-01-26 11:59:41,170 - INFO - Processando BBA0155
+2025-01-26 11:59:41,814 - INFO - ClustalW executado com sucesso para BBA0155
+2025-01-26 11:59:41,815 - INFO - Processando BBA0163
+2025-01-26 11:59:43,685 - INFO - ClustalW executado com sucesso para BBA0163
+2025-01-26 11:59:43,685 - INFO - Processando BBA0178
+2025-01-26 11:59:50,057 - INFO - ClustalW executado com sucesso para BBA0178
+2025-01-26 11:59:50,057 - INFO - Processando BBA0183
+2025-01-26 11:59:50,709 - INFO - ClustalW executado com sucesso para BBA0183
+2025-01-26 11:59:50,709 - INFO - Processando BBA0185
+2025-01-26 11:59:50,846 - INFO - ClustalW executado com sucesso para BBA0185
+2025-01-26 11:59:50,846 - INFO - Processando BBA0192
+2025-01-26 11:59:51,004 - INFO - ClustalW executado com sucesso para BBA0192
+2025-01-26 11:59:51,004 - INFO - Processando BBA0201
+2025-01-26 11:59:51,353 - INFO - ClustalW executado com sucesso para BBA0201
+2025-01-26 11:59:51,353 - INFO - Processando BBA0218
+2025-01-26 11:59:53,620 - INFO - ClustalW executado com sucesso para BBA0218
+2025-01-26 11:59:53,620 - INFO - 
+Processamento finalizado:
+2025-01-26 11:59:53,620 - INFO - Instâncias processadas com sucesso: 23
+2025-01-26 11:59:53,620 - INFO - Falhas: 0

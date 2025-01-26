@@ -1,0 +1,143 @@
+2025-01-26 16:06:45,858 - INFO - Iniciando execução do ClustalW (PAM250) para instâncias do RV100
+2025-01-26 16:06:45,858 - INFO - Processando BBA0004 com PAM250
+2025-01-26 16:06:45,870 - ERROR - Erro ao executar ClustalW para BBA0004.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,871 - INFO - Processando BBA0005 com PAM250
+2025-01-26 16:06:45,873 - ERROR - Erro ao executar ClustalW para BBA0005.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,873 - INFO - Processando BBA0008 com PAM250
+2025-01-26 16:06:45,877 - ERROR - Erro ao executar ClustalW para BBA0008.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,878 - INFO - Processando BBA0011 com PAM250
+2025-01-26 16:06:45,881 - ERROR - Erro ao executar ClustalW para BBA0011.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,881 - INFO - Processando BBA0014 com PAM250
+2025-01-26 16:06:45,884 - ERROR - Erro ao executar ClustalW para BBA0014.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,884 - INFO - Processando BBA0015 com PAM250
+2025-01-26 16:06:45,888 - ERROR - Erro ao executar ClustalW para BBA0015.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,888 - INFO - Processando BBA0019 com PAM250
+2025-01-26 16:06:45,891 - ERROR - Erro ao executar ClustalW para BBA0019.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,891 - INFO - Processando BBA0021 com PAM250
+2025-01-26 16:06:45,895 - ERROR - Erro ao executar ClustalW para BBA0021.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,895 - INFO - Processando BBA0022 com PAM250
+2025-01-26 16:06:45,897 - ERROR - Erro ao executar ClustalW para BBA0022.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,898 - INFO - Processando BBA0024 com PAM250
+2025-01-26 16:06:45,901 - ERROR - Erro ao executar ClustalW para BBA0024.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,902 - INFO - Processando BBA0080 com PAM250
+2025-01-26 16:06:45,904 - ERROR - Erro ao executar ClustalW para BBA0080.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,904 - INFO - Processando BBA0126 com PAM250
+2025-01-26 16:06:45,908 - ERROR - Erro ao executar ClustalW para BBA0126.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,908 - INFO - Processando BBA0133 com PAM250
+2025-01-26 16:06:45,915 - ERROR - Erro ao executar ClustalW para BBA0133.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,915 - INFO - Processando BBA0142 com PAM250
+2025-01-26 16:06:45,918 - ERROR - Erro ao executar ClustalW para BBA0142.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,918 - INFO - Processando BBA0148 com PAM250
+2025-01-26 16:06:45,922 - ERROR - Erro ao executar ClustalW para BBA0148.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,922 - INFO - Processando BBA0155 com PAM250
+2025-01-26 16:06:45,925 - ERROR - Erro ao executar ClustalW para BBA0155.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,925 - INFO - Processando BBA0163 com PAM250
+2025-01-26 16:06:45,929 - ERROR - Erro ao executar ClustalW para BBA0163.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,930 - INFO - Processando BBA0178 com PAM250
+2025-01-26 16:06:45,935 - ERROR - Erro ao executar ClustalW para BBA0178.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,935 - INFO - Processando BBA0183 com PAM250
+2025-01-26 16:06:45,938 - ERROR - Erro ao executar ClustalW para BBA0183.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,938 - INFO - Processando BBA0185 com PAM250
+2025-01-26 16:06:45,941 - ERROR - Erro ao executar ClustalW para BBA0185.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,941 - INFO - Processando BBA0192 com PAM250
+2025-01-26 16:06:45,944 - ERROR - Erro ao executar ClustalW para BBA0192.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,944 - INFO - Processando BBA0201 com PAM250
+2025-01-26 16:06:45,947 - ERROR - Erro ao executar ClustalW para BBA0201.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,947 - INFO - Processando BBA0218 com PAM250
+2025-01-26 16:06:45,950 - ERROR - Erro ao executar ClustalW para BBA0218.tfa: 
+
+ERROR: Cannot find matrix file [PAM250]
+
+
+2025-01-26 16:06:45,950 - INFO - 
+Processamento finalizado:
+2025-01-26 16:06:45,951 - INFO - Instâncias processadas com sucesso: 0
+2025-01-26 16:06:45,951 - INFO - Falhas: 23

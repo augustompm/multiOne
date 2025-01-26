@@ -1,0 +1,75 @@
+2025-01-26 16:08:44,876 - INFO - Iniciando execução do ClustalW (PAM250) para instâncias do RV100
+2025-01-26 16:08:44,881 - INFO - Matriz PAM250 criada em: biofit/clustalw/matrices/pam250.mat
+2025-01-26 16:08:44,881 - INFO - Processando BBA0004 com PAM250
+2025-01-26 16:08:50,297 - INFO - Alinhamento gerado com 248 sequências, comprimento 224
+2025-01-26 16:08:50,297 - INFO - ClustalW (PAM250) executado com sucesso para BBA0004
+2025-01-26 16:08:50,298 - INFO - Processando BBA0005 com PAM250
+2025-01-26 16:08:50,896 - INFO - Alinhamento gerado com 44 sequências, comprimento 224
+2025-01-26 16:08:50,896 - INFO - ClustalW (PAM250) executado com sucesso para BBA0005
+2025-01-26 16:08:50,896 - INFO - Processando BBA0008 com PAM250
+2025-01-26 16:08:53,343 - INFO - Alinhamento gerado com 145 sequências, comprimento 206
+2025-01-26 16:08:53,343 - INFO - ClustalW (PAM250) executado com sucesso para BBA0008
+2025-01-26 16:08:53,343 - INFO - Processando BBA0011 com PAM250
+2025-01-26 16:08:55,116 - INFO - Alinhamento gerado com 102 sequências, comprimento 260
+2025-01-26 16:08:55,117 - INFO - ClustalW (PAM250) executado com sucesso para BBA0011
+2025-01-26 16:08:55,117 - INFO - Processando BBA0014 com PAM250
+2025-01-26 16:08:55,582 - INFO - Alinhamento gerado com 50 sequências, comprimento 229
+2025-01-26 16:08:55,582 - INFO - ClustalW (PAM250) executado com sucesso para BBA0014
+2025-01-26 16:08:55,582 - INFO - Processando BBA0015 com PAM250
+2025-01-26 16:08:58,154 - INFO - Alinhamento gerado com 122 sequências, comprimento 358
+2025-01-26 16:08:58,154 - INFO - ClustalW (PAM250) executado com sucesso para BBA0015
+2025-01-26 16:08:58,154 - INFO - Processando BBA0019 com PAM250
+2025-01-26 16:08:59,015 - INFO - Alinhamento gerado com 83 sequências, comprimento 162
+2025-01-26 16:08:59,016 - INFO - ClustalW (PAM250) executado com sucesso para BBA0019
+2025-01-26 16:08:59,016 - INFO - Processando BBA0021 com PAM250
+2025-01-26 16:08:59,816 - INFO - Alinhamento gerado com 74 sequências, comprimento 936
+2025-01-26 16:08:59,816 - INFO - ClustalW (PAM250) executado com sucesso para BBA0021
+2025-01-26 16:08:59,816 - INFO - Processando BBA0022 com PAM250
+2025-01-26 16:08:59,945 - INFO - Alinhamento gerado com 24 sequências, comprimento 314
+2025-01-26 16:08:59,946 - INFO - ClustalW (PAM250) executado com sucesso para BBA0022
+2025-01-26 16:08:59,946 - INFO - Processando BBA0024 com PAM250
+2025-01-26 16:09:01,418 - INFO - Alinhamento gerado com 138 sequências, comprimento 562
+2025-01-26 16:09:01,418 - INFO - ClustalW (PAM250) executado com sucesso para BBA0024
+2025-01-26 16:09:01,418 - INFO - Processando BBA0080 com PAM250
+2025-01-26 16:09:01,485 - INFO - Alinhamento gerado com 9 sequências, comprimento 480
+2025-01-26 16:09:01,485 - INFO - ClustalW (PAM250) executado com sucesso para BBA0080
+2025-01-26 16:09:01,485 - INFO - Processando BBA0126 com PAM250
+2025-01-26 16:09:02,856 - INFO - Alinhamento gerado com 40 sequências, comprimento 1191
+2025-01-26 16:09:02,856 - INFO - ClustalW (PAM250) executado com sucesso para BBA0126
+2025-01-26 16:09:02,856 - INFO - Processando BBA0133 com PAM250
+2025-01-26 16:09:23,726 - INFO - Alinhamento gerado com 255 sequências, comprimento 1627
+2025-01-26 16:09:23,727 - INFO - ClustalW (PAM250) executado com sucesso para BBA0133
+2025-01-26 16:09:23,727 - INFO - Processando BBA0142 com PAM250
+2025-01-26 16:09:23,752 - INFO - Alinhamento gerado com 19 sequências, comprimento 82
+2025-01-26 16:09:23,752 - INFO - ClustalW (PAM250) executado com sucesso para BBA0142
+2025-01-26 16:09:23,753 - INFO - Processando BBA0148 com PAM250
+2025-01-26 16:09:27,524 - INFO - Alinhamento gerado com 49 sequências, comprimento 1420
+2025-01-26 16:09:27,524 - INFO - ClustalW (PAM250) executado com sucesso para BBA0148
+2025-01-26 16:09:27,524 - INFO - Processando BBA0155 com PAM250
+2025-01-26 16:09:28,107 - INFO - Alinhamento gerado com 34 sequências, comprimento 381
+2025-01-26 16:09:28,107 - INFO - ClustalW (PAM250) executado com sucesso para BBA0155
+2025-01-26 16:09:28,107 - INFO - Processando BBA0163 com PAM250
+2025-01-26 16:09:29,627 - INFO - Alinhamento gerado com 58 sequências, comprimento 2314
+2025-01-26 16:09:29,627 - INFO - ClustalW (PAM250) executado com sucesso para BBA0163
+2025-01-26 16:09:29,627 - INFO - Processando BBA0178 com PAM250
+2025-01-26 16:09:35,061 - INFO - Alinhamento gerado com 153 sequências, comprimento 526
+2025-01-26 16:09:35,061 - INFO - ClustalW (PAM250) executado com sucesso para BBA0178
+2025-01-26 16:09:35,061 - INFO - Processando BBA0183 com PAM250
+2025-01-26 16:09:35,599 - INFO - Alinhamento gerado com 87 sequências, comprimento 287
+2025-01-26 16:09:35,599 - INFO - ClustalW (PAM250) executado com sucesso para BBA0183
+2025-01-26 16:09:35,599 - INFO - Processando BBA0185 com PAM250
+2025-01-26 16:09:35,722 - INFO - Alinhamento gerado com 14 sequências, comprimento 468
+2025-01-26 16:09:35,722 - INFO - ClustalW (PAM250) executado com sucesso para BBA0185
+2025-01-26 16:09:35,722 - INFO - Processando BBA0192 com PAM250
+2025-01-26 16:09:35,869 - INFO - Alinhamento gerado com 4 sequências, comprimento 879
+2025-01-26 16:09:35,869 - INFO - ClustalW (PAM250) executado com sucesso para BBA0192
+2025-01-26 16:09:35,870 - INFO - Processando BBA0201 com PAM250
+2025-01-26 16:09:36,106 - INFO - Alinhamento gerado com 29 sequências, comprimento 264
+2025-01-26 16:09:36,106 - INFO - ClustalW (PAM250) executado com sucesso para BBA0201
+2025-01-26 16:09:36,106 - INFO - Processando BBA0218 com PAM250
+2025-01-26 16:09:36,032 - INFO - Alinhamento gerado com 66 sequências, comprimento 516
+2025-01-26 16:09:36,033 - INFO - ClustalW (PAM250) executado com sucesso para BBA0218
+2025-01-26 16:09:36,033 - INFO - 
+Processamento finalizado:
+2025-01-26 16:09:36,033 - INFO - Instâncias processadas com sucesso: 23
+2025-01-26 16:09:36,033 - INFO - Falhas: 0
