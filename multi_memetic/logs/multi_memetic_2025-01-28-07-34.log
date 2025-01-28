@@ -1,0 +1,134 @@
+2025-01-28 07:34:24,006 - root - INFO - Starting multi-matrix executions with hyperparameters:
+2025-01-28 07:34:24,006 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": {
+      "HIGH": [
+        30.0,
+        25.0
+      ],
+      "MEDIUM": [
+        22.0,
+        20.0
+      ],
+      "LOW": [
+        15.0,
+        10.0
+      ]
+    },
+    "MAX_ADJUSTMENTS": {
+      "HIGH": [
+        2,
+        3
+      ],
+      "MEDIUM": [
+        3,
+        4
+      ],
+      "LOW": [
+        4,
+        5
+      ]
+    }
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "HIGH": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "MEDIUM": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 15
+      },
+      "SCORE_SIMILAR": {
+        "min": -3,
+        "max": 7
+      },
+      "SCORE_DIFFERENT": {
+        "min": -6,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 3
+    },
+    "LOW": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 13
+      },
+      "SCORE_SIMILAR": {
+        "min": -2,
+        "max": 6
+      },
+      "SCORE_DIFFERENT": {
+        "min": -4,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 4
+    }
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 07:34:24,006 - root - INFO - 
+Processing instance BBA0005
+2025-01-28 07:34:24,007 - root - ERROR - Required files not found for instance BBA0005
+2025-01-28 07:34:24,007 - root - INFO - 
+Processing instance BBA0014
+2025-01-28 07:34:24,007 - root - ERROR - Required files not found for instance BBA0014
+2025-01-28 07:34:24,007 - root - INFO - 
+Processing instance BBA0019
+2025-01-28 07:34:24,007 - root - ERROR - Required files not found for instance BBA0019
+2025-01-28 07:34:24,007 - root - INFO - 
+Processing instance BBA0022
+2025-01-28 07:34:24,007 - root - ERROR - Required files not found for instance BBA0022
+2025-01-28 07:34:24,007 - root - INFO - 
+Processing instance BBA0080
+2025-01-28 07:34:24,008 - root - ERROR - Required files not found for instance BBA0080
+2025-01-28 07:34:24,008 - root - INFO - 
+Processing instance BBA0126
+2025-01-28 07:34:24,008 - root - ERROR - Required files not found for instance BBA0126
+2025-01-28 07:34:24,008 - root - INFO - 
+Processing instance BBA0142
+2025-01-28 07:34:24,008 - root - ERROR - Required files not found for instance BBA0142
+2025-01-28 07:34:24,008 - root - INFO - 
+Processing instance BBA0155
+2025-01-28 07:34:24,008 - root - ERROR - Required files not found for instance BBA0155
+2025-01-28 07:34:24,008 - root - INFO - 
+Processing instance BBA0183
+2025-01-28 07:34:24,008 - root - ERROR - Required files not found for instance BBA0183
+2025-01-28 07:34:24,008 - root - INFO - 
+Processing instance BBA0185
+2025-01-28 07:34:24,008 - root - ERROR - Required files not found for instance BBA0185
+2025-01-28 07:34:24,009 - root - INFO - 
+Processing instance BBA0192
+2025-01-28 07:34:24,009 - root - ERROR - Required files not found for instance BBA0192
+2025-01-28 07:34:24,009 - root - INFO - 
+Processing instance BBA0201
+2025-01-28 07:34:24,009 - root - ERROR - Required files not found for instance BBA0201
+2025-01-28 07:34:24,009 - root - INFO - All instances processed successfully

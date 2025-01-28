@@ -1,0 +1,184 @@
+2025-01-28 08:04:58,981 - root - INFO - Starting multi-matrix executions with hyperparameters:
+2025-01-28 08:04:58,982 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": {
+      "HIGH": [
+        30.0,
+        25.0
+      ],
+      "MEDIUM": [
+        22.0,
+        20.0
+      ],
+      "LOW": [
+        15.0,
+        10.0
+      ]
+    },
+    "MAX_ADJUSTMENTS": {
+      "HIGH": [
+        2,
+        3
+      ],
+      "MEDIUM": [
+        3,
+        4
+      ],
+      "LOW": [
+        4,
+        5
+      ]
+    }
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "HIGH": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "MEDIUM": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 15
+      },
+      "SCORE_SIMILAR": {
+        "min": -3,
+        "max": 7
+      },
+      "SCORE_DIFFERENT": {
+        "min": -6,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 3
+    },
+    "LOW": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 13
+      },
+      "SCORE_SIMILAR": {
+        "min": -2,
+        "max": 6
+      },
+      "SCORE_DIFFERENT": {
+        "min": -4,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 4
+    }
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 08:04:58,982 - root - INFO - 
+Processing instance BBA0005
+2025-01-28 08:04:58,986 - root - INFO - Starting execution 1/1 for BBA0005
+2025-01-28 08:05:00,434 - root - ERROR - Error processing BBA0005 execution 1: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 223, in process_instance
+    best_manager, best_score = memetic.run(
+                               ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 89, in run
+    blocks = self.xml_parser.get_blocks_by_conservation(level)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+2025-01-28 08:05:00,438 - root - INFO - 
+Processing instance BBA0014
+2025-01-28 08:05:00,442 - root - INFO - Starting execution 1/1 for BBA0014
+2025-01-28 08:05:04,091 - root - ERROR - Error processing BBA0014 execution 1: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 223, in process_instance
+    best_manager, best_score = memetic.run(
+                               ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 89, in run
+    blocks = self.xml_parser.get_blocks_by_conservation(level)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+2025-01-28 08:05:04,092 - root - INFO - 
+Processing instance BBA0019
+2025-01-28 08:05:04,105 - root - INFO - Starting execution 1/1 for BBA0019
+2025-01-28 08:05:10,549 - root - ERROR - Error processing BBA0019 execution 1: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 223, in process_instance
+    best_manager, best_score = memetic.run(
+                               ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 89, in run
+    blocks = self.xml_parser.get_blocks_by_conservation(level)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+2025-01-28 08:05:10,551 - root - INFO - 
+Processing instance BBA0022
+2025-01-28 08:05:10,554 - root - INFO - Starting execution 1/1 for BBA0022
+2025-01-28 08:05:11,563 - root - ERROR - Error processing BBA0022 execution 1: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 223, in process_instance
+    best_manager, best_score = memetic.run(
+                               ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 89, in run
+    blocks = self.xml_parser.get_blocks_by_conservation(level)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+2025-01-28 08:05:11,564 - root - INFO - 
+Processing instance BBA0080
+2025-01-28 08:05:11,566 - root - INFO - Starting execution 1/1 for BBA0080
+2025-01-28 08:05:12,124 - root - ERROR - Error processing BBA0080 execution 1: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 223, in process_instance
+    best_manager, best_score = memetic.run(
+                               ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 89, in run
+    blocks = self.xml_parser.get_blocks_by_conservation(level)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+2025-01-28 08:05:12,125 - root - INFO - 
+Processing instance BBA0126
+2025-01-28 08:05:12,131 - root - INFO - Starting execution 1/1 for BBA0126
+2025-01-28 08:05:24,327 - root - ERROR - Error processing BBA0126 execution 1: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 223, in process_instance
+    best_manager, best_score = memetic.run(
+                               ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 89, in run
+    blocks = self.xml_parser.get_blocks_by_conservation(level)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+2025-01-28 08:05:24,329 - root - INFO - 
+Processing instance BBA0142
+2025-01-28 08:05:24,330 - root - INFO - Starting execution 1/1 for BBA0142
+2025-01-28 08:05:24,634 - root - ERROR - Error processing BBA0142 execution 1: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 223, in process_instance
+    best_manager, best_score = memetic.run(
+                               ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 89, in run
+    blocks = self.xml_parser.get_blocks_by_conservation(level)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ScoreAccessLayer' object has no attribute 'get_blocks_by_conservation'
+2025-01-28 08:05:24,635 - root - INFO - 
+Processing instance BBA0155
+2025-01-28 08:05:24,638 - root - INFO - Starting execution 1/1 for BBA0155

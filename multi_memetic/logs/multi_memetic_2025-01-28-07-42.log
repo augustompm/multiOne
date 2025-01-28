@@ -1,0 +1,362 @@
+2025-01-28 07:42:49,389 - root - INFO - Starting multi-matrix executions with hyperparameters:
+2025-01-28 07:42:49,390 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": {
+      "HIGH": [
+        30.0,
+        25.0
+      ],
+      "MEDIUM": [
+        22.0,
+        20.0
+      ],
+      "LOW": [
+        15.0,
+        10.0
+      ]
+    },
+    "MAX_ADJUSTMENTS": {
+      "HIGH": [
+        2,
+        3
+      ],
+      "MEDIUM": [
+        3,
+        4
+      ],
+      "LOW": [
+        4,
+        5
+      ]
+    }
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "HIGH": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "MEDIUM": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 15
+      },
+      "SCORE_SIMILAR": {
+        "min": -3,
+        "max": 7
+      },
+      "SCORE_DIFFERENT": {
+        "min": -6,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 3
+    },
+    "LOW": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 13
+      },
+      "SCORE_SIMILAR": {
+        "min": -2,
+        "max": 6
+      },
+      "SCORE_DIFFERENT": {
+        "min": -4,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 4
+    }
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 07:42:49,390 - root - INFO - 
+Processing instance BBA0005
+2025-01-28 07:42:49,397 - root - INFO - Starting execution 1/1 for BBA0005
+2025-01-28 07:42:49,401 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,402 - root - ERROR - Error processing BBA0005 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,412 - root - INFO - 
+Processing instance BBA0014
+2025-01-28 07:42:49,419 - root - INFO - Starting execution 1/1 for BBA0014
+2025-01-28 07:42:49,422 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,422 - root - ERROR - Error processing BBA0014 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,423 - root - INFO - 
+Processing instance BBA0019
+2025-01-28 07:42:49,437 - root - INFO - Starting execution 1/1 for BBA0019
+2025-01-28 07:42:49,441 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,441 - root - ERROR - Error processing BBA0019 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,442 - root - INFO - 
+Processing instance BBA0022
+2025-01-28 07:42:49,447 - root - INFO - Starting execution 1/1 for BBA0022
+2025-01-28 07:42:49,448 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,448 - root - ERROR - Error processing BBA0022 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,449 - root - INFO - 
+Processing instance BBA0080
+2025-01-28 07:42:49,452 - root - INFO - Starting execution 1/1 for BBA0080
+2025-01-28 07:42:49,453 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,453 - root - ERROR - Error processing BBA0080 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,454 - root - INFO - 
+Processing instance BBA0126
+2025-01-28 07:42:49,467 - root - INFO - Starting execution 1/1 for BBA0126
+2025-01-28 07:42:49,472 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,472 - root - ERROR - Error processing BBA0126 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,475 - root - INFO - 
+Processing instance BBA0142
+2025-01-28 07:42:49,480 - root - INFO - Starting execution 1/1 for BBA0142
+2025-01-28 07:42:49,481 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,481 - root - ERROR - Error processing BBA0142 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,482 - root - INFO - 
+Processing instance BBA0155
+2025-01-28 07:42:49,488 - root - INFO - Starting execution 1/1 for BBA0155
+2025-01-28 07:42:49,492 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,492 - root - ERROR - Error processing BBA0155 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,493 - root - INFO - 
+Processing instance BBA0183
+2025-01-28 07:42:49,500 - root - INFO - Starting execution 1/1 for BBA0183
+2025-01-28 07:42:49,503 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,503 - root - ERROR - Error processing BBA0183 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,504 - root - INFO - 
+Processing instance BBA0185
+2025-01-28 07:42:49,509 - root - INFO - Starting execution 1/1 for BBA0185
+2025-01-28 07:42:49,511 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,511 - root - ERROR - Error processing BBA0185 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,511 - root - INFO - 
+Processing instance BBA0192
+2025-01-28 07:42:49,514 - root - INFO - Starting execution 1/1 for BBA0192
+2025-01-28 07:42:49,515 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,515 - root - ERROR - Error processing BBA0192 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,516 - root - INFO - 
+Processing instance BBA0201
+2025-01-28 07:42:49,522 - root - INFO - Starting execution 1/1 for BBA0201
+2025-01-28 07:42:49,524 - AdaptiveMatrix - ERROR - Error loading PAM250: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,525 - root - ERROR - Error processing BBA0201 execution 1: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 39, in __init__
+    MatrixManager(hyperparams),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 209, in __init__
+    'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 35, in __init__
+    self.matrix = self._load_pam250()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 105, in _load_pam250
+    with open(pam_path) as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrices/pam250.txt'
+2025-01-28 07:42:49,526 - root - INFO - All instances processed successfully

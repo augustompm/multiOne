@@ -1,0 +1,338 @@
+2025-01-28 07:49:15,290 - root - INFO - Starting multi-matrix executions with hyperparameters:
+2025-01-28 07:49:15,290 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": {
+      "HIGH": [
+        30.0,
+        25.0
+      ],
+      "MEDIUM": [
+        22.0,
+        20.0
+      ],
+      "LOW": [
+        15.0,
+        10.0
+      ]
+    },
+    "MAX_ADJUSTMENTS": {
+      "HIGH": [
+        2,
+        3
+      ],
+      "MEDIUM": [
+        3,
+        4
+      ],
+      "LOW": [
+        4,
+        5
+      ]
+    }
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "HIGH": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "MEDIUM": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 15
+      },
+      "SCORE_SIMILAR": {
+        "min": -3,
+        "max": 7
+      },
+      "SCORE_DIFFERENT": {
+        "min": -6,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 3
+    },
+    "LOW": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 13
+      },
+      "SCORE_SIMILAR": {
+        "min": -2,
+        "max": 6
+      },
+      "SCORE_DIFFERENT": {
+        "min": -4,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 4
+    }
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 07:49:15,290 - root - INFO - 
+Processing instance BBA0005
+2025-01-28 07:49:15,295 - root - INFO - Starting execution 1/1 for BBA0005
+2025-01-28 07:49:15,307 - root - ERROR - Error processing BBA0005 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,309 - root - INFO - 
+Processing instance BBA0014
+2025-01-28 07:49:15,313 - root - INFO - Starting execution 1/1 for BBA0014
+2025-01-28 07:49:15,324 - root - ERROR - Error processing BBA0014 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,326 - root - INFO - 
+Processing instance BBA0019
+2025-01-28 07:49:15,330 - root - INFO - Starting execution 1/1 for BBA0019
+2025-01-28 07:49:15,342 - root - ERROR - Error processing BBA0019 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,344 - root - INFO - 
+Processing instance BBA0022
+2025-01-28 07:49:15,346 - root - INFO - Starting execution 1/1 for BBA0022
+2025-01-28 07:49:15,356 - root - ERROR - Error processing BBA0022 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,357 - root - INFO - 
+Processing instance BBA0080
+2025-01-28 07:49:15,359 - root - INFO - Starting execution 1/1 for BBA0080
+2025-01-28 07:49:15,369 - root - ERROR - Error processing BBA0080 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,369 - root - INFO - 
+Processing instance BBA0126
+2025-01-28 07:49:15,375 - root - INFO - Starting execution 1/1 for BBA0126
+2025-01-28 07:49:15,389 - root - ERROR - Error processing BBA0126 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,390 - root - INFO - 
+Processing instance BBA0142
+2025-01-28 07:49:15,391 - root - INFO - Starting execution 1/1 for BBA0142
+2025-01-28 07:49:15,400 - root - ERROR - Error processing BBA0142 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,401 - root - INFO - 
+Processing instance BBA0155
+2025-01-28 07:49:15,404 - root - INFO - Starting execution 1/1 for BBA0155
+2025-01-28 07:49:15,416 - root - ERROR - Error processing BBA0155 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,417 - root - INFO - 
+Processing instance BBA0183
+2025-01-28 07:49:15,421 - root - INFO - Starting execution 1/1 for BBA0183
+2025-01-28 07:49:15,432 - root - ERROR - Error processing BBA0183 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,433 - root - INFO - 
+Processing instance BBA0185
+2025-01-28 07:49:15,436 - root - INFO - Starting execution 1/1 for BBA0185
+2025-01-28 07:49:15,445 - root - ERROR - Error processing BBA0185 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,446 - root - INFO - 
+Processing instance BBA0192
+2025-01-28 07:49:15,448 - root - INFO - Starting execution 1/1 for BBA0192
+2025-01-28 07:49:15,457 - root - ERROR - Error processing BBA0192 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,458 - root - INFO - 
+Processing instance BBA0201
+2025-01-28 07:49:15,462 - root - INFO - Starting execution 1/1 for BBA0201
+2025-01-28 07:49:15,472 - root - ERROR - Error processing BBA0201 execution 1: 'MAX_ADJUSTMENT'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 210, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 90, in _initialize_population
+    if matrix._validate_score(aa1, aa2, new_score):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 92, in _validate_score
+    if abs(new_score - old_score) > self.hyperparams['MATRIX']['MAX_ADJUSTMENT']:
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'MAX_ADJUSTMENT'
+2025-01-28 07:49:15,474 - root - INFO - All instances processed successfully

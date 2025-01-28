@@ -1,0 +1,482 @@
+2025-01-28 08:00:15,681 - root - INFO - Starting multi-matrix executions with hyperparameters:
+2025-01-28 08:00:15,681 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": {
+      "HIGH": [
+        30.0,
+        25.0
+      ],
+      "MEDIUM": [
+        22.0,
+        20.0
+      ],
+      "LOW": [
+        15.0,
+        10.0
+      ]
+    },
+    "MAX_ADJUSTMENTS": {
+      "HIGH": [
+        2,
+        3
+      ],
+      "MEDIUM": [
+        3,
+        4
+      ],
+      "LOW": [
+        4,
+        5
+      ]
+    }
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "HIGH": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "MEDIUM": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 15
+      },
+      "SCORE_SIMILAR": {
+        "min": -3,
+        "max": 7
+      },
+      "SCORE_DIFFERENT": {
+        "min": -6,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 3
+    },
+    "LOW": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 13
+      },
+      "SCORE_SIMILAR": {
+        "min": -2,
+        "max": 6
+      },
+      "SCORE_DIFFERENT": {
+        "min": -4,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 4
+    }
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 08:00:15,681 - root - INFO - 
+Processing instance BBA0005
+2025-01-28 08:00:15,685 - root - INFO - Starting execution 1/1 for BBA0005
+2025-01-28 08:00:15,707 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,707 - root - ERROR - Error processing BBA0005 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,708 - root - INFO - 
+Processing instance BBA0014
+2025-01-28 08:00:15,711 - root - INFO - Starting execution 1/1 for BBA0014
+2025-01-28 08:00:15,731 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,731 - root - ERROR - Error processing BBA0014 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,732 - root - INFO - 
+Processing instance BBA0019
+2025-01-28 08:00:15,736 - root - INFO - Starting execution 1/1 for BBA0019
+2025-01-28 08:00:15,756 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,756 - root - ERROR - Error processing BBA0019 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,757 - root - INFO - 
+Processing instance BBA0022
+2025-01-28 08:00:15,759 - root - INFO - Starting execution 1/1 for BBA0022
+2025-01-28 08:00:15,778 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,778 - root - ERROR - Error processing BBA0022 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,779 - root - INFO - 
+Processing instance BBA0080
+2025-01-28 08:00:15,780 - root - INFO - Starting execution 1/1 for BBA0080
+2025-01-28 08:00:15,799 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,800 - root - ERROR - Error processing BBA0080 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,800 - root - INFO - 
+Processing instance BBA0126
+2025-01-28 08:00:15,805 - root - INFO - Starting execution 1/1 for BBA0126
+2025-01-28 08:00:15,827 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,827 - root - ERROR - Error processing BBA0126 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,829 - root - INFO - 
+Processing instance BBA0142
+2025-01-28 08:00:15,829 - root - INFO - Starting execution 1/1 for BBA0142
+2025-01-28 08:00:15,848 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,848 - root - ERROR - Error processing BBA0142 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,849 - root - INFO - 
+Processing instance BBA0155
+2025-01-28 08:00:15,852 - root - INFO - Starting execution 1/1 for BBA0155
+2025-01-28 08:00:15,871 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,871 - root - ERROR - Error processing BBA0155 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,873 - root - INFO - 
+Processing instance BBA0183
+2025-01-28 08:00:15,875 - root - INFO - Starting execution 1/1 for BBA0183
+2025-01-28 08:00:15,896 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,896 - root - ERROR - Error processing BBA0183 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,897 - root - INFO - 
+Processing instance BBA0185
+2025-01-28 08:00:15,900 - root - INFO - Starting execution 1/1 for BBA0185
+2025-01-28 08:00:15,919 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,919 - root - ERROR - Error processing BBA0185 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,920 - root - INFO - 
+Processing instance BBA0192
+2025-01-28 08:00:15,922 - root - INFO - Starting execution 1/1 for BBA0192
+2025-01-28 08:00:15,939 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,939 - root - ERROR - Error processing BBA0192 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,940 - root - INFO - 
+Processing instance BBA0201
+2025-01-28 08:00:15,944 - root - INFO - Starting execution 1/1 for BBA0201
+2025-01-28 08:00:15,963 - AdaptiveMatrix - ERROR - Error saving matrix: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,964 - root - ERROR - Error processing BBA0201 execution 1: expected str, bytes or os.PathLike object, not TextIOWrapper
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 285, in export_matrices
+    matrix.to_clustalw_format(f)  # Modificar para escrever diretamente no arquivo
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/adaptive_matrices/matrix_manager.py", line 156, in to_clustalw_format
+    with open(output_path, 'w') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected str, bytes or os.PathLike object, not TextIOWrapper
+2025-01-28 08:00:15,965 - root - INFO - All instances processed successfully

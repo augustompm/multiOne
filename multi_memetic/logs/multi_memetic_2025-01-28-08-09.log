@@ -1,0 +1,121 @@
+2025-01-28 08:09:28,773 - root - INFO - Starting multi-matrix executions with hyperparameters:
+2025-01-28 08:09:28,773 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": {
+      "HIGH": [
+        30.0,
+        25.0
+      ],
+      "MEDIUM": [
+        22.0,
+        20.0
+      ],
+      "LOW": [
+        15.0,
+        10.0
+      ]
+    },
+    "MAX_ADJUSTMENTS": {
+      "HIGH": [
+        2,
+        3
+      ],
+      "MEDIUM": [
+        3,
+        4
+      ],
+      "LOW": [
+        4,
+        5
+      ]
+    }
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "HIGH": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "MEDIUM": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 15
+      },
+      "SCORE_SIMILAR": {
+        "min": -3,
+        "max": 7
+      },
+      "SCORE_DIFFERENT": {
+        "min": -6,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 3
+    },
+    "LOW": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 13
+      },
+      "SCORE_SIMILAR": {
+        "min": -2,
+        "max": 6
+      },
+      "SCORE_DIFFERENT": {
+        "min": -4,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 4
+    }
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 08:09:28,773 - root - INFO - 
+Processing instance BBA0005
+2025-01-28 08:09:28,777 - root - INFO - Starting execution 1/1 for BBA0005
+2025-01-28 08:09:33,250 - root - ERROR - Error processing BBA0005 execution 1: 'AdaptiveMatrix' object has no attribute 'export_matrices'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 223, in process_instance
+    best_manager, best_score = memetic.run(
+                               ^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 93, in run
+    new_score = self.local_search.vns_search(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/vns_ils_multi.py", line 110, in vns_search
+    current_score = evaluation_func(current_matrix)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 228, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AdaptiveMatrix' object has no attribute 'export_matrices'
+2025-01-28 08:09:33,252 - root - INFO - 
+Processing instance BBA0014
+2025-01-28 08:09:33,255 - root - INFO - Starting execution 1/1 for BBA0014
