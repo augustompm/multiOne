@@ -1,0 +1,9 @@
+Instance: BBA0183
+Best matrix type: MEDIUM
+Best score: 0.6150
+
+All scores:
+HIGH: 0.4390
+MEDIUM: 0.6150
+LOW: 0.4640
+combined: 0.4390

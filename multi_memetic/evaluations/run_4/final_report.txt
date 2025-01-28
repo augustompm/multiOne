@@ -1,0 +1,194 @@
+=== MA-BioFit Evaluation Report ===
+
+Total instances processed: 23
+Run directory: /home/augusto/projects/multiOne/multi_memetic/evaluations/run_4
+Date: 2025-01-28 20:00:19
+
+=== Matrix Performance ===
+
+HIGH Matrix:
+  Times best: 7
+  Average score: 0.5610
+  Best score: 0.9470
+  Worst score: 0.0370
+
+MEDIUM Matrix:
+  Times best: 12
+  Average score: 0.5903
+  Best score: 0.9430
+  Worst score: 0.0360
+
+LOW Matrix:
+  Times best: 4
+  Average score: 0.5732
+  Best score: 0.9470
+  Worst score: 0.0320
+
+combined Matrix:
+  Times best: 0
+  Average score: 0.5610
+  Best score: 0.9470
+  Worst score: 0.0370
+
+=== Instance Details ===
+
+BBA0005:
+  Best matrix: LOW
+  HIGH: 0.5310
+  MEDIUM: 0.5270
+  LOW: 0.5820
+  combined: 0.5310
+
+BBA0014:
+  Best matrix: MEDIUM
+  HIGH: 0.7120
+  MEDIUM: 0.7190
+  LOW: 0.7190
+  combined: 0.7120
+
+BBA0019:
+  Best matrix: HIGH
+  HIGH: 0.9430
+  MEDIUM: 0.9430
+  LOW: 0.9430
+  combined: 0.9430
+
+BBA0022:
+  Best matrix: HIGH
+  HIGH: 0.9470
+  MEDIUM: 0.9320
+  LOW: 0.9470
+  combined: 0.9470
+
+BBA0080:
+  Best matrix: HIGH
+  HIGH: 0.5580
+  MEDIUM: 0.5560
+  LOW: 0.5020
+  combined: 0.5580
+
+BBA0126:
+  Best matrix: HIGH
+  HIGH: 0.0570
+  MEDIUM: 0.0360
+  LOW: 0.0480
+  combined: 0.0570
+
+BBA0142:
+  Best matrix: MEDIUM
+  HIGH: 0.8100
+  MEDIUM: 0.9290
+  LOW: 0.9290
+  combined: 0.8100
+
+BBA0155:
+  Best matrix: HIGH
+  HIGH: 0.7900
+  MEDIUM: 0.7900
+  LOW: 0.7900
+  combined: 0.7900
+
+BBA0183:
+  Best matrix: MEDIUM
+  HIGH: 0.4390
+  MEDIUM: 0.6150
+  LOW: 0.4640
+  combined: 0.4390
+
+BBA0185:
+  Best matrix: MEDIUM
+  HIGH: 0.4770
+  MEDIUM: 0.6330
+  LOW: 0.6330
+  combined: 0.4770
+
+BBA0192:
+  Best matrix: MEDIUM
+  HIGH: 0.8160
+  MEDIUM: 0.8500
+  LOW: 0.8330
+  combined: 0.8160
+
+BBA0201:
+  Best matrix: MEDIUM
+  HIGH: 0.2300
+  MEDIUM: 0.3100
+  LOW: 0.2120
+  combined: 0.2300
+
+BBA0133:
+  Best matrix: MEDIUM
+  HIGH: 0.0370
+  MEDIUM: 0.0820
+  LOW: 0.0350
+  combined: 0.0370
+
+BBA0004:
+  Best matrix: MEDIUM
+  HIGH: 0.3420
+  MEDIUM: 0.3580
+  LOW: 0.2630
+  combined: 0.3420
+
+BBA0178:
+  Best matrix: LOW
+  HIGH: 0.8640
+  MEDIUM: 0.8640
+  LOW: 0.8760
+  combined: 0.8640
+
+BBA0024:
+  Best matrix: MEDIUM
+  HIGH: 0.4150
+  MEDIUM: 0.5650
+  LOW: 0.4020
+  combined: 0.4150
+
+BBA0008:
+  Best matrix: MEDIUM
+  HIGH: 0.7970
+  MEDIUM: 0.8440
+  LOW: 0.8070
+  combined: 0.7970
+
+BBA0015:
+  Best matrix: LOW
+  HIGH: 0.6050
+  MEDIUM: 0.4460
+  LOW: 0.6390
+  combined: 0.6050
+
+BBA0011:
+  Best matrix: MEDIUM
+  HIGH: 0.8810
+  MEDIUM: 0.9410
+  LOW: 0.9310
+  combined: 0.8810
+
+BBA0163:
+  Best matrix: HIGH
+  HIGH: 0.0550
+  MEDIUM: 0.0370
+  LOW: 0.0320
+  combined: 0.0550
+
+BBA0148:
+  Best matrix: MEDIUM
+  HIGH: 0.4420
+  MEDIUM: 0.4450
+  LOW: 0.4340
+  combined: 0.4420
+
+BBA0021:
+  Best matrix: LOW
+  HIGH: 0.9280
+  MEDIUM: 0.9280
+  LOW: 0.9340
+  combined: 0.9280
+
+BBA0218:
+  Best matrix: HIGH
+  HIGH: 0.2280
+  MEDIUM: 0.2280
+  LOW: 0.2280
+  combined: 0.2280

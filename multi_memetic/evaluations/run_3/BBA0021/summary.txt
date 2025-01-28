@@ -1,0 +1,9 @@
+Instance: BBA0021
+Best matrix type: LOW
+Best score: 0.9340
+
+All scores:
+HIGH: 0.9280
+MEDIUM: 0.9280
+LOW: 0.9340
+combined: 0.9280

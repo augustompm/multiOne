@@ -1,0 +1,9 @@
+Instance: BBA0142
+Best matrix type: HIGH
+Best score: 0.0000
+
+All scores:
+HIGH: 0.0000
+MEDIUM: 0.0000
+LOW: 0.0000
+combined: 0.0000

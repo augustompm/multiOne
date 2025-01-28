@@ -1,0 +1,37 @@
+=== MA-BioFit Evaluation Report ===
+
+Total instances processed: 1
+Run directory: multi_memetic/evaluations/run_2
+Date: 2025-01-28 19:28:30
+
+=== Matrix Performance ===
+
+HIGH Matrix:
+  Times best: 1
+  Average score: 0.0000
+  Best score: 0.0000
+  Worst score: 0.0000
+
+MEDIUM Matrix:
+  Times best: 0
+  Average score: 0.0000
+  Best score: 0.0000
+  Worst score: 0.0000
+
+LOW Matrix:
+  Times best: 0
+  Average score: 0.0000
+  Best score: 0.0000
+  Worst score: 0.0000
+
+combined Matrix:
+  Times best: 0
+  Average score: 0.0000
+  Best score: 0.0000
+  Worst score: 0.0000
+
+=== Instance Details ===
+
+BBA0183:
+  Best matrix: HIGH
+  Score: 0.0000

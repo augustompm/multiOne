@@ -1,0 +1,9 @@
+=== MA-BioFit Evaluation Report ===
+
+Total instances processed: 0
+Run directory: /home/augusto/projects/multiOne/multi_memetic/evaluations/run_5
+Date: 2025-01-28 19:52:06
+
+=== Matrix Performance ===
+
+=== Instance Details ===

@@ -1,0 +1,245 @@
+2025-01-28 15:40:11,477 - root - INFO - Starting Reference Set analysis...
+2025-01-28 15:40:11,506 - root - INFO - Reference Set analysis complete:
+2025-01-28 15:40:11,506 - root - INFO - {
+  "conservation_levels": {
+    "HIGH": {
+      "count": 671,
+      "avg_score": 30.425573770491805,
+      "avg_length": 17.14903129657228,
+      "instances": 11
+    },
+    "MEDIUM": {
+      "count": 668,
+      "avg_score": 23.268697604790418,
+      "avg_length": 17.941616766467067,
+      "instances": 11
+    },
+    "LOW": {
+      "count": 1985,
+      "avg_score": 11.201607052896726,
+      "avg_length": 14.590428211586902,
+      "instances": 12
+    }
+  },
+  "sequence_groups": {
+    "BBA0005": 4,
+    "BBA0014": 2,
+    "BBA0019": 3,
+    "BBA0022": 5,
+    "BBA0080": 2,
+    "BBA0126": 7,
+    "BBA0142": 2,
+    "BBA0155": 4,
+    "BBA0183": 8,
+    "BBA0185": 3,
+    "BBA0192": 3,
+    "BBA0201": 2
+  },
+  "recommendations": {
+    "HIGH": {
+      "target_score_range": [
+        25.84,
+        31.73
+      ],
+      "typical_block_length": 12.0,
+      "score_weight": 0.0228581161641969
+    },
+    "MEDIUM": {
+      "target_score_range": [
+        21.96,
+        24.26
+      ],
+      "typical_block_length": 14.0,
+      "score_weight": 0.022755918923522397
+    },
+    "LOW": {
+      "target_score_range": [
+        0.0,
+        16.69
+      ],
+      "typical_block_length": 11.0,
+      "score_weight": 0.06762050757962869
+    }
+  }
+}
+2025-01-28 15:40:11,507 - MatrixEvaluator - INFO - Split instances - Training: 10, Validation: 2
+2025-01-28 15:40:11,507 - root - INFO - Hyperparameters:
+2025-01-28 15:40:11,507 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": {
+      "HIGH": [
+        30.0,
+        25.0
+      ],
+      "MEDIUM": [
+        22.0,
+        20.0
+      ],
+      "LOW": [
+        15.0,
+        10.0
+      ]
+    }
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "HIGH": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "MEDIUM": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 15
+      },
+      "SCORE_SIMILAR": {
+        "min": -3,
+        "max": 7
+      },
+      "SCORE_DIFFERENT": {
+        "min": -6,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 3
+    },
+    "LOW": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 13
+      },
+      "SCORE_SIMILAR": {
+        "min": -2,
+        "max": 6
+      },
+      "SCORE_DIFFERENT": {
+        "min": -4,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 4
+    }
+  },
+  "EXECUTION": {
+    "BATCH_SIZE": 3,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 7200,
+    "CHECKPOINT_FREQ": 10,
+    "VALIDATION_SPLIT": 0.2
+  }
+}
+2025-01-28 15:40:21,350 - root - INFO - Starting evolutionary process...
+2025-01-28 15:40:21,352 - MemeticAlgorithmMulti - INFO - Processing generation 0...
+2025-01-28 15:40:21,352 - MemeticAlgorithmMulti - INFO - Local search for individual 1/13
+2025-01-28 15:40:21,352 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 15:40:56,430 - MemeticAlgorithmMulti - INFO - New best score: 0.8143
+2025-01-28 15:40:56,430 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 15:41:59,059 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 15:42:31,799 - MemeticAlgorithmMulti - INFO - New best score: 0.8157
+2025-01-28 15:42:31,799 - MemeticAlgorithmMulti - INFO - Local search for individual 2/13
+2025-01-28 15:42:31,799 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 15:43:41,752 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 15:44:27,605 - MemeticAlgorithmMulti - INFO - New best score: 0.8527
+2025-01-28 15:44:27,605 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 15:45:26,571 - MemeticAlgorithmMulti - INFO - New best score: 0.9050
+2025-01-28 15:45:26,571 - MemeticAlgorithmMulti - INFO - Local search for individual 3/13
+2025-01-28 15:45:26,571 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 15:45:59,448 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 15:47:01,221 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 15:47:46,606 - MemeticAlgorithmMulti - INFO - Local search for individual 4/13
+2025-01-28 15:47:46,606 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 15:48:24,218 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 15:49:21,773 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 15:49:43,597 - MemeticAlgorithmMulti - INFO - Local search for individual 5/13
+2025-01-28 15:49:43,598 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 15:50:21,329 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 15:51:13,986 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 15:51:51,516 - MemeticAlgorithmMulti - INFO - Local search for individual 6/13
+2025-01-28 15:51:51,516 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 15:52:44,292 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 15:53:37,063 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 15:54:33,380 - MemeticAlgorithmMulti - INFO - Local search for individual 7/13
+2025-01-28 15:54:33,380 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 15:55:19,418 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 15:56:22,129 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 15:56:53,404 - MemeticAlgorithmMulti - INFO - Local search for individual 8/13
+2025-01-28 15:56:53,404 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 15:58:04,336 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 15:59:04,281 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 15:59:40,442 - MemeticAlgorithmMulti - INFO - Local search for individual 9/13
+2025-01-28 15:59:40,442 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 16:00:51,046 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 16:01:40,491 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 16:02:09,755 - MemeticAlgorithmMulti - INFO - Local search for individual 10/13
+2025-01-28 16:02:09,755 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 16:03:18,939 - MemeticAlgorithmMulti - INFO - New best score: 0.9213
+2025-01-28 16:03:18,939 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 16:04:12,734 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 16:06:05,786 - MemeticAlgorithmMulti - INFO - Local search for individual 11/13
+2025-01-28 16:06:05,786 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 16:06:36,806 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 16:07:34,511 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 16:08:08,844 - MemeticAlgorithmMulti - INFO - Local search for individual 12/13
+2025-01-28 16:08:08,844 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 16:08:33,510 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 16:09:03,778 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 16:09:46,019 - MemeticAlgorithmMulti - INFO - Local search for individual 13/13
+2025-01-28 16:09:46,019 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 16:10:45,342 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 16:11:40,515 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 16:12:13,459 - MemeticAlgorithmMulti - INFO - Performing hierarchical crossover...
+2025-01-28 16:12:25,063 - MemeticAlgorithmMulti - INFO - Hierarchical crossover completed.
+2025-01-28 16:12:25,063 - MemeticAlgorithmMulti - INFO - Generation 0: Best=0.9213, Time=1923.7s, Stagnation=1
+2025-01-28 16:12:25,063 - MemeticAlgorithmMulti - INFO - Processing generation 1...
+2025-01-28 16:12:25,064 - MemeticAlgorithmMulti - INFO - Performing hierarchical crossover...
+2025-01-28 16:12:35,046 - MemeticAlgorithmMulti - INFO - Hierarchical crossover completed.
+2025-01-28 16:12:35,046 - MemeticAlgorithmMulti - INFO - Processing generation 2...
+2025-01-28 16:12:35,046 - MemeticAlgorithmMulti - INFO - Performing hierarchical crossover...
+2025-01-28 16:12:43,698 - MemeticAlgorithmMulti - INFO - Hierarchical crossover completed.
+2025-01-28 16:12:43,698 - MemeticAlgorithmMulti - INFO - Processing generation 3...
+2025-01-28 16:12:43,698 - MemeticAlgorithmMulti - INFO - Performing hierarchical crossover...
+2025-01-28 16:12:53,959 - MemeticAlgorithmMulti - INFO - Hierarchical crossover completed.
+2025-01-28 16:12:53,959 - MemeticAlgorithmMulti - INFO - Processing generation 4...
+2025-01-28 16:12:53,959 - MemeticAlgorithmMulti - INFO - Performing hierarchical crossover...
+2025-01-28 16:13:04,494 - MemeticAlgorithmMulti - INFO - Hierarchical crossover completed.
+2025-01-28 16:13:04,495 - MemeticAlgorithmMulti - INFO - Optimization completed in 1963.1s. Initial: 0.7370, Final: 0.9213
+2025-01-28 16:13:04,602 - root - INFO - Validation score: 0.7215
+2025-01-28 16:13:04,603 - root - INFO - Generation 10: Training=0.9213, Validation=0.7215
+2025-01-28 16:13:04,605 - MemeticAlgorithmMulti - INFO - Processing generation 0...
+2025-01-28 16:13:04,605 - MemeticAlgorithmMulti - INFO - Local search for individual 1/13
+2025-01-28 16:13:04,605 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 16:13:36,851 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 16:14:16,459 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 16:15:09,161 - MemeticAlgorithmMulti - INFO - Local search for individual 2/13
+2025-01-28 16:15:09,161 - MemeticAlgorithmMulti - INFO - Local search for individual 3/13
+2025-01-28 16:15:09,162 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 16:16:30,468 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 16:17:11,042 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 16:17:48,323 - MemeticAlgorithmMulti - INFO - Local search for individual 4/13
+2025-01-28 16:17:48,323 - MemeticAlgorithmMulti - INFO - Local search for individual 5/13
+2025-01-28 16:17:48,323 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 16:18:38,262 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 16:19:16,333 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...
+2025-01-28 16:20:00,935 - MemeticAlgorithmMulti - INFO - Local search for individual 6/13
+2025-01-28 16:20:00,935 - MemeticAlgorithmMulti - INFO - Optimizing HIGH conservation matrix...
+2025-01-28 16:20:35,006 - MemeticAlgorithmMulti - INFO - Optimizing MEDIUM conservation matrix...
+2025-01-28 16:21:38,655 - MemeticAlgorithmMulti - INFO - Optimizing LOW conservation matrix...

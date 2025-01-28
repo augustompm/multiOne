@@ -1,0 +1,110 @@
+{
+  "train_score": 0.8933333333333334,
+  "validation_score": 0.813,
+  "timestamp": "20250128_183659",
+  "hyperparams": {
+    "VNS": {
+      "MIN_IMPROVEMENT": 0.0001,
+      "MAX_ITER": 10,
+      "MAX_NO_IMPROVE": 5,
+      "PERTURBATION_SIZE": 5,
+      "NEIGHBORHOOD_THRESHOLDS": {
+        "HIGH": [
+          30.0,
+          25.0
+        ],
+        "MEDIUM": [
+          22.0,
+          20.0
+        ],
+        "LOW": [
+          15.0,
+          10.0
+        ]
+      }
+    },
+    "MEMETIC": {
+      "MAX_GENERATIONS": 50,
+      "LOCAL_SEARCH_FREQ": 10,
+      "MUTATION_RATE": 0.15,
+      "POPULATION_SIZE": 13,
+      "HIERARCHY_LEVELS": 3
+    },
+    "MATRIX": {
+      "HIGH": {
+        "SCORE_DIAGONAL": {
+          "min": -2,
+          "max": 17
+        },
+        "SCORE_SIMILAR": {
+          "min": -4,
+          "max": 8
+        },
+        "SCORE_DIFFERENT": {
+          "min": -8,
+          "max": 4
+        },
+        "MAX_ADJUSTMENT": 2
+      },
+      "MEDIUM": {
+        "SCORE_DIAGONAL": {
+          "min": -2,
+          "max": 15
+        },
+        "SCORE_SIMILAR": {
+          "min": -3,
+          "max": 7
+        },
+        "SCORE_DIFFERENT": {
+          "min": -6,
+          "max": 3
+        },
+        "MAX_ADJUSTMENT": 3
+      },
+      "LOW": {
+        "SCORE_DIAGONAL": {
+          "min": -2,
+          "max": 13
+        },
+        "SCORE_SIMILAR": {
+          "min": -2,
+          "max": 6
+        },
+        "SCORE_DIFFERENT": {
+          "min": -4,
+          "max": 3
+        },
+        "MAX_ADJUSTMENT": 4
+      }
+    },
+    "EXECUTION": {
+      "BATCH_SIZE": 3,
+      "EVAL_SAMPLES": 1,
+      "MAX_TIME": 7200,
+      "CHECKPOINT_FREQ": 10,
+      "VALIDATION_SPLIT": 0.2
+    }
+  },
+  "stats": {
+    "total_time": 8075.299773454666,
+    "final_generation": 50,
+    "checkpoints": 1,
+    "matrix_stats": {
+      "HIGH": {
+        "usage": 6,
+        "best_score": -Infinity,
+        "changes": 75
+      },
+      "MEDIUM": {
+        "usage": 1,
+        "best_score": -Infinity,
+        "changes": 57
+      },
+      "LOW": {
+        "usage": 1,
+        "best_score": -Infinity,
+        "changes": 44
+      }
+    }
+  }
+}

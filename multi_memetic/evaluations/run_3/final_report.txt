@@ -1,0 +1,125 @@
+=== MA-BioFit Evaluation Report ===
+
+Total instances processed: 23
+Run directory: /home/augusto/projects/multiOne/multi_memetic/evaluations/run_3
+Date: 2025-01-28 19:32:41
+
+=== Matrix Performance ===
+
+HIGH Matrix:
+  Times best: 7
+  Average score: 0.5610
+  Best score: 0.9470
+  Worst score: 0.0370
+
+MEDIUM Matrix:
+  Times best: 12
+  Average score: 0.5903
+  Best score: 0.9430
+  Worst score: 0.0360
+
+LOW Matrix:
+  Times best: 4
+  Average score: 0.5732
+  Best score: 0.9470
+  Worst score: 0.0320
+
+combined Matrix:
+  Times best: 0
+  Average score: 0.5610
+  Best score: 0.9470
+  Worst score: 0.0370
+
+=== Instance Details ===
+
+BBA0005:
+  Best matrix: LOW
+  Score: 0.5820
+
+BBA0014:
+  Best matrix: MEDIUM
+  Score: 0.7190
+
+BBA0019:
+  Best matrix: HIGH
+  Score: 0.9430
+
+BBA0022:
+  Best matrix: HIGH
+  Score: 0.9470
+
+BBA0080:
+  Best matrix: HIGH
+  Score: 0.5580
+
+BBA0126:
+  Best matrix: HIGH
+  Score: 0.0570
+
+BBA0142:
+  Best matrix: MEDIUM
+  Score: 0.9290
+
+BBA0155:
+  Best matrix: HIGH
+  Score: 0.7900
+
+BBA0183:
+  Best matrix: MEDIUM
+  Score: 0.6150
+
+BBA0185:
+  Best matrix: MEDIUM
+  Score: 0.6330
+
+BBA0192:
+  Best matrix: MEDIUM
+  Score: 0.8500
+
+BBA0201:
+  Best matrix: MEDIUM
+  Score: 0.3100
+
+BBA0133:
+  Best matrix: MEDIUM
+  Score: 0.0820
+
+BBA0004:
+  Best matrix: MEDIUM
+  Score: 0.3580
+
+BBA0178:
+  Best matrix: LOW
+  Score: 0.8760
+
+BBA0024:
+  Best matrix: MEDIUM
+  Score: 0.5650
+
+BBA0008:
+  Best matrix: MEDIUM
+  Score: 0.8440
+
+BBA0015:
+  Best matrix: LOW
+  Score: 0.6390
+
+BBA0011:
+  Best matrix: MEDIUM
+  Score: 0.9410
+
+BBA0163:
+  Best matrix: HIGH
+  Score: 0.0550
+
+BBA0148:
+  Best matrix: MEDIUM
+  Score: 0.4450
+
+BBA0021:
+  Best matrix: LOW
+  Score: 0.9340
+
+BBA0218:
+  Best matrix: HIGH
+  Score: 0.2280

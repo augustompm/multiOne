@@ -30,7 +30,7 @@ HYPERPARAMS = {
         'MAX_ADJUSTMENTS': [1, 2, 3, 4] # Reduzidos os ajustes máximos
     },
     'MEMETIC': {
-        'MAX_GENERATIONS': 50,       # Reduzido de 50 para 30
+        'MAX_GENERATIONS': 20,       # Reduzido de 50 para 30
         'LOCAL_SEARCH_FREQ': 10,     # Aumentado de 5 para 10
         'MUTATION_RATE': 0.15,
         'POPULATION_SIZE': 13,     # Tamanho fixo da população hierárquica
