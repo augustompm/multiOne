@@ -224,7 +224,7 @@ class MatrixManager:
     """
     def __init__(self, hyperparams: Dict):
         self.logger = logging.getLogger(self.__class__.__name__)
-        
+        self.conservation_level = None  # Adiciona o nível de conservação
         # Matrizes para cada nível de conservação
         self.matrices = {
             'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
@@ -235,6 +235,25 @@ class MatrixManager:
         self.usage_count = {'HIGH': 0, 'MEDIUM': 0, 'LOW': 0}
         self.changes_history = []
         self.hyperparams = hyperparams
+
+    def set_conservation_level(self, level: str) -> None:
+        """Define o nível de conservação atual"""
+        if level in self.matrices:
+            self.conservation_level = level
+            self.logger.debug(f"Conservation level set to {level}")
+        else:
+            self.logger.error(f"Invalid conservation level: {level}")
+
+    def get_matrix(self, conservation_level: str = None) -> AdaptiveMatrix:
+        """Retorna matriz para nível de conservação específico"""
+        level = conservation_level or self.conservation_level
+        matrix = self.matrices.get(level)
+        if matrix:
+            self.usage_count[level] += 1
+            self.logger.debug(f"Accessed {level} conservation matrix")
+        else:
+            self.logger.error(f"Conservation level '{level}' not found")
+        return matrix
 
     def _get_high_params(self, base_params: Dict) -> Dict:
         """Parâmetros para conservação alta baseados no BLOSUM80"""
@@ -266,26 +285,51 @@ class MatrixManager:
         })
         return params
 
-    def get_matrix(self, conservation_level: str) -> AdaptiveMatrix:
-        """Retorna matriz para nível de conservação específico"""
-        matrix = self.matrices.get(conservation_level)
-        if matrix:
-            self.usage_count[conservation_level] += 1
-        return matrix
-
     def export_matrices(self, output_dir: Path) -> Dict[str, Path]:
-        """Exporta matrizes individuais e combinada"""
+        """
+        Versão simplificada para uso durante a avaliação.
+        """
         output_dir = Path(output_dir)
         output_dir.mkdir(exist_ok=True, parents=True)
         
-        combined_path = output_dir / "temp_matrix.mat"
-        with open(combined_path, 'w') as f:
-            f.write("# Combined BioFit Matrix\n")
+        # Exporta matriz temporária para avaliação
+        matrix_file = output_dir / "temp_matrix.mat"
+        with open(matrix_file, 'w') as f:
+            f.write("# BioFit Combined Matrix\n")
             for level, matrix in self.matrices.items():
                 f.write(f"\n# {level} Conservation Matrix\n")
-                matrix._write_to_file(f)  # Novo método para escrever no arquivo
-            
-        return {'combined': combined_path}
+                matrix._write_to_file(f)
+                
+        return {'combined': matrix_file}
+
+    def export_final_matrices(self, output_dir: Path, instance: str, execution_id: int, score: float, execution_time: float) -> Dict[str, Path]:
+        """
+        Versão completa para exportar os resultados finais.
+        """
+        output_dir = Path(output_dir)
+        output_dir.mkdir(exist_ok=True, parents=True)
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        
+        paths = {}
+        
+        # Matriz combinada
+        combined_path = output_dir / f"{instance},{execution_id},{score:.4f},{execution_time:.1f}.mat"
+        with open(combined_path, 'w') as f:
+            f.write("# BioFit Combined Matrix\n")
+            for level, matrix in self.matrices.items():
+                f.write(f"\n# {level} Conservation Matrix\n")
+                matrix._write_to_file(f)
+        paths['combined'] = combined_path
+        
+        # Matrizes individuais
+        for level, matrix in self.matrices.items():
+            matrix_path = output_dir / f"BioFit_{level}_{instance}_{timestamp}.mat"
+            with open(matrix_path, 'w') as f:
+                f.write(f"# {level} conservation substitution matrix\n")
+                matrix._write_to_file(f)
+            paths[level] = matrix_path
+        
+        return paths
 
     def copy(self) -> 'MatrixManager':
         """Cria cópia profunda do gerenciador"""

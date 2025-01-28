@@ -1,0 +1,398 @@
+2025-01-28 09:01:05,934 - root - INFO - Starting multi-matrix executions with hyperparameters:
+2025-01-28 09:01:05,934 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": {
+      "HIGH": [
+        30.0,
+        25.0
+      ],
+      "MEDIUM": [
+        22.0,
+        20.0
+      ],
+      "LOW": [
+        15.0,
+        10.0
+      ]
+    },
+    "MAX_ADJUSTMENTS": {
+      "HIGH": [
+        2,
+        3
+      ],
+      "MEDIUM": [
+        3,
+        4
+      ],
+      "LOW": [
+        4,
+        5
+      ]
+    }
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "HIGH": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "MEDIUM": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 15
+      },
+      "SCORE_SIMILAR": {
+        "min": -3,
+        "max": 7
+      },
+      "SCORE_DIFFERENT": {
+        "min": -6,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 3
+    },
+    "LOW": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 13
+      },
+      "SCORE_SIMILAR": {
+        "min": -2,
+        "max": 6
+      },
+      "SCORE_DIFFERENT": {
+        "min": -4,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 4
+    }
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 09:01:05,935 - root - INFO - 
+Processing instance BBA0005
+2025-01-28 09:01:05,939 - root - INFO - Starting execution 1/1 for BBA0005
+2025-01-28 09:01:05,962 - root - ERROR - Error processing BBA0005 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:05,964 - root - INFO - 
+Processing instance BBA0014
+2025-01-28 09:01:05,967 - root - INFO - Starting execution 1/1 for BBA0014
+2025-01-28 09:01:05,989 - root - ERROR - Error processing BBA0014 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:05,990 - root - INFO - 
+Processing instance BBA0019
+2025-01-28 09:01:05,994 - root - INFO - Starting execution 1/1 for BBA0019
+2025-01-28 09:01:06,014 - root - ERROR - Error processing BBA0019 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,016 - root - INFO - 
+Processing instance BBA0022
+2025-01-28 09:01:06,018 - root - INFO - Starting execution 1/1 for BBA0022
+2025-01-28 09:01:06,035 - root - ERROR - Error processing BBA0022 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,036 - root - INFO - 
+Processing instance BBA0080
+2025-01-28 09:01:06,038 - root - INFO - Starting execution 1/1 for BBA0080
+2025-01-28 09:01:06,055 - root - ERROR - Error processing BBA0080 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,056 - root - INFO - 
+Processing instance BBA0126
+2025-01-28 09:01:06,061 - root - INFO - Starting execution 1/1 for BBA0126
+2025-01-28 09:01:06,084 - root - ERROR - Error processing BBA0126 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,086 - root - INFO - 
+Processing instance BBA0142
+2025-01-28 09:01:06,087 - root - INFO - Starting execution 1/1 for BBA0142
+2025-01-28 09:01:06,105 - root - ERROR - Error processing BBA0142 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,106 - root - INFO - 
+Processing instance BBA0155
+2025-01-28 09:01:06,109 - root - INFO - Starting execution 1/1 for BBA0155
+2025-01-28 09:01:06,130 - root - ERROR - Error processing BBA0155 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,131 - root - INFO - 
+Processing instance BBA0183
+2025-01-28 09:01:06,136 - root - INFO - Starting execution 1/1 for BBA0183
+2025-01-28 09:01:06,160 - root - ERROR - Error processing BBA0183 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,161 - root - INFO - 
+Processing instance BBA0185
+2025-01-28 09:01:06,166 - root - INFO - Starting execution 1/1 for BBA0185
+2025-01-28 09:01:06,183 - root - ERROR - Error processing BBA0185 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,184 - root - INFO - 
+Processing instance BBA0192
+2025-01-28 09:01:06,186 - root - INFO - Starting execution 1/1 for BBA0192
+2025-01-28 09:01:06,203 - root - ERROR - Error processing BBA0192 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,204 - root - INFO - 
+Processing instance BBA0201
+2025-01-28 09:01:06,208 - root - INFO - Starting execution 1/1 for BBA0201
+2025-01-28 09:01:06,227 - root - ERROR - Error processing BBA0201 execution 1: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+Traceback (most recent call last):
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 215, in process_instance
+    memetic = MemeticAlgorithmMulti(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/memetic_multi.py", line 45, in __init__
+    self.population = StructuredPopulationMulti(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 64, in __init__
+    self._initialize_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 97, in _initialize_population
+    self.evaluate_population()
+  File "/home/augusto/projects/multiOne/multi_memetic/evolvers/population_multi.py", line 132, in evaluate_population
+    ind.fitness = self.evaluate(ind.matrix_manager)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 216, in <lambda>
+    evaluation_function=lambda m: evaluate_matrix_manager(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augusto/projects/multiOne/multi_memetic/main.py", line 161, in evaluate_matrix_manager
+    manager.export_matrices(temp_dir)  # Confirma que o arquivo foi gerado
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: MatrixManager.export_matrices() missing 4 required positional arguments: 'instance', 'execution_id', 'score', and 'execution_time'
+2025-01-28 09:01:06,228 - root - INFO - All instances processed successfully

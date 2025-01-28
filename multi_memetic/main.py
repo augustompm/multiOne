@@ -230,6 +230,8 @@ def process_instance(
                 )
             )
             
+            execution_time = time.time() - start_time
+            
             if instance_best is None or best_score > instance_best.score:
                 instance_best = BestResult(
                     matrix_manager=best_manager,
@@ -240,11 +242,23 @@ def process_instance(
                     hyperparams=hyperparams,
                     start_time=start_time
                 )
-                paths = instance_best.save(results_dir)
-                logging.info(f"New best score for {instance}: {best_score:.4f}")
-                logging.info("Saved matrices:")
-                for level, path in paths.items():
-                    logging.info(f"  {level}: {path}")
+                
+                # Salva todas as matrizes usando o novo método
+                paths = instance_best.matrix_manager.export_final_matrices(
+                    output_dir=results_dir,
+                    instance=instance,
+                    execution_id=execution_id,
+                    score=best_score,
+                    execution_time=execution_time
+                )
+                
+                # Log de uso das matrizes
+                stats = instance_best.matrix_manager.get_stats()
+                logging.info(
+                    f"New best score for {instance}: {best_score:.4f}\n" + 
+                    f"Matrix usage: " + 
+                    ", ".join(f"{k}: {v}" for k, v in stats['usage_count'].items())
+                )
             
             execution_time = time.time() - start_time
             logging.info(f"Execution {execution_id + 1} completed in {execution_time:.1f}s")
@@ -320,6 +334,30 @@ def main():
         json.dump(summary, f, indent=2)
     
     logging.info("All instances processed successfully")
+
+    # Log final
+    total_time = time.time() - start_time
+    logging.info(
+        f"Optimization completed in {total_time:.1f}s. "
+        f"Initial: {self.initial_score:.4f}, Final: {self.best_global_score:.4f}"
+    )
+
+    # Exporta estatísticas finais
+    final_stats = {
+        'runtime': total_time,
+        'generations': generation,
+        'initial_score': self.initial_score,
+        'final_score': self.best_global_score,
+        'matrix_stats': self.best_global_manager.get_stats(),
+        'timestamp': datetime.now().isoformat()
+    }
+
+    stats_path = Path('results') / 'stats' / \
+        f"run_stats_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    stats_path.parent.mkdir(exist_ok=True, parents=True)
+
+    with open(stats_path, 'w') as f:
+        json.dump(final_stats, f, indent=2)
 
 if __name__ == "__main__":
     main()
