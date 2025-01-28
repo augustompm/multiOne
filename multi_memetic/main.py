@@ -47,24 +47,24 @@ HYPERPARAMS = {
         'POPULATION_SIZE': 13,
         'HIERARCHY_LEVELS': 3
     },
-    'MATRIX': {  # Adiciona seção MATRIX
+    'MATRIX': {
         'HIGH': {
             'SCORE_DIAGONAL': {'min': -2, 'max': 17},
             'SCORE_SIMILAR': {'min': -4, 'max': 8}, 
             'SCORE_DIFFERENT': {'min': -8, 'max': 4},
-            'MAX_ADJUSTMENT': 2
+            'MAX_ADJUSTMENT': 2  # Mais restritivo para HIGH
         },
         'MEDIUM': {
             'SCORE_DIAGONAL': {'min': -2, 'max': 15},
             'SCORE_SIMILAR': {'min': -3, 'max': 7},
             'SCORE_DIFFERENT': {'min': -6, 'max': 3},
-            'MAX_ADJUSTMENT': 3
+            'MAX_ADJUSTMENT': 3  # Intermediário
         },
         'LOW': {
             'SCORE_DIAGONAL': {'min': -2, 'max': 13},
             'SCORE_SIMILAR': {'min': -2, 'max': 6},
             'SCORE_DIFFERENT': {'min': -4, 'max': 3},
-            'MAX_ADJUSTMENT': 4
+            'MAX_ADJUSTMENT': 4  # Mais flexível
         }
     },
     'EXECUTION': {

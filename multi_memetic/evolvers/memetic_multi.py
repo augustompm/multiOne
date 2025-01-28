@@ -10,7 +10,7 @@ import time
 import xml.etree.ElementTree as ET  # Adicionar esta linha
 
 from multi_memetic.evolvers.population_multi import StructuredPopulationMulti, IndividualMulti
-from multi_memetic.utils.xml_parser import ScoreAccessLayer, ConservationLevel
+from multi_memetic.utils.xml_parser import ScoreAccessLayer
 from multi_memetic.adaptive_matrices.matrix_manager import MatrixManager
 from multi_memetic.evolvers.vns_ils_multi import VNSILS
 
@@ -29,6 +29,7 @@ class MemeticAlgorithmMulti:
         self.hyperparams = hyperparams
         self.evaluation_function = evaluation_function
         self.reference_analysis = reference_analysis
+        self.current_generation = 0  # Adiciona contador de gerações
 
         # Inicializa busca local VNS
         self.local_search = VNSILS(
@@ -58,61 +59,38 @@ class MemeticAlgorithmMulti:
         max_no_improve: int,
         evaluation_function: Callable
     ) -> Tuple[MatrixManager, float]:
-        """
-        Executa algoritmo memético retornando melhor conjunto de matrizes.
-        """
+        """Execução do algoritmo memético."""
         self.initial_score = self.population.individuals[0].fitness
         self.best_global_score = self.initial_score
         self.best_global_manager = self.population.individuals[0].matrix_manager.copy()
-        
         stagnation_counter = 0
-        generation = 0
 
-        while (generation < generations and 
-               stagnation_counter < max_no_improve and
-               time.time() - self.start_time < self.hyperparams['EXECUTION']['MAX_TIME']):
-
-            # Busca local periódica
-            if generation % local_search_frequency == 0:
+        while stagnation_counter < max_no_improve:
+            if generations % local_search_frequency == 0:
                 for ind in self.population.individuals:
-                    if ind.local_search_count < 3:  # Limite de aplicações
-                        # Busca local em cada matriz do indivíduo
-                        for level in [ConservationLevel.HIGH, 
-                                    ConservationLevel.MEDIUM,
-                                    ConservationLevel.LOW]:
-                            matrix = ind.matrix_manager.get_matrix(level)
-                            blocks = self.xml_parser.get_blocks_by_conservation(level)
-                            
-                            # Aplica VNS-ILS na matriz específica
-                            self.local_search.matrix = matrix
+                    if ind.local_search_count < 3:
+                        # Aplica busca local para cada nível EXPLICITAMENTE
+                        for level in ['HIGH', 'MEDIUM', 'LOW']:
+                            self.local_search.manager = ind.matrix_manager
                             new_score = self.local_search.vns_search(
                                 evaluation_func=evaluation_function,
                                 max_iterations=local_search_iterations,
                                 max_no_improve=max_no_improve,
-                                blocks=blocks,
-                                conservation_level=level  # Adiciona o nível de conservação
+                                conservation_level=level  # Passa o nível explicitamente
                             )
-
                             if new_score > ind.fitness:
                                 ind.fitness = new_score
-                                ind.matrix_manager.matrices[level] = \
-                                    self.local_search.best_matrix.copy()
+                                ind.matrix_manager.matrices[level] = self.local_search.best_manager.copy()
                                 ind.local_search_count += 1
 
-                                # Atualiza melhor global se necessário
                                 if new_score > self.best_global_score:
                                     self.best_global_score = new_score
-                                    self.best_global_manager = \
-                                        ind.matrix_manager.copy()
-                                    self.logger.info(
-                                        f"New best score: {self.best_global_score:.4f}")
+                                    self.best_global_manager = ind.matrix_manager.copy()
                                     stagnation_counter = 0
                                     continue
 
-            # Crossover hierárquico
             self.population.hierarchical_crossover()
 
-            # Verifica melhoria
             current_best = self.population.individuals[0]
             if current_best.fitness > self.best_global_score:
                 self.best_global_score = current_best.fitness
@@ -121,51 +99,15 @@ class MemeticAlgorithmMulti:
             else:
                 stagnation_counter += 1
 
-            # Log periódico
-            if generation % 5 == 0:
-                elapsed = time.time() - self.start_time
-                self.logger.info(
-                    f"Generation {generation}: Best={self.best_global_score:.4f}, "
-                    f"Time={elapsed:.1f}s, Stagnation={stagnation_counter}"
-                )
+            generations -= 1
+            if generations <= 0:
+                break
 
-                # Log de uso das matrizes
-                stats = self.best_global_manager.get_stats()
-                self.logger.info(
-                    "Matrix usage: " + 
-                    ", ".join(f"{k}: {v}" for k,v in stats['usage_count'].items())
-                )
-
-            generation += 1
-
-        # Log final
-        total_time = time.time() - self.start_time
-        self.logger.info(
-            f"Optimization completed in {total_time:.1f}s. "
-            f"Initial: {self.initial_score:.4f}, Final: {self.best_global_score:.4f}"
-        )
-
-        # Exporta estatísticas finais
-        final_stats = {
-            'runtime': total_time,
-            'generations': generation,
-            'initial_score': self.initial_score,
-            'final_score': self.best_global_score,
-            'matrix_stats': self.best_global_manager.get_stats(),
-            'timestamp': datetime.now().isoformat()
-        }
-
-        stats_path = Path('results') / 'stats' / \
-            f"run_stats_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-        stats_path.parent.mkdir(exist_ok=True, parents=True)
-        
-        with open(stats_path, 'w') as f:
-            json.dump(final_stats, f, indent=2)
-
-        return self.best_global_manager.copy(), self.best_global_score
+        return self.best_global_manager, self.best_global_score
 
     def run_generations(self, num_generations: int) -> MatrixManager:
         """Executa um número específico de gerações"""
+        self.current_generation += num_generations
         return self.run(
             generations=num_generations,
             local_search_frequency=self.hyperparams['MEMETIC']['LOCAL_SEARCH_FREQ'],

@@ -247,12 +247,18 @@ class MatrixManager:
 
     def get_matrix(self, conservation_level: str) -> Optional[AdaptiveMatrix]:
         """Retorna matriz para nível de conservação específico"""
+        # Validação mais robusta
+        if not conservation_level:
+            self.logger.error("Conservation level must be specified")
+            return None
+            
+        if conservation_level not in ['HIGH', 'MEDIUM', 'LOW']:
+            self.logger.error(f"Invalid conservation level: {conservation_level}")
+            return None
+            
         matrix = self.matrices.get(conservation_level)
         if matrix:
             self.usage_stats[conservation_level]['usage_count'] += 1
-            self.logger.debug(f"Accessed {conservation_level} conservation matrix")
-        else:
-            self.logger.error(f"Conservation level '{conservation_level}' not found")
         return matrix
 
     def _get_high_params(self, base_params: Dict) -> Dict:
@@ -278,13 +284,12 @@ class MatrixManager:
         # Exporta matriz combinada
         combined_path = output_dir / f"BioFit_combined_{timestamp}.mat"
         with open(combined_path, 'w') as f:
-            f.write("# BioFit Combined Matrix\n\n")
+            f.write("# BioFit Combined Matrix\n")
             for level, matrix in self.matrices.items():
-                f.write(f"# {level} Conservation Matrix\n")
+                f.write(f"\n# {level} Conservation Matrix\n")
                 matrix._write_clustalw_format(f)
-                f.write("\n")
         paths['combined'] = combined_path
-                
+            
         # Exporta matrizes individuais
         for level, matrix in self.matrices.items():
             matrix_path = output_dir / f"BioFit_{level}_{timestamp}.mat"
@@ -292,7 +297,7 @@ class MatrixManager:
                 f.write(f"# {level} conservation substitution matrix\n")
                 matrix._write_clustalw_format(f)
             paths[level] = matrix_path
-            
+        
         return paths
 
     def export_final_matrices(self, output_dir: Path, instance: str, execution_id: int, score: float, execution_time: float) -> Dict[str, Path]:
@@ -327,7 +332,8 @@ class MatrixManager:
     def copy(self) -> 'MatrixManager':
         """Cria cópia profunda"""
         new_manager = MatrixManager(self.hyperparams)
-        for level in self.matrices:
+        # Copia cada matriz individualmente
+        for level in ['HIGH', 'MEDIUM', 'LOW']:
             new_manager.matrices[level] = self.matrices[level].copy()
             new_manager.usage_stats[level] = self.usage_stats[level].copy()
         new_manager.conservation_level = self.conservation_level

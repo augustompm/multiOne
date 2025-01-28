@@ -1,0 +1,68 @@
+2025-01-28 15:11:31,000 - root - INFO - Starting Reference Set analysis...
+2025-01-28 15:11:31,063 - root - INFO - Reference Set analysis complete:
+2025-01-28 15:11:31,063 - root - INFO - {
+  "conservation_levels": {
+    "HIGH": {
+      "count": 671,
+      "avg_score": 30.425573770491805,
+      "avg_length": 17.14903129657228,
+      "instances": 11
+    },
+    "MEDIUM": {
+      "count": 668,
+      "avg_score": 23.268697604790418,
+      "avg_length": 17.941616766467067,
+      "instances": 11
+    },
+    "LOW": {
+      "count": 1985,
+      "avg_score": 11.201607052896726,
+      "avg_length": 14.590428211586902,
+      "instances": 12
+    }
+  },
+  "sequence_groups": {
+    "BBA0005": 4,
+    "BBA0014": 2,
+    "BBA0019": 3,
+    "BBA0022": 5,
+    "BBA0080": 2,
+    "BBA0126": 7,
+    "BBA0142": 2,
+    "BBA0155": 4,
+    "BBA0183": 8,
+    "BBA0185": 3,
+    "BBA0192": 3,
+    "BBA0201": 2
+  },
+  "recommendations": {
+    "HIGH": {
+      "target_score_range": [
+        25.84,
+        31.73
+      ],
+      "typical_block_length": 12.0,
+      "score_weight": 0.0228581161641969
+    },
+    "MEDIUM": {
+      "target_score_range": [
+        21.96,
+        24.26
+      ],
+      "typical_block_length": 14.0,
+      "score_weight": 0.022755918923522397
+    },
+    "LOW": {
+      "target_score_range": [
+        0.0,
+        16.69
+      ],
+      "typical_block_length": 11.0,
+      "score_weight": 0.06762050757962869
+    }
+  }
+}
+2025-01-28 15:11:31,063 - MatrixEvaluator - INFO - Split instances - Training: 10, Validation: 2
+2025-01-28 15:11:39,540 - root - INFO - Starting evolutionary process...
+2025-01-28 15:11:40,315 - root - ERROR - Error in optimization: 'MatrixManager' object has no attribute 'aa_order'
+2025-01-28 15:11:40,315 - root - WARNING - No checkpoints were saved. Optimization may not have completed successfully.

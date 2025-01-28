@@ -162,12 +162,15 @@ class StructuredPopulationMulti:
         """Crossover informado mantendo estrutura de três matrizes"""
         child = IndividualMulti(MatrixManager(self.hyperparams))
         
-        # Crossover para cada matriz
-        for level in [ConservationLevel.HIGH, ConservationLevel.MEDIUM, 
-                     ConservationLevel.LOW]:
+        # Crossover para cada nível de conservação
+        for level in ['HIGH', 'MEDIUM', 'LOW']:  # Changed from ConservationLevel.HIGH, etc.
             matrix_child = child.matrix_manager.get_matrix(level)
             matrix_p1 = parent1.matrix_manager.get_matrix(level)
             matrix_p2 = parent2.matrix_manager.get_matrix(level)
+            
+            if not all([matrix_child, matrix_p1, matrix_p2]):
+                self.logger.error(f"Missing matrix for level {level}")
+                continue
             
             for i, aa1 in enumerate(matrix_child.aa_order):
                 for j, aa2 in enumerate(matrix_child.aa_order[i:], i):
