@@ -64,46 +64,72 @@ class MemeticAlgorithmMulti:
         self.best_global_score = self.initial_score
         self.best_global_manager = self.population.individuals[0].matrix_manager.copy()
         stagnation_counter = 0
+        generation = 0
 
-        while stagnation_counter < max_no_improve:
-            if generations % local_search_frequency == 0:
-                for ind in self.population.individuals:
+        while (generation < generations and 
+               stagnation_counter < max_no_improve and
+               time.time() - self.start_time < self.hyperparams['EXECUTION']['MAX_TIME']):
+
+            self.logger.info(f"Processing generation {generation}...")
+
+            if generation % local_search_frequency == 0:
+                for i, ind in enumerate(self.population.individuals):
+                    self.logger.info(f"Local search for individual {i+1}/13")
                     if ind.local_search_count < 3:
-                        # Aplica busca local para cada nível EXPLICITAMENTE
+                        # Aplica busca local para cada nível
                         for level in ['HIGH', 'MEDIUM', 'LOW']:
+                            self.logger.info(f"Optimizing {level} conservation matrix...")
                             self.local_search.manager = ind.matrix_manager
                             new_score = self.local_search.vns_search(
                                 evaluation_func=evaluation_function,
                                 max_iterations=local_search_iterations,
                                 max_no_improve=max_no_improve,
-                                conservation_level=level  # Passa o nível explicitamente
+                                conservation_level=level
                             )
                             if new_score > ind.fitness:
                                 ind.fitness = new_score
-                                ind.matrix_manager.matrices[level] = self.local_search.best_manager.copy()
+                                ind.matrix_manager = self.local_search.best_manager.copy()
                                 ind.local_search_count += 1
-
                                 if new_score > self.best_global_score:
                                     self.best_global_score = new_score
-                                    self.best_global_manager = ind.matrix_manager.copy()
+                                    self.best_global_manager = self.local_search.best_manager.copy()
+                                    self.logger.info(f"New best score: {self.best_global_score:.4f}")
                                     stagnation_counter = 0
                                     continue
 
+            self.logger.info("Performing hierarchical crossover...")
             self.population.hierarchical_crossover()
+            self.logger.info("Hierarchical crossover completed.")
 
             current_best = self.population.individuals[0]
             if current_best.fitness > self.best_global_score:
                 self.best_global_score = current_best.fitness
                 self.best_global_manager = current_best.matrix_manager.copy()
                 stagnation_counter = 0
+                self.logger.info(f"New global best score: {self.best_global_score:.4f}")
             else:
                 stagnation_counter += 1
 
-            generations -= 1
-            if generations <= 0:
-                break
+            if generation % 5 == 0:
+                elapsed = time.time() - self.start_time
+                self.logger.info(
+                    f"Generation {generation}: Best={self.best_global_score:.4f}, "
+                    f"Time={elapsed:.1f}s, Stagnation={stagnation_counter}"
+                )
+                self.logger.debug(
+                    f"Population stats: Best fitness={current_best.fitness:.4f}, "
+                    f"Stagnation counter={stagnation_counter}"
+                )
 
-        return self.best_global_manager, self.best_global_score
+            generation += 1
+
+        total_time = time.time() - self.start_time
+        self.logger.info(
+            f"Optimization completed in {total_time:.1f}s. "
+            f"Initial: {self.initial_score:.4f}, Final: {self.best_global_score:.4f}"
+        )
+
+        return self.best_global_manager.copy(), self.best_global_score
 
     def run_generations(self, num_generations: int) -> MatrixManager:
         """Executa um número específico de gerações"""

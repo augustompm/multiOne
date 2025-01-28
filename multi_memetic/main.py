@@ -68,11 +68,11 @@ HYPERPARAMS = {
         }
     },
     'EXECUTION': {
-        'BATCH_SIZE': 3,
-        'EVAL_SAMPLES': 1,
-        'MAX_TIME': 7200,
-        'CHECKPOINT_FREQ': 10,
-        'VALIDATION_SPLIT': 0.2  # 20% para validação
+        'BATCH_SIZE': 3,        # Reduzido de todas instâncias para apenas 3
+        'EVAL_SAMPLES': 1,      # Mantém 1 amostra por avaliação
+        'MAX_TIME': 7200,       # Mantém 2 horas máximo
+        'CHECKPOINT_FREQ': 10,  # Frequência de checkpoints
+        'VALIDATION_SPLIT': 0.2 # 20% para validação
     }
 }
 
@@ -432,6 +432,10 @@ def main():
         xml_parser=xml_parser
     )
 
+    # Adicionar log das hiperparâmetros
+    logging.info("Hyperparameters:")
+    logging.info(json.dumps(HYPERPARAMS, indent=2))
+
     # 1. Primeiro analisa todo o Reference Set
     reference_set_analysis = analyzer.analyze()  # ...existing code...
 
@@ -459,9 +463,11 @@ def main():
             current_manager = memetic.run_generations(
                 HYPERPARAMS['EXECUTION']['CHECKPOINT_FREQ']
             )
+            logging.debug(f"Completed {HYPERPARAMS['EXECUTION']['CHECKPOINT_FREQ']} generations.")
 
             # Avalia em validação
             val_score, val_stats = evaluator.evaluate_validation(current_manager)
+            logging.info(f"Validation score: {val_score:.4f}")
 
             logging.info(
                 f"Generation {memetic.current_generation}: "
@@ -484,9 +490,11 @@ def main():
                 checkpoints.append(checkpoint)
                 checkpoints.sort(key=lambda x: x['validation_score'], reverse=True)
                 checkpoints = checkpoints[:3]
+                logging.debug(f"Checkpoint saved at generation {memetic.current_generation} with validation score {val_score:.4f}")
             else:
                 generations_no_improve += HYPERPARAMS['EXECUTION']['CHECKPOINT_FREQ']
-                
+                logging.debug(f"No improvement. generations_no_improve: {generations_no_improve}")
+
     except Exception as e:
         logging.error(f"Error in optimization: {str(e)}")
 
