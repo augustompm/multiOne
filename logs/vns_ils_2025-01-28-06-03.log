@@ -1,0 +1,82 @@
+2025-01-28 06:03:20,675 - root - INFO - Starting executions with hyperparameters:
+2025-01-28 06:03:20,675 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": [
+      25.0,
+      20.0,
+      15.0
+    ],
+    "MAX_ADJUSTMENTS": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "LOCAL_SEARCH": {
+    "SCORE_ADJUSTMENTS": {
+      "strong": -2,
+      "medium": -1,
+      "weak": 1
+    },
+    "BLOCK_WINDOW": 3,
+    "MIN_BLOCK_LENGTH": 3
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 06:03:20,675 - root - INFO - 
+Processing instance BBA0142
+2025-01-28 06:03:20,676 - root - INFO - Starting execution 1/1 for BBA0142
+2025-01-28 06:03:20,677 - VNSILS - INFO - Analyzed alignment: 9 blocks, 5 disorder regions
+2025-01-28 06:03:21,036 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:21,767 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:22,541 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:23,303 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:23,914 - VNSILS - INFO - New best score 0.9290 in N1
+2025-01-28 06:03:24,681 - MemeticAlgorithm - INFO - New best score: 0.9290
+2025-01-28 06:03:24,703 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:25,524 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:26,280 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:27,066 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:27,854 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:28,559 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:29,298 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:30,072 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:30,837 - VNSILS - INFO - Starting VNS search from score: 0.8100
+2025-01-28 06:03:31,825 - MemeticAlgorithm - INFO - Generation 0: Best=0.9290, Time=10.8s, Stagnation=1
+2025-01-28 06:03:33,009 - MemeticAlgorithm - INFO - Optimization completed in 12.0s. Initial: 0.8100, Final: 0.9290
+2025-01-28 06:03:33,011 - root - INFO - New best score for BBA0142: 0.9290
+2025-01-28 06:03:33,011 - root - INFO - Execution 1 completed in 12.3s
+2025-01-28 06:03:33,011 - root - INFO - BBA0142 best score: 0.9290
+2025-01-28 06:03:33,011 - root - INFO - All instances processed successfully

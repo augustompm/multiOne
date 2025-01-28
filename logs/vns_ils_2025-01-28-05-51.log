@@ -1,0 +1,61 @@
+2025-01-28 05:51:05,095 - root - INFO - Starting executions with hyperparameters:
+2025-01-28 05:51:05,095 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 30,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": [
+      25.0,
+      20.0,
+      15.0
+    ],
+    "MAX_ADJUSTMENTS": [
+      2,
+      3,
+      4
+    ]
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 5,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "SCORE_DIAGONAL": {
+      "min": -2,
+      "max": 17
+    },
+    "SCORE_SIMILAR": {
+      "min": -4,
+      "max": 8
+    },
+    "SCORE_DIFFERENT": {
+      "min": -8,
+      "max": 4
+    },
+    "MAX_ADJUSTMENT": 2
+  },
+  "LOCAL_SEARCH": {
+    "SCORE_ADJUSTMENTS": {
+      "strong": -2,
+      "medium": -1,
+      "weak": 1
+    },
+    "BLOCK_WINDOW": 3,
+    "MIN_BLOCK_LENGTH": 3
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 05:51:05,095 - root - INFO - 
+Processing instance BBA0142
+2025-01-28 05:51:05,095 - root - INFO - Starting execution 1/1 for BBA0142
+2025-01-28 05:51:05,097 - VNSILS - INFO - Analyzed alignment: 9 blocks, 5 disorder regions
+2025-01-28 05:51:05,395 - VNSILS - INFO - Starting VNS search from score: 0.8100

@@ -11,26 +11,30 @@ from dataclasses import dataclass
 import shutil
 
 from memetic.matrix import AdaptiveMatrix
-from memetic.local_search import EnhancedLocalSearch
+from memetic.local_search import VNSILS  # Mudado de EnhancedLocalSearch
 from memetic.memetic import MemeticAlgorithm
 from memetic.clustalw import run_clustalw
 from memetic.baliscore import get_bali_score
 
 INSTANCES = [
-  'BBA0183'
+  'BBA0142'
 ]
 
 HYPERPARAMS = {
     'VNS': {
-        'MIN_IMPROVEMENT': 1e-6,
-        'MAX_ITER': 50,                
-        'MAX_NO_IMPROVE': 10,           
-        'PERTURBATION_SIZE': 10
+        'MIN_IMPROVEMENT': 1e-4,
+        'MAX_ITER': 10,              # Reduzido de 30 para 10
+        'MAX_NO_IMPROVE': 5,         # Reduzido de 5 para 3
+        'PERTURBATION_SIZE': 5,      # Reduzido de 5 para 3
+        'NEIGHBORHOOD_THRESHOLDS': [25.0, 20.0, 15.0],  # HIGH, MEDIUM, LOW conservation
+        'MAX_ADJUSTMENTS': [1, 2, 3, 4] # Reduzidos os ajustes máximos
     },
     'MEMETIC': {
-        'MAX_GENERATIONS': 100,
-        'LOCAL_SEARCH_FREQ': 10,
-        'MUTATION_RATE': 0.1
+        'MAX_GENERATIONS': 50,       # Reduzido de 50 para 30
+        'LOCAL_SEARCH_FREQ': 10,     # Aumentado de 5 para 10
+        'MUTATION_RATE': 0.15,
+        'POPULATION_SIZE': 13,     # Tamanho fixo da população hierárquica
+        'HIERARCHY_LEVELS': 3      # N1, N2, N3
     },
     'MATRIX': {
         'SCORE_DIAGONAL': {'min': -2, 'max': 17},
@@ -39,32 +43,18 @@ HYPERPARAMS = {
         'MAX_ADJUSTMENT': 2
     },
     'LOCAL_SEARCH': {
-        'NEIGHBORHOOD_WEIGHTS': {
-            'subfamily': 0.4,
-            'disorder': 0.3,
-            'conservation': 0.2,
-            'random': 0.1
-        },
         'SCORE_ADJUSTMENTS': {
             'strong': -2,
             'medium': -1,
             'weak': 1
         },
-        'PATTERN_WINDOW': 2,
-        'MIN_CONSERVATION': 0.1,
-        'SUBFAMILY_CHANGES': 3,
-        'DISORDER_CHANGES': 3,
-        'CONSERVATION_TOP_N': 5,
-        'RANDOM_CHANGES': 3,
-        'USE_DISORDER_INFO': True,
-        'BLOCK_SCORE_THRESHOLD': 25,    # Threshold para ajustes fortes em blocos conservados
-        'HIGH_SCORE_BLOCKS': 3,         # Número de blocos de alto score a considerar
-        'SAMPLES_PER_BLOCK': 2,         # Amostras por bloco na análise
-        'PATTERN_WINDOW': 2             # Tamanho da janela para análise de padrões
+        'BLOCK_WINDOW': 3,
+        'MIN_BLOCK_LENGTH': 3,
     },
     'EXECUTION': {
         'MATRICES_PER_INSTANCE': 1,
         'EVAL_SAMPLES': 1,
+        'MAX_TIME': 300,
         'SEED': None
     }
 }

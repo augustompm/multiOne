@@ -1,0 +1,62 @@
+{
+  "instance": "BBA0142",
+  "execution_id": 1,
+  "score": 0.929,
+  "execution_time": 5.568814992904663,
+  "timestamp": "2025-01-28T06:00:17.982602",
+  "hyperparams": {
+    "VNS": {
+      "MIN_IMPROVEMENT": 0.0001,
+      "MAX_ITER": 10,
+      "MAX_NO_IMPROVE": 3,
+      "PERTURBATION_SIZE": 3,
+      "NEIGHBORHOOD_THRESHOLDS": [
+        25.0,
+        20.0,
+        15.0
+      ],
+      "MAX_ADJUSTMENTS": [
+        1,
+        2,
+        3
+      ]
+    },
+    "MEMETIC": {
+      "MAX_GENERATIONS": 30,
+      "LOCAL_SEARCH_FREQ": 10,
+      "MUTATION_RATE": 0.15,
+      "POPULATION_SIZE": 13,
+      "HIERARCHY_LEVELS": 3
+    },
+    "MATRIX": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "LOCAL_SEARCH": {
+      "SCORE_ADJUSTMENTS": {
+        "strong": -2,
+        "medium": -1,
+        "weak": 1
+      },
+      "BLOCK_WINDOW": 3,
+      "MIN_BLOCK_LENGTH": 3
+    },
+    "EXECUTION": {
+      "MATRICES_PER_INSTANCE": 1,
+      "EVAL_SAMPLES": 1,
+      "MAX_TIME": 300,
+      "SEED": null
+    }
+  }
+}
