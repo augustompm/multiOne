@@ -21,14 +21,12 @@ class AdaptiveMatrix:
         self.aa_order = "ARNDCQEGHILKMFPSTWYV"
         self.aa_to_index = {aa: i for i, aa in enumerate(self.aa_order)}
         
-        # Hyperparameters - mantém estrutura original
+        # Hyperparameters específicos para cada nível
         self.hyperparams = hyperparams or {
-            'MATRIX': {
-                'SCORE_DIAGONAL': {'min': -2, 'max': 17},
-                'SCORE_SIMILAR': {'min': -4, 'max': 8},
-                'SCORE_DIFFERENT': {'min': -8, 'max': 4},
-                'MAX_ADJUSTMENT': 2
-            }
+            'SCORE_DIAGONAL': {'min': -2, 'max': 17},
+            'SCORE_SIMILAR': {'min': -4, 'max': 8},
+            'SCORE_DIFFERENT': {'min': -8, 'max': 4},
+            'MAX_ADJUSTMENT': 2
         }
         
         # Define similar amino acid groups
@@ -88,11 +86,11 @@ class AdaptiveMatrix:
         try:
             # Define limites baseado no tipo de relação
             if aa1 == aa2:  # Diagonal
-                limits = self.hyperparams['MATRIX'].get('SCORE_DIAGONAL', {'min': -2, 'max': 17})
+                limits = self.hyperparams['SCORE_DIAGONAL']
             elif any(aa1 in group and aa2 in group for group in self.similar_groups):
-                limits = self.hyperparams['MATRIX'].get('SCORE_SIMILAR', {'min': -4, 'max': 8})
+                limits = self.hyperparams['SCORE_SIMILAR']
             else:  # Diferentes
-                limits = self.hyperparams['MATRIX'].get('SCORE_DIFFERENT', {'min': -8, 'max': 4})
+                limits = self.hyperparams['SCORE_DIFFERENT']
             
             # Valida limites absolutos
             if not limits['min'] <= new_score <= limits['max']:
@@ -100,8 +98,7 @@ class AdaptiveMatrix:
             
             # Valida magnitude da mudança
             old_score = self.get_score(aa1, aa2)
-            # Aqui estava o erro - MAX_ADJUSTMENT estava no mesmo nível que SCORE_DIAGONAL
-            max_adjustment = self.hyperparams['MATRIX'].get('MAX_ADJUSTMENT', 2)
+            max_adjustment = self.hyperparams['MAX_ADJUSTMENT']
             if abs(new_score - old_score) > max_adjustment:
                 return False
             
@@ -148,8 +145,8 @@ class AdaptiveMatrix:
             self.logger.error(f"Error loading PAM250: {e}")
             raise
 
-    def _write_to_file(self, f) -> None:
-        """Escreve matriz no arquivo já aberto"""
+    def _write_clustalw_format(self, f) -> None:
+        """Escreve matriz no formato ClustalW"""
         try:
             # Ordem completa incluindo AAs especiais
             full_aa_order = list("ARNDCQEGHILKMFPSTWYVBZX*")
@@ -181,7 +178,7 @@ class AdaptiveMatrix:
         """Salva matriz no formato ClustalW com metadados"""
         try:
             with open(output_path, 'w') as f:
-                self._write_to_file(f)
+                self._write_clustalw_format(f)
                 
         except Exception as e:
             self.logger.error(f"Error saving matrix: {e}")
@@ -218,23 +215,27 @@ class AdaptiveMatrix:
         }
 
 class MatrixManager:
-    """
-    Gerencia conjunto de três matrizes adaptativas com base no ClustalW.
-    Mantém estrutura de dados e validações do código original.
-    """
     def __init__(self, hyperparams: Dict):
         self.logger = logging.getLogger(self.__class__.__name__)
-        self.conservation_level = None  # Adiciona o nível de conservação
+        self.hyperparams = hyperparams
+        self.conservation_level = None
+
         # Matrizes para cada nível de conservação
         self.matrices = {
-            'HIGH': AdaptiveMatrix(self._get_high_params(hyperparams)),
-            'MEDIUM': AdaptiveMatrix(self._get_medium_params(hyperparams)),
-            'LOW': AdaptiveMatrix(self._get_low_params(hyperparams))
+            'HIGH': AdaptiveMatrix(hyperparams['MATRIX']['HIGH']),
+            'MEDIUM': AdaptiveMatrix(hyperparams['MATRIX']['MEDIUM']),
+            'LOW': AdaptiveMatrix(hyperparams['MATRIX']['LOW'])
         }
         
-        self.usage_count = {'HIGH': 0, 'MEDIUM': 0, 'LOW': 0}
-        self.changes_history = []
-        self.hyperparams = hyperparams
+        # Estrutura unificada para tracking de uso
+        self.usage_stats = {
+            level: {
+                'usage_count': 0,
+                'best_score': float('-inf'),
+                'changes': 0
+            }
+            for level in ['HIGH', 'MEDIUM', 'LOW']
+        }
 
     def set_conservation_level(self, level: str) -> None:
         """Define o nível de conservação atual"""
@@ -244,63 +245,55 @@ class MatrixManager:
         else:
             self.logger.error(f"Invalid conservation level: {level}")
 
-    def get_matrix(self, conservation_level: str = None) -> AdaptiveMatrix:
+    def get_matrix(self, conservation_level: str) -> Optional[AdaptiveMatrix]:
         """Retorna matriz para nível de conservação específico"""
-        level = conservation_level or self.conservation_level
-        matrix = self.matrices.get(level)
+        matrix = self.matrices.get(conservation_level)
         if matrix:
-            self.usage_count[level] += 1
-            self.logger.debug(f"Accessed {level} conservation matrix")
+            self.usage_stats[conservation_level]['usage_count'] += 1
+            self.logger.debug(f"Accessed {conservation_level} conservation matrix")
         else:
-            self.logger.error(f"Conservation level '{level}' not found")
+            self.logger.error(f"Conservation level '{conservation_level}' not found")
         return matrix
 
     def _get_high_params(self, base_params: Dict) -> Dict:
         """Parâmetros para conservação alta baseados no BLOSUM80"""
-        params = base_params.copy()
-        params['MATRIX'].update({
-            'SCORE_DIAGONAL': {'min': -2, 'max': 17},
-            'SCORE_SIMILAR': {'min': -4, 'max': 8},
-            'SCORE_DIFFERENT': {'min': -8, 'max': 4},
-        })
-        return params
+        return base_params['MATRIX']['HIGH']
 
     def _get_medium_params(self, base_params: Dict) -> Dict:
         """Parâmetros para conservação média baseados no PAM120"""
-        params = base_params.copy()
-        params['MATRIX'].update({
-            'SCORE_DIAGONAL': {'min': -2, 'max': 15},
-            'SCORE_SIMILAR': {'min': -3, 'max': 7},
-            'SCORE_DIFFERENT': {'min': -6, 'max': 3},
-        })
-        return params
+        return base_params['MATRIX']['MEDIUM']
 
     def _get_low_params(self, base_params: Dict) -> Dict:
         """Parâmetros para conservação baixa baseados no PAM250"""
-        params = base_params.copy()
-        params['MATRIX'].update({
-            'SCORE_DIAGONAL': {'min': -2, 'max': 13},
-            'SCORE_SIMILAR': {'min': -2, 'max': 6},
-            'SCORE_DIFFERENT': {'min': -4, 'max': 3},
-        })
-        return params
+        return base_params['MATRIX']['LOW']
 
     def export_matrices(self, output_dir: Path) -> Dict[str, Path]:
-        """
-        Versão simplificada para uso durante a avaliação.
-        """
+        """Exporta matrizes no formato ClustalW"""
         output_dir = Path(output_dir)
         output_dir.mkdir(exist_ok=True, parents=True)
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         
-        # Exporta matriz temporária para avaliação
-        matrix_file = output_dir / "temp_matrix.mat"
-        with open(matrix_file, 'w') as f:
-            f.write("# BioFit Combined Matrix\n")
+        paths = {}
+        
+        # Exporta matriz combinada
+        combined_path = output_dir / f"BioFit_combined_{timestamp}.mat"
+        with open(combined_path, 'w') as f:
+            f.write("# BioFit Combined Matrix\n\n")
             for level, matrix in self.matrices.items():
-                f.write(f"\n# {level} Conservation Matrix\n")
-                matrix._write_to_file(f)
+                f.write(f"# {level} Conservation Matrix\n")
+                matrix._write_clustalw_format(f)
+                f.write("\n")
+        paths['combined'] = combined_path
                 
-        return {'combined': matrix_file}
+        # Exporta matrizes individuais
+        for level, matrix in self.matrices.items():
+            matrix_path = output_dir / f"BioFit_{level}_{timestamp}.mat"
+            with open(matrix_path, 'w') as f:
+                f.write(f"# {level} conservation substitution matrix\n")
+                matrix._write_clustalw_format(f)
+            paths[level] = matrix_path
+            
+        return paths
 
     def export_final_matrices(self, output_dir: Path, instance: str, execution_id: int, score: float, execution_time: float) -> Dict[str, Path]:
         """
@@ -318,7 +311,7 @@ class MatrixManager:
             f.write("# BioFit Combined Matrix\n")
             for level, matrix in self.matrices.items():
                 f.write(f"\n# {level} Conservation Matrix\n")
-                matrix._write_to_file(f)
+                matrix._write_clustalw_format(f)
         paths['combined'] = combined_path
         
         # Matrizes individuais
@@ -326,26 +319,27 @@ class MatrixManager:
             matrix_path = output_dir / f"BioFit_{level}_{instance}_{timestamp}.mat"
             with open(matrix_path, 'w') as f:
                 f.write(f"# {level} conservation substitution matrix\n")
-                matrix._write_to_file(f)
+                matrix._write_clustalw_format(f)
             paths[level] = matrix_path
         
         return paths
 
     def copy(self) -> 'MatrixManager':
-        """Cria cópia profunda do gerenciador"""
+        """Cria cópia profunda"""
         new_manager = MatrixManager(self.hyperparams)
-        for level, matrix in self.matrices.items():
-            new_manager.matrices[level] = matrix.copy()
-        new_manager.usage_count = self.usage_count.copy()
-        new_manager.changes_history = self.changes_history.copy()
+        for level in self.matrices:
+            new_manager.matrices[level] = self.matrices[level].copy()
+            new_manager.usage_stats[level] = self.usage_stats[level].copy()
+        new_manager.conservation_level = self.conservation_level
         return new_manager
 
     def get_stats(self) -> Dict:
-        """Retorna estatísticas do uso das matrizes"""
+        """Retorna estatísticas atualizadas"""
         return {
-            'usage_count': self.usage_count,
-            'changes': {
-                level: matrix.get_changes_summary()
-                for level, matrix in self.matrices.items()
+            level: {
+                'usage': self.usage_stats[level]['usage_count'],
+                'best_score': self.usage_stats[level]['best_score'],
+                'changes': len(self.matrices[level].changes_history)
             }
+            for level in self.matrices.keys()
         }

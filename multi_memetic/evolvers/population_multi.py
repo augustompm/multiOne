@@ -41,12 +41,12 @@ class StructuredPopulationMulti:
     def __init__(
         self,
         evaluation_function: Callable,
-        xml_parser: ScoreAccessLayer,
         hyperparams: Dict,
+        reference_analysis: Optional[Dict] = None
     ):
         self.evaluate = evaluation_function
-        self.xml_parser = xml_parser
         self.hyperparams = hyperparams
+        self.reference_analysis = reference_analysis
         self.logger = logging.getLogger(self.__class__.__name__)
 
         # Estrutura hierárquica mantida do original
@@ -98,32 +98,26 @@ class StructuredPopulationMulti:
 
     def _get_initial_adjustment(self, aa1: str, aa2: str, level: str) -> int:
         """Define ajustes iniciais baseado no nível de conservação"""
-        if level == ConservationLevel.HIGH:
+        if level == 'HIGH':
             return random.choice([-1, 1])  # Mais conservador
-        elif level == ConservationLevel.MEDIUM:
-            return random.choice([-2, -1, 1])  # Flexibilidade média
+        elif level == 'MEDIUM':  
+            return random.choice([-2, -1, 1, 2])  # Flexibilidade média
         else:  # LOW
-            return random.choice([-2, -1, 1, 2])  # Mais flexível
+            return random.choice([-3, -2, -1, 1, 2, 3])  # Mais flexível
 
-    def _generate_random_changes(self, manager: MatrixManager, 
-                               changes_per_matrix: int = 5) -> None:
-        """Gera mudanças aleatórias em todas as matrizes"""
-        for level in [ConservationLevel.HIGH, ConservationLevel.MEDIUM, 
-                     ConservationLevel.LOW]:
+    def _generate_random_changes(self, manager: MatrixManager, changes_per_matrix: int = 5) -> None:
+        """Gera mudanças aleatórias para cada matriz"""
+        for level in ['HIGH', 'MEDIUM', 'LOW']:
             matrix = manager.get_matrix(level)
-            for _ in range(changes_per_matrix):
-                aa1 = random.choice(matrix.aa_order)
-                aa2 = random.choice(matrix.aa_order)
-                current = matrix.get_score(aa1, aa2)
-                
-                if aa1 == aa2:  # Diagonal
-                    adjustment = random.choice([-1, 1])
-                else:
-                    adjustment = random.choice([-2, -1, 1])
-                    
-                new_score = current + adjustment
-                if matrix._validate_score(aa1, aa2, new_score):
-                    matrix.update_score(aa1, aa2, new_score)
+            if matrix:
+                for _ in range(changes_per_matrix):
+                    aa1 = random.choice(matrix.aa_order)
+                    aa2 = random.choice(matrix.aa_order)
+                    current = matrix.get_score(aa1, aa2)
+                    adjustment = self._get_initial_adjustment(aa1, aa2, level)
+                    new_score = current + adjustment
+                    if matrix._validate_score(aa1, aa2, new_score):
+                        matrix.update_score(aa1, aa2, new_score)
 
     def evaluate_population(self) -> None:
         """Avalia população e ordena mantendo estrutura"""

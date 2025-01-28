@@ -22,30 +22,25 @@ class MemeticAlgorithmMulti:
     def __init__(
         self,
         evaluation_function: Callable,
-        xml_path: Path,
-        hyperparams: Dict
+        hyperparams: Dict,
+        reference_analysis: Dict
     ):
         self.logger = logging.getLogger(self.__class__.__name__)
         self.hyperparams = hyperparams
         self.evaluation_function = evaluation_function
-
-        # Inicializa parser XML
-        self.xml_parser = ScoreAccessLayer()
-        tree = ET.parse(xml_path)
-        self.xml_parser.load_from_xml(tree.getroot())
+        self.reference_analysis = reference_analysis
 
         # Inicializa busca local VNS
         self.local_search = VNSILS(
             MatrixManager(hyperparams),
-            hyperparams,
-            self.xml_parser
+            hyperparams
         )
 
-        # População estruturada
+        # População estruturada - ajusta parâmetros passados
         self.population = StructuredPopulationMulti(
             evaluation_function=evaluation_function,
-            xml_parser=self.xml_parser,
-            hyperparams=hyperparams
+            hyperparams=hyperparams,
+            reference_analysis=reference_analysis
         )
 
         self.best_global_manager = None
@@ -168,6 +163,16 @@ class MemeticAlgorithmMulti:
             json.dump(final_stats, f, indent=2)
 
         return self.best_global_manager.copy(), self.best_global_score
+
+    def run_generations(self, num_generations: int) -> MatrixManager:
+        """Executa um número específico de gerações"""
+        return self.run(
+            generations=num_generations,
+            local_search_frequency=self.hyperparams['MEMETIC']['LOCAL_SEARCH_FREQ'],
+            local_search_iterations=self.hyperparams['VNS']['MAX_ITER'],
+            max_no_improve=self.hyperparams['VNS']['MAX_NO_IMPROVE'],
+            evaluation_function=self.evaluation_function
+        )[0]  # Retorna apenas o manager, não o score
 
     def _check_stagnation(self, stagnation_counter: int, 
                          max_no_improve: int) -> bool:

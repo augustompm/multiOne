@@ -1,0 +1,106 @@
+2025-01-28 09:07:25,973 - root - INFO - Starting multi-matrix executions with hyperparameters:
+2025-01-28 09:07:25,973 - root - INFO - {
+  "VNS": {
+    "MIN_IMPROVEMENT": 0.0001,
+    "MAX_ITER": 10,
+    "MAX_NO_IMPROVE": 5,
+    "PERTURBATION_SIZE": 5,
+    "NEIGHBORHOOD_THRESHOLDS": {
+      "HIGH": [
+        30.0,
+        25.0
+      ],
+      "MEDIUM": [
+        22.0,
+        20.0
+      ],
+      "LOW": [
+        15.0,
+        10.0
+      ]
+    },
+    "MAX_ADJUSTMENTS": {
+      "HIGH": [
+        2,
+        3
+      ],
+      "MEDIUM": [
+        3,
+        4
+      ],
+      "LOW": [
+        4,
+        5
+      ]
+    }
+  },
+  "MEMETIC": {
+    "MAX_GENERATIONS": 50,
+    "LOCAL_SEARCH_FREQ": 10,
+    "MUTATION_RATE": 0.15,
+    "POPULATION_SIZE": 13,
+    "HIERARCHY_LEVELS": 3
+  },
+  "MATRIX": {
+    "HIGH": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 17
+      },
+      "SCORE_SIMILAR": {
+        "min": -4,
+        "max": 8
+      },
+      "SCORE_DIFFERENT": {
+        "min": -8,
+        "max": 4
+      },
+      "MAX_ADJUSTMENT": 2
+    },
+    "MEDIUM": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 15
+      },
+      "SCORE_SIMILAR": {
+        "min": -3,
+        "max": 7
+      },
+      "SCORE_DIFFERENT": {
+        "min": -6,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 3
+    },
+    "LOW": {
+      "SCORE_DIAGONAL": {
+        "min": -2,
+        "max": 13
+      },
+      "SCORE_SIMILAR": {
+        "min": -2,
+        "max": 6
+      },
+      "SCORE_DIFFERENT": {
+        "min": -4,
+        "max": 3
+      },
+      "MAX_ADJUSTMENT": 4
+    }
+  },
+  "EXECUTION": {
+    "MATRICES_PER_INSTANCE": 1,
+    "EVAL_SAMPLES": 1,
+    "MAX_TIME": 300,
+    "SEED": null
+  }
+}
+2025-01-28 09:07:25,973 - root - INFO - 
+Processing instance BBA0005
+2025-01-28 09:07:25,977 - root - INFO - Starting execution 1/1 for BBA0005
+2025-01-28 09:07:30,567 - VNSILS - INFO - Starting VNS search for HIGH from score: 0.5340
+2025-01-28 09:11:09,522 - VNSILS - INFO - New best score 0.5390 in N1
+2025-01-28 09:33:01,966 - VNSILS - INFO - Starting VNS search for MEDIUM from score: 0.5340
+2025-01-28 09:33:35,082 - VNSILS - INFO - Starting VNS search for LOW from score: 0.5340
+2025-01-28 09:46:32,072 - VNSILS - INFO - Starting VNS search for HIGH from score: 0.5340
+2025-01-28 09:55:38,674 - VNSILS - INFO - New best score 0.5390 in N1

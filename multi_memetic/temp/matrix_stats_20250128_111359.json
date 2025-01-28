@@ -1,0 +1,17 @@
+{
+  "HIGH": {
+    "usage": 1,
+    "best_score": -Infinity,
+    "changes": 55
+  },
+  "MEDIUM": {
+    "usage": 1,
+    "best_score": -Infinity,
+    "changes": 51
+  },
+  "LOW": {
+    "usage": 1,
+    "best_score": -Infinity,
+    "changes": 45
+  }
+}

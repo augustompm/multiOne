@@ -9,135 +9,86 @@ from multi_memetic.adaptive_matrices.matrix_manager import MatrixManager
 from multi_memetic.utils.xml_parser import ScoreAccessLayer, ConservationLevel
 
 class VNSStructure:
-    """Define estrutura e operadores de uma vizinhança VNS."""
+    """Define estrutura e operadores de vizinhança para cada nível"""
 
     def __init__(
         self,
         name: str,
-        min_score: float,
-        max_adjustment: int,
-        probability: float,
-        description: str
+        block_score_min: float,
+        adjustment_range: Tuple[int, int],
+        probability: float
     ):
         self.name = name
-        self.min_score = min_score
-        self.max_adjustment = max_adjustment
+        self.block_score_min = block_score_min
+        self.adjustment_range = adjustment_range
         self.probability = probability
-        self.description = description
 
-    def get_adjustment_range(self) -> List[int]:
-        """Define range de ajustes para a vizinhança."""
-        return list(range(-self.max_adjustment, self.max_adjustment + 1))
+    def get_adjustment(self) -> int:
+        """Retorna ajuste aleatório dentro do range permitido"""
+        return random.randint(*self.adjustment_range)
 
 class VNSILS:
-    """
-    VNS-ILS adaptado para otimizar matrizes específicas para cada 
-    nível de conservação.
-    """
+    """VNS-ILS adaptado para otimização multinível"""
 
-    def __init__(self, matrix_manager: MatrixManager, hyperparams: Dict,
-                 xml_parser: ScoreAccessLayer):
+    def __init__(self, manager: MatrixManager, hyperparams: Dict):
         self.logger = logging.getLogger(self.__class__.__name__)
-        self.matrix_manager = matrix_manager
+        self.manager = manager
         self.hyperparams = hyperparams
-        self.xml_parser = xml_parser
-        self.conservation_level = None  # Adiciona o nível de conservação
 
-        # Define vizinhanças formais baseadas em scores reais do BAliBASE
+        # Define estruturas de vizinhança por nível
         self.neighborhoods = {
             ConservationLevel.HIGH: [
-                VNSStructure(
-                    "HIGH_STRICT",
-                    min_score=30.0,
-                    max_adjustment=2,
-                    probability=0.8,
-                    description="Blocos altamente conservados - ajustes restritos"
-                ),
-                VNSStructure(
-                    "HIGH_MEDIUM",
-                    min_score=25.0,
-                    max_adjustment=3,
-                    probability=0.6,
-                    description="Blocos altamente conservados - ajustes médios"
-                )
+                VNSStructure("HIGH_CORE", 30.0, (-2, 2), 0.8),
+                VNSStructure("HIGH_EXTENDED", 25.0, (-2, 2), 0.6)
             ],
             ConservationLevel.MEDIUM: [
-                VNSStructure(
-                    "MEDIUM_STRICT",
-                    min_score=22.0,
-                    max_adjustment=3,
-                    probability=0.7,
-                    description="Blocos médios - ajustes restritos"
-                ),
-                VNSStructure(
-                    "MEDIUM_FLEX",
-                    min_score=20.0,
-                    max_adjustment=4,
-                    probability=0.5,
-                    description="Blocos médios - ajustes flexíveis"
-                )
+                VNSStructure("MEDIUM_STRICT", 22.0, (-3, 3), 0.7),
+                VNSStructure("MEDIUM_FLEX", 20.0, (-3, 3), 0.5)
             ],
             ConservationLevel.LOW: [
-                VNSStructure(
-                    "LOW_STRICT",
-                    min_score=15.0,
-                    max_adjustment=4,
-                    probability=0.6,
-                    description="Blocos baixos - ajustes base"
-                ),
-                VNSStructure(
-                    "LOW_FLEX",
-                    min_score=10.0,
-                    max_adjustment=5,
-                    probability=0.4,
-                    description="Blocos baixos - ajustes flexíveis"
-                )
+                VNSStructure("LOW_STRICT", 15.0, (-4, 4), 0.6),
+                VNSStructure("LOW_FLEX", 10.0, (-4, 4), 0.4)
             ]
         }
 
-        self.best_matrix = None
-        self.best_score = float('-inf')
+        self.best_scores = {level: float('-inf') for level in ConservationLevel.__dict__
+                            if not level.startswith('_')}
+        self.best_matrices = {}
 
     def vns_search(
         self,
         evaluation_func: Callable,
         max_iterations: int,
         max_no_improve: int,
-        blocks: List[Dict],
-        conservation_level: str = 'HIGH'  # Valor default para compatibilidade
+        conservation_level: str,
+        blocks: List[Dict]
     ) -> float:
-        """VNS-ILS adaptado para trabalhar com o gerenciador ao invés da matriz individual"""
+        """VNS adaptado para nível específico de conservação"""
 
-        self.conservation_level = conservation_level  # Define o nível de conservação
+        matrix = self.manager.get_matrix(conservation_level)
+        if not matrix:
+            return float('-inf')
 
-        # Mudança: trabalhar com o gerenciador ao invés da matriz individual
-        current_manager = self.matrix_manager.copy()
-        current_score = evaluation_func(current_manager)
-        
-        self.best_score = current_score
-        self.best_matrix = current_manager.copy()
-        
-        k = 0  # Índice da vizinhança atual
-        iterations_no_improve = 0 
-        total_iterations = 0
-        
-        self.logger.info(
-            f"Starting VNS search for {conservation_level} from score: {current_score:.4f}")
-        
+        current_matrix = matrix.copy()
+        current_score = evaluation_func(current_matrix)
+
+        self.best_scores[conservation_level] = current_score
+        self.best_matrices[conservation_level] = current_matrix.copy()
+
         neighborhoods = self.neighborhoods[conservation_level]
-        
-        while (iterations_no_improve < max_no_improve and 
-               total_iterations < max_iterations):
-            
-            self.logger.debug(
-                f"Iter {total_iterations}, N{k+1}, Score: {current_score:.4f}, "
-                f"NoImprove: {iterations_no_improve}")
-            
-            # 1. Shaking
+        k = 0  # índice da vizinhança atual
+        iterations_no_improve = 0
+
+        while (iterations_no_improve < max_no_improve and
+               k < len(neighborhoods)):
+
             neighborhood = neighborhoods[k]
-            neighbor = self._shake(current_manager, neighborhood, blocks)
-            
-            # 2. Busca Local - reduzido para debug
+
+            # Shake
+            neighbor = self._shake(current_matrix, neighborhood, blocks)
+            neighbor_score = evaluation_func(neighbor)
+
+            # Local Search
             improved = self._quick_local_search(
                 neighbor,
                 evaluation_func,
@@ -145,100 +96,85 @@ class VNSILS:
                 blocks
             )
             improved_score = evaluation_func(improved)
-            
-            # 3. Move ou Próxima Vizinhança
-            if improved_score > current_score + \
-               self.hyperparams['VNS']['MIN_IMPROVEMENT']:
-                current_manager = improved
+
+            # Move ou próxima vizinhança
+            if improved_score > current_score + self.hyperparams['VNS']['MIN_IMPROVEMENT']:
+                current_matrix = improved
                 current_score = improved_score
-                k = 0  # Volta para primeira vizinhança
-                
-                if improved_score > self.best_score:
-                    self.best_score = improved_score
-                    self.best_matrix = improved.copy()
-                    self.logger.info(
-                        f"New best score {improved_score:.4f} in N{k+1}")
+                k = 0  # reinicia vizinhanças
+
+                if improved_score > self.best_scores[conservation_level]:
+                    self.best_scores[conservation_level] = improved_score
+                    self.best_matrices[conservation_level] = improved.copy()
                     iterations_no_improve = 0
                     continue
             else:
-                k = (k + 1) % len(neighborhoods)
+                k += 1
                 iterations_no_improve += 1
-                
-            total_iterations += 1
-                
-        return self.best_score
+
+        return self.best_scores[conservation_level]
 
     def _quick_local_search(
         self,
-        matrix_manager: MatrixManager,
+        matrix,
         evaluation_func: Callable,
         neighborhood: VNSStructure,
         blocks: List[Dict]
-    ) -> MatrixManager:
-        """Busca local simplificada por nível de conservação"""
-        improved = matrix_manager.copy()
+    ):
+        """Busca local rápida focada em blocos relevantes"""
+        improved = matrix.copy()
         improved_score = evaluation_func(improved)
-        
-        # Obtém a matriz específica para o nível de conservação
-        current_matrix = improved.get_matrix(self.conservation_level)
-        
-        # Tenta ajustes apenas em blocos do nível correto
-        for block in blocks:
-            if block['score'] >= neighborhood.min_score:
-                for _ in range(5):  # Limite pequeno para teste
-                    aa1 = random.choice(current_matrix.aa_order)
-                    aa2 = random.choice(current_matrix.aa_order)
-                    
-                    current = current_matrix.get_score(aa1, aa2)
-                    adjustment = random.choice([-1, 1])
-                    new_score = current + adjustment
-                    
-                    if current_matrix._validate_score(aa1, aa2, new_score):
-                        candidate = improved.copy()
-                        candidate_matrix = candidate.get_matrix(self.conservation_level)
-                        candidate_matrix.update_score(aa1, aa2, new_score)
-                        candidate_score = evaluation_func(candidate)
-                        
-                        if candidate_score > improved_score + \
-                           self.hyperparams['VNS']['MIN_IMPROVEMENT']:
-                            improved = candidate
-                            improved_score = candidate_score
-                    
+
+        relevant_blocks = [b for b in blocks
+                           if b['score'] >= neighborhood.block_score_min]
+
+        if not relevant_blocks:
+            return improved
+
+        for block in relevant_blocks:
+            for _ in range(5):  # Limite de tentativas por bloco
+                aa1 = random.choice(matrix.aa_order)
+                aa2 = random.choice(matrix.aa_order)
+
+                current = improved.get_score(aa1, aa2)
+                adjustment = neighborhood.get_adjustment()
+                new_score = current + adjustment
+
+                if improved._validate_score(aa1, aa2, new_score):
+                    candidate = improved.copy()
+                    candidate.update_score(aa1, aa2, new_score)
+                    candidate_score = evaluation_func(candidate)
+
+                    if candidate_score > improved_score + \
+                       self.hyperparams['VNS']['MIN_IMPROVEMENT']:
+                        improved = candidate
+                        improved_score = candidate_score
+
         return improved
 
-    def _shake(
-        self,
-        matrix_manager: MatrixManager,
-        neighborhood: VNSStructure,
-        blocks: List[Dict]
-    ) -> MatrixManager:
-        """Shake sistemático para blocos de um nível específico"""
-        perturbed = matrix_manager.copy()
+    def _shake(self, matrix, neighborhood: VNSStructure, blocks: List[Dict]):
+        """Shake adaptado ao nível de conservação"""
+        relevant_blocks = [b for b in blocks
+                           if b['score'] >= neighborhood.block_score_min]
 
-        relevant_blocks = [b for b in blocks if b['score'] >= neighborhood.min_score]
-        
         if not relevant_blocks:
-            return perturbed
+            return matrix.copy()
 
-        changes = int(
-            self.hyperparams['VNS']['PERTURBATION_SIZE'] *
-            neighborhood.probability
-        )
-        
-        # Obtém a matriz específica para o nível de conservação
-        current_matrix = perturbed.get_matrix(self.conservation_level)
+        perturbed = matrix.copy()
+        changes = int(self.hyperparams['VNS']['PERTURBATION_SIZE'] *
+                     neighborhood.probability)
 
         for _ in range(changes):
             block = random.choice(relevant_blocks)
-            aa1 = random.choice(current_matrix.aa_order)
-            aa2 = random.choice(current_matrix.aa_order)
+            aa1 = random.choice(matrix.aa_order)
+            aa2 = random.choice(matrix.aa_order)
 
-            current = current_matrix.get_score(aa1, aa2)
-            adjustment = random.choice(neighborhood.get_adjustment_range())
+            current = matrix.get_score(aa1, aa2)
+            adjustment = neighborhood.get_adjustment()
             new_score = current + adjustment
 
-            if current_matrix._validate_score(aa1, aa2, new_score):
-                current_matrix.update_score(aa1, aa2, new_score)
+            if matrix._validate_score(aa1, aa2, new_score):
+                perturbed.update_score(aa1, aa2, new_score)
 
         return perturbed
 
@@ -253,7 +189,7 @@ class VNSILS:
         improved = matrix.copy()
         improved_score = evaluation_func(improved)
 
-        relevant_blocks = [b for b in blocks if b['score'] >= neighborhood.min_score]
+        relevant_blocks = [b for b in blocks if b['score'] >= neighborhood.block_score_min]
         
         if not relevant_blocks:
             return improved
@@ -266,7 +202,7 @@ class VNSILS:
                 for i, aa1 in enumerate(improved.aa_order):
                     for aa2 in improved.aa_order[i:]:
                         current = improved.get_score(aa1, aa2)
-                        for adj in neighborhood.get_adjustment_range():
+                        for adj in range(*neighborhood.adjustment_range):
                             candidate = improved.copy()
                             new_score = current + adj
 
